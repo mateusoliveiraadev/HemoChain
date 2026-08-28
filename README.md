@@ -1,6 +1,7 @@
 # HemoChain
 
-Sistema inteligente para gestão da cadeia de hemocomponentes, integrando estoque, compatibilidade, validade e distribuição hospitalar com segurança e eficiência.
+## Sobre o Projeto
+Um Sistema inteligente para gestão da cadeia de hemocomponentes, integrando estoque, compatibilidade, validade e distribuição hospitalar com segurança e eficiência.
 
   
 
