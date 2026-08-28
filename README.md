@@ -41,6 +41,8 @@ https://github.com/mateusoliveiraadev/HemoChain/blob/main/User%20Stories.md
 
 ▶️ Assistir no Youtube: (Link)
 
+# 2° Entrega:
+
 
 
 
