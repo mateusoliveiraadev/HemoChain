@@ -6,7 +6,7 @@ Um Sistema inteligente para gestão da cadeia de hemocomponentes, integrando est
 
 
 ## Tecnologias usadas: 
-
+Java e SpringBoot
 
 
 ## Como rodar o projeto: 
