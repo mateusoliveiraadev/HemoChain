@@ -6,11 +6,11 @@ Sistema inteligente para gestão da cadeia de hemocomponentes, integrando estoqu
 
 Tecnologias usadas: 
 
----
+#
 
 Como rodar o projeto: 
 
----
+#
 
 Integrantes:
 
