@@ -21,7 +21,7 @@ Um Sistema inteligente para gestão da cadeia de hemocomponentes, integrando est
 |Vinicius da Cruz Mendes|vcm5@cesar.school|21/08
 
 # 1° Entrega:
-### Documento com as histórias:
+### 📄 Documento com as histórias:
 https://github.com/mateusoliveiraadev/HemoChain/blob/main/User%20Stories.md
 
 
