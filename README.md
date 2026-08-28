@@ -6,6 +6,8 @@ Tecnologias usadas:
 
 Como rodar o projeto: 
 
+Integrantes:
+
 |Nome|Email|
 |------|------------|
 |Mateus Oliveira|mfso2@cesar.school|
