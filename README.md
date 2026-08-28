@@ -4,7 +4,7 @@ Sistema inteligente para gestão da cadeia de hemocomponentes, integrando estoqu
 
   
 
-##Tecnologias usadas: 
+## Tecnologias usadas: 
 
 
 
@@ -12,7 +12,7 @@ Sistema inteligente para gestão da cadeia de hemocomponentes, integrando estoqu
 
 
 
-##Integrantes:
+## Integrantes:
 
 |Nome|Email|
 |----|-----|
