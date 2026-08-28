@@ -6,8 +6,8 @@ Tecnologias usadas:
 
 Como rodar o projeto: 
 
-|   Nome   |   Email School   |
-|----------|------------------:|
+|Nome|Email School|
+|-----|-----:|
 |Mateus Oliveira|mfso2@cesar.school|
 
 
