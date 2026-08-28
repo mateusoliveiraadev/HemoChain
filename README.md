@@ -8,7 +8,7 @@ Como rodar o projeto:
 
 |   Nome   |   Email School   |
 |----------|------------------:|
-|Mateus Oliveiramfso2@cesar.school|
+|Mateus Oliveira|mfso2@cesar.school|
 
 
 
