@@ -7,6 +7,7 @@ Tecnologias usadas:
 Como rodar o projeto: 
 
 |   Nome   |   Email School   |
+|----------|------------------:|
 
 
 
