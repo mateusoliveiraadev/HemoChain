@@ -9,6 +9,8 @@ Como rodar o projeto:
 |Nome|Email|
 |------|------------|
 |Mateus Oliveira|mfso2@cesar.school|
+|Vinicius Mendes|vcm6@cesar.school|
+
 
 
 
