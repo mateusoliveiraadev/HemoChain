@@ -4,15 +4,15 @@ Sistema inteligente para gestão da cadeia de hemocomponentes, integrando estoqu
 
 #
 
-Tecnologias usadas: 
+##Tecnologias usadas: 
 
 #
 
-Como rodar o projeto: 
+##Como rodar o projeto: 
 
 #
 
-Integrantes:
+##Integrantes:
 
 |Nome|Email|
 |----|-----|
