@@ -32,14 +32,14 @@ https://github.com/mateusoliveiraadev/HemoChain/blob/main/User%20Stories.md
 ### 2. Protótipo Lo-Fi (Figma)
 (Descrição:)
 
-Acessar protótipo no Figma: (Link)
+🎨 Acessar protótipo no Figma: (Link)
 
 ---
 
 ### 3. Screencast do Protótipo
 (Descrição:)
 
-Assistir no Youtube: (Link)
+▶️ Assistir no Youtube: (Link)
 
 
 
