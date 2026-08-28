@@ -8,7 +8,7 @@ Sistema inteligente para gestão da cadeia de hemocomponentes, integrando estoqu
 
 
 
-###Como rodar o projeto: 
+#Como rodar o projeto: 
 
 
 
