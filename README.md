@@ -17,8 +17,8 @@ Um Sistema inteligente para gestão da cadeia de hemocomponentes, integrando est
 
 |Nome|Email|Data de entrada ao grupo|
 |----|-----|------------------------|
-|Mateus Felipe de Souza Oliveira|mfso2@cesar.school|
-|Vinicius da Cruz Mendes|vcm5@cesar.school|
+|Mateus Felipe de Souza Oliveira|mfso2@cesar.school|24/08
+|Vinicius da Cruz Mendes|vcm5@cesar.school|21/08
 
 
 
