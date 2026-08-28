@@ -27,5 +27,23 @@ Foram definidas histórias de usuário claras e concisas, contendo descrição d
 📄 Documento com as histórias:
 https://github.com/mateusoliveiraadev/HemoChain/blob/main/User%20Stories.md
 
+---
+
+### 2. Protótipo Lo-Fi (Figma)
+(Descrição:)
+
+Acessar protótipo no Figma: (Link)
+
+---
+
+### 3. Screencast do Protótipo
+(Descrição:)
+
+Assistir no Youtube: (Link)
+
+
+
+
+
 
 
