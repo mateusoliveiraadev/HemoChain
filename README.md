@@ -32,7 +32,7 @@ https://github.com/mateusoliveiraadev/HemoChain/blob/main/User%20Stories.md
 ### 2. Protótipo Lo-Fi (Figma)
 Protótipo de baixa fidelidade do HemoChain, desenvolvido no Figma de forma simples e intuitiva, contemplando as histórias de usuário US01, US02, US05, US06, US07 e US08 nesta primeira versão.
 
-🎨 Acessar protótipo no Figma: https://www.figma.com/proto/9bukhNOO1d01FuRTQAeykD/EmoChain-entrega-01?node-id=3-3&p=f&t=Zfx04rPM9AhRBeHz-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A3)
+🎨 Acessar protótipo no Figma: https://www.figma.com/proto/9bukhNOO1d01FuRTQAeykD/EmoChain-entrega-01?node-id=3-3&p=f&t=Zfx04rPM9AhRBeHz-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A3
 
 ---
 
