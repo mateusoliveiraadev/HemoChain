@@ -39,7 +39,7 @@ https://github.com/mateusoliveiraadev/HemoChain/blob/main/User%20Stories.md
 ### 3. Screencast do Protótipo
 (Descrição:)
 
-▶️ Assistir no Youtube: (Link)
+▶️ Assistir no Youtube: https://youtu.be/oIFck2dseac?is=qg6glqN-vfdn1oYj
 
 ---
 
