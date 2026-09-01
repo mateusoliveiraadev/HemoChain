@@ -1,4 +1,4 @@
-# HemoChain
+  # HemoChain
 
 ## Sobre o Projeto
 Um Sistema inteligente para gestão da cadeia de hemocomponentes, integrando estoque, compatibilidade, validade e distribuição hospitalar com segurança e eficiência.
@@ -45,6 +45,25 @@ Demonstração da navegação e dos principais fluxos do primeiro protótipo Lo-
 ---
 
 # 2° Entrega:
+### 1. Histórias de Usuário
+(Descrição com +2 histórias, adicionar descrição (formato POST-IT visto
+em sala) das histórias implementadas nesta entrega em uma seção “histórias
+implementadas” dentro da seção “Entrega 02”)
+
+📄 Documento com as histórias:
+(Link)
+
+### 2. Issue/Bug Tracker
+(Usar a ferramenta bug tracker do GitHub) atualizado e usado em todas
+as semanas da entrega (adicionar print da tela ao README no GitHub)
+
+### 3. Screencast do Protótipo 
+Adicionar screencast (vídeo no Youtube) do uso do sistema (aplicação Spring Boot
+rodando) explicando as duas histórias implementadas (com áudio ou legenda) ao README
+
+### 4. Screencast do Código 
+Adicionar screencast da explicação do código DA APLICAÇÃO SPRING e das histórias
+implementadas (disponível no youtube, com áudio ou legenda) ao README no GitHub.
 
 
 
