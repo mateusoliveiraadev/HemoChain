@@ -53,13 +53,19 @@ implementadas” dentro da seção “Entrega 02”)
 📄 Documento com as histórias:
 (Link)
 
+---
+
 ### 2. Issue/Bug Tracker
 (Usar a ferramenta bug tracker do GitHub) atualizado e usado em todas
 as semanas da entrega (adicionar print da tela ao README no GitHub)
 
+---
+
 ### 3. Screencast do Protótipo 
 Adicionar screencast (vídeo no Youtube) do uso do sistema (aplicação Spring Boot
 rodando) explicando as duas histórias implementadas (com áudio ou legenda) ao README
+
+---
 
 ### 4. Screencast do Código 
 Adicionar screencast da explicação do código DA APLICAÇÃO SPRING e das histórias
