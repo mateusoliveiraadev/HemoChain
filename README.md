@@ -65,11 +65,15 @@ as semanas da entrega (adicionar print da tela ao README no GitHub)
 Adicionar screencast (vídeo no Youtube) do uso do sistema (aplicação Spring Boot
 rodando) explicando as duas histórias implementadas (com áudio ou legenda) ao README
 
+▶️ Assistir no Youtube:
+
 ---
 
 ### 4. Screencast do Código 
 Adicionar screencast da explicação do código DA APLICAÇÃO SPRING e das histórias
 implementadas (disponível no youtube, com áudio ou legenda) ao README no GitHub.
+
+▶️ Assistir no Youtube:
  
 
 
