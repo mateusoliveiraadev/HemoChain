@@ -193,3 +193,50 @@ Dado que estou autenticado com perfil "Gestor de Estoque"
 Quando eu acesso o menu principal do sistema
 Então tenho acesso às telas de estoque, indicadores, requisições e rotas
 
+**US09- Rastreabilidade completa da bolsa (chain of custody):**
+
+Como gestor de estoque do hemocentro, Eu quero que o sistema registre automaticamente todos os eventos pelos quais uma bolsa passa (coleta, cadastro, reserva, alocação, transporte, entrega e uso/descarte), Para que eu tenha um histórico auditável de ponta a ponta e possa responder rapidamente a qualquer questionamento sobre a origem e o destino de um hemocomponente.
+
+**Detalhes de negócio:**
+
+Cada mudança de status da bolsa (disponível, reservado, em trânsito, entregue, descartado etc.) deve gerar um registro imutável de evento, contendo data/hora, usuário ou processo responsável pela mudança e o status anterior/novo. O histórico completo de uma bolsa deve poder ser consultado a partir do seu identificador único, do cadastro até o desfecho final (uso ou descarte), sem possibilidade de edição ou exclusão dos registros já gravados.
+
+**Cenários de validação (BDD):**
+
+**Cenário 1:**
+Consulta do histórico completo de uma bolsa
+Dado que uma bolsa já passou pelos status "Disponível", "Reservado", "Em trânsito" e "Entregue"
+Quando o gestor consulta o histórico dessa bolsa pelo identificador
+Então o sistema exibe todos os eventos em ordem cronológica, com data/hora e responsável por cada mudança
+
+**Cenário 2:**
+Tentativa de alteração de um evento já registrado
+Dado que existe um evento de mudança de status já gravado no histórico de uma bolsa
+Quando qualquer usuário tenta editar ou excluir esse evento
+Então o sistema bloqueia a operação
+E mantém o registro original inalterado
+
+**US10- Confirmação de recebimento e uso pela unidade hospitalar:**
+
+Como hospital solicitante, Eu quero confirmar o recebimento da bolsa entregue e registrar se ela foi efetivamente utilizada na transfusão, Para que o hemocentro tenha visibilidade do desfecho de cada requisição e possa fechar corretamente o ciclo de rastreabilidade do estoque.
+
+**Detalhes de negócio:**
+
+Ao receber a entrega, o hospital deve confirmar o recebimento informando data/hora e condição da bolsa (íntegra ou com alguma não conformidade, como violação de lacre ou temperatura fora da faixa). Posteriormente, o hospital deve registrar o desfecho final: "Utilizada em transfusão" ou "Não utilizada" (com motivo, ex.: cancelamento do procedimento). Requisições sem confirmação de recebimento dentro de um prazo configurável devem gerar alerta automático para o operador de logística.
+
+**Cenários de validação (BDD):**
+
+**Cenário 1:**
+Confirmação de recebimento sem não conformidades
+Dado que uma bolsa foi entregue ao hospital solicitante
+Quando o hospital confirma o recebimento informando condição "Íntegra"
+Então o status da requisição é atualizado para "Recebido"
+E a bolsa fica disponível para registro de uso na transfusão
+
+**Cenário 2:**
+Ausência de confirmação de recebimento dentro do prazo
+Dado que uma bolsa foi entregue há mais tempo do que o prazo configurado para confirmação
+Quando o sistema executa a verificação periódica de pendências
+Então um alerta é gerado para o operador de logística
+E a requisição é sinalizada como "Recebimento pendente"
+
