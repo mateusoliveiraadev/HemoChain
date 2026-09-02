@@ -19,6 +19,11 @@ Java e SpringBoot
 |----|-----|------------------------|
 |Mateus Felipe de Souza Oliveira|mfso2@cesar.school|24/08
 |Vinicius da Cruz Mendes|vcm5@cesar.school|21/08
+|Luiz Felipe Matias Xavier|lfmx@cesar.school|21/08
+|Matheus de Assis Carvalho Conolly Silva|maccs@cesar.school|21/08
+|Igor Kaua de Souza Siqueira|
+|Bruno José Cavalcanti Duarte Filho|bjcdf@cesar.school|21/08
+|Bruno Sottomayor Martin|
 
 # 1° Entrega:
 ### 1. Histórias de Usuário
