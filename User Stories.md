@@ -200,6 +200,8 @@ Tentativa de alterar um evento registrado
 **US10- Confirmação de recebimento e uso pela unidade hospitalar:**
 Como hospital solicitante, eu quero confirmar o recebimento da bolsa entregue e registrar se ela foi efetivamente utilizada na transfusão para que o hemocentro tenha visibilidade do desfecho de cada requisição e possa fechar corretamente o ciclo de rastreabilidade do estoque
 
+**Cenários de validação (BDD):**
+
 **Cenário 1:** Confirmação de recebimento sem não conformidades
 **Dado** que uma bolsa foi entregue ao hospital solicitante
 **Quando** o hospital confirma o recebimento informando condição "Íntegra"
