@@ -21,7 +21,7 @@ Java e SpringBoot
 |Vinicius da Cruz Mendes|vcm5@cesar.school|21/08
 |Luiz Felipe Matias Xavier|lfmx@cesar.school|21/08
 |Matheus de Assis Carvalho Conolly Silva|maccs@cesar.school|21/08
-|Igor Kaua de Souza Siqueira|
+|Igor Kaua de Souza Siqueira|ikss2@cesar.school|21/08
 |Bruno José Cavalcanti Duarte Filho|bjcdf@cesar.school|21/08
 |Bruno Sottomayor Martin|
 
