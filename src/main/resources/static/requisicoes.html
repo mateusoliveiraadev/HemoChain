@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HemoChain - Requisicoes Hospitalares</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #b71c1c 0%, #6a1b1b 100%); min-height: 100vh; padding: 20px; display: flex; justify-content: center; }
+        .wrapper { width: 100%; max-width: 800px; }
+        .back-link { display: inline-block; margin-bottom: 12px; color: white; text-decoration: none; font-weight: 600; cursor: pointer; }
+        .back-link:hover { text-decoration: underline; }
+        .container { background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); padding: 30px; margin-bottom: 20px; }
+        h2 { color: #333; margin-bottom: 20px; }
+        .form-group { margin-bottom: 16px; }
+        label { display: block; margin-bottom: 6px; color: #555; font-weight: 600; font-size: 14px; }
+        input, select { width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px; font-family: inherit; }
+        button { padding: 10px 18px; background: #b71c1c; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+        button:hover { background: #8f1616; }
+        .linha-form { display: flex; gap: 15px; }
+        .linha-form .form-group { flex: 1; }
+        .status { margin-top: 12px; font-weight: 600; font-size: 14px; min-height: 18px; }
+        .novo-hospital { margin-top: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { text-align: left; padding: 10px; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { color: #666; }
+        tr.emergencial { background: #fdecea; }
+        .badge { padding: 3px 8px; border-radius: 10px; font-size: 12px; font-weight: 700; color: white; }
+        .badge-emergencial { background: #c62828; }
+        .badge-urgente { background: #ef6c00; }
+        .badge-rotina { background: #558b2f; }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <a class="back-link" href="index.html">&larr; Voltar ao menu</a>
+
+    <div class="container">
+        <h2>Cadastrar Hospital</h2>
+        <div class="linha-form">
+            <div class="form-group">
+                <label>Nome do hospital:</label>
+                <input type="text" id="hospNome" placeholder="Ex: Hospital Central">
+            </div>
+            <div class="form-group">
+                <label>CNPJ:</label>
+                <input type="text" id="hospCnpj" placeholder="00.000.000/0000-00">
+            </div>
+            <div class="form-group">
+                <label>Telefone:</label>
+                <input type="text" id="hospTelefone" placeholder="(00) 0000-0000">
+            </div>
+        </div>
+        <button onclick="cadastrarHospital()">Cadastrar Hospital</button>
+        <div class="status" id="statusHospital"></div>
+    </div>
+
+    <div class="container">
+        <h2>Nova Requisicao Hospitalar</h2>
+        <div class="form-group">
+            <label>Hospital solicitante:</label>
+            <select id="reqHospital"></select>
+        </div>
+        <div class="linha-form">
+            <div class="form-group">
+                <label>Tipo de componente:</label>
+                <select id="reqTipoComponente">
+                    <option value="CONCENTRADO_HEMACIAS">Concentrado de Hemacias</option>
+                    <option value="PLASMA">Plasma</option>
+                    <option value="PLAQUETAS">Plaquetas</option>
+                    <option value="CRIOPRECIPITADO">Crioprecipitado</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tipo sanguineo (ABO/Rh):</label>
+                <select id="reqTipoSanguineo">
+                    <option value="A_POSITIVO">A+</option>
+                    <option value="A_NEGATIVO">A-</option>
+                    <option value="B_POSITIVO">B+</option>
+                    <option value="B_NEGATIVO">B-</option>
+                    <option value="AB_POSITIVO">AB+</option>
+                    <option value="AB_NEGATIVO">AB-</option>
+                    <option value="O_POSITIVO">O+</option>
+                    <option value="O_NEGATIVO">O-</option>
+                </select>
+            </div>
+        </div>
+        <div class="linha-form">
+            <div class="form-group">
+                <label>Quantidade (bolsas):</label>
+                <input type="number" id="reqQuantidade" min="1" value="1">
+            </div>
+            <div class="form-group">
+                <label>Urgencia:</label>
+                <select id="reqUrgencia">
+                    <option value="ROTINA">Rotina</option>
+                    <option value="URGENTE">Urgente</option>
+                    <option value="EMERGENCIAL">Emergencial</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Prazo limite:</label>
+                <input type="date" id="reqPrazo">
+            </div>
+        </div>
+        <button onclick="cadastrarRequisicao()">Registrar Requisicao</button>
+        <div class="status" id="statusRequisicao"></div>
+    </div>
+
+    <div class="container">
+        <h2>Requisicoes Registradas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hospital</th>
+                    <th>Componente</th>
+                    <th>ABO/Rh</th>
+                    <th>Qtd</th>
+                    <th>Urgencia</th>
+                    <th>Prazo</th>
+                </tr>
+            </thead>
+            <tbody id="listaRequisicoes"></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    const rotulosComponente = {
+        CONCENTRADO_HEMACIAS: 'Concentrado de Hemacias',
+        PLASMA: 'Plasma',
+        PLAQUETAS: 'Plaquetas',
+        CRIOPRECIPITADO: 'Crioprecipitado'
+    };
+
+    const rotulosTipoSanguineo = {
+        A_POSITIVO: 'A+', A_NEGATIVO: 'A-', B_POSITIVO: 'B+', B_NEGATIVO: 'B-',
+        AB_POSITIVO: 'AB+', AB_NEGATIVO: 'AB-', O_POSITIVO: 'O+', O_NEGATIVO: 'O-'
+    };
+
+    const rotulosUrgencia = { ROTINA: 'Rotina', URGENTE: 'Urgente', EMERGENCIAL: 'Emergencial' };
+
+    async function mensagemDeErro(resposta, mensagemPadrao) {
+        try {
+            const corpo = await resposta.json();
+            return corpo.message || mensagemPadrao;
+        } catch (e) {
+            return mensagemPadrao;
+        }
+    }
+
+    // Identifica o perfil do usuario logado em cada chamada a API. Sem Spring
+    // Security nem sessao no backend - so um cabecalho simples com o perfil.
+    function cabecalhos() {
+        const dados = localStorage.getItem('hemochainUsuario');
+        const usuario = dados ? JSON.parse(dados) : null;
+        return { 'Content-Type': 'application/json', 'X-Perfil': usuario ? usuario.perfil : '' };
+    }
+
+    async function carregarHospitais() {
+        const resposta = await fetch('/hospitais', { headers: cabecalhos() });
+        const hospitais = await resposta.json();
+        const select = document.getElementById('reqHospital');
+        select.innerHTML = hospitais.length === 0
+            ? '<option value="">Cadastre um hospital primeiro</option>'
+            : hospitais.map(h => `<option value="${h.id}">${h.nome}</option>`).join('');
+    }
+
+    async function cadastrarHospital() {
+        const dados = {
+            nome: document.getElementById('hospNome').value.trim(),
+            cnpj: document.getElementById('hospCnpj').value.trim(),
+            telefone: document.getElementById('hospTelefone').value.trim()
+        };
+        const statusEl = document.getElementById('statusHospital');
+        if (!dados.nome) {
+            statusEl.style.color = '#e74c3c';
+            statusEl.innerText = 'Informe o nome do hospital.';
+            return;
+        }
+        const resposta = await fetch('/hospitais', {
+            method: 'POST',
+            headers: cabecalhos(),
+            body: JSON.stringify(dados)
+        });
+        if (!resposta.ok) {
+            statusEl.style.color = '#e74c3c';
+            statusEl.innerText = await mensagemDeErro(resposta, 'Nao foi possivel cadastrar o hospital.');
+            return;
+        }
+        statusEl.style.color = '#2e7d32';
+        statusEl.innerText = 'Hospital cadastrado!';
+        document.getElementById('hospNome').value = '';
+        document.getElementById('hospCnpj').value = '';
+        document.getElementById('hospTelefone').value = '';
+        carregarHospitais();
+    }
+
+    async function cadastrarRequisicao() {
+        const hospitalId = document.getElementById('reqHospital').value;
+        const statusEl = document.getElementById('statusRequisicao');
+        if (!hospitalId) {
+            statusEl.style.color = '#e74c3c';
+            statusEl.innerText = 'Selecione um hospital.';
+            return;
+        }
+        const dados = {
+            hospitalId: Number(hospitalId),
+            tipoComponente: document.getElementById('reqTipoComponente').value,
+            tipoSanguineo: document.getElementById('reqTipoSanguineo').value,
+            quantidade: Number(document.getElementById('reqQuantidade').value),
+            urgencia: document.getElementById('reqUrgencia').value,
+            prazoLimite: document.getElementById('reqPrazo').value
+        };
+        const resposta = await fetch('/requisicoes', {
+            method: 'POST',
+            headers: cabecalhos(),
+            body: JSON.stringify(dados)
+        });
+        if (!resposta.ok) {
+            statusEl.style.color = '#e74c3c';
+            statusEl.innerText = await mensagemDeErro(resposta, 'Nao foi possivel registrar a requisicao.');
+            return;
+        }
+        statusEl.style.color = '#2e7d32';
+        statusEl.innerText = 'Requisicao registrada!';
+        carregarRequisicoes();
+    }
+
+    async function carregarRequisicoes() {
+        const resposta = await fetch('/requisicoes', { headers: cabecalhos() });
+        if (!resposta.ok) {
+            document.getElementById('listaRequisicoes').innerHTML =
+                '<tr><td colspan="6">Seu perfil nao tem acesso a lista de requisicoes.</td></tr>';
+            return;
+        }
+        const requisicoes = await resposta.json();
+        const corpo = document.getElementById('listaRequisicoes');
+        if (requisicoes.length === 0) {
+            corpo.innerHTML = '<tr><td colspan="6">Nenhuma requisicao registrada.</td></tr>';
+            return;
+        }
+        corpo.innerHTML = requisicoes.map(r => `
+            <tr class="${r.urgencia === 'EMERGENCIAL' ? 'emergencial' : ''}">
+                <td>${r.hospital ? r.hospital.nome : '-'}</td>
+                <td>${rotulosComponente[r.tipoComponente] || r.tipoComponente}</td>
+                <td>${rotulosTipoSanguineo[r.tipoSanguineo] || r.tipoSanguineo}</td>
+                <td>${r.quantidade}</td>
+                <td><span class="badge badge-${r.urgencia.toLowerCase()}">${rotulosUrgencia[r.urgencia] || r.urgencia}</span></td>
+                <td>${r.prazoLimite}</td>
+            </tr>
+        `).join('');
+    }
+
+    const dadosUsuario = localStorage.getItem('hemochainUsuario');
+    if (!dadosUsuario) {
+        window.location.href = 'login.html';
+    } else if (JSON.parse(dadosUsuario).perfil === 'OPERADOR_LOGISTICA') {
+        alert('Seu perfil (Operador de Logistica) nao tem acesso as requisicoes hospitalares.');
+        window.location.href = 'index.html';
+    } else {
+        carregarHospitais();
+        carregarRequisicoes();
+    }
+</script>
+</body>
+</html>

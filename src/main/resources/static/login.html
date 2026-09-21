@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HemoChain - Login</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #b71c1c 0%, #6a1b1b 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .container { background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); width: 100%; max-width: 420px; padding: 40px; }
+        h2 { color: #333; margin-bottom: 25px; text-align: center; }
+        .form-group { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 6px; color: #555; font-weight: 600; font-size: 14px; }
+        input, select { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px; font-family: inherit; }
+        button { width: 100%; padding: 12px; background: #b71c1c; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 16px; }
+        button:hover { background: #8f1616; }
+        .footer-link { margin-top: 18px; text-align: center; font-size: 14px; cursor: pointer; color: #b71c1c; text-decoration: underline; }
+        .status { margin-top: 15px; text-align: center; color: #e74c3c; font-weight: 600; font-size: 14px; min-height: 18px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 id="titulo">HemoChain - Entrar</h2>
+
+    <div id="campoNome" class="form-group hidden">
+        <label>Nome:</label>
+        <input type="text" id="inputNome" placeholder="Seu nome completo">
+    </div>
+
+    <div class="form-group">
+        <label>E-mail:</label>
+        <input type="email" id="inputEmail" placeholder="seu.email@exemplo.com">
+    </div>
+
+    <div class="form-group">
+        <label>Senha:</label>
+        <input type="password" id="inputSenha" placeholder="Sua senha">
+    </div>
+
+    <div id="campoPerfil" class="form-group hidden">
+        <label>Perfil:</label>
+        <select id="inputPerfil">
+            <option value="GESTOR_HEMOCENTRO">Gestor de Hemocentro</option>
+            <option value="OPERADOR_LOGISTICA">Operador de Logistica</option>
+            <option value="HOSPITAL_SOLICITANTE">Hospital Solicitante</option>
+        </select>
+    </div>
+
+    <button id="btnAcao">ENTRAR</button>
+    <div class="status" id="statusMsg"></div>
+    <div class="footer-link" id="btnAlternar">Nao tem conta? Cadastre-se aqui</div>
+</div>
+
+<script>
+    const api = {
+        cadastrar: (dados) => fetch('/usuarios/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dados)
+        }),
+        login: (dados) => fetch('/usuarios/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dados)
+        })
+    };
+
+    let modoLogin = true;
+    const statusMsg = document.getElementById('statusMsg');
+
+    async function mensagemDeErro(resposta, mensagemPadrao) {
+        try {
+            const corpo = await resposta.json();
+            return corpo.message || mensagemPadrao;
+        } catch (e) {
+            return mensagemPadrao;
+        }
+    }
+
+    window.onload = () => {
+        if (localStorage.getItem('hemochainUsuario')) {
+            window.location.href = 'index.html';
+        }
+    };
+
+    document.getElementById('btnAlternar').onclick = () => {
+        modoLogin = !modoLogin;
+        document.getElementById('titulo').innerText = modoLogin ? 'HemoChain - Entrar' : 'HemoChain - Cadastro';
+        document.getElementById('campoNome').classList.toggle('hidden', modoLogin);
+        document.getElementById('campoPerfil').classList.toggle('hidden', modoLogin);
+        document.getElementById('btnAcao').innerText = modoLogin ? 'ENTRAR' : 'CRIAR CONTA';
+        document.getElementById('btnAlternar').innerText = modoLogin ? 'Nao tem conta? Cadastre-se aqui' : 'Ja tem conta? Voltar ao login';
+        statusMsg.innerText = '';
+    };
+
+    document.getElementById('btnAcao').onclick = async () => {
+        const email = document.getElementById('inputEmail').value.trim();
+        const senha = document.getElementById('inputSenha').value;
+        statusMsg.innerText = 'Processando...';
+
+        try {
+            if (modoLogin) {
+                const resposta = await api.login({ email, senha });
+                if (!resposta.ok) {
+                    throw new Error(await mensagemDeErro(resposta, 'E-mail ou senha incorretos.'));
+                }
+                const usuario = await resposta.json();
+                localStorage.setItem('hemochainUsuario', JSON.stringify(usuario));
+                window.location.href = 'index.html';
+            } else {
+                const nome = document.getElementById('inputNome').value.trim();
+                const perfil = document.getElementById('inputPerfil').value;
+                const resposta = await api.cadastrar({ nome, email, senha, perfil });
+                if (!resposta.ok) {
+                    throw new Error(await mensagemDeErro(resposta, 'Nao foi possivel cadastrar.'));
+                }
+                statusMsg.style.color = '#2e7d32';
+                statusMsg.innerText = 'Conta criada! Faca login.';
+                document.getElementById('btnAlternar').click();
+            }
+        } catch (erro) {
+            statusMsg.style.color = '#e74c3c';
+            statusMsg.innerText = erro.message;
+        }
+    };
+</script>
+</body>
+</html>

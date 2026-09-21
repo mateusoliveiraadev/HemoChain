@@ -1,0 +1,19 @@
+# Build Maven
+target/
+*.class
+
+# Logs
+*.log
+
+# Banco H2 local (dados de execucao, nao sao codigo)
+/data/
+*.mv.db
+*.trace.db
+
+# Variaveis de ambiente locais
+.env
+
+# IDE
+.idea/
+*.iml
+.vscode/

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HemoChain</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #b71c1c 0%, #6a1b1b 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .container { background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); width: 100%; max-width: 480px; padding: 40px; text-align: center; }
+        h2 { color: #333; margin-bottom: 8px; }
+        .perfil { color: #b71c1c; font-weight: 600; margin-bottom: 25px; }
+        .aviso { background: #f9f9f9; border-left: 5px solid #b71c1c; padding: 15px; border-radius: 6px; text-align: left; color: #555; font-size: 14px; margin-bottom: 25px; }
+        button { width: 100%; padding: 12px; background: #6a1b1b; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 15px; }
+        button:hover { background: #501414; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 id="saudacao">Ola!</h2>
+    <div class="perfil" id="perfilTexto"></div>
+    <div class="aviso" id="avisoPerfil"></div>
+    <button id="btnRequisicoes" onclick="window.location.href='requisicoes.html'">Requisicoes Hospitalares</button>
+    <button onclick="sair()" style="margin-top: 10px; background: #999;">Sair</button>
+</div>
+
+<script>
+    const rotulosPerfil = {
+        GESTOR_HEMOCENTRO: 'Gestor de Hemocentro',
+        OPERADOR_LOGISTICA: 'Operador de Logistica',
+        HOSPITAL_SOLICITANTE: 'Hospital Solicitante'
+    };
+
+    const avisosPerfil = {
+        GESTOR_HEMOCENTRO: 'Voce pode acompanhar as requisicoes registradas pelos hospitais.',
+        OPERADOR_LOGISTICA: 'Seu perfil ainda nao tem funcionalidades disponiveis nesta versao.',
+        HOSPITAL_SOLICITANTE: 'Use o botao abaixo para registrar uma requisicao hospitalar.'
+    };
+
+    const dados = localStorage.getItem('hemochainUsuario');
+    if (!dados) {
+        window.location.href = 'login.html';
+    } else {
+        const usuario = JSON.parse(dados);
+        document.getElementById('saudacao').innerText = `Ola, ${usuario.nome}!`;
+        document.getElementById('perfilTexto').innerText = rotulosPerfil[usuario.perfil] || usuario.perfil;
+        document.getElementById('avisoPerfil').innerText = avisosPerfil[usuario.perfil] || 'Funcionalidades chegando em breve.';
+
+        // Fluxo de requisicoes hospitalares nao pertence ao perfil de logistica.
+        if (usuario.perfil === 'OPERADOR_LOGISTICA') {
+            document.getElementById('btnRequisicoes').remove();
+        }
+    }
+
+    function sair() {
+        localStorage.removeItem('hemochainUsuario');
+        window.location.href = 'login.html';
+    }
+</script>
+</body>
+</html>
