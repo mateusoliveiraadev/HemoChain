@@ -4,7 +4,6 @@
 Um Sistema inteligente para gestão da cadeia de hemocomponentes, integrando estoque, compatibilidade, validade e distribuição hospitalar com segurança e eficiência.
 
 
-
 ## Tecnologias usadas: 
 Java e SpringBoot
 
@@ -56,7 +55,8 @@ em sala) das histórias implementadas nesta entrega em uma seção “histórias
 implementadas” dentro da seção “Entrega 02”)
 
 📄 Documento com as histórias:
-(Link)
+(https://github.com/user-attachments/files/32494810/post-its.md)
+
 
 ---
 
