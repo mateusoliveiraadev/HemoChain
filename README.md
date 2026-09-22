@@ -54,7 +54,7 @@ Demonstração da navegação e dos principais fluxos do primeiro protótipo Lo-
 em sala) das histórias implementadas nesta entrega em uma seção “histórias
 implementadas” dentro da seção “Entrega 02”)
 
-📄 Documento com as histórias:
+📄 Documento com as histórias implementadas:
 https://github.com/user-attachments/files/32494810/post-its.md
 
 
