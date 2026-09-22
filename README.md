@@ -62,8 +62,7 @@ implementadas” dentro da seção “Entrega 02”)
 
 ### 2. Issue/Bug Tracker
 
-a_clean_modern_high_resolution_screenshot_of_a_b.png
-a_clean_modern_hig…enshot_of_a_b.png
+![Uploading image.png…]()
 
 
 
