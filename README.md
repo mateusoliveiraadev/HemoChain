@@ -50,9 +50,7 @@ Demonstração da navegação e dos principais fluxos do primeiro protótipo Lo-
 
 # 2° Entrega:
 ### 1. Histórias de Usuário
-(Descrição com +2 histórias, adicionar descrição (formato POST-IT visto
-em sala) das histórias implementadas nesta entrega em uma seção “histórias
-implementadas” dentro da seção “Entrega 02”)
+Nesta entrega, implementamos mais 2 histórias ao nosso protótipo: a US08 — Controle de acesso por perfil de usuário e a US02 — Registro de requisição hospitalar. Com isso, ampliamos as funcionalidades do sistema e avançamos na implementação dos principais recursos previstos para o projeto.
 
 📄 Documento com as histórias implementadas:
 https://github.com/user-attachments/files/32494810/post-its.md
