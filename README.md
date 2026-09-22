@@ -61,6 +61,9 @@ implementadas” dentro da seção “Entrega 02”)
 ---
 
 ### 2. Issue/Bug Tracker
+Este Bug Tracker reúne os principais problemas identificados durante o desenvolvimento, documentando suas causas e respectivas correções.
+Também apresenta a classificação dos bugs por tipo, severidade e status, facilitando o acompanhamento e controle das correções.
+
 
 <img width="660" height="640" alt="Captura de tela 2026-09-21 230835" src="https://github.com/user-attachments/assets/708f2148-4038-416a-a0e9-4acd630c6d7a" />
 
