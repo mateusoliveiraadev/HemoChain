@@ -1,3 +1,4 @@
+<img width="660" height="640" alt="Captura de tela 2026-09-21 230835" src="https://github.com/user-attachments/assets/708f2148-4038-416a-a0e9-4acd630c6d7a" />
   # HemoChain
 
 ## Sobre o Projeto
