@@ -71,7 +71,7 @@ Também apresenta a classificação dos bugs por tipo, severidade e status, faci
 Adicionar screencast (vídeo no Youtube) do uso do sistema (aplicação Spring Boot
 rodando) explicando as duas histórias implementadas (com áudio ou legenda) ao README
 
-▶️ Assistir no Youtube: (Link)
+▶️ Assistir no Youtube: https://youtu.be/DEyscop7MSQ
 
 ---
 
