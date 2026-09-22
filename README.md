@@ -61,8 +61,7 @@ implementadas” dentro da seção “Entrega 02”)
 ---
 
 ### 2. Issue/Bug Tracker
-(Usar a ferramenta bug tracker do GitHub) atualizado e usado em todas
-as semanas da entrega (adicionar print da tela ao README no GitHub)
+file:///C:/Users/mateu/Downloads/bug-tracker.png
 
 ---
 
