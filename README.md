@@ -55,7 +55,7 @@ em sala) das histórias implementadas nesta entrega em uma seção “histórias
 implementadas” dentro da seção “Entrega 02”)
 
 📄 Documento com as histórias:
-(https://github.com/user-attachments/files/32494810/post-its.md)
+https://github.com/user-attachments/files/32494810/post-its.md
 
 
 ---
