@@ -68,16 +68,14 @@ Também apresenta a classificação dos bugs por tipo, severidade e status, faci
 ---
 
 ### 3. Screencast do Protótipo 
-Adicionar screencast (vídeo no Youtube) do uso do sistema (aplicação Spring Boot
-rodando) explicando as duas histórias implementadas (com áudio ou legenda) ao README
+Neste vídeo, apresentamos uma demonstração do protótipo do HemoChain, mostrando o funcionamento do sistema e suas principais funcionalidades na prática.
 
 ▶️ Assistir no Youtube: https://youtu.be/DEyscop7MSQ
 
 ---
 
 ### 4. Screencast do Código 
-Adicionar screencast da explicação do código DA APLICAÇÃO SPRING e das histórias
-implementadas (disponível no youtube, com áudio ou legenda) ao README no GitHub.
+Neste vídeo, apresentamos a implementação da aplicação utilizando Spring, explicando sua estrutura e demonstrando as histórias implementadas durante o desenvolvimento do projeto.
 
 ▶️ Assistir no Youtube: https://youtu.be/abhnkK4AO8s
  
