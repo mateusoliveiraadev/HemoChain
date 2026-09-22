@@ -61,7 +61,6 @@ implementadas” dentro da seção “Entrega 02”)
 ---
 
 ### 2. Issue/Bug Tracker
-file:///C:/Users/mateu/Downloads/bug-tracker.png
 
 ---
 
