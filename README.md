@@ -79,7 +79,7 @@ rodando) explicando as duas histórias implementadas (com áudio ou legenda) ao 
 Adicionar screencast da explicação do código DA APLICAÇÃO SPRING e das histórias
 implementadas (disponível no youtube, com áudio ou legenda) ao README no GitHub.
 
-▶️ Assistir no Youtube: (Link)
+▶️ Assistir no Youtube: https://youtu.be/abhnkK4AO8s
  
 
 
