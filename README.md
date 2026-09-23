@@ -22,7 +22,7 @@ Java e SpringBoot
 |Matheus de Assis Carvalho Conolly Silva|maccs@cesar.school|21/08
 |Igor Kaua de Souza Siqueira|ikss2@cesar.school|21/08
 |Bruno José Cavalcanti Duarte Filho|bjcdf@cesar.school|21/08
-|Bruno Sottomayor Martin|
+|Bruno Sottomayor Martin|bsm4@cesar.school|21/08
 
 # 1° Entrega 31/08 (Finalizado):
 ### 1. Histórias de Usuário
