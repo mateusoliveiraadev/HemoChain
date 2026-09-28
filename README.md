@@ -48,7 +48,7 @@ Demonstração da navegação e dos principais fluxos do primeiro protótipo Lo-
 
 ---
 
-# 2° Entrega 21/10 (Finalizado):
+# 2° Entrega 21/09 (Finalizado):
 ### 1. Histórias de Usuário
 Nesta entrega, implementamos mais 2 histórias ao nosso protótipo: a US08 - Controle de acesso por perfil de usuário e a US02 - Registro de requisição hospitalar. Com isso, ampliamos as funcionalidades do sistema e avançamos na implementação dos principais recursos previstos para o projeto.
 
