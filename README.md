@@ -133,7 +133,7 @@ Veja com `git log --oneline`. O "vermelho" aqui e falha de compilacao (as classe
 
 O job `test` roda `mvn verify` a cada push e a cada pull request. Teste vermelho deixa o job vermelho e, com a protecao da `main` ativada (ver `docs/DEPLOY.md`), o merge e bloqueado.
 
-## E3. Deploy automatizado
+### E3. Deploy automatizado
 
 ```
 push/PR --> [test: mvn verify] --> [container: compose sobe do zero + health] --> (so na main) [publish: imagem no GHCR] --> [deploy: Render] --> health da URL publica
@@ -174,7 +174,7 @@ Declarado conforme a regra da disciplina. A IA rascunhou; o grupo valida e assin
 
 # Programação Orientada a Objeto (POO):
 
-# 1° Entrega 31/08 (Finalizado):
+## 1° Entrega 31/08 (Finalizado):
 ### 1. Histórias de Usuário
 Foram definidas histórias de usuário claras e concisas, contendo descrição da funcionalidade, valor de negócio e critérios de aceitação utilizando BDD.
 
@@ -198,7 +198,7 @@ Demonstração da navegação e dos principais fluxos do primeiro protótipo Lo-
 
 ---
 
-# 2° Entrega 21/09 (Finalizado):
+## 2° Entrega 21/09 (Finalizado):
 ### 1. Histórias de Usuário
 Nesta entrega, implementamos mais 2 histórias ao nosso protótipo: a US08 - Controle de acesso por perfil de usuário e a US02 - Registro de requisição hospitalar. Com isso, ampliamos as funcionalidades do sistema e avançamos na implementação dos principais recursos previstos para o projeto.
 
@@ -231,8 +231,7 @@ Neste vídeo, apresentamos a implementação da aplicação utilizando Spring, e
 
 ---
 
-# 3° Entrega 19/10 (Finalizado):
-
+## 3° Entrega 19/10 (Finalizado):
 ### 1. Histórias de Usuário
 Neste documento, apresentamos as histórias de usuário definidas para a Entrega 03 do projeto HemoChain, com foco no gerenciamento de estoque de hemocomponentes e no controle de vencimentos
 
@@ -266,7 +265,7 @@ O objetivo é apresentar como o código foi organizado, explicar as principais p
 
 ---
 
-# 4° Entrega 09/11 (Em Andamento):
+## 4° Entrega 09/11 (Em Andamento):
 
 ### 1. Histórias de Usuário
 
