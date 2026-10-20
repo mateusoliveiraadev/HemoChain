@@ -5,14 +5,7 @@ Um Sistema inteligente para gestão da cadeia de hemocomponentes, integrando est
 
 
 ## Tecnologias usadas: 
-Java e SpringBoot
-
-
-## Como rodar o projeto: 
-Requer JDK 17. Na pasta do projeto, execute `./mvnw.cmd spring-boot:run` e abra http://localhost:8080.
-Cadastre um usuário sintético com perfil **Gestor de Hemocentro**, faça login e selecione **Estoque e validade**.
-O H2 grava em `./data/hemochain`; mantenha o mesmo diretório de execução para reutilizar o banco.
-Para compilar, testar e gerar o JAR: `./mvnw.cmd verify`. Encerre a aplicação antes de reempacotar o JAR no Windows.
+Java 17, Spring Boot 3, PostgreSQL, Docker/Compose e GitHub Actions
 
 
 ## Integrantes:
@@ -26,6 +19,156 @@ Para compilar, testar e gerar o JAR: `./mvnw.cmd verify`. Encerre a aplicação 
 |Igor Kaua de Souza Siqueira|ikss2@cesar.school|21/08
 |Bruno José Cavalcanti Duarte Filho|bjcdf@cesar.school|21/08
 |Bruno Sottomayor Martin|bsm4@cesar.school|21/08
+
+## Como rodar o projeto
+
+### Com Docker (recomendado, igual em qualquer maquina)
+
+Requisitos: Docker com Compose v2. Nada de Java ou Maven instalado.
+
+```bash
+git clone https://github.com/mateusoliveiraadev/HemoChain.git
+cd HemoChain
+cp .env.example .env            # Windows (cmd): copy .env.example .env
+docker compose up -d --build
+docker compose ps               # api e db devem aparecer como "healthy"
+curl http://localhost:8080/actuator/health   # {"status":"UP"}
+```
+
+Abra http://localhost:8080. Para parar: `docker compose down` (os dados ficam no volume `hemochain-pgdata`). Para apagar tambem os dados: `docker compose down -v`.
+
+Se a porta 8080 estiver ocupada, troque `API_PORT` no `.env`.
+
+### Sem Docker (desenvolvimento local, banco H2 em arquivo)
+
+Requer JDK 17. Na pasta do projeto, execute `./mvnw.cmd spring-boot:run` (Windows) ou `./mvnw spring-boot:run` e abra http://localhost:8080.
+Cadastre um usuario sintetico com perfil **Gestor de Hemocentro**, faca login e selecione **Estoque e validade**.
+O H2 grava em `./data/hemochain`; mantenha o mesmo diretorio de execucao para reutilizar o banco.
+Para compilar, testar e gerar o JAR: `./mvnw.cmd verify`. Encerre a aplicacao antes de reempacotar o JAR no Windows.
+
+---
+
+# Desafio do PI: Container, TDD e Deploy automatizados
+
+URL publica do sistema: **(preencher apos o primeiro deploy, ver `docs/DEPLOY.md`)**
+
+## E1. Container automatizado
+
+| Arquivo | Papel |
+|---|---|
+| `Dockerfile` | Multi-stage. Estagio 1 (`maven:3.9-eclipse-temurin-17`) compila e roda `mvn verify`, incluindo todos os testes. Estagio 2 (`eclipse-temurin:17-jre-alpine`) leva somente o JAR, roda como usuario sem privilegios e tem `HEALTHCHECK`. |
+| `compose.yaml` | API + PostgreSQL 16, volume nomeado, healthcheck nos dois servicos e `depends_on` com `service_healthy`. |
+| `.env.example` | Variaveis necessarias. O `.env` real esta no `.gitignore`. |
+| `application-prod.properties` | Perfil usado no container: tudo vem de variaveis de ambiente. |
+
+Se um teste falhar, `docker build` falha: nao existe imagem com teste vermelho.
+
+Evidencias: `docs/evidencias/` (prints de `docker compose ps` e da API respondendo).
+
+## E2. TDD
+
+### Story map (Release 1)
+
+| Backbone | Cadastrar estoque | Controlar validade | Requisitar | Alocar | Governar acesso |
+|---|---|---|---|---|---|
+| **Release 1** | US01 | US07 | US02 | **US03 (parte 1)** | US08 |
+| Depois | | | | US03 reserva (T4), US04 rota | US05 temperatura, US06 painel |
+
+### Historias da Release 1 quebradas em tarefas
+
+**US03 (parte 1): hemacias compativeis por FEFO.** Entregue via TDD neste desafio.
+
+| Tarefa | Nivel do teste | Teste | Situacao |
+|---|---|---|---|
+| T1 Regra ABO/Rh de hemacias | Unitario | `CompatibilidadeServiceTest` | feito |
+| T2 Consulta de bolsas disponiveis ordenada por validade | Integracao (com banco) | `BolsaCompativelRepositoryTest` | feito |
+| T3 Endpoint `GET /bolsas/compativeis?receptor=` restrito ao gestor | Aceitacao (BDD) | `CompatibilidadeAceitacaoTest` + `docs/bdd/compatibilidade.feature` | feito |
+| T4 Reservar a bolsa para uma requisicao (US03 parte 2) | A definir | | pendente |
+
+**US01 (estoque).** T1 validade por componente (unitario `ValidadeServiceTest`); T2 cadastro, duplicidade e campos obrigatorios (aceitacao `EstoqueControllerTest`); T3 persistencia e consulta (integracao, mesmo teste, H2).
+
+**US07 (alertas e descarte).** T1 limiares 5 e 2 dias e fronteiras (unitario `ValidadeServiceTest`); T2 descarte automatico preserva o registro (integracao `EstoqueControllerTest`); T3 vencidas fora da lista de disponiveis (aceitacao).
+
+**US02 e US08.** `RequisicaoServiceTest`, `UsuarioServiceTest`, `AcessoPorPerfilTest`, `HospitalServiceTest`.
+
+### Testes por nivel
+
+| Nivel | Onde | Como rodar |
+|---|---|---|
+| Unitario | `src/test/java/.../service`, `.../estrutura` | `mvn test` |
+| Integracao (com banco) | `BolsaCompativelRepositoryTest` (`@DataJpaTest`), `EstoqueControllerTest` | `mvn test` |
+| Aceitacao | `CompatibilidadeAceitacaoTest` (cenarios Gherkin em `docs/bdd/`) | `mvn test` |
+| Integracao com PostgreSQL real | job `container` da esteira (sobe o compose e consulta `/actuator/health`) | `docker compose up -d --build --wait` |
+
+Rodar tudo: `./mvnw verify` (ou `docker build .`, que roda os testes no 1o estagio).
+
+### Historico red -> green
+
+Na branch `feature/pi-container-tdd-deploy`:
+
+```
+test: compatibilidade ABO/Rh de hemacias com FEFO (RED)     <- so testes; o build falha de proposito
+feat: sugere hemacias compativeis (ABO/Rh) por FEFO ... (GREEN)
+```
+
+Veja com `git log --oneline`. O "vermelho" aqui e falha de compilacao (as classes ainda nao existiam), que e a forma mais comum do primeiro passo do TDD em Java.
+
+### Quais regras ganharam teste primeiro, e por que
+
+- **Compatibilidade ABO/Rh (US03).** Primeiro teste: um erro nessa tabela pode sugerir sangue incompativel para um paciente. E o maior risco do dominio, por isso a tabela completa dos 8 receptores esta no teste.
+- **FEFO e bolsa vencida fora da sugestao.** Evita usar bolsa vencida e reduz descarte.
+- **Acesso so do gestor ao endpoint.** Dado sensivel de estoque.
+
+### O que ficou sem teste (e por que)
+
+- As regras de US01, US07, US02 e US08 foram entregues antes deste desafio. Elas tem testes, mas **nao ha historico red -> green delas no Git**.
+- Telas estaticas em `src/main/resources/static/*.html` (sem teste automatizado de interface).
+- `DadosSinteticosService` e `DadosSinteticosController` (gerador de dados de demonstracao).
+- Agendamento por `cron` em horario real (o teste chama o metodo de verificacao diretamente).
+- Autenticacao real: o acesso por perfil usa o cabecalho `X-Perfil`, mecanismo didatico das entregas anteriores.
+
+### Testes na esteira
+
+O job `test` roda `mvn verify` a cada push e a cada pull request. Teste vermelho deixa o job vermelho e, com a protecao da `main` ativada (ver `docs/DEPLOY.md`), o merge e bloqueado.
+
+## E3. Deploy automatizado
+
+```
+push/PR --> [test: mvn verify] --> [container: compose sobe do zero + health] --> (so na main) [publish: imagem no GHCR] --> [deploy: Render] --> health da URL publica
+```
+
+- Ferramenta: **GitHub Actions** (`.github/workflows/ci-cd.yml`).
+- Fluxo de branch: **GitHub Flow**. Branches curtas -> pull request -> `main` protegida -> deploy a cada merge.
+- Provedor: **Render**, servico por imagem Docker (GHCR) + PostgreSQL gerenciado.
+- Segredos: no cofre do GitHub (`RENDER_DEPLOY_HOOK_URL`) e nas variaveis do servico no Render. Nada no repositorio.
+- Rollback: workflow **Rollback** (`.github/workflows/rollback.yml`). Informe o SHA de um commit estavel; a imagem dele ja esta no GHCR. Alternativa: botao *Rollback* do proprio Render.
+- Passo a passo para configurar tudo (uma unica vez): `docs/DEPLOY.md`.
+- Evidencias (execucao vermelha que barrou, verde que publicou, URL no ar): `docs/evidencias/`.
+
+## Decisoes
+
+| Decisao | Escolha | Alternativas | Por que |
+|---|---|---|---|
+| Imagem base | `eclipse-temurin:17-jre-alpine` (runtime) e `maven:3.9-eclipse-temurin-17` (build) | `eclipse-temurin:17-jdk`, `openjdk` | JRE alpine e menor e tem menos pacotes vulneraveis; a compilacao fica no 1o estagio. Java 17 e o `java.version` do `pom.xml`. |
+| Dados | PostgreSQL 16 com volume nomeado `hemochain-pgdata` | H2 em arquivo, MySQL, bind mount | Os dados sobrevivem ao `docker compose down`; PostgreSQL e o que o Render oferece como banco gerenciado, entao dev e producao usam o mesmo motor. H2 segue nos testes por ser rapido. |
+| Rede | Rede propria do Compose; a API acessa o banco por `db:5432` | `localhost`, IP fixo | O DNS interno resolve o nome do servico; o banco nao e publicado no host. |
+| Testes | Compatibilidade ABO/Rh primeiro | Validade, cadastro | Um erro ali poe um paciente em risco. |
+| Fluxo de branch | GitHub Flow | Git Flow, GitLab Flow | Grupo pequeno, uma versao no ar, deploy a cada merge na `main`. |
+| CI/CD e deploy | GitHub Actions + Render (imagem do GHCR) | GitLab CI, Railway, Fly.io | O codigo ja esta no GitHub; o Render tem plano gratuito e implanta uma imagem por tag, o que torna o rollback trivial. |
+| Segredos | GitHub Secrets e variaveis do Render; `.env` no `.gitignore` | `.env` versionado | Senha de banco e URL do hook nunca entram no Git. `.env.example` so tem valores ficticios. |
+| Healthcheck | Actuator `/actuator/health` | Endpoint proprio | Padrao do Spring Boot, sem detalhes expostos. |
+
+## Uso de IA
+
+Declarado conforme a regra da disciplina. A IA rascunhou; o grupo valida e assina.
+
+- **Ferramenta:** Claude (Anthropic), via Claude Code. As entregas anteriores usaram o Codex (ver Entrega 03).
+- **O que a IA produziu neste desafio:** `Dockerfile`, `compose.yaml`, `.env.example`, perfil `prod`, workflows do GitHub Actions, `docs/DEPLOY.md`, os testes e a implementacao da compatibilidade ABO/Rh, este texto do README.
+- **Prompt principal:** "Com base no repositorio HemoChain e no PDF do Desafio do PI (Container, TDD e Deploy automatizados), faca o que o desafio pede e insira o codigo na pasta do projeto."
+- **Limite conhecido:** o ambiente da IA nao conseguia baixar dependencias do Maven nem executar os testes. A regra de compatibilidade foi conferida em Java puro (tabela dos 8 receptores); os testes Spring, o `docker build`, o `docker compose` e a esteira **ainda precisam ser executados pelo grupo**, e a evidencia deve ser registrada em `docs/evidencias/`.
+- **Validacao do grupo:** (preencher) revisado por ______ em __/__/____.
+
+---
 
 # 1° Entrega 31/08 (Finalizado):
 ### 1. Histórias de Usuário
