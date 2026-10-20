@@ -48,6 +48,8 @@ Para compilar, testar e gerar o JAR: `./mvnw.cmd verify`. Encerre a aplicacao an
 
 ---
 
+## Infraestrutura de Software:
+
 # Desafio do PI: Container, TDD e Deploy automatizados
 
 URL publica do sistema: **(preencher apos o primeiro deploy, ver `docs/DEPLOY.md`)**
