@@ -14,11 +14,14 @@ public class BolsaService {
     private final BolsaRepository bolsas;
     private final AlertaValidadeRepository alertas;
     private final ValidadeService validade;
+    private final CompatibilidadeService compatibilidade;
 
-    public BolsaService(BolsaRepository bolsas, AlertaValidadeRepository alertas, ValidadeService validade) {
+    public BolsaService(BolsaRepository bolsas, AlertaValidadeRepository alertas, ValidadeService validade,
+            CompatibilidadeService compatibilidade) {
         this.bolsas = bolsas;
         this.alertas = alertas;
         this.validade = validade;
+        this.compatibilidade = compatibilidade;
     }
 
     @Transactional
@@ -38,6 +41,14 @@ public class BolsaService {
         validade.verificar(LocalDate.now());
         return status == null ? bolsas.findAllByOrderByValidadeAscIdAsc()
                 : bolsas.findByStatusOrderByValidadeAscIdAsc(status);
+    }
+
+    // Hemacias disponiveis e compativeis com o receptor, FEFO (vence primeiro, sai primeiro).
+    public List<BolsaHemocomponente> compativeis(TipoSanguineo receptor) {
+        validade.verificar(LocalDate.now());
+        return bolsas.findByStatusAndTipoComponenteAndTipoSanguineoInOrderByValidadeAscIdAsc(
+                StatusBolsa.DISPONIVEL, TipoComponente.CONCENTRADO_HEMACIAS,
+                compatibilidade.doadoresCompativeis(receptor));
     }
 
     public BolsaHemocomponente buscar(Long id) {
