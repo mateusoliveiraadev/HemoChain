@@ -143,9 +143,7 @@ Testes novos: `EstoqueControllerTest` e `ValidadeServiceTest`, incluindo BDD das
 ---
 
 ### 2. Issue/Bug Tracker
-![Bug Tracker local da Entrega 03](entrega-03/bug-tracker.png)
-
-Dois defeitos reais reproduzidos e corrigidos: transação da consulta de alertas e precisão do horário de descarte no H2. Esta é uma imagem local, não uma captura nem publicação em GitHub Issues. A atualização externa permanece pendente.
+<img width="1600" height="1080" alt="bug-tracker" src="https://github.com/user-attachments/assets/b5005ea8-578f-4345-aead-b7e4b3bcf017" />
 
 ---
 
