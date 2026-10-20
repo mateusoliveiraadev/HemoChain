@@ -150,19 +150,18 @@ Dois defeitos reais reproduzidos e corrigidos: transação da consulta de alerta
 ---
 
 ### 3. Screencast do Protótipo 
-**Vídeo local produzido e validado:** `entrega-03/screencasts/01-demonstracao-sistema.mp4`.
+Neste vídeo, apresentamos uma demonstração prática do sistema desenvolvido, mostrando suas funcionalidades e como a aplicação funciona na prática.
 
-Duração: **80,28 segundos**. Resolução: **1920 × 1080**, MP4/H.264, 25 quadros/s. Sem trilha de áudio, com legendas em português embutidas permanentemente na imagem.
+O objetivo é demonstrar o funcionamento do sistema, apresentar seus principais recursos e mostrar os resultados do desenvolvimento do projeto.
 
-Captura real da aplicação em `localhost:8080`, usando Playwright com o Edge instalado: login de gestor → cadastro e campos obrigatórios → validade automática → consulta e edição → alertas de 5/2 dias → descarte automático e histórico preservado → filtro de disponíveis. Somente dados sintéticos e operações reais.
-
-Preparação sintética com os valores padrão: plaquetas coletadas hoje geram alerta de 5 dias; coletadas há 3 dias geram alerta de 2 dias; coletadas há 5 dias são descartadas. Use códigos diferentes. A inicialização também recupera vencimentos ocorridos durante o desligamento.
-
-▶️ YouTube: publicação pendente; inserir o link público após publicação autorizada.
+▶️ Assistir no Youtube: https://youtu.be/-vNAE4rWjag
 
 ---
 
 ### 4. Screencast do Código 
+Neste vídeo, apresentamos uma explicação do código desenvolvido para a aplicação utilizando Java e Spring Boot, demonstrando sua estrutura e o funcionamento dos principais componentes do projeto.
+
+O objetivo é apresentar como o código foi organizado, explicar as principais partes da aplicação e mostrar como o Spring Boot é utilizado no desenvolvimento do backend.
 
 ▶️ Assistir no Youtube: https://youtu.be/LUkFA9IbRyM
 
