@@ -119,6 +119,35 @@ O objetivo é apresentar como o código foi organizado, explicar as principais p
 
 ---
 
+# 4° Entrega 09/11 (Em Andamento):
+
+### 1. Histórias de Usuário
+
+📄 Documento com as histórias implementadas:
+
+---
+
+### 2. Issue/Bug Tracker
+
+---
+
+### 3. Screencast do Protótipo 
+▶️ Assistir no Youtube:
+
+---
+
+### 4. Screencast do Código 
+▶️ Assistir no Youtube:
+
+---
+
+
+
+
+
+
+
+
 
 
 
