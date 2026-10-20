@@ -50,11 +50,11 @@ Para compilar, testar e gerar o JAR: `./mvnw.cmd verify`. Encerre a aplicacao an
 
 # Infraestrutura de Software:
 
-# Desafio do PI: Container, TDD e Deploy automatizados
+## Desafio do PI: Container, TDD e Deploy automatizados
 
 URL publica do sistema: **(preencher apos o primeiro deploy, ver `docs/DEPLOY.md`)**
 
-## E1. Container automatizado
+### E1. Container automatizado
 
 | Arquivo | Papel |
 |---|---|
@@ -67,7 +67,7 @@ Se um teste falhar, `docker build` falha: nao existe imagem com teste vermelho.
 
 Evidencias: `docs/evidencias/` (prints de `docker compose ps` e da API respondendo).
 
-## E2. TDD
+### E2. TDD
 
 ### Story map (Release 1)
 
