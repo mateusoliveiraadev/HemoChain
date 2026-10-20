@@ -84,11 +84,11 @@ Neste vídeo, apresentamos a implementação da aplicação utilizando Spring, e
 
 ---
 
-# Entrega 03 — US01 + US07
+# Entrega 03 19/10 (Finalizado)
 
 ### 1. Histórias de Usuário
-📄 Documento com as histórias implementadas:[post-its.md](https://github.com/user-attachments/files/33717714/post-its.md)
-
+📄 Documento com as histórias implementadas:
+[post-its.md](https://github.com/user-attachments/files/33717714/post-its.md)
 
 ---
 
