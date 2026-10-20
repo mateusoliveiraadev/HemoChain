@@ -95,6 +95,8 @@ Neste documento, apresentamos as histórias de usuário definidas para a Entrega
 ---
 
 ### 2. Issue/Bug Tracker
+Neste material, apresentamos o Bug Tracker da Entrega 03 do projeto HemoChain, documentando dois bugs identificados e corrigidos durante o desenvolvimento do sistema.
+
 <img width="1600" height="1080" alt="bug-tracker" src="https://github.com/user-attachments/assets/b5005ea8-578f-4345-aead-b7e4b3bcf017" />
 
 ---
