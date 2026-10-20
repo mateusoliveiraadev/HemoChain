@@ -147,9 +147,9 @@ push/PR --> [test: mvn verify] --> [container: compose sobe do zero + health] --
 - Passo a passo para configurar tudo (uma unica vez): `docs/DEPLOY.md`.
 - Evidencias (execucao vermelha que barrou, verde que publicou, URL no ar): `docs/evidencias/`.
 
-## Decisoes
+## Decisões
 
-| Decisao | Escolha | Alternativas | Por que |
+| Decisão | Escolha | Alternativas | Por que |
 |---|---|---|---|
 | Imagem base | `eclipse-temurin:17-jre-alpine` (runtime) e `maven:3.9-eclipse-temurin-17` (build) | `eclipse-temurin:17-jdk`, `openjdk` | JRE alpine e menor e tem menos pacotes vulneraveis; a compilacao fica no 1o estagio. Java 17 e o `java.version` do `pom.xml`. |
 | Dados | PostgreSQL 16 com volume nomeado `hemochain-pgdata` | H2 em arquivo, MySQL, bind mount | Os dados sobrevivem ao `docker compose down`; PostgreSQL e o que o Render oferece como banco gerenciado, entao dev e producao usam o mesmo motor. H2 segue nos testes por ser rapido. |
@@ -168,7 +168,7 @@ Declarado conforme a regra da disciplina. A IA rascunhou; o grupo valida e assin
 - **O que a IA produziu neste desafio:** `Dockerfile`, `compose.yaml`, `.env.example`, perfil `prod`, workflows do GitHub Actions, `docs/DEPLOY.md`, os testes e a implementacao da compatibilidade ABO/Rh, este texto do README.
 - **Prompt principal:** "Com base no repositorio HemoChain e no PDF do Desafio do PI (Container, TDD e Deploy automatizados), faca o que o desafio pede e insira o codigo na pasta do projeto."
 - **Limite conhecido:** o ambiente da IA nao conseguia baixar dependencias do Maven nem executar os testes. A regra de compatibilidade foi conferida em Java puro (tabela dos 8 receptores); os testes Spring, o `docker build`, o `docker compose` e a esteira **ainda precisam ser executados pelo grupo**, e a evidencia deve ser registrada em `docs/evidencias/`.
-- **Validacao do grupo:** (preencher) revisado por ______ em __/__/____.
+- **Validação do grupo:** (preencher) revisado por ______ em __/__/____.
 
 ---
 
