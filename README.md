@@ -84,9 +84,11 @@ Neste vídeo, apresentamos a implementação da aplicação utilizando Spring, e
 
 ---
 
-# Entrega 03 19/10 (Finalizado)
+# 3° Entrega 19/10 (Finalizado):
 
 ### 1. Histórias de Usuário
+Neste documento, apresentamos as histórias de usuário definidas para a Entrega 03 do projeto HemoChain, com foco no gerenciamento de estoque de hemocomponentes e no controle de vencimentos
+
 📄 Documento com as histórias implementadas:
 [post-its.md](https://github.com/user-attachments/files/33717714/post-its.md)
 
