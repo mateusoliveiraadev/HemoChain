@@ -163,25 +163,8 @@ Preparação sintética com os valores padrão: plaquetas coletadas hoje geram a
 ---
 
 ### 4. Screencast do Código 
-**Vídeo local produzido e validado:** `entrega-03/screencasts/02-explicacao-codigo.mp4`.
 
-Duração: **112,48 segundos**. Resolução: **1920 × 1080**, MP4/H.264, 25 quadros/s. Sem trilha de áudio, com legendas em português embutidas permanentemente na imagem.
-
-Captura em visualizador local somente leitura, carregando diretamente os arquivos reais do projeto; não é uma gravação do VS Code. Apresenta `BolsaHemocomponente`, `StatusBolsa`, `BolsaRepository`, `BolsaService`, `ValidadeService`, `BolsaController`, `VerificacaoValidadeAgendada` e os testes. As legendas explicam encapsulamento, enum, JPA, regras de negócio, endpoints, agendamento e separação de responsabilidades.
-
-#### Validação e limitações
-
-Revalidação em 20/10/2026: Maven `verify` aprovado com JDK 17; 51 testes sem falhas, incluindo US01, US07 e regressão. Foram executadas 23 verificações HTTP reais, incluindo alertas de 5/2 dias, consultas concorrentes e US02/US08, além de nova verificação de persistência após reinicialização com H2 separado. POM e dependências foram auditados, sem Lombok ou novas bibliotecas.
-
-O bloqueio do Computer Use foi resolvido para esta tarefa por uma alternativa local permitida: Playwright com Edge, sem alterar a implementação ou as dependências do projeto. O fluxo do sistema foi executado e capturado de verdade, com verificação dos resultados e sem erros de JavaScript na tomada final. Os arquivos de código apresentados foram lidos diretamente do projeto em um visualizador identificado como somente leitura.
-
-Os dois MP4 foram decodificados integralmente, reproduzidos no navegador e inspecionados em quadros do início, meio e fim. Duração, resolução e ausência de áudio foram conferidas com FFprobe; as legendas foram verificadas nos quadros finais e a análise não detectou trechos pretos de 0,1 segundo ou mais. Cada vídeo tem 14 blocos de legenda incorporados à imagem, sem depender de arquivo SRT ou faixa de legenda externa.
-
-Os vídeos permanecem para revisão local e são excluídos apenas por `.git/info/exclude`, sem alteração do `.gitignore` público. Ferramentas, scripts e capturas intermediárias estão em `.git/`, fora do versionamento. Nenhum vídeo foi publicado no YouTube.
-
-Código e testes preparados com apoio do Codex. O grupo deve revisar, compreender a implementação e seguir as regras de declaração de uso de IA da disciplina. Nenhum push ou publicação foi realizado; os vídeos permanecem locais para revisão.
-
-▶️ YouTube: publicação pendente; inserir o link público após publicação autorizada.
+▶️ Assistir no Youtube: https://youtu.be/LUkFA9IbRyM
 
 ---
 
