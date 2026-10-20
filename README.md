@@ -48,7 +48,7 @@ Para compilar, testar e gerar o JAR: `./mvnw.cmd verify`. Encerre a aplicacao an
 
 ---
 
-## Infraestrutura de Software:
+# Infraestrutura de Software:
 
 # Desafio do PI: Container, TDD e Deploy automatizados
 
@@ -171,6 +171,8 @@ Declarado conforme a regra da disciplina. A IA rascunhou; o grupo valida e assin
 - **Validacao do grupo:** (preencher) revisado por ______ em __/__/____.
 
 ---
+
+# Programação Orientada a Objeto (POO):
 
 # 1° Entrega 31/08 (Finalizado):
 ### 1. Histórias de Usuário
