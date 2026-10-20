@@ -1,0 +1,41 @@
+name: Rollback
+
+# Volta a producao para uma versao anterior ja publicada no GHCR.
+# Uso: Actions > Rollback > Run workflow > informe o SHA do commit estavel.
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: "SHA completo do commit cuja imagem deve voltar ao ar"
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  rollback:
+    runs-on: ubuntu-24.04
+    environment:
+      name: production
+      url: ${{ vars.APP_URL }}
+    steps:
+      - name: Redeploy da imagem anterior
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+          SHA: ${{ inputs.sha }}
+        run: |
+          case "$SHA" in *[!0-9a-f]*|"") echo "SHA invalido"; exit 1;; esac
+          export IMAGE="ghcr.io/${GITHUB_REPOSITORY,,}:${SHA}"
+          ENC=$(python3 -c "import urllib.parse,os; print(urllib.parse.quote(os.environ['IMAGE'], safe=''))")
+          curl -fsS -X POST "${RENDER_DEPLOY_HOOK_URL}&imgURL=${ENC}"
+      - name: Espera a URL publica ficar saudavel
+        env:
+          APP_URL: ${{ vars.APP_URL }}
+        run: |
+          for i in $(seq 1 40); do
+            if curl -fsS "${APP_URL%/}/actuator/health" | grep -q '"status":"UP"'; then
+              echo "Rollback concluido: ${APP_URL}"; exit 0
+            fi
+            sleep 15
+          done
+          exit 1

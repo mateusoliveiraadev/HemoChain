@@ -38,3 +38,8 @@ target/
 .vscode/
 estrutura-dados-c/rota_vital_estruturas
 estrutura-dados-c/*.exe
+
+# CA corporativa local (opcional, ver certs/README.md)
+certs/*.crt
+certs/*.pem
+certs/*.cer

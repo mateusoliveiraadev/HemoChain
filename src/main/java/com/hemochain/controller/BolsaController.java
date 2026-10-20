@@ -29,6 +29,13 @@ public class BolsaController {
         return bolsas.listar(status);
     }
 
+    @GetMapping("/compativeis")
+    public List<BolsaHemocomponente> compativeis(@RequestHeader(value = "X-Perfil", required = false) String perfil,
+            @RequestParam TipoSanguineo receptor) {
+        verificarPerfil(perfil);
+        return bolsas.compativeis(receptor);
+    }
+
     @GetMapping("/{id}")
     public BolsaHemocomponente buscar(@PathVariable Long id,
             @RequestHeader(value = "X-Perfil", required = false) String perfil) {

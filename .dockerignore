@@ -1,0 +1,11 @@
+.git
+.github
+.idea
+.vscode
+target
+data
+.env
+*.log
+entrega-03
+estrutura-dados-c
+docs
