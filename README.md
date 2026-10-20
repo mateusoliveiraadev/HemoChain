@@ -164,9 +164,19 @@ Declarado conforme a regra da disciplina. A IA rascunhou; o grupo valida e assin
 
 - **Ferramenta:** Claude (Anthropic), via Claude Code. As entregas anteriores usaram o Codex (ver Entrega 03).
 - **O que a IA produziu neste desafio:** `Dockerfile`, `compose.yaml`, `.env.example`, perfil `prod`, workflows do GitHub Actions, `docs/DEPLOY.md`, os testes e a implementacao da compatibilidade ABO/Rh, este texto do README.
-- **Prompt principal:** "Com base no repositorio HemoChain e no PDF do Desafio do PI (Container, TDD e Deploy automatizados), faca o que o desafio pede e insira o codigo na pasta do projeto."
+- **Prompt principal:** "Atue como Engenheiro de Software Sênior e Especialista em DevOps. Com base na estrutura atual do repositório HemoChain e nos requisitos do Desafio do PI (Container, TDD e Deploy Automatizados), realize a implementação das seguintes entregas diretamente na estrutura de pastas do projeto:
+
+Regras de Negócio e TDD: Implemente a lógica de compatibilidade sanguínea ABO/Rh para os 8 tipos de receptores utilizando desenvolvimento guiado por testes (TDD).
+
+Containerização: Crie o Dockerfile (utilizando multi-stage build para otimização), o compose.yaml configurado com o perfil prod e o arquivo .env.example.
+
+Automação (CI/CD): Configure os workflows do GitHub Actions para automação de build, testes e deploy.
+
+Documentação: Elabore o guia detalhado em docs/DEPLOY.md e atualize o README.md com as instruções de execução do projeto.
+
+Diretrizes de execução: Priorize código limpo, siga as boas práticas do Spring Boot e salve todas as alterações diretamente nos arquivos correspondentes do repositório."
 - **Limite conhecido:** o ambiente da IA nao conseguia baixar dependencias do Maven nem executar os testes. A regra de compatibilidade foi conferida em Java puro (tabela dos 8 receptores); os testes Spring, o `docker build`, o `docker compose` e a esteira **ainda precisam ser executados pelo grupo**, e a evidencia deve ser registrada em `docs/evidencias/`.
-- **Validacao do grupo:** (preencher) revisado por ______ em __/__/____.
+- **Validacao do grupo:** (preencher) revisado por Bruno Martin em 20/10/2026.
 
 ---
 
