@@ -87,58 +87,8 @@ Neste vídeo, apresentamos a implementação da aplicação utilizando Spring, e
 # Entrega 03 — US01 + US07
 
 ### 1. Histórias de Usuário
-#### Histórias implementadas — formato POST-IT
+📄 Documento com as histórias implementadas:[post-its.md](https://github.com/user-attachments/files/33717714/post-its.md)
 
-**US01 — Cadastro e controle de estoque**
-
-**Como** gestor de estoque, **eu quero** cadastrar, consultar e atualizar bolsas, **para que** eu acompanhe os hemocomponentes disponíveis e sua validade.
-
-Implementado: código único por bolsa, componente, ABO/Rh, volume, coleta, validade automática configurável, status, consulta, edição, validações e persistência H2.
-
-**US07 — Alertas de vencimento e descarte**
-
-**Como** gestor de estoque, **eu quero** receber alertas de vencimento e acompanhar descartes automáticos, **para que** eu priorize o uso e preserve o registro do descarte.
-
-Implementado: limiares configuráveis de 5 e 2 dias, destaque de prioridade, descarte automático, histórico mínimo e verificação na inicialização, agendada e nas consultas. Vencidas não aparecem entre as disponíveis.
-
-[POST-IT completo, funcionalidades e limitações](entrega-03/post-its.md).
-
-#### Configuração didática
-
-Os valores são **exclusivamente acadêmicos, não regras clínicas oficiais**. Em `src/main/resources/application.properties`:
-
-| Componente | Dias após coleta | Propriedade |
-|---|---:|---|
-| Concentrado de hemácias | 35 | `estoque.validade.hemacias` |
-| Plasma | 365 | `estoque.validade.plasma` |
-| Plaquetas | 5 | `estoque.validade.plaquetas` |
-| Crioprecipitado | 365 | `estoque.validade.crioprecipitado` |
-
-- Alertas: `estoque.alertas.dias=5,2`. Cada limiar pode produzir um alerta distinto para a mesma bolsa.
-- Agendamento: `estoque.verificacao.cron=0 0 0 * * *`, à meia-noite no fuso do servidor.
-- Validade igual ou anterior ao dia atual implica descarte, sem apagar a bolsa.
-- Histórico mínimo na bolsa: data/hora, motivo e responsável `SISTEMA`.
-- Coleta histórica é aceita para representar estoque existente; se vencida, a bolsa é descartada automaticamente.
-- Uma identificação representa uma bolsa. Volume permitido: 1 a 10.000 mL; coleta futura é rejeitada.
-
-#### Classes, API e testes
-
-Fluxo: `BolsaHemocomponente → BolsaRepository → BolsaService / ValidadeService → BolsaController`.
-`AlertaValidade` e seu repositório persistem notificações; `VerificacaoValidadeAgendada` aciona a verificação. A tela `estoque.html` usa o menu existente.
-
-| Método | Endpoint | Finalidade |
-|---|---|---|
-| POST | `/bolsas` | Cadastrar |
-| GET | `/bolsas` | Listar; filtro opcional `status=DISPONIVEL` ou `DESCARTADO` |
-| GET | `/bolsas/{id}` | Consultar dados e histórico mínimo do descarte |
-| PUT | `/bolsas/{id}` | Editar campos permitidos de bolsa válida |
-| GET | `/bolsas/alertas` | Consultar alertas ativos |
-
-Os endpoints exigem `X-Perfil: GESTOR_HEMOCENTRO`, preservando o mecanismo didático da Entrega 02. Não é autenticação robusta. Não há exclusão física, FEFO, reserva, transporte ou rastreabilidade completa.
-
-Testes novos: `EstoqueControllerTest` e `ValidadeServiceTest`, incluindo BDD das duas histórias, datas de fronteira, duplicidades, edição e histórico persistido. A suíte existente de US02/US08, indicadores e estruturas foi preservada.
-
-📄 Documento com as histórias implementadas: [POST-IT — Entrega 03](entrega-03/post-its.md).
 
 ---
 
