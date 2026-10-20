@@ -50,7 +50,9 @@ Para compilar, testar e gerar o JAR: `./mvnw.cmd verify`. Encerre a aplicacao an
 
 # Desafio do PI: Container, TDD e Deploy automatizados
 
-URL publica do sistema: **(preencher apos o primeiro deploy, ver `docs/DEPLOY.md`)**
+URL publica do sistema: **https://hemochain.onrender.com** (health: https://hemochain.onrender.com/actuator/health)
+
+Observacao: o plano gratuito do Render dorme quando fica parado; a primeira requisicao pode levar cerca de 1 minuto.
 
 ## E1. Container automatizado
 
@@ -143,7 +145,12 @@ push/PR --> [test: mvn verify] --> [container: compose sobe do zero + health] --
 - Segredos: no cofre do GitHub (`RENDER_DEPLOY_HOOK_URL`) e nas variaveis do servico no Render. Nada no repositorio.
 - Rollback: workflow **Rollback** (`.github/workflows/rollback.yml`). Informe o SHA de um commit estavel; a imagem dele ja esta no GHCR. Alternativa: botao *Rollback* do proprio Render.
 - Passo a passo para configurar tudo (uma unica vez): `docs/DEPLOY.md`.
-- Evidencias (execucao vermelha que barrou, verde que publicou, URL no ar): `docs/evidencias/`.
+- Evidencias em `docs/evidencias/`:
+  - Esteira vermelha: `e3-vermelho.png`; verde com 4 jobs: `e3-verde.png`; checks do PR: `e3-checks-pr.png`
+  - Deploy no Render e URL no ar: `e3-render-deploy.png`, `e3-url.png`
+  - Protecao da `main` e revisao obrigatoria: `e3-branch-protection.png`, `e3-revisao.png`
+  - E1 (container, health, volume): `e1-compose-ps.png`, `e1-health.png`, `e1-volume.png`
+  - E2 (TDD): `e2-vermelho.png`, `e2-verde.png`, `e2-historico.png`
 
 ## Decisoes
 
@@ -151,6 +158,7 @@ push/PR --> [test: mvn verify] --> [container: compose sobe do zero + health] --
 |---|---|---|---|
 | Imagem base | `eclipse-temurin:17-jre-alpine` (runtime) e `maven:3.9-eclipse-temurin-17` (build) | `eclipse-temurin:17-jdk`, `openjdk` | JRE alpine e menor e tem menos pacotes vulneraveis; a compilacao fica no 1o estagio. Java 17 e o `java.version` do `pom.xml`. |
 | Dados | PostgreSQL 16 com volume nomeado `hemochain-pgdata` | H2 em arquivo, MySQL, bind mount | Os dados sobrevivem ao `docker compose down`; PostgreSQL e o que o Render oferece como banco gerenciado, entao dev e producao usam o mesmo motor. H2 segue nos testes por ser rapido. |
+| Build | Dockerfile multi-stage (build com Maven, runtime so com JRE) | Imagem unica com JDK | A imagem final nao carrega Maven nem codigo-fonte; fica menor e o `mvn verify` roda no 1o estagio, entao imagem so existe se os testes passam. |
 | Rede | Rede propria do Compose; a API acessa o banco por `db:5432` | `localhost`, IP fixo | O DNS interno resolve o nome do servico; o banco nao e publicado no host. |
 | Testes | Compatibilidade ABO/Rh primeiro | Validade, cadastro | Um erro ali poe um paciente em risco. |
 | Fluxo de branch | GitHub Flow | Git Flow, GitLab Flow | Grupo pequeno, uma versao no ar, deploy a cada merge na `main`. |
@@ -175,8 +183,9 @@ Automação (CI/CD): Configure os workflows do GitHub Actions para automação d
 Documentação: Elabore o guia detalhado em docs/DEPLOY.md e atualize o README.md com as instruções de execução do projeto.
 
 Diretrizes de execução: Priorize código limpo, siga as boas práticas do Spring Boot e salve todas as alterações diretamente nos arquivos correspondentes do repositório."
-- **Limite conhecido:** o ambiente da IA nao conseguia baixar dependencias do Maven nem executar os testes. A regra de compatibilidade foi conferida em Java puro (tabela dos 8 receptores); os testes Spring, o `docker build`, o `docker compose` e a esteira **ainda precisam ser executados pelo grupo**, e a evidencia deve ser registrada em `docs/evidencias/`.
-- **Validacao do grupo:** (preencher) revisado por Bruno Martin em 20/10/2026.
+- **Limite conhecido:** o ambiente da IA nao conseguia baixar dependencias do Maven nem executar os testes. Por isso a validacao real foi feita pelo grupo: `docker compose up`, `mvn verify`, a esteira no GitHub Actions e o deploy no Render, com prints em `docs/evidencias/`.
+- **Tambem gerado com IA:** os slides da apresentacao.
+- **Validacao do grupo:** revisado por Bruno Martin em 20/10/2026.
 
 ---
 
