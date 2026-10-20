@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HemoChain - Estoque e validade</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, sans-serif; background: linear-gradient(135deg,#b71c1c,#6a1b1b); min-height: 100vh; padding: 24px; color: #333; }
+        main { max-width: 1100px; margin: auto; }
+        .voltar { color: white; display: inline-block; margin-bottom: 16px; }
+        section { background: white; padding: 24px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 8px 24px #0002; }
+        h1,h2 { margin-top: 0; }
+        .aviso { background: #fff4db; padding: 12px; border-left: 4px solid #d38200; }
+        .campos { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+        label { display: block; font-weight: 600; }
+        input,select { width: 100%; padding: 10px; margin: 6px 0 16px; border: 1px solid #bbb; border-radius: 6px; font: inherit; }
+        button { background: #b71c1c; color: white; border: 0; border-radius: 6px; padding: 10px 16px; cursor: pointer; font: inherit; }
+        button.secundario { background: #666; }
+        button:disabled { opacity: .6; cursor: wait; }
+        .rolagem { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th,td { text-align: left; padding: 12px 8px; border-bottom: 1px solid #ddd; }
+        td button { margin: 3px; font-size: 13px; }
+        .prioritaria { background: #fff2d5; }
+        .descartada { background: #f4f4f4; color: #666; }
+        #mensagem { min-height: 24px; font-weight: 600; }
+        #detalhes { white-space: pre-line; line-height: 1.7; }
+        .filtro { max-width: 280px; }
+        li { margin-bottom: 10px; }
+        @media(max-width:700px) { .campos { grid-template-columns: 1fr; } body { padding: 12px; } section { padding: 16px; } }
+    </style>
+</head>
+<body>
+<main>
+    <a class="voltar" href="index.html">← Voltar ao menu</a>
+    <section>
+        <h1>Estoque e validade</h1>
+        <p class="aviso">Ambiente acadêmico com dados sintéticos. Validades configuráveis e exclusivamente didáticas; não representam regras clínicas oficiais. A bolsa é descartada na data de validade.</p>
+        <h2 id="tituloFormulario">Cadastrar bolsa</h2>
+        <form id="formBolsa">
+            <div class="campos">
+                <div><label for="codigo">Identificação única da bolsa</label><input id="codigo" required maxlength="60"></div>
+                <div><label for="tipoComponente">Hemocomponente</label><select id="tipoComponente" required>
+                    <option value="CONCENTRADO_HEMACIAS">Concentrado de hemácias</option><option value="PLASMA">Plasma</option><option value="PLAQUETAS">Plaquetas</option><option value="CRIOPRECIPITADO">Crioprecipitado</option>
+                </select></div>
+                <div><label for="tipoSanguineo">Tipo sanguíneo ABO/Rh</label><select id="tipoSanguineo" required>
+                    <option value="">Selecione</option><option value="A_POSITIVO">A+</option><option value="A_NEGATIVO">A-</option><option value="B_POSITIVO">B+</option><option value="B_NEGATIVO">B-</option><option value="AB_POSITIVO">AB+</option><option value="AB_NEGATIVO">AB-</option><option value="O_POSITIVO">O+</option><option value="O_NEGATIVO">O-</option>
+                </select></div>
+                <div><label for="volumeMl">Volume (mL)</label><input id="volumeMl" type="number" min="1" max="10000" required></div>
+                <div><label for="dataColeta">Data de coleta</label><input id="dataColeta" type="date" required></div>
+            </div>
+            <button id="salvar" type="submit">Cadastrar bolsa</button>
+            <button class="secundario" id="cancelar" type="button" hidden>Cancelar edição</button>
+        </form>
+        <p id="mensagem" role="status" aria-live="polite"></p>
+    </section>
+    <section>
+        <h2>Alertas de validade</h2>
+        <p>Limiares padrão: 5 e 2 dias. A lista é atualizada a cada 30 segundos enquanto esta tela está aberta.</p>
+        <ul id="alertas"></ul>
+    </section>
+    <section>
+        <h2>Bolsas cadastradas</h2>
+        <label for="filtro">Exibir</label>
+        <select class="filtro" id="filtro"><option value="">Todas</option><option value="DISPONIVEL">Disponíveis</option><option value="DESCARTADO">Descartadas</option></select>
+        <button type="button" class="secundario" id="atualizar">Atualizar estoque</button>
+        <div class="rolagem"><table>
+            <thead><tr><th>Código</th><th>Componente / ABO</th><th>Volume</th><th>Validade</th><th>Situação</th><th>Ações</th></tr></thead>
+            <tbody id="bolsas"></tbody>
+        </table></div>
+    </section>
+    <section id="painelDetalhes" hidden><h2>Informações da bolsa</h2><div id="detalhes"></div></section>
+</main>
+<script>
+    const usuario = JSON.parse(localStorage.getItem('hemochainUsuario') || 'null');
+    const porId = id => document.getElementById(id);
+    const tipos = {CONCENTRADO_HEMACIAS:'Hemácias',PLASMA:'Plasma',PLAQUETAS:'Plaquetas',CRIOPRECIPITADO:'Crioprecipitado'};
+    const abo = {A_POSITIVO:'A+',A_NEGATIVO:'A-',B_POSITIVO:'B+',B_NEGATIVO:'B-',AB_POSITIVO:'AB+',AB_NEGATIVO:'AB-',O_POSITIVO:'O+',O_NEGATIVO:'O-'};
+    let editandoId = null;
+    let bolsasAtuais = [];
+    let bolsasPrioritarias = new Set();
+
+    async function api(caminho, opcoes = {}) {
+        const resposta = await fetch(caminho, {...opcoes, headers: {'Content-Type':'application/json','X-Perfil':usuario ? usuario.perfil : ''}});
+        const corpo = await resposta.json();
+        if (!resposta.ok) throw new Error(corpo.message || 'Não foi possível realizar a operação.');
+        return corpo;
+    }
+    function mensagem(texto, erro = false) {
+        porId('mensagem').textContent = texto;
+        porId('mensagem').style.color = erro ? '#b71c1c' : '#267134';
+    }
+    function celula(linha, texto) {
+        const td = document.createElement('td');
+        td.textContent = texto;
+        linha.appendChild(td);
+        return td;
+    }
+    async function carregar() {
+        try {
+            const alertas = await api('/bolsas/alertas');
+            bolsasPrioritarias = new Set(alertas.map(a => a.bolsa.id));
+            porId('alertas').replaceChildren();
+            if (!alertas.length) {
+                const li = document.createElement('li'); li.textContent = 'Nenhum alerta ativo.'; porId('alertas').appendChild(li);
+            }
+            alertas.forEach(a => {
+                const li = document.createElement('li');
+                li.textContent = `${a.bolsa.codigo} — prioritária para uso; validade ${a.bolsa.validade} (limiar de ${a.limiarDias} dias).`;
+                porId('alertas').appendChild(li);
+            });
+            const filtro = porId('filtro').value;
+            bolsasAtuais = await api('/bolsas' + (filtro ? '?status=' + filtro : ''));
+            porId('bolsas').replaceChildren();
+            if (!bolsasAtuais.length) {
+                const tr = document.createElement('tr'); celula(tr,'Nenhuma bolsa encontrada.').colSpan = 6; porId('bolsas').appendChild(tr);
+            }
+            bolsasAtuais.forEach(b => {
+                const tr = document.createElement('tr');
+                const descartada = b.status === 'DESCARTADO';
+                tr.className = descartada ? 'descartada' : bolsasPrioritarias.has(b.id) ? 'prioritaria' : '';
+                celula(tr,b.codigo); celula(tr,tipos[b.tipoComponente] + ' / ' + abo[b.tipoSanguineo]);
+                celula(tr,b.volumeMl + ' mL'); celula(tr,b.validade);
+                celula(tr,descartada ? 'Descartada' : bolsasPrioritarias.has(b.id) ? 'Disponível — prioritária' : 'Disponível');
+                const acoes = celula(tr,'');
+                const consultar = document.createElement('button'); consultar.textContent = 'Consultar'; consultar.onclick = () => consultarBolsa(b.id); acoes.appendChild(consultar);
+                if (!descartada) {
+                    const editar = document.createElement('button'); editar.textContent = 'Editar'; editar.onclick = () => editarBolsa(b); acoes.appendChild(editar);
+                }
+                porId('bolsas').appendChild(tr);
+            });
+        } catch (erro) { mensagem(erro.message,true); }
+    }
+    async function consultarBolsa(id) {
+        try {
+            const b = await api('/bolsas/' + id);
+            porId('painelDetalhes').hidden = false;
+            porId('detalhes').textContent = `Código: ${b.codigo}\nComponente: ${tipos[b.tipoComponente]} / ${abo[b.tipoSanguineo]}\nVolume: ${b.volumeMl} mL\nColeta: ${b.dataColeta}\nValidade calculada: ${b.validade}\nStatus: ${b.status}` +
+                (b.dataDescarte ? `\nDescarte: ${b.dataDescarte}\nMotivo: ${b.motivoDescarte}\nResponsável: ${b.responsavelDescarte}` : '');
+        } catch (erro) { mensagem(erro.message,true); }
+    }
+    function editarBolsa(b) {
+        editandoId = b.id;
+        ['codigo','tipoComponente','tipoSanguineo','volumeMl','dataColeta'].forEach(c => porId(c).value = b[c]);
+        porId('tituloFormulario').textContent = 'Editar bolsa ' + b.codigo;
+        porId('salvar').textContent = 'Salvar alterações'; porId('cancelar').hidden = false;
+        window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function limpar() {
+        editandoId = null; porId('formBolsa').reset(); porId('tituloFormulario').textContent = 'Cadastrar bolsa';
+        porId('salvar').textContent = 'Cadastrar bolsa'; porId('cancelar').hidden = true;
+    }
+    porId('formBolsa').onsubmit = async evento => {
+        evento.preventDefault(); porId('salvar').disabled = true;
+        try {
+            const dados = {codigo:porId('codigo').value,tipoComponente:porId('tipoComponente').value,tipoSanguineo:porId('tipoSanguineo').value,volumeMl:Number(porId('volumeMl').value),dataColeta:porId('dataColeta').value};
+            const bolsa = await api('/bolsas' + (editandoId ? '/' + editandoId : ''), {method:editandoId ? 'PUT' : 'POST',body:JSON.stringify(dados)});
+            limpar(); await carregar(); await consultarBolsa(bolsa.id);
+            mensagem('Bolsa salva. Validade calculada: ' + bolsa.validade + (bolsa.status === 'DESCARTADO' ? ' — descartada automaticamente por vencimento.' : '.'));
+        } catch (erro) { mensagem(erro.message,true); }
+        finally { porId('salvar').disabled = false; }
+    };
+    porId('cancelar').onclick = limpar;
+    porId('filtro').onchange = carregar;
+    porId('atualizar').onclick = carregar;
+    const hoje = new Date(); hoje.setMinutes(hoje.getMinutes() - hoje.getTimezoneOffset());
+    porId('dataColeta').max = hoje.toISOString().slice(0,10);
+    if (!usuario) window.location.replace('login.html');
+    else if (usuario.perfil !== 'GESTOR_HEMOCENTRO') window.location.replace('requisicoes.html');
+    else { carregar(); setInterval(carregar,30000); }
+</script>
+</body>
+</html>

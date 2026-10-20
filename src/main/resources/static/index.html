@@ -20,6 +20,7 @@
     <h2 id="saudacao">Ola!</h2>
     <div class="perfil" id="perfilTexto"></div>
     <div class="aviso" id="avisoPerfil"></div>
+    <button id="btnEstoque" onclick="window.location.href='estoque.html'" style="margin-bottom: 10px">Estoque e validade</button>
     <button id="btnRequisicoes" onclick="window.location.href='requisicoes.html'">Requisicoes Hospitalares</button>
     <button onclick="sair()" style="margin-top: 10px; background: #999;">Sair</button>
 </div>
@@ -42,6 +43,9 @@
         window.location.href = 'login.html';
     } else {
         const usuario = JSON.parse(dados);
+        if (usuario.perfil !== 'GESTOR_HEMOCENTRO') {
+            document.getElementById('btnEstoque').remove();
+        }
         document.getElementById('saudacao').innerText = `Ola, ${usuario.nome}!`;
         document.getElementById('perfilTexto').innerText = rotulosPerfil[usuario.perfil] || usuario.perfil;
         document.getElementById('avisoPerfil').innerText = avisosPerfil[usuario.perfil] || 'Funcionalidades chegando em breve.';

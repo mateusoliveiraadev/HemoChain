@@ -9,7 +9,10 @@ Java e SpringBoot
 
 
 ## Como rodar o projeto: 
-(Explicação necessária a partir da segunda entrega em diante)
+Requer JDK 17. Na pasta do projeto, execute `./mvnw.cmd spring-boot:run` e abra http://localhost:8080.
+Cadastre um usuário sintético com perfil **Gestor de Hemocentro**, faça login e selecione **Estoque e validade**.
+O H2 grava em `./data/hemochain`; mantenha o mesmo diretório de execução para reutilizar o banco.
+Para compilar, testar e gerar o JAR: `./mvnw.cmd verify`. Encerre a aplicação antes de reempacotar o JAR no Windows.
 
 
 ## Integrantes:
@@ -81,34 +84,104 @@ Neste vídeo, apresentamos a implementação da aplicação utilizando Spring, e
 
 ---
 
-# 3° Entrega 19/10 (Em andamento):
+# Entrega 03 — US01 + US07
 
 ### 1. Histórias de Usuário
-Seleção de mais 2 histórias para implementar (adicionar descrição (formato POST-IT) das histórias implementadas nesta entrega em
-uma seção “histórias implementadas” dentro da seção “Entrega 03”)
+#### Histórias implementadas — formato POST-IT
 
-📄 Documento com as histórias implementadas:
+**US01 — Cadastro e controle de estoque**
+
+**Como** gestor de estoque, **eu quero** cadastrar, consultar e atualizar bolsas, **para que** eu acompanhe os hemocomponentes disponíveis e sua validade.
+
+Implementado: código único por bolsa, componente, ABO/Rh, volume, coleta, validade automática configurável, status, consulta, edição, validações e persistência H2.
+
+**US07 — Alertas de vencimento e descarte**
+
+**Como** gestor de estoque, **eu quero** receber alertas de vencimento e acompanhar descartes automáticos, **para que** eu priorize o uso e preserve o registro do descarte.
+
+Implementado: limiares configuráveis de 5 e 2 dias, destaque de prioridade, descarte automático, histórico mínimo e verificação na inicialização, agendada e nas consultas. Vencidas não aparecem entre as disponíveis.
+
+[POST-IT completo, funcionalidades e limitações](entrega-03/post-its.md).
+
+#### Configuração didática
+
+Os valores são **exclusivamente acadêmicos, não regras clínicas oficiais**. Em `src/main/resources/application.properties`:
+
+| Componente | Dias após coleta | Propriedade |
+|---|---:|---|
+| Concentrado de hemácias | 35 | `estoque.validade.hemacias` |
+| Plasma | 365 | `estoque.validade.plasma` |
+| Plaquetas | 5 | `estoque.validade.plaquetas` |
+| Crioprecipitado | 365 | `estoque.validade.crioprecipitado` |
+
+- Alertas: `estoque.alertas.dias=5,2`. Cada limiar pode produzir um alerta distinto para a mesma bolsa.
+- Agendamento: `estoque.verificacao.cron=0 0 0 * * *`, à meia-noite no fuso do servidor.
+- Validade igual ou anterior ao dia atual implica descarte, sem apagar a bolsa.
+- Histórico mínimo na bolsa: data/hora, motivo e responsável `SISTEMA`.
+- Coleta histórica é aceita para representar estoque existente; se vencida, a bolsa é descartada automaticamente.
+- Uma identificação representa uma bolsa. Volume permitido: 1 a 10.000 mL; coleta futura é rejeitada.
+
+#### Classes, API e testes
+
+Fluxo: `BolsaHemocomponente → BolsaRepository → BolsaService / ValidadeService → BolsaController`.
+`AlertaValidade` e seu repositório persistem notificações; `VerificacaoValidadeAgendada` aciona a verificação. A tela `estoque.html` usa o menu existente.
+
+| Método | Endpoint | Finalidade |
+|---|---|---|
+| POST | `/bolsas` | Cadastrar |
+| GET | `/bolsas` | Listar; filtro opcional `status=DISPONIVEL` ou `DESCARTADO` |
+| GET | `/bolsas/{id}` | Consultar dados e histórico mínimo do descarte |
+| PUT | `/bolsas/{id}` | Editar campos permitidos de bolsa válida |
+| GET | `/bolsas/alertas` | Consultar alertas ativos |
+
+Os endpoints exigem `X-Perfil: GESTOR_HEMOCENTRO`, preservando o mecanismo didático da Entrega 02. Não é autenticação robusta. Não há exclusão física, FEFO, reserva, transporte ou rastreabilidade completa.
+
+Testes novos: `EstoqueControllerTest` e `ValidadeServiceTest`, incluindo BDD das duas histórias, datas de fronteira, duplicidades, edição e histórico persistido. A suíte existente de US02/US08, indicadores e estruturas foi preservada.
+
+📄 Documento com as histórias implementadas: [POST-IT — Entrega 03](entrega-03/post-its.md).
 
 ---
 
 ### 2. Issue/Bug Tracker
-Issue/bug tracker atualizado (usar a ferramenta bug tracker do GitHub)
+![Bug Tracker local da Entrega 03](entrega-03/bug-tracker.png)
+
+Dois defeitos reais reproduzidos e corrigidos: transação da consulta de alertas e precisão do horário de descarte no H2. Esta é uma imagem local, não uma captura nem publicação em GitHub Issues. A atualização externa permanece pendente.
 
 ---
 
 ### 3. Screencast do Protótipo 
-Adicionar novo screencast do sistema funcionando (disponível no youtube, com áudio ou legenda, apresentando as novas histórias implementadas)
-ao README.
+**Vídeo local produzido e validado:** `entrega-03/screencasts/01-demonstracao-sistema.mp4`.
 
-▶️ Assistir no Youtube:
+Duração: **80,28 segundos**. Resolução: **1920 × 1080**, MP4/H.264, 25 quadros/s. Sem trilha de áudio, com legendas em português embutidas permanentemente na imagem.
+
+Captura real da aplicação em `localhost:8080`, usando Playwright com o Edge instalado: login de gestor → cadastro e campos obrigatórios → validade automática → consulta e edição → alertas de 5/2 dias → descarte automático e histórico preservado → filtro de disponíveis. Somente dados sintéticos e operações reais.
+
+Preparação sintética com os valores padrão: plaquetas coletadas hoje geram alerta de 5 dias; coletadas há 3 dias geram alerta de 2 dias; coletadas há 5 dias são descartadas. Use códigos diferentes. A inicialização também recupera vencimentos ocorridos durante o desligamento.
+
+▶️ YouTube: publicação pendente; inserir o link público após publicação autorizada.
 
 ---
 
 ### 4. Screencast do Código 
-Adicionar novo screencast da explicação do código das histórias implementadas (disponível no youtube, com áudio ou legenda) ao README
-no GitHub.
+**Vídeo local produzido e validado:** `entrega-03/screencasts/02-explicacao-codigo.mp4`.
 
-▶️ Assistir no Youtube: 
+Duração: **112,48 segundos**. Resolução: **1920 × 1080**, MP4/H.264, 25 quadros/s. Sem trilha de áudio, com legendas em português embutidas permanentemente na imagem.
+
+Captura em visualizador local somente leitura, carregando diretamente os arquivos reais do projeto; não é uma gravação do VS Code. Apresenta `BolsaHemocomponente`, `StatusBolsa`, `BolsaRepository`, `BolsaService`, `ValidadeService`, `BolsaController`, `VerificacaoValidadeAgendada` e os testes. As legendas explicam encapsulamento, enum, JPA, regras de negócio, endpoints, agendamento e separação de responsabilidades.
+
+#### Validação e limitações
+
+Revalidação em 20/10/2026: Maven `verify` aprovado com JDK 17; 51 testes sem falhas, incluindo US01, US07 e regressão. Foram executadas 23 verificações HTTP reais, incluindo alertas de 5/2 dias, consultas concorrentes e US02/US08, além de nova verificação de persistência após reinicialização com H2 separado. POM e dependências foram auditados, sem Lombok ou novas bibliotecas.
+
+O bloqueio do Computer Use foi resolvido para esta tarefa por uma alternativa local permitida: Playwright com Edge, sem alterar a implementação ou as dependências do projeto. O fluxo do sistema foi executado e capturado de verdade, com verificação dos resultados e sem erros de JavaScript na tomada final. Os arquivos de código apresentados foram lidos diretamente do projeto em um visualizador identificado como somente leitura.
+
+Os dois MP4 foram decodificados integralmente, reproduzidos no navegador e inspecionados em quadros do início, meio e fim. Duração, resolução e ausência de áudio foram conferidas com FFprobe; as legendas foram verificadas nos quadros finais e a análise não detectou trechos pretos de 0,1 segundo ou mais. Cada vídeo tem 14 blocos de legenda incorporados à imagem, sem depender de arquivo SRT ou faixa de legenda externa.
+
+Os vídeos permanecem para revisão local e são excluídos apenas por `.git/info/exclude`, sem alteração do `.gitignore` público. Ferramentas, scripts e capturas intermediárias estão em `.git/`, fora do versionamento. Nenhum vídeo foi publicado no YouTube.
+
+Código e testes preparados com apoio do Codex. O grupo deve revisar, compreender a implementação e seguir as regras de declaração de uso de IA da disciplina. Nenhum push ou publicação foi realizado; os vídeos permanecem locais para revisão.
+
+▶️ YouTube: publicação pendente; inserir o link público após publicação autorizada.
 
 ---
 
