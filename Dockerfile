@@ -5,6 +5,16 @@
 FROM maven:3.9-eclipse-temurin-17 AS build
 WORKDIR /workspace
 
+# Opcional: CA raiz de rede com inspecao de HTTPS (veja certs/README.md).
+# Sem arquivos em certs/, este passo nao faz nada.
+COPY certs/ /tmp/certs/
+RUN set -e; \
+    for c in /tmp/certs/*.crt /tmp/certs/*.pem; do \
+      [ -f "$c" ] || continue; \
+      keytool -importcert -noprompt -trustcacerts -cacerts -storepass changeit \
+        -alias "extra-$(basename "$c")" -file "$c"; \
+    done
+
 # Dependencias primeiro: esta camada fica em cache enquanto o pom.xml nao mudar.
 COPY pom.xml .
 RUN mvn -B -q dependency:go-offline
