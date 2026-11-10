@@ -1,0 +1,46 @@
+{
+  "data": "2026-11-10T03:33:30.045Z",
+  "base": "http://localhost:18084",
+  "requisicaoId": 1,
+  "bolsaId": 1,
+  "hospitalId": 1,
+  "codigo": "DEMO-E04-1794281605703",
+  "eventos": [
+    {
+      "id": 1,
+      "tipo": "CADASTRADA",
+      "momento": "2026-11-10T03:33:27.680001Z",
+      "origem": "PERFIL:GESTOR_HEMOCENTRO",
+      "detalhes": "codigo=DEMO-E04-1794281605703; componente=CONCENTRADO_HEMACIAS; ABO/Rh=O_NEGATIVO; volumeMl=450; coleta=2026-11-09; validade=2026-12-14; status=DISPONIVEL",
+      "bolsaId": 1
+    },
+    {
+      "id": 2,
+      "tipo": "ENTREGA_REGISTRADA",
+      "momento": "2026-11-10T03:33:28.745237Z",
+      "origem": "PERFIL:GESTOR_HEMOCENTRO",
+      "detalhes": "Atestacao de entrega ocorrida; requisicao=1; hospital=1",
+      "bolsaId": 1
+    },
+    {
+      "id": 3,
+      "tipo": "RECEBIDA",
+      "momento": "2026-11-10T03:33:29.134813Z",
+      "origem": "PERFIL:HOSPITAL_SOLICITANTE;HOSPITAL:1",
+      "detalhes": "requisicao=1; condicao=INTEGRA; observacao=",
+      "bolsaId": 1
+    },
+    {
+      "id": 4,
+      "tipo": "UTILIZADA",
+      "momento": "2026-11-10T03:33:29.339667Z",
+      "origem": "PERFIL:HOSPITAL_SOLICITANTE;HOSPITAL:1",
+      "detalhes": "requisicao=1",
+      "bolsaId": 1
+    }
+  ],
+  "resultados": [
+    "Cadastro de bolsa e historico automatico visiveis no estoque.",
+    "Requisicao, FEFO, entrega atestada, recebimento e utilizacao executados pela interface."
+  ]
+}

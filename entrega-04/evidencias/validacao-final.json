@@ -1,0 +1,45 @@
+{
+  "data": "2026-11-10T03:37:03.985690+00:00",
+  "resultado": "APROVADO",
+  "mavenDockerJava17": {
+    "testes": 83,
+    "falhas": 0,
+    "erros": 0,
+    "ignorados": 0
+  },
+  "postgresql16": {
+    "aceitacaoRollback": 17,
+    "integridadeConcorrenciaMigracao": 4,
+    "falhas": 0,
+    "erros": 0,
+    "ignorados": 0
+  },
+  "interface": {
+    "data": "2026-11-10T03:33:37.322Z",
+    "status": "APROVADO",
+    "resultados": [
+      "Cadastro de bolsa e historico automatico visiveis no estoque.",
+      "Requisicao, FEFO, entrega atestada, recebimento e utilizacao executados pela interface.",
+      "Alerta apos prazo real de 5 segundos demonstrado pela interface."
+    ],
+    "errosJavaScript": []
+  },
+  "persistencia": {
+    "data": "2026-11-10T03:35:08.1696990Z",
+    "resultado": "APROVADO",
+    "operacao": "docker compose down (sem -v) e up -d --wait",
+    "projeto": "hemochain-entrega04",
+    "health": "UP",
+    "bolsaId": 1,
+    "requisicaoId": 1,
+    "eventosAntes": 4,
+    "eventosDepois": 4,
+    "historicoIdentico": true,
+    "entregaIdentica": true,
+    "statusBolsa": "UTILIZADA"
+  },
+  "revisaoGitCredenciaisLinks": "APROVADO — detalhes e limites em auditoria-final.json",
+  "githubActionsRemoto": "PENDENTE de publicacao autorizada",
+  "youtube": "PENDENTE da equipe — roteiros entregues",
+  "mergeDeployProducao": "NAO EXECUTADO"
+}

@@ -1,0 +1,10 @@
+﻿Comando: mvnw.cmd -B -Ppostgres-it -Dtest=AtendimentoHospitalarAceitacaoTest,RastreabilidadeTransacaoTest verify
+PostgreSQL 16 real, perfil postgres-test. Credenciais definidas no ambiente, nao neste arquivo.
+
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.10 s -- in com.hemochain.controller.AtendimentoHospitalarAceitacaoTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.124 s -- in com.hemochain.service.RastreabilidadeTransacaoTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.53 s -- in com.hemochain.repository.HistoricoPostgresIT
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+[INFO] Finished at: 2026-11-10T00:27:02-03:00

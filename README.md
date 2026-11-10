@@ -281,25 +281,71 @@ O objetivo é apresentar como o código foi organizado, explicar as principais p
 
 ---
 
-# 4° Entrega 09/11 (Em Andamento):
+# Entrega 04 — 09/11
+
+Implementação e homologação local em 10/11/2026. Publicação dos vídeos, issues e PR dependem da equipe; o [relatório final](entrega-04/homologacao.md) distingue **CONCLUÍDO**, **PENDENTE** e **BLOQUEADO**.
 
 ### 1. Histórias de Usuário
 
-📄 Documento com as histórias implementadas:
+#### Histórias implementadas — formato POST-IT
+
+**US09 — Rastreabilidade completa da bolsa**
+
+**Como** gestor de estoque do hemocentro, **eu quero** consultar os eventos automaticamente registrados de cada bolsa, **para que** acompanhe seu ciclo com histórico auditável e preservado.
+
+Funcionalidades: cadastro, atualização com antes/depois, descarte, entrega atestada, recebimento, utilização e atraso de confirmação. Cada evento identifica bolsa, tipo, data/hora UTC, origem e detalhes. API e telas exibem ordem cronológica. Eventos e mudanças de estado são transacionais; PostgreSQL bloqueia alteração, exclusão e truncate do histórico. Bolsas anteriores não recebem histórico retroativo fabricado.
+
+BDD: **Dado** que uma bolsa passou por diferentes estados, **quando** o gestor consultar seu histórico, **então** os eventos aparecem em ordem cronológica com data/hora e responsável ou origem. **Dado** um evento registrado, **quando** alguém tentar modificá-lo ou excluí-lo, **então** a operação é bloqueada e o registro original preservado.
+
+**US10 — Confirmação de recebimento e uso hospitalar**
+
+**Como** hospital solicitante, **eu quero** confirmar a condição de recebimento e registrar a utilização da bolsa entregue, **para que** o hemocentro acompanhe o desfecho da requisição.
+
+Funcionalidades: vínculo explícito bolsa/requisição por atestação de entrega já ocorrida; seleção manual ABO/Rh/FEFO de hemácias; contexto hospitalar validado; condição íntegra ou não conforme; recebimento e uso sem duplicidade; estados totais/parciais; prazo configurável e alerta persistente integrado à US09. A **reserva automática da US03 continua pendente**. Não foram implementadas US04, US05 ou US06 nesta entrega.
+
+BDD: **Dado** que uma bolsa foi entregue ao hospital, **quando** o hospital autorizado confirmar condição íntegra, **então** a requisição de uma bolsa passa a recebida e a bolsa fica apta a registrar uso enquanto válida. **Dado** que a entrega ultrapassou o prazo configurado sem confirmação, **quando** a verificação ocorrer, **então** gera alerta e sinaliza recebimento pendente.
+
+📄 [POST-IT completo, critérios, evidências e limitações](entrega-04/post-its.md) · [BDD](docs/bdd/rastreabilidade-recebimento.feature) · [API e operação](entrega-04/api-e-operacao.md).
+
+Fluxo demonstrável: **estoque → requisição → sugestão FEFO → atestação de entrega → recebimento → utilização → histórico final**. Use o novo botão **Entregas e recebimento** no menu. O hospital seleciona seu contexto nas telas; chamadas hospitalares exigem `X-Hospital-Id` além de `X-Perfil`. Esse mecanismo continua didático, sem autenticação robusta ou uso clínico homologado.
+
+Prazo padrão: `recebimento.prazo=PT24H` (variável `RECEBIMENTO_PRAZO`). Verificação automática: 60 segundos. Na base exclusiva de demonstração, o prazo foi reduzido para cinco segundos para produzir o alerta de verdade. O registro de entrega é manual e não implementa transporte.
+
+Testes: suíte completa com **83 testes** no build Docker/Java 17; PostgreSQL real com **17 testes de aceitação/rollback e 4 de integridade, migração e concorrência**. Jornada real da interface validada por Playwright/Edge; detalhes, comandos e resultados em [homologação](entrega-04/homologacao.md) e [evidências](entrega-04/evidencias/README.md). A CI inclui um job PostgreSQL antes do container/publicação; execução remota desta versão depende de publicação autorizada da branch.
 
 ---
 
 ### 2. Issue/Bug Tracker
 
+Quatro defeitos documentados: acesso entre contextos hospitalares, validação JPA de campo transitório, evolução do CHECK de status e DDL de default na reinicialização. Causa, severidade, correção e validação no [tracker](entrega-04/bug-tracker.md).
+
+![Captura do tracker local da Entrega 04](entrega-04/evidencias/bug-tracker.png)
+
+Esta é uma captura do tracker **local**, não do GitHub. [Issues preparadas](entrega-04/issues-preparadas.md) e [minuta do PR](entrega-04/pull-request.md) aguardam autorização para publicação. A alteração preexistente da imagem da Entrega 03 foi preservada fora dos commits desta entrega.
+
 ---
 
-### 3. Screencast do Protótipo 
-▶️ Assistir no Youtube:
+### 3. Screencast do Protótipo
+
+Roteiro completo com telas, ações, falas e instruções: [screencast do sistema](entrega-04/roteiro-screencast-sistema.md). Capturas reais: [jornada e alerta](entrega-04/evidencias/README.md).
+
+▶️ **YouTube: PENDENTE.** A equipe precisa gravar com áudio ou legenda, publicar pela conta autorizada e inserir aqui o link real. Nenhum vídeo ou link fictício foi criado.
 
 ---
 
-### 4. Screencast do Código 
-▶️ Assistir no Youtube:
+### 4. Screencast do Código
+
+Roteiro com entidades, controllers, services, repositories, transações, testes e integração: [screencast do código](entrega-04/roteiro-screencast-codigo.md).
+
+▶️ **YouTube: PENDENTE.** Gravação e publicação com áudio ou legenda dependem da equipe; adicionar aqui a URL real após conferir acesso.
+
+---
+
+### Apresentação final e homologação
+
+[Roteiro do produto integrado](entrega-04/roteiro-apresentacao-final.md) · [Auditoria inicial](entrega-04/auditoria.md) · [Checklist e relatório final](entrega-04/homologacao.md).
+
+Implementação, testes e materiais preparados com apoio do **Codex**. A equipe deve revisar, compreender a solução e declarar o uso de IA conforme a disciplina. Sem merge na main ou deploy de produção nesta atividade.
 
 ---
 
