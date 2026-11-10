@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HemoChain - Entregas e recebimento</title>
+    <style>
+        *{box-sizing:border-box}body{margin:0;font-family:'Segoe UI',Tahoma,sans-serif;background:linear-gradient(135deg,#b71c1c,#6a1b1b);min-height:100vh;padding:24px;color:#333}main{max-width:1100px;margin:auto}section{background:white;padding:24px;border-radius:12px;margin:18px 0;box-shadow:0 8px 24px #0002}nav a{color:white;margin-right:20px}h1,h2{margin-top:0}label{display:block;font-weight:600;margin-top:12px}select,input,textarea{font:inherit;padding:10px;width:100%;margin:6px 0 12px;border:1px solid #bbb;border-radius:6px}input[type=checkbox]{width:auto}button{background:#b71c1c;color:white;border:0;border-radius:6px;padding:10px 16px;font:inherit;cursor:pointer;margin:4px}button:disabled{opacity:.5;cursor:wait}.aviso{background:#fff4db;padding:12px;border-left:4px solid #d38200}.entrega{border:1px solid #ddd;border-radius:8px;padding:16px;margin:14px 0}.pendente{border-left:5px solid #d38200}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;line-height:1.6}#mensagem{font-weight:600;min-height:24px}li{margin-bottom:10px}[hidden]{display:none!important}@media(max-width:700px){body{padding:12px}section{padding:16px}}
+    </style>
+</head>
+<body><main>
+    <nav><a href="index.html">← Menu</a><a href="requisicoes.html">Requisições</a><a id="linkEstoque" href="estoque.html">Estoque e histórico</a></nav>
+    <section>
+        <h1>Entregas e recebimento</h1>
+        <p class="aviso">Protótipo acadêmico com dados sintéticos. A entrega é atestada manualmente depois de ocorrer. Não há reserva automática, transporte ou validação clínica. A associação utiliza somente a regra didática de hemácias da US03.</p>
+        <div id="contextoHospital" hidden><label for="hospital">Hospital em atendimento</label><select id="hospital"></select><p>Contexto declarado no mecanismo didático de acesso; não representa uma sessão autenticada por hospital.</p></div>
+        <div id="selecao"><label for="requisicao">Requisição</label><select id="requisicao"></select><button id="atualizar" type="button">Atualizar</button><pre id="resumo"></pre></div>
+        <p id="mensagem" role="status" aria-live="polite"></p>
+    </section>
+    <section id="registroEntrega" hidden>
+        <h2>Associar bolsa e registrar entrega ocorrida</h2>
+        <p>A lista apresenta bolsas compatíveis em ordem FEFO. A escolha é manual; cada bolsa pode atender uma única requisição.</p>
+        <form id="formEntrega"><label for="bolsa">Bolsa compatível (validade crescente)</label><select id="bolsa" required></select>
+            <label><input id="entregaRealizada" type="checkbox" required> Atesto que esta bolsa foi entregue ao hospital desta requisição.</label>
+            <button type="submit">Registrar entrega realizada</button>
+        </form>
+    </section>
+    <section id="painelEntregas"><h2>Bolsas da requisição</h2><div id="entregas"></div></section>
+    <section id="painelPendencias" hidden><h2>Alertas de recebimento pendente</h2><p>Gerados após o prazo configurado, com verificação automática e ao atualizar este painel. O alerta fica preservado após a confirmação.</p><button id="verificar" type="button">Verificar pendências</button><ul id="pendencias"></ul></section>
+    <section id="painelHistorico" hidden><h2>Histórico cronológico da bolsa</h2><pre id="historico"></pre></section>
+</main>
+<script>
+const usuario = JSON.parse(localStorage.getItem('hemochainUsuario') || 'null');
+const el = id => document.getElementById(id);
+const gestor = usuario?.perfil === 'GESTOR_HEMOCENTRO';
+const hospital = usuario?.perfil === 'HOSPITAL_SOLICITANTE';
+let requisicoes = [];
+function mensagem(texto, erro=false){el('mensagem').textContent=texto;el('mensagem').style.color=erro?'#b71c1c':'#267134';}
+async function api(url, method='GET', dados){
+    const headers={'Content-Type':'application/json','X-Perfil':usuario?.perfil || ''};
+    if(hospital && el('hospital').value) headers['X-Hospital-Id']=el('hospital').value;
+    const r=await fetch(url,{method,headers,body:dados===undefined?undefined:JSON.stringify(dados)});
+    const corpo=await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error(corpo.message || `Operação recusada (${r.status}). Confira os campos e permissões.`);
+    return corpo;
+}
+function data(valor){return valor ? new Date(valor).toLocaleString('pt-BR') : 'Não registrado';}
+function texto(pai,tag,conteudo){const n=document.createElement(tag);n.textContent=conteudo;pai.appendChild(n);return n;}
+function botao(pai,rotulo,acao){const b=texto(pai,'button',rotulo);b.type='button';b.onclick=()=>executar(acao,b);return b;}
+async function executar(acao,botao){mensagem('');if(botao)botao.disabled=true;try{await acao();}catch(e){mensagem(e.message,true);}finally{if(botao)botao.disabled=false;}}
+async function carregarRequisicoes(){
+    const anterior=el('requisicao').value || new URLSearchParams(location.search).get('requisicao');
+    requisicoes=await api('/requisicoes');el('requisicao').replaceChildren();
+    requisicoes.forEach(r=>el('requisicao').add(new Option(`#${r.id} — ${r.hospital.nome} — ${r.status}`,r.id)));
+    if(requisicoes.some(r=>String(r.id)===anterior)) el('requisicao').value=anterior;
+    await carregarDetalhes();
+}
+async function historico(id){
+    const eventos=await api(`/bolsas/${id}/historico`);el('painelHistorico').hidden=false;
+    el('historico').textContent=eventos.length?eventos.map(e=>`${data(e.momento)} — ${e.tipo}\nOrigem: ${e.origem}\n${e.detalhes}`).join('\n\n'):'Sem eventos registrados; não há histórico retroativo.';
+}
+async function carregarDetalhes(){
+    const r=requisicoes.find(r=>String(r.id)===el('requisicao').value);
+    el('entregas').replaceChildren();el('registroEntrega').hidden=true;el('painelHistorico').hidden=true;
+    if(!r){el('resumo').textContent='Nenhuma requisição neste contexto. Cadastre uma na tela Requisições.';return;}
+    el('resumo').textContent=`Requisição #${r.id} | Hospital: ${r.hospital.nome}\nComponente: ${r.tipoComponente} | Receptor: ${r.tipoSanguineo}\nQuantidade: ${r.quantidade} | Situação: ${r.status}`;
+    const entregas=await api(`/requisicoes/${r.id}/entregas`);
+    if(gestor && r.tipoComponente==='CONCENTRADO_HEMACIAS' && entregas.length<r.quantidade){
+        const bolsas=await api(`/bolsas/compativeis?receptor=${r.tipoSanguineo}`);el('bolsa').replaceChildren();
+        bolsas.forEach(b=>el('bolsa').add(new Option(`${b.codigo} — ${b.tipoSanguineo} — validade ${b.validade}`,b.id)));
+        if(!bolsas.length)el('bolsa').add(new Option('Nenhuma bolsa compatível disponível',''));
+        el('registroEntrega').hidden=false;el('entregaRealizada').checked=false;
+    }
+    if(!entregas.length)texto(el('entregas'),'p','Nenhuma entrega registrada.');
+    entregas.forEach(e=>{
+        const card=document.createElement('div');card.className='entrega'+(!e.recebidaEm&&e.alertaEm?' pendente':'');el('entregas').appendChild(card);
+        texto(card,'h3',`Bolsa ${e.bolsa.codigo} — ${e.bolsa.status}`);
+        texto(card,'pre',`Entrega #${e.id}: ${data(e.entregueEm)}\nPrazo de confirmação: ${data(e.prazoConfirmacao)}\nRecebimento: ${data(e.recebidaEm)} | Condição: ${e.condicao || 'Aguardando'}\nObservação: ${e.observacao || '—'}\nUtilização: ${data(e.utilizadaEm)}`);
+        if(e.alertaEm)texto(card,'p',`Alerta registrado em ${data(e.alertaEm)}${e.recebidaEm?' — confirmação resolvida.':' — RECEBIMENTO PENDENTE.'}`);
+        if(gestor)botao(card,'Consultar histórico',()=>historico(e.bolsa.id));
+        if(hospital&&!e.recebidaEm){
+            const form=document.createElement('form');card.appendChild(form);
+            const label=texto(form,'label','Condição de recebimento');const select=document.createElement('select');label.appendChild(select);
+            select.add(new Option('Íntegra','INTEGRA'));select.add(new Option('Não conforme','NAO_CONFORME'));
+            const obsLabel=texto(form,'label','Observação (obrigatória se não conforme)');const obs=document.createElement('textarea');obs.maxLength=1000;obsLabel.appendChild(obs);
+            const enviar=texto(form,'button','Confirmar recebimento');enviar.type='submit';
+            form.onsubmit=ev=>{ev.preventDefault();executar(async()=>{await api(`/requisicoes/${r.id}/entregas/${e.id}/recebimento`,'POST',{condicao:select.value,observacao:obs.value});await carregarRequisicoes();mensagem('Recebimento confirmado e histórico registrado.');},enviar);};
+        }
+        if(hospital&&e.condicao==='INTEGRA'&&!e.utilizadaEm)botao(card,'Registrar utilização',async()=>{await api(`/requisicoes/${r.id}/entregas/${e.id}/utilizacao`,'POST');await carregarRequisicoes();mensagem('Utilização registrada.');});
+    });
+}
+async function pendencias(){const lista=await api('/requisicoes/pendencias');el('pendencias').replaceChildren();if(!lista.length)texto(el('pendencias'),'li','Nenhum recebimento atrasado.');lista.forEach(e=>texto(el('pendencias'),'li',`Requisição #${e.requisicao.id} — ${e.requisicao.hospital.nome} — bolsa ${e.bolsa.codigo} — prazo: ${data(e.prazoConfirmacao)}`));}
+el('formEntrega').onsubmit=ev=>{ev.preventDefault();executar(async()=>{await api(`/requisicoes/${el('requisicao').value}/entregas`,'POST',{bolsaId:Number(el('bolsa').value),entregaRealizada:el('entregaRealizada').checked});await carregarRequisicoes();mensagem('Entrega registrada. A bolsa aguarda confirmação hospitalar.');},ev.submitter);};
+el('requisicao').onchange=()=>executar(carregarDetalhes);
+el('atualizar').onclick=()=>executar(carregarRequisicoes);
+el('verificar').onclick=()=>executar(async()=>{await pendencias();if(gestor)await carregarRequisicoes();mensagem('Verificação concluída.');});
+async function iniciar(){
+    if(!usuario){location.replace('login.html');return;}
+    el('linkEstoque').hidden=!gestor;
+    if(hospital){el('contextoHospital').hidden=false;const hs=await api('/hospitais');hs.forEach(h=>el('hospital').add(new Option(h.nome,h.id)));el('hospital').value=localStorage.getItem('hemochainHospitalId')||el('hospital').value;if(!el('hospital').value&&hs.length)el('hospital').value=hs[0].id;el('hospital').onchange=()=>{localStorage.setItem('hemochainHospitalId',el('hospital').value);executar(carregarRequisicoes);};}
+    if(gestor||hospital)await carregarRequisicoes();else{el('selecao').hidden=true;el('painelEntregas').hidden=true;}
+    if(gestor||usuario.perfil==='OPERADOR_LOGISTICA'){el('painelPendencias').hidden=false;await pendencias();}
+}
+executar(iniciar);
+</script></body></html>

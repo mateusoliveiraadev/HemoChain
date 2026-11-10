@@ -33,15 +33,24 @@ public class RequisicaoController {
     }
 
     @GetMapping
-    public List<RequisicaoHospitalar> listar(@RequestHeader(value = "X-Perfil", required = false) String perfil) {
+    public List<RequisicaoHospitalar> listar(@RequestHeader(value = "X-Perfil", required = false) String perfil,
+            @RequestHeader(value = "X-Hospital-Id", required = false) Long hospitalId) {
         verificarAcesso(perfil, PERFIS_LEITURA);
+        if ("HOSPITAL_SOLICITANTE".equals(perfil)) {
+            if (hospitalId == null) throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Informe X-Hospital-Id.");
+            return service.listarDoHospital(hospitalId);
+        }
         return service.listarTodas();
     }
 
     @PostMapping
     public RequisicaoHospitalar cadastrar(@Valid @RequestBody RequisicaoHospitalar requisicao,
-            @RequestHeader(value = "X-Perfil", required = false) String perfil) {
+            @RequestHeader(value = "X-Perfil", required = false) String perfil,
+            @RequestHeader(value = "X-Hospital-Id", required = false) Long hospitalId) {
         verificarAcesso(perfil, PERFIS_ESCRITA);
+        if (hospitalId == null || !hospitalId.equals(requisicao.getHospitalId())) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Hospital do cabecalho deve corresponder a requisicao.");
+        }
         return service.cadastrar(requisicao);
     }
 

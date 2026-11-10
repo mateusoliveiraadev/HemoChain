@@ -29,7 +29,6 @@ public class RequisicaoHospitalar {
 
     // So para receber o id do hospital escolhido no formulario (nao e uma coluna).
     // O Hospital completo e resolvido e atribuido pelo RequisicaoService.
-    @NotNull
     @Transient
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long hospitalId;
@@ -52,7 +51,17 @@ public class RequisicaoHospitalar {
     @NotNull
     private LocalDate prazoLimite;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private LocalDateTime dataCriacao;
+
+    @Enumerated(EnumType.STRING)
+    @jakarta.persistence.Column(nullable = false, length = 40)
+    @org.hibernate.annotations.ColumnDefault("'SOLICITADA'")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private StatusRequisicao status = StatusRequisicao.SOLICITADA;
+
+    public StatusRequisicao getStatus() { return status; }
+    public void setStatus(StatusRequisicao status) { this.status = status; }
 
     public RequisicaoHospitalar() {
         this.dataCriacao = LocalDateTime.now();

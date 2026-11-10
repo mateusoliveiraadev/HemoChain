@@ -1,0 +1,14 @@
+﻿{
+    "data":  "2026-11-10T03:35:08.1696990Z",
+    "resultado":  "APROVADO",
+    "operacao":  "docker compose down (sem -v) e up -d --wait",
+    "projeto":  "hemochain-entrega04",
+    "health":  "UP",
+    "bolsaId":  1,
+    "requisicaoId":  1,
+    "eventosAntes":  4,
+    "eventosDepois":  4,
+    "historicoIdentico":  true,
+    "entregaIdentica":  true,
+    "statusBolsa":  "UTILIZADA"
+}

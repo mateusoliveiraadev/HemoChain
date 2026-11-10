@@ -47,7 +47,7 @@ class AcessoPorPerfilTest {
 
     @Test
     void hospitalSolicitanteAcessaRequisicoes() throws Exception {
-        mockMvc.perform(get("/requisicoes").header("X-Perfil", "HOSPITAL_SOLICITANTE"))
+        mockMvc.perform(get("/requisicoes").header("X-Perfil", "HOSPITAL_SOLICITANTE").header("X-Hospital-Id", "1"))
                 .andExpect(status().isOk());
     }
 

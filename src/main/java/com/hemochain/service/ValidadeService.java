@@ -15,6 +15,7 @@ import com.hemochain.repository.*;
 public class ValidadeService {
     private final BolsaRepository bolsas;
     private final AlertaValidadeRepository alertas;
+    private final RastreabilidadeService rastreabilidade;
 
     @Value("${estoque.validade.hemacias:35}")
     private int diasHemacias;
@@ -27,9 +28,11 @@ public class ValidadeService {
     @Value("${estoque.alertas.dias:5,2}")
     private int[] limiares;
 
-    public ValidadeService(BolsaRepository bolsas, AlertaValidadeRepository alertas) {
+    public ValidadeService(BolsaRepository bolsas, AlertaValidadeRepository alertas,
+            RastreabilidadeService rastreabilidade) {
         this.bolsas = bolsas;
         this.alertas = alertas;
+        this.rastreabilidade = rastreabilidade;
     }
 
     @PostConstruct
@@ -75,6 +78,8 @@ public class ValidadeService {
         }
         if (!bolsa.getValidade().isAfter(hoje)) {
             bolsa.descartar(LocalDateTime.now());
+            rastreabilidade.registrar(bolsa, TipoEventoBolsa.DESCARTADA, "SISTEMA:VALIDADE",
+                    bolsa.getMotivoDescarte() + "; " + RastreabilidadeService.retrato(bolsa));
             return;
         }
         long diasRestantes = ChronoUnit.DAYS.between(hoje, bolsa.getValidade());

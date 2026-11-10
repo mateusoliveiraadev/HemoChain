@@ -122,10 +122,10 @@
                 tr.className = descartada ? 'descartada' : bolsasPrioritarias.has(b.id) ? 'prioritaria' : '';
                 celula(tr,b.codigo); celula(tr,tipos[b.tipoComponente] + ' / ' + abo[b.tipoSanguineo]);
                 celula(tr,b.volumeMl + ' mL'); celula(tr,b.validade);
-                celula(tr,descartada ? 'Descartada' : bolsasPrioritarias.has(b.id) ? 'Disponível — prioritária' : 'Disponível');
+                celula(tr,b.status === 'DISPONIVEL' && bolsasPrioritarias.has(b.id) ? 'Disponível — prioritária' : b.status);
                 const acoes = celula(tr,'');
                 const consultar = document.createElement('button'); consultar.textContent = 'Consultar'; consultar.onclick = () => consultarBolsa(b.id); acoes.appendChild(consultar);
-                if (!descartada) {
+                if (b.status === 'DISPONIVEL') {
                     const editar = document.createElement('button'); editar.textContent = 'Editar'; editar.onclick = () => editarBolsa(b); acoes.appendChild(editar);
                 }
                 porId('bolsas').appendChild(tr);
@@ -138,6 +138,8 @@
             porId('painelDetalhes').hidden = false;
             porId('detalhes').textContent = `Código: ${b.codigo}\nComponente: ${tipos[b.tipoComponente]} / ${abo[b.tipoSanguineo]}\nVolume: ${b.volumeMl} mL\nColeta: ${b.dataColeta}\nValidade calculada: ${b.validade}\nStatus: ${b.status}` +
                 (b.dataDescarte ? `\nDescarte: ${b.dataDescarte}\nMotivo: ${b.motivoDescarte}\nResponsável: ${b.responsavelDescarte}` : '');
+            const eventos = await api('/bolsas/' + id + '/historico');
+            porId('detalhes').textContent += '\n\nHistórico cronológico (UTC):\n' + (eventos.length ? eventos.map(e => `${e.momento} — ${e.tipo}\nOrigem: ${e.origem}\n${e.detalhes}`).join('\n\n') : 'Sem eventos registrados. Bolsas anteriores à US09 não recebem histórico retroativo.');
         } catch (erro) { mensagem(erro.message,true); }
     }
     function editarBolsa(b) {

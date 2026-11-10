@@ -34,6 +34,11 @@
 <body>
 <div class="wrapper">
     <a class="back-link" href="index.html">&larr; Voltar ao menu</a>
+    <div class="container">
+        <a href="atendimento.html">Acompanhar entregas, recebimento e utilização →</a>
+        <p>Contexto hospitalar acadêmico: selecione o hospital solicitante abaixo. O backend confere esse contexto em cada operação.</p>
+        <label for="hospitalContexto">Hospital em atendimento</label><select id="hospitalContexto"></select>
+    </div>
 
     <div class="container">
         <h2>Cadastrar Hospital</h2>
@@ -112,12 +117,12 @@
         <table>
             <thead>
                 <tr>
-                    <th>Hospital</th>
+                    <th>ID / Hospital</th>
                     <th>Componente</th>
                     <th>ABO/Rh</th>
                     <th>Qtd</th>
                     <th>Urgencia</th>
-                    <th>Prazo</th>
+                    <th>Prazo / Situação</th>
                 </tr>
             </thead>
             <tbody id="listaRequisicoes"></tbody>
@@ -154,16 +159,30 @@
     function cabecalhos() {
         const dados = localStorage.getItem('hemochainUsuario');
         const usuario = dados ? JSON.parse(dados) : null;
-        return { 'Content-Type': 'application/json', 'X-Perfil': usuario ? usuario.perfil : '' };
+        const h = { 'Content-Type': 'application/json', 'X-Perfil': usuario ? usuario.perfil : '' };
+        if (document.getElementById('hospitalContexto').value) h['X-Hospital-Id'] = document.getElementById('hospitalContexto').value;
+        return h;
     }
 
     async function carregarHospitais() {
         const resposta = await fetch('/hospitais', { headers: cabecalhos() });
+        if (!resposta.ok) throw new Error(await mensagemDeErro(resposta, 'Falha ao carregar hospitais.'));
         const hospitais = await resposta.json();
         const select = document.getElementById('reqHospital');
-        select.innerHTML = hospitais.length === 0
-            ? '<option value="">Cadastre um hospital primeiro</option>'
-            : hospitais.map(h => `<option value="${h.id}">${h.nome}</option>`).join('');
+        const contexto = document.getElementById('hospitalContexto');
+        contexto.replaceChildren();
+        hospitais.forEach(h => contexto.add(new Option(h.nome, h.id)));
+        contexto.value = localStorage.getItem('hemochainHospitalId') || contexto.value;
+        if (!contexto.value && hospitais.length) contexto.value = hospitais[0].id;
+        contexto.onchange = () => { localStorage.setItem('hemochainHospitalId', contexto.value); selecionarHospital(); carregarRequisicoes(); };
+        function selecionarHospital() {
+            select.replaceChildren();
+            const escolhido = hospitais.find(h => String(h.id) === contexto.value);
+            if (escolhido) select.add(new Option(escolhido.nome, escolhido.id));
+            localStorage.setItem('hemochainHospitalId', contexto.value);
+        }
+        selecionarHospital();
+        await carregarRequisicoes();
     }
 
     async function cadastrarHospital() {
@@ -240,14 +259,15 @@
             corpo.innerHTML = '<tr><td colspan="6">Nenhuma requisicao registrada.</td></tr>';
             return;
         }
+        const escapar = texto => String(texto).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
         corpo.innerHTML = requisicoes.map(r => `
             <tr class="${r.urgencia === 'EMERGENCIAL' ? 'emergencial' : ''}">
-                <td>${r.hospital ? r.hospital.nome : '-'}</td>
+                <td><a href="atendimento.html?requisicao=${r.id}">#${r.id}</a> ${r.hospital ? escapar(r.hospital.nome) : '-'}</td>
                 <td>${rotulosComponente[r.tipoComponente] || r.tipoComponente}</td>
                 <td>${rotulosTipoSanguineo[r.tipoSanguineo] || r.tipoSanguineo}</td>
                 <td>${r.quantidade}</td>
                 <td><span class="badge badge-${r.urgencia.toLowerCase()}">${rotulosUrgencia[r.urgencia] || r.urgencia}</span></td>
-                <td>${r.prazoLimite}</td>
+                <td>${r.prazoLimite} / ${r.status}</td>
             </tr>
         `).join('');
     }
@@ -259,8 +279,11 @@
         alert('Seu perfil (Operador de Logistica) nao tem acesso as requisicoes hospitalares.');
         window.location.href = 'index.html';
     } else {
-        carregarHospitais();
-        carregarRequisicoes();
+        if (JSON.parse(dadosUsuario).perfil === 'GESTOR_HEMOCENTRO') {
+            document.getElementById('reqHospital').closest('.container').hidden = true;
+            document.getElementById('hospNome').closest('.container').hidden = true;
+        }
+        carregarHospitais().catch(e => document.getElementById('statusRequisicao').textContent = e.message);
     }
 </script>
 </body>

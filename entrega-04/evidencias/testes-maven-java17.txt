@@ -1,0 +1,29 @@
+﻿Comando: docker compose build api; Dockerfile executa mvn -B verify com Java 17.
+Resumo extraido do log real .git/entrega04-docker-build.log.
+
+#17 11.56 [INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 s -- in com.hemochain.service.RequisicaoIndicadoresServiceTest
+#17 12.16 2026-11-10T03:31:44.904Z  INFO 101 --- [           main] c.hemochain.service.HospitalServiceTest  : Starting HospitalServiceTest using Java 17.0.20.1 with PID 101 (started by root in /workspace)
+#17 17.74 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.187 s -- in com.hemochain.service.HospitalServiceTest
+#17 18.15 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.407 s -- in com.hemochain.service.ValidadeServiceTest
+#17 18.27 2026-11-10T03:31:51.053Z  INFO 101 --- [           main] c.h.s.RastreabilidadeTransacaoTest       : Starting RastreabilidadeTransacaoTest using Java 17.0.20.1 with PID 101 (started by root in /workspace)
+#17 20.29 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.137 s -- in com.hemochain.service.RastreabilidadeTransacaoTest
+#17 20.31 [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in com.hemochain.service.CompatibilidadeServiceTest
+#17 20.37 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.060 s -- in com.hemochain.service.RequisicaoServiceTest
+#17 20.54 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.172 s -- in com.hemochain.service.AtendimentoHospitalarServiceTest
+#17 21.12 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.581 s -- in com.hemochain.service.UsuarioServiceTest
+#17 21.21 2026-11-10T03:31:54.007Z  INFO 101 --- [           main] c.h.r.BolsaCompativelRepositoryTest      : Starting BolsaCompativelRepositoryTest using Java 17.0.20.1 with PID 101 (started by root in /workspace)
+#17 21.70 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.573 s -- in com.hemochain.repository.BolsaCompativelRepositoryTest
+#17 21.71 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in com.hemochain.estrutura.HistoricoOperacoesTest
+#17 21.72 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in com.hemochain.estrutura.FilaRequisicoesTest
+#17 21.72 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in com.hemochain.estrutura.EstoqueBolsasTest
+#17 21.91 2026-11-10T03:31:54.600Z  INFO 101 --- [           main] c.h.controller.EstoqueControllerTest     : Starting EstoqueControllerTest using Java 17.0.20.1 with PID 101 (started by root in /workspace)
+#17 23.62 [INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.896 s -- in com.hemochain.controller.EstoqueControllerTest
+#17 23.76 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s -- in com.hemochain.controller.CompatibilidadeAceitacaoTest
+#17 23.82 2026-11-10T03:31:56.620Z  INFO 101 --- [           main] c.h.c.AtendimentoHospitalarAceitacaoTest : Starting AtendimentoHospitalarAceitacaoTest using Java 17.0.20.1 with PID 101 (started by root in /workspace)
+#17 26.23 [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.460 s -- in com.hemochain.controller.AtendimentoHospitalarAceitacaoTest
+#17 26.30 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s -- in com.hemochain.controller.AcessoPorPerfilTest
+#17 26.31 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in com.hemochain.HemochainApplicationTests
+#17 26.34 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s -- in com.hemochain.config.EvolucaoStatusBolsaH2Test
+#17 26.42 [INFO] Tests run: 83, Failures: 0, Errors: 0, Skipped: 0
+#17 27.03 [INFO] BUILD SUCCESS
+#17 27.03 [INFO] Finished at: 2026-11-10T03:31:59Z

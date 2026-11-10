@@ -16,10 +16,20 @@ import com.hemochain.service.*;
 public class BolsaController {
     private final BolsaService bolsas;
     private final ValidadeService validade;
+    private final RastreabilidadeService rastreabilidade;
 
-    public BolsaController(BolsaService bolsas, ValidadeService validade) {
+    public BolsaController(BolsaService bolsas, ValidadeService validade, RastreabilidadeService rastreabilidade) {
         this.bolsas = bolsas;
         this.validade = validade;
+        this.rastreabilidade = rastreabilidade;
+    }
+
+    @GetMapping("/{id}/historico")
+    public List<EventoBolsa> historico(@PathVariable Long id,
+            @RequestHeader(value = "X-Perfil", required = false) String perfil) {
+        verificarPerfil(perfil);
+        bolsas.buscar(id); // Executa a verificacao de validade existente antes da consulta.
+        return rastreabilidade.historico(id);
     }
 
     @GetMapping
