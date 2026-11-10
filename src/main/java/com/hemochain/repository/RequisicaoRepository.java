@@ -12,6 +12,11 @@ import com.hemochain.entity.RequisicaoHospitalar;
 
 public interface RequisicaoRepository extends JpaRepository<RequisicaoHospitalar, Long> {
     List<RequisicaoHospitalar> findAllByOrderByDataCriacaoDesc();
+    List<RequisicaoHospitalar> findByHospital_IdOrderByDataCriacaoDesc(Long hospitalId);
+
+    @org.springframework.data.jpa.repository.Lock(jakarta.persistence.LockModeType.PESSIMISTIC_WRITE)
+    @Query("select r from RequisicaoHospitalar r where r.id = :id")
+    java.util.Optional<RequisicaoHospitalar> buscarParaAtualizacao(Long id);
 
     /**
      * Projecao enxuta (so tipoSanguineo e quantidade) usada pelo calculo dos

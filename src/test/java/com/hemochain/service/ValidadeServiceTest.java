@@ -20,7 +20,7 @@ class ValidadeServiceTest {
     void preparar() {
         bolsas = mock(BolsaRepository.class);
         alertas = mock(AlertaValidadeRepository.class);
-        service = new ValidadeService(bolsas, alertas);
+        service = new ValidadeService(bolsas, alertas, mock(RastreabilidadeService.class));
         ReflectionTestUtils.setField(service, "diasHemacias", 35);
         ReflectionTestUtils.setField(service, "diasPlasma", 365);
         ReflectionTestUtils.setField(service, "diasPlaquetas", 5);

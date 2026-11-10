@@ -15,13 +15,15 @@ public class BolsaService {
     private final AlertaValidadeRepository alertas;
     private final ValidadeService validade;
     private final CompatibilidadeService compatibilidade;
+    private final RastreabilidadeService rastreabilidade;
 
     public BolsaService(BolsaRepository bolsas, AlertaValidadeRepository alertas, ValidadeService validade,
-            CompatibilidadeService compatibilidade) {
+            CompatibilidadeService compatibilidade, RastreabilidadeService rastreabilidade) {
         this.bolsas = bolsas;
         this.alertas = alertas;
         this.validade = validade;
         this.compatibilidade = compatibilidade;
+        this.rastreabilidade = rastreabilidade;
     }
 
     @Transactional
@@ -33,6 +35,8 @@ public class BolsaService {
         bolsa.setValidade(validade.calcular(bolsa.getTipoComponente(), bolsa.getDataColeta()));
         bolsa.setStatus(StatusBolsa.DISPONIVEL);
         bolsas.saveAndFlush(bolsa);
+        rastreabilidade.registrar(bolsa, TipoEventoBolsa.CADASTRADA, "PERFIL:GESTOR_HEMOCENTRO",
+                RastreabilidadeService.retrato(bolsa));
         validade.verificarBolsa(bolsa, LocalDate.now());
         return bolsa;
     }
@@ -61,19 +65,22 @@ public class BolsaService {
     public BolsaHemocomponente atualizar(Long id, BolsaHemocomponente dados) {
         BolsaHemocomponente bolsa = bolsas.buscarParaAtualizacao(id).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Bolsa nao encontrada."));
-        if (bolsa.getStatus() == StatusBolsa.DESCARTADO || !bolsa.getValidade().isAfter(LocalDate.now())) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "Bolsa vencida ou descartada nao pode ser alterada.");
+        if (bolsa.getStatus() != StatusBolsa.DISPONIVEL || !bolsa.getValidade().isAfter(LocalDate.now())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Somente bolsa disponivel e valida pode ser alterada.");
         }
         String codigo = dados.getCodigo().trim().toUpperCase(java.util.Locale.ROOT);
         if (bolsas.existsByCodigoAndIdNot(codigo, id)) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Codigo de bolsa ja cadastrado.");
         }
+        String antes = RastreabilidadeService.retrato(bolsa);
         bolsa.setCodigo(codigo);
         bolsa.setTipoComponente(dados.getTipoComponente());
         bolsa.setTipoSanguineo(dados.getTipoSanguineo());
         bolsa.setVolumeMl(dados.getVolumeMl());
         bolsa.setDataColeta(dados.getDataColeta());
         bolsa.setValidade(validade.calcular(bolsa.getTipoComponente(), bolsa.getDataColeta()));
+        rastreabilidade.registrar(bolsa, TipoEventoBolsa.ATUALIZADA, "PERFIL:GESTOR_HEMOCENTRO",
+                "Antes: " + antes + " | Depois: " + RastreabilidadeService.retrato(bolsa));
         alertas.deleteByBolsaId(id);
         alertas.flush();
         validade.verificarBolsa(bolsa, LocalDate.now());

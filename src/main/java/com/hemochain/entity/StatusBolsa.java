@@ -2,5 +2,9 @@ package com.hemochain.entity;
 
 public enum StatusBolsa {
     DISPONIVEL,
-    DESCARTADO
+    DESCARTADO,
+    ENTREGUE,
+    RECEBIDA,
+    BLOQUEADA,
+    UTILIZADA
 }

@@ -37,4 +37,8 @@ public class RequisicaoService {
     public List<RequisicaoHospitalar> listarTodas() {
         return repository.findAllByOrderByDataCriacaoDesc();
     }
+
+    public List<RequisicaoHospitalar> listarDoHospital(Long hospitalId) {
+        return repository.findByHospital_IdOrderByDataCriacaoDesc(hospitalId);
+    }
 }
