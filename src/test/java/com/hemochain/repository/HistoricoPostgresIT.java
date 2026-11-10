@@ -86,4 +86,27 @@ class HistoricoPostgresIT {
             assertEquals(3,historico.historico(b.getId()).size());
         } finally {pool.shutdownNow();}
     }
+
+    @Test void migraCheckLegadoEmSchemaIsoladoSemApagarBolsa() throws Exception {
+        String schema = "e04_upgrade_" + UUID.randomUUID().toString().replace("-", "");
+        jdbc.execute("create schema " + schema);
+        String baseUrl = System.getenv("HEMOCHAIN_TEST_DB_URL");
+        var ds = new org.springframework.jdbc.datasource.DriverManagerDataSource(
+                baseUrl + (baseUrl.contains("?") ? "&" : "?") + "currentSchema=" + schema,
+                System.getenv("HEMOCHAIN_TEST_DB_USER"),System.getenv("HEMOCHAIN_TEST_DB_PASSWORD"));
+        var isolado = new JdbcTemplate(ds);
+        try {
+            isolado.execute("create table bolsa_hemocomponente(id bigint primary key, status varchar(40) check (status in ('DISPONIVEL','DESCARTADO')))");
+            isolado.execute("create table evento_bolsa(id bigint primary key)");
+            isolado.update("insert into bolsa_hemocomponente values (1,'DISPONIVEL')");
+            var migracao = new com.hemochain.config.ProtecaoHistoricoPostgres(ds);
+            migracao.afterPropertiesSet();migracao.afterPropertiesSet();
+            isolado.update("update bolsa_hemocomponente set status='ENTREGUE' where id=1");
+            assertEquals("ENTREGUE",isolado.queryForObject("select status from bolsa_hemocomponente where id=1",String.class));
+            assertThrows(DataAccessException.class, () -> isolado.update("update bolsa_hemocomponente set status='INVALIDO' where id=1"));
+        } finally {
+            // Schema exclusivo criado por este teste; nenhuma tabela da aplicacao e removida.
+            jdbc.execute("drop schema " + schema + " cascade");
+        }
+    }
 }

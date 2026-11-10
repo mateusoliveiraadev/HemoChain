@@ -55,7 +55,8 @@ public class RequisicaoHospitalar {
     private LocalDateTime dataCriacao;
 
     @Enumerated(EnumType.STRING)
-    @jakarta.persistence.Column(nullable = false, columnDefinition = "varchar(40) default 'SOLICITADA'")
+    @jakarta.persistence.Column(nullable = false, length = 40)
+    @org.hibernate.annotations.ColumnDefault("'SOLICITADA'")
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private StatusRequisicao status = StatusRequisicao.SOLICITADA;
 

@@ -1,6 +1,6 @@
 # language: pt
 # Executados em AtendimentoHospitalarAceitacaoTest e HistoricoPostgresIT (SQL real).
-Funcionalidade: Rastreabilidade auditavel da bolsa (US09)
+Funcionalidade: Rastreabilidade e recebimento hospitalar (US09 e US10)
   Cenario: Consulta do historico
     Dado que uma bolsa passou por diferentes estados
     Quando o gestor consultar seu historico
@@ -18,7 +18,6 @@ Funcionalidade: Rastreabilidade auditavel da bolsa (US09)
     Quando o gestor consultar seu historico
     Entao a lista estara vazia e a interface explicara a ausencia de historico retroativo
 
-Funcionalidade: Confirmar recebimento e uso hospitalar (US10)
   Cenario: Recebimento integro
     Dado que uma bolsa compativel foi entregue ao hospital solicitante
     E o gestor atestou a entrega ocorrida associando bolsa e requisicao

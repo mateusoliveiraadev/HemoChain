@@ -39,9 +39,47 @@ jobs:
           path: target/surefire-reports
           if-no-files-found: ignore
 
+  postgres:
+    name: US09 e US10 (PostgreSQL real)
+    needs: test
+    runs-on: ubuntu-24.04
+    services:
+      db:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: hemochain_test
+          POSTGRES_USER: hemochain_test
+          POSTGRES_PASSWORD: teste_sintetico_ci
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U hemochain_test -d hemochain_test"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    env:
+      SPRING_PROFILES_ACTIVE: postgres-test
+      HEMOCHAIN_TEST_DB_URL: jdbc:postgresql://localhost:5432/hemochain_test
+      HEMOCHAIN_TEST_DB_USER: hemochain_test
+      HEMOCHAIN_TEST_DB_PASSWORD: teste_sintetico_ci
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+      - name: Aceitacao, rollback, imutabilidade SQL e concorrencia
+        run: mvn -B -Ppostgres-it -Dtest=AtendimentoHospitalarAceitacaoTest,RastreabilidadeTransacaoTest verify
+      - name: Relatorios PostgreSQL
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: postgres-reports
+          path: |
+            target/surefire-reports
+            target/failsafe-reports
+
   container:
     name: Container sobe do zero (compose + healthcheck)
-    needs: test
+    needs: [test, postgres]
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4

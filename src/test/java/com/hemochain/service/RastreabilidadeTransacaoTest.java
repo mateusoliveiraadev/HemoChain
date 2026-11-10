@@ -55,4 +55,29 @@ class RastreabilidadeTransacaoTest {
             assertEquals(1, rastreabilidade.historico(b.getId()).size());
         } finally { reset(alvo); }
     }
+
+    @Test void falhaNoHistoricoReverteRecebimentoEUtilizacao() {
+        var b = bolsas.cadastrar(dados());
+        var h = hospitais.cadastrar(new Hospital("Hospital TX recebimento", "SINTETICO", "0000"));
+        var r = requisicoes.cadastrar(new RequisicaoHospitalar(h.getId(), TipoComponente.CONCENTRADO_HEMACIAS,
+                TipoSanguineo.O_NEGATIVO, 1, UrgenciaRequisicao.ROTINA, LocalDate.now().plusDays(1)));
+        var e = atendimento.registrarEntrega(r.getId(),b.getId());
+        RastreabilidadeService alvo = org.springframework.test.util.AopTestUtils.getUltimateTargetObject(rastreabilidade);
+        doThrow(new IllegalStateException("Falha induzida"))
+                .when(alvo).registrar(any(),any(),anyString(),anyString());
+        try {
+            assertThrows(IllegalStateException.class, () -> atendimento.receber(r.getId(),e.getId(),h.getId(),CondicaoRecebimento.INTEGRA,""));
+            assertNull(entregas.findById(e.getId()).orElseThrow().getRecebidaEm());
+            assertEquals(StatusBolsa.ENTREGUE,repository.findById(b.getId()).orElseThrow().getStatus());
+        } finally {reset(alvo);}
+        atendimento.receber(r.getId(),e.getId(),h.getId(),CondicaoRecebimento.INTEGRA,"");
+        doThrow(new IllegalStateException("Falha induzida"))
+                .when(alvo).registrar(any(),any(),anyString(),anyString());
+        try {
+            assertThrows(IllegalStateException.class, () -> atendimento.utilizar(r.getId(),e.getId(),h.getId()));
+            assertNull(entregas.findById(e.getId()).orElseThrow().getUtilizadaEm());
+            assertEquals(StatusBolsa.RECEBIDA,repository.findById(b.getId()).orElseThrow().getStatus());
+            assertEquals(3,rastreabilidade.historico(b.getId()).size());
+        } finally {reset(alvo);}
+    }
 }
