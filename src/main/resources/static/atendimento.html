@@ -25,7 +25,7 @@
         </form>
     </section>
     <section id="painelEntregas"><h2>Bolsas da requisição</h2><div id="entregas"></div></section>
-    <section id="painelPendencias" hidden><h2>Alertas de recebimento pendente</h2><p>Gerados após o prazo configurado; verificação na inicialização, a cada minuto e ao atualizar este painel. O alerta fica preservado após a confirmação.</p><button id="verificar" type="button">Verificar pendências</button><ul id="pendencias"></ul></section>
+    <section id="painelPendencias" hidden><h2>Alertas de recebimento pendente</h2><p>Gerados após o prazo configurado, com verificação automática e ao atualizar este painel. O alerta fica preservado após a confirmação.</p><button id="verificar" type="button">Verificar pendências</button><ul id="pendencias"></ul></section>
     <section id="painelHistorico" hidden><h2>Histórico cronológico da bolsa</h2><pre id="historico"></pre></section>
 </main>
 <script>
@@ -46,7 +46,7 @@ async function api(url, method='GET', dados){
 function data(valor){return valor ? new Date(valor).toLocaleString('pt-BR') : 'Não registrado';}
 function texto(pai,tag,conteudo){const n=document.createElement(tag);n.textContent=conteudo;pai.appendChild(n);return n;}
 function botao(pai,rotulo,acao){const b=texto(pai,'button',rotulo);b.type='button';b.onclick=()=>executar(acao,b);return b;}
-async function executar(acao,botao){if(botao)botao.disabled=true;try{await acao();}catch(e){mensagem(e.message,true);}finally{if(botao)botao.disabled=false;}}
+async function executar(acao,botao){mensagem('');if(botao)botao.disabled=true;try{await acao();}catch(e){mensagem(e.message,true);}finally{if(botao)botao.disabled=false;}}
 async function carregarRequisicoes(){
     const anterior=el('requisicao').value || new URLSearchParams(location.search).get('requisicao');
     requisicoes=await api('/requisicoes');el('requisicao').replaceChildren();
@@ -60,7 +60,7 @@ async function historico(id){
 }
 async function carregarDetalhes(){
     const r=requisicoes.find(r=>String(r.id)===el('requisicao').value);
-    el('entregas').replaceChildren();el('registroEntrega').hidden=true;
+    el('entregas').replaceChildren();el('registroEntrega').hidden=true;el('painelHistorico').hidden=true;
     if(!r){el('resumo').textContent='Nenhuma requisição neste contexto. Cadastre uma na tela Requisições.';return;}
     el('resumo').textContent=`Requisição #${r.id} | Hospital: ${r.hospital.nome}\nComponente: ${r.tipoComponente} | Receptor: ${r.tipoSanguineo}\nQuantidade: ${r.quantidade} | Situação: ${r.status}`;
     const entregas=await api(`/requisicoes/${r.id}/entregas`);
