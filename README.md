@@ -329,7 +329,7 @@ Issues publicadas: [#4 — contexto hospitalar](https://github.com/mateusoliveir
 
 Roteiro completo com telas, ações, falas e instruções: [screencast do sistema](entrega-04/roteiro-screencast-sistema.md). Capturas reais: [jornada e alerta](entrega-04/evidencias/README.md).
 
-▶️ **YouTube: PENDENTE.** A equipe precisa gravar com áudio ou legenda, publicar pela conta autorizada e inserir aqui o link real. Nenhum vídeo ou link fictício foi criado.
+▶️ Assistir no Youtube: https://youtu.be/piyhNMP8Kl0
 
 ---
 
@@ -337,7 +337,7 @@ Roteiro completo com telas, ações, falas e instruções: [screencast do sistem
 
 Roteiro com entidades, controllers, services, repositories, transações, testes e integração: [screencast do código](entrega-04/roteiro-screencast-codigo.md).
 
-▶️ **YouTube: PENDENTE.** Gravação e publicação com áudio ou legenda dependem da equipe; adicionar aqui a URL real após conferir acesso.
+▶️ Assistir no Youtube: https://youtu.be/f07L0n2BKNA 
 
 ---
 
