@@ -4,14 +4,14 @@ Data de execução: 10/11/2026. A seção acadêmica mantém a data prevista **0
 
 ## Repositório e preservação
 
-- Cópia existente: `D:\Desenvolvimento\Projetos\HemoChain`; nenhum clone necessário.
+- Utilizada a cópia local existente; nenhum clone necessário.
 - Branch inicial: `main`; HEAD inicial `71f9f4cebb1b17f0e7d50f7a4e2fbd1efb30a4f3`.
 - Remote: `https://github.com/mateusoliveiraadev/HemoChain.git`.
 - Após `git fetch origin`: local 0 commits à frente e 21 atrás; atualização por `git merge --ff-only origin/main` para `924d580`.
 - Branch de trabalho: `feature/entrega-04-rastreabilidade-recebimento`.
 - Alteração preexistente preservada e excluída dos commits desta entrega: `entrega-03/bug-tracker.png`, SHA-256 `C47F7AE1DFA436ADBB07DCFD9313137F793018151209A2B4A17C2127C0B823BC`.
 - Nenhum `reset --hard`, `clean`, rebase destrutivo, merge na main ou deploy de produção.
-- GitHub consultado por conector: PRs #1 (container/TDD/deploy), #2 e #3 (documentação). Sem issues existentes na consulta inicial. Branches remotas examinadas com fetch/listagem e histórico; nenhuma implementação de US09/US10 encontrada na main atualizada.
+- Histórico remoto consultado: PRs #1 (container/TDD/deploy), #2 e #3 (documentação). Sem issues existentes na consulta inicial. Branches remotas examinadas com fetch/listagem e histórico; nenhuma implementação de US09/US10 encontrada na main atualizada.
 
 ## Fontes lidas
 

@@ -19,21 +19,30 @@ Execução local em 10/11/2026; data acadêmica da entrega: 09/11. Este relatór
 | PostgreSQL | Aceitação/rollback, SQL direto, FK, duas requisições concorrentes, confirmação concorrente e migração de CHECK em schema isolado |
 | Build/Java 17 | Dockerfile executa Maven verify com Java 17 e produz imagem de runtime não root |
 | Persistência e health | Compose down sem -v seguido de up --wait; API e PostgreSQL saudáveis; quatro eventos e entrega idênticos, bolsa UTILIZADA preservada |
-| Documentação | POST-IT, BDD, API/operação, tracker e minutas de issues/PR, dois roteiros de screencast e roteiro da apresentação |
+| Documentação | POST-IT, BDD, API/operação, tracker vinculado às issues e ao PR, dois roteiros de screencast e roteiro da apresentação |
 
 ## Resultados efetivamente executados
 
 | Execução | Ambiente | Resultado |
 |---|---|---|
-| Testes afetados durante implementação | JVM local Java 21, compilação release 17, H2 | 19 testes sem falha na rodada registrada antes da ampliação de rollback |
-| `./mvnw.cmd -B verify` | JVM local Java 21, release 17, H2 | 82 testes, 0 falhas/erros/ignorados, antes da inclusão do teste adicional de rollback de recebimento/uso |
 | Build Docker final `mvn -B verify` | Linux, Maven, **Java 17**, H2 | 83 testes; resultado final no resumo de evidências |
 | `mvn -B -Ppostgres-it -Dtest=AtendimentoHospitalarAceitacaoTest,RastreabilidadeTransacaoTest verify` | PostgreSQL 16 real, JVM local | 17 testes de aceitação/rollback + 4 testes Failsafe de integridade/concorrência/migração, 0 falhas/erros/ignorados |
 | `node scripts/entrega04-ui.cjs` | Edge headless/Playwright, Compose/PostgreSQL | APROVADO; capturas e `resultado-ui.json` |
 
 Os testes Gherkin são especificações mapeadas aos testes JUnit/MockMvc, seguindo o padrão anterior; não há runner Cucumber. A suíte padrão preserva os testes antigos. O teste de FK em PostgreSQL registra um erro SQL esperado dentro de `assertThrows`; isso comprova a rejeição, não uma falha da suíte.
 
-Logs brutos ficam localmente em `.git/entrega04-test-afetados.log`, `.git/entrega04-verify.log`, `.git/entrega04-postgres.log`, `.git/entrega04-docker-build.log`, `.git/entrega04-compose.log` e `.git/entrega04-ui.log`. O resumo versionado registra contagens, comandos e resultados sem credenciais.
+Os resumos versionados em [evidências](evidencias/README.md) registram comandos, contagens e resultados sem credenciais. Logs temporários e arquivos internos de execução não são versionados.
+
+## Publicação e revisão no GitHub
+
+- [Branch publicada](https://github.com/mateusoliveiraadev/HemoChain/tree/feature/entrega-04-rastreabilidade-recebimento), preservando os cinco commits originais até `9b379eb` e acrescentando commits de preparação da publicação.
+- [PR #8](https://github.com/mateusoliveiraadev/HemoChain/pull/8): **Draft**, aberto, base `main`. Sem merge.
+- Issues [#4](https://github.com/mateusoliveiraadev/HemoChain/issues/4), [#5](https://github.com/mateusoliveiraadev/HemoChain/issues/5), [#6](https://github.com/mateusoliveiraadev/HemoChain/issues/6) e [#7](https://github.com/mateusoliveiraadev/HemoChain/issues/7), abertas e associadas ao PR por `Closes`. Causa, severidade, reprodução, correção e testes disponíveis em cada issue.
+- [Captura real do GitHub Issues](evidencias/github-issues.png) e [tracker detalhado](bug-tracker.md).
+- Execuções remotas no commit `9b379eb`: [push aprovado](https://github.com/mateusoliveiraadev/HemoChain/actions/runs/42755213594) e [pull request aprovado](https://github.com/mateusoliveiraadev/HemoChain/actions/runs/42755395418). Maven: 83 testes; PostgreSQL: 17 + 4 testes; Docker/Compose e healthcheck aprovados. Publicação de imagem e deploy ignorados. Ver [evidência remota](evidencias/ci-github-actions.md) e [checks atuais do PR](https://github.com/mateusoliveiraadev/HemoChain/pull/8/checks).
+- A `main` permaneceu em `924d580`. Os jobs de publicação de imagem e deploy são restritos a push na `main`; não foi iniciado deploy de produção.
+
+Na preparação final, minutas de issues/PR já publicadas, resumos operacionais duplicados e seu gerador foram retirados da árvore atual. Documentação acadêmica, testes, evidências verificáveis, declarações de uso de IA e todo o histórico anterior foram preservados.
 
 ## Homologação operacional e integridade
 
@@ -41,12 +50,10 @@ O ambiente usa projeto Compose isolado `hemochain-entrega04`, API na porta 18084
 
 A demonstração reduz o prazo para `PT5S`, com verificação automática espaçada e verificação explícita na tela. Isso é configuração exclusiva de homologação; o padrão versionado permanece `PT24H` e verificação a cada 60 segundos.
 
-Conferir o resumo final de [evidências](evidencias/README.md), incluindo health, persistência após reinicialização, Git e revisão de segredos. A imagem e o Compose não disparam deploy no Render.
+Verificados health, persistência após reinicialização, integridade Git e padrões comuns de credenciais. Não há `.env` real versionado. A imagem preexistente da Entrega 03 mantém o hash registrado na auditoria e não integra os commits desta entrega. Essa revisão não substitui uma auditoria de segurança completa. A imagem e o Compose não disparam deploy no Render.
 
-## PENDENTE — equipe, autorização ou publicação externa
+## PENDENTE — equipe
 
-- Autorizar publicação da branch, das issues e do PR draft; minutas estão completas. Sem autorização, permanecem locais.
-- Executar/conferir os checks remotos do GitHub Actions para o HEAD publicado. O workflow foi preparado, mas execução local não equivale a execução remota.
 - Revisão da equipe e decisão de merge. **Não foi autorizado nem executado merge na main ou deploy de produção.**
 - Gravar os dois screencasts com áudio ou legendas, publicar no YouTube pela conta da equipe e inserir os links reais no README. Roteiros estão prontos; não há vídeo YouTube desta entrega.
 - Ensaiar e apresentar o produto, confirmar divisão entre integrantes e declarar o apoio de IA conforme a disciplina.
@@ -54,7 +61,7 @@ Conferir o resumo final de [evidências](evidencias/README.md), incluindo health
 
 ## BLOQUEADO — impedimentos técnicos
 
-Nenhum impedimento técnico local remanescente identificado na homologação registrada. Docker inicialmente indisponível foi iniciado e os testes PostgreSQL foram executados. Publicações externas sem autorização são pendências de equipe, não falhas mascaradas.
+Nenhum impedimento técnico remanescente identificado. As execuções de push e PR passaram sem divergência funcional entre a homologação local e a CI. A preparação da publicação não exigiu alterações de código.
 
 ## Checklist da disciplina
 
@@ -72,16 +79,16 @@ Nenhum impedimento técnico local remanescente identificado na homologação reg
 | Testes unitários, integração, aceitação e regressão | CONCLUÍDO |
 | Build Maven, Docker/Compose e healthchecks | CONCLUÍDO, ver evidências |
 | Persistência após reinicialização | CONCLUÍDO — histórico e entrega idênticos; `persistencia.json` |
-| CI preparada para PostgreSQL e compatibilidade Render | CONCLUÍDO local; execução remota PENDENTE |
+| CI preparada para PostgreSQL e compatibilidade Render | CONCLUÍDO — Maven, PostgreSQL e container aprovados remotamente; deploy não executado |
 | Branch e commits, sem merge/deploy | CONCLUÍDO |
-| Issues e PR | Preparados localmente; publicação PENDENTE de autorização |
+| Issues e PR | CONCLUÍDO — quatro issues publicadas e PR #8 Draft aberto |
 | README e POST-IT da Entrega 04 — 09/11 | CONCLUÍDO |
-| Tracker com causa, severidade, correção e testes | CONCLUÍDO local; GitHub PENDENTE |
-| Captura do tracker | CONCLUÍDO — `bug-tracker.png`, tracker local identificado |
+| Tracker com causa, severidade, correção e testes | CONCLUÍDO — issues #4–#7 vinculadas ao PR |
+| Captura do tracker | CONCLUÍDO — GitHub Issues e quadro detalhado local |
 | Roteiro screencast sistema | CONCLUÍDO |
 | Roteiro screencast código | CONCLUÍDO |
 | Vídeos YouTube com áudio/legenda e links README | PENDENTE da equipe |
 | Roteiro final do produto e limitações | CONCLUÍDO |
-| Revisão de Git e credenciais | CONCLUÍDO — fsck, diff, links e padrões comuns aprovados; limites em `auditoria-final.json` |
+| Revisão de Git e credenciais | CONCLUÍDO — fsck, diff, links e padrões comuns; alteração preexistente preservada |
 
 A entrega técnica local e a entrega acadêmica publicada são etapas distintas. Os itens externos acima precisam ser encerrados pela equipe antes de declarar todos os requisitos da disciplina concluídos.

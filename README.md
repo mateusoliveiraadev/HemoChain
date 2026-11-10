@@ -283,7 +283,7 @@ O objetivo é apresentar como o código foi organizado, explicar as principais p
 
 # Entrega 04 — 09/11
 
-Implementação e homologação local em 10/11/2026. Publicação dos vídeos, issues e PR dependem da equipe; o [relatório final](entrega-04/homologacao.md) distingue **CONCLUÍDO**, **PENDENTE** e **BLOQUEADO**.
+Implementação e homologação local em 10/11/2026. [Branch publicada](https://github.com/mateusoliveiraadev/HemoChain/tree/feature/entrega-04-rastreabilidade-recebimento) e [PR Draft #8](https://github.com/mateusoliveiraadev/HemoChain/pull/8) disponíveis para revisão. Os vídeos dependem da equipe; o [relatório final](entrega-04/homologacao.md) distingue **CONCLUÍDO**, **PENDENTE** e **BLOQUEADO**.
 
 ### 1. Histórias de Usuário
 
@@ -311,7 +311,7 @@ Fluxo demonstrável: **estoque → requisição → sugestão FEFO → atestaç�
 
 Prazo padrão: `recebimento.prazo=PT24H` (variável `RECEBIMENTO_PRAZO`). Verificação automática: 60 segundos. Na base exclusiva de demonstração, o prazo foi reduzido para cinco segundos para produzir o alerta de verdade. O registro de entrega é manual e não implementa transporte.
 
-Testes: suíte completa com **83 testes** no build Docker/Java 17; PostgreSQL real com **17 testes de aceitação/rollback e 4 de integridade, migração e concorrência**. Jornada real da interface validada por Playwright/Edge; detalhes, comandos e resultados em [homologação](entrega-04/homologacao.md) e [evidências](entrega-04/evidencias/README.md). A CI inclui um job PostgreSQL antes do container/publicação; execução remota desta versão depende de publicação autorizada da branch.
+Testes locais: suíte completa com **83 testes** no build Docker/Java 17; PostgreSQL real com **17 testes de aceitação/rollback e 4 de integridade, migração e concorrência**. Jornada real da interface validada por Playwright/Edge; detalhes, comandos e resultados em [homologação](entrega-04/homologacao.md) e [evidências](entrega-04/evidencias/README.md). **GitHub Actions aprovado** em [push](https://github.com/mateusoliveiraadev/HemoChain/actions/runs/42755213594) e [PR](https://github.com/mateusoliveiraadev/HemoChain/actions/runs/42755395418): Maven, PostgreSQL, Docker/Compose e healthcheck. [Resultados remotos e checks atuais](entrega-04/evidencias/ci-github-actions.md). Publicação de imagem e deploy foram ignorados.
 
 ---
 
@@ -319,9 +319,9 @@ Testes: suíte completa com **83 testes** no build Docker/Java 17; PostgreSQL re
 
 Quatro defeitos documentados: acesso entre contextos hospitalares, validação JPA de campo transitório, evolução do CHECK de status e DDL de default na reinicialização. Causa, severidade, correção e validação no [tracker](entrega-04/bug-tracker.md).
 
-![Captura do tracker local da Entrega 04](entrega-04/evidencias/bug-tracker.png)
+![Issues da Entrega 04 no GitHub](entrega-04/evidencias/github-issues.png)
 
-Esta é uma captura do tracker **local**, não do GitHub. [Issues preparadas](entrega-04/issues-preparadas.md) e [minuta do PR](entrega-04/pull-request.md) aguardam autorização para publicação. A alteração preexistente da imagem da Entrega 03 foi preservada fora dos commits desta entrega.
+Issues publicadas: [#4 — contexto hospitalar](https://github.com/mateusoliveiraadev/HemoChain/issues/4), [#5 — validação transitória](https://github.com/mateusoliveiraadev/HemoChain/issues/5), [#6 — estados legados](https://github.com/mateusoliveiraadev/HemoChain/issues/6) e [#7 — default PostgreSQL](https://github.com/mateusoliveiraadev/HemoChain/issues/7). Todas associadas ao [PR Draft #8](https://github.com/mateusoliveiraadev/HemoChain/pull/8), aguardando revisão e merge. O [quadro detalhado](entrega-04/bug-tracker.md) e sua [captura local](entrega-04/evidencias/bug-tracker.png) complementam o tracker. A imagem preexistente da Entrega 03 permanece preservada.
 
 ---
 
