@@ -17,25 +17,43 @@ target/
 .idea/
 *.iml
 .vscode/
-# Build Maven
-target/
-*.class
 
-# Logs
-*.log
+# Bancos e backups locais (nao ignorar migracoes, schemas ou fixtures SQL)
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.backup
+*.bak
+*.sql.gz
+/pgdata/
+/dumps/
+/backups/
 
-# Banco H2 local (dados de execucao, nao sao codigo)
-/data/
-*.mv.db
-*.trace.db
+# Segredos e estados de autenticacao locais
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.auth/
+storage-state*.json
+storageState*.json
+auth-state*.json
+*.har
 
-# Variaveis de ambiente locais
-.env
+# Artefatos operacionais de ferramentas de IA; declaracoes academicas permanecem
+.codex/
+.claude/
+.agent/
+.agents/
 
-# IDE
-.idea/
-*.iml
-.vscode/
+# Temporarios de execucao
+*.tmp
+*.temp
+
+# Binarios locais do exercicio C
 estrutura-dados-c/rota_vital_estruturas
 estrutura-dados-c/*.exe
 
