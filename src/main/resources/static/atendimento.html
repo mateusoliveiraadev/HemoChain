@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <title>HemoChain - Entregas e recebimento</title>
-    <style>
-        *{box-sizing:border-box}body{margin:0;font-family:'Segoe UI',Tahoma,sans-serif;background:linear-gradient(135deg,#b71c1c,#6a1b1b);min-height:100vh;padding:24px;color:#333}main{max-width:1100px;margin:auto}section{background:white;padding:24px;border-radius:12px;margin:18px 0;box-shadow:0 8px 24px #0002}nav a{color:white;margin-right:20px}h1,h2{margin-top:0}label{display:block;font-weight:600;margin-top:12px}select,input,textarea{font:inherit;padding:10px;width:100%;margin:6px 0 12px;border:1px solid #bbb;border-radius:6px}input[type=checkbox]{width:auto}button{background:#b71c1c;color:white;border:0;border-radius:6px;padding:10px 16px;font:inherit;cursor:pointer;margin:4px}button:disabled{opacity:.5;cursor:wait}.aviso{background:#fff4db;padding:12px;border-left:4px solid #d38200}.entrega{border:1px solid #ddd;border-radius:8px;padding:16px;margin:14px 0}.pendente{border-left:5px solid #d38200}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;line-height:1.6}#mensagem{font-weight:600;min-height:24px}li{margin-bottom:10px}[hidden]{display:none!important}@media(max-width:700px){body{padding:12px}section{padding:16px}}
-    </style>
-    <link rel="stylesheet" href="/css/internal-background.css">
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/internal-ui.css">
+    <script type="module" src="/js/internal-ui.js"></script>
 </head>
-<body class="hemo-internal"><main>
-    <nav><a href="index.html">← Menu</a><a href="requisicoes.html">Requisições</a><a id="linkEstoque" href="estoque.html">Estoque e histórico</a></nav>
-    <section>
-        <h1>Entregas e recebimento</h1>
-        <p class="aviso">Protótipo acadêmico com dados sintéticos. A entrega é atestada manualmente depois de ocorrer. Não há reserva automática, transporte ou validação clínica. A associação utiliza somente a regra didática de hemácias da US03.</p>
-        <div id="contextoHospital" hidden><label for="hospital">Hospital em atendimento</label><select id="hospital"></select><p>Contexto declarado no mecanismo didático de acesso; não representa uma sessão autenticada por hospital.</p></div>
-        <div id="selecao"><label for="requisicao">Requisição</label><select id="requisicao"></select><button id="atualizar" type="button">Atualizar</button><pre id="resumo"></pre></div>
-        <p id="mensagem" role="status" aria-live="polite"></p>
+<body class="hemo-internal" data-module="atendimento">
+<a class="hc-skip-link" href="#conteudo">Pular para o conteúdo</a>
+<div class="hc-veil" aria-hidden="true"><canvas data-dark-veil></canvas></div>
+<aside class="hc-sidebar" aria-label="Menu do sistema">
+    <a class="hc-brand" href="index.html"><strong>HemoChain</strong><span>Hemocomponentes</span></a>
+    <div><span class="hc-nav-label">Módulos</span><nav class="hc-nav" aria-label="Navegação principal"><a href="index.html">Início</a>
+<a href="estoque.html" id="linkEstoque" data-profiles="GESTOR_HEMOCENTRO" hidden>Estoque e validade</a>
+<a href="requisicoes.html" data-profiles="GESTOR_HEMOCENTRO HOSPITAL_SOLICITANTE" hidden>Requisições</a>
+<a href="atendimento.html" aria-current="page">Atendimento</a></nav></div>
+    <div class="hc-sidebar-footer">
+        <span class="hc-profile" data-profile-label></span>
+        <button type="button" class="hc-button-ghost" data-logout>Sair</button>
+        <p class="hc-sidebar-note">Protótipo acadêmico<br>Dados sintéticos</p>
+    </div>
+</aside>
+<main class="hc-main" id="conteudo" tabindex="-1">
+    <header class="hc-page-header">
+        <p class="hc-eyebrow">HemoChain / Atendimento e recebimento</p>
+        <p class="hc-profile" data-profile-label></p>
+        <h1 >Entregas e recebimento</h1>
+        <p class="hc-description">Acompanhe a requisição, as entregas atestadas e as confirmações.</p>
+    </header>
+    <p class="hc-notice">Protótipo acadêmico com dados sintéticos. A entrega é atestada manualmente depois de ocorrer. Não há reserva automática, transporte ou validação clínica. A associação utiliza somente a regra didática de hemácias da US03.</p>
+    <section class="hc-panel" aria-labelledby="tituloAtendimento"><h2 id="tituloAtendimento">Requisição em atendimento</h2>
+        <div class="hc-inline-context" id="contextoHospital" hidden><div><label for="hospital">Hospital em atendimento</label><select id="hospital"></select></div><p>Contexto declarado no mecanismo didático de acesso; não representa uma sessão autenticada por hospital.</p></div>
+        <div id="selecao"><label for="requisicao">Requisição</label><select id="requisicao"></select><div class="hc-actions hc-selection-actions"><button class="secundario" id="atualizar" type="button">Atualizar</button></div><pre id="resumo"></pre></div>
+        <p id="mensagem" class="status" role="status" aria-live="polite"></p>
     </section>
-    <section id="registroEntrega" hidden>
-        <h2>Associar bolsa e registrar entrega ocorrida</h2>
-        <p>A lista apresenta bolsas compatíveis em ordem FEFO. A escolha é manual; cada bolsa pode atender uma única requisição.</p>
-        <form id="formEntrega"><label for="bolsa">Bolsa compatível (validade crescente)</label><select id="bolsa" required></select>
-            <label><input id="entregaRealizada" type="checkbox" required> Atesto que esta bolsa foi entregue ao hospital desta requisição.</label>
-            <button type="submit">Registrar entrega realizada</button>
-        </form>
+    <section class="hc-panel" id="registroEntrega" hidden aria-labelledby="tituloEntrega"><h2 id="tituloEntrega">Associar bolsa e registrar entrega ocorrida</h2><p>A lista apresenta bolsas compatíveis em ordem FEFO. A escolha é manual; cada bolsa pode atender uma única requisição.</p>
+        <form id="formEntrega"><div><label for="bolsa">Bolsa compatível (validade crescente)</label><select id="bolsa" required></select></div><label class="hc-checkbox"><input id="entregaRealizada" type="checkbox" required><span>Atesto que esta bolsa foi entregue ao hospital desta requisição.</span></label><button type="submit">Registrar entrega realizada</button></form>
     </section>
-    <section id="painelEntregas"><h2>Bolsas da requisição</h2><div id="entregas"></div></section>
-    <section id="painelPendencias" hidden><h2>Alertas de recebimento pendente</h2><p>Gerados após o prazo configurado, com verificação automática e ao atualizar este painel. O alerta fica preservado após a confirmação.</p><button id="verificar" type="button">Verificar pendências</button><ul id="pendencias"></ul></section>
-    <section id="painelHistorico" hidden><h2>Histórico cronológico da bolsa</h2><pre id="historico"></pre></section>
+    <section class="hc-panel" id="painelEntregas"><h2>Bolsas da requisição</h2><div id="entregas"></div></section>
+    <section class="hc-panel" id="painelPendencias" hidden><h2>Alertas de recebimento pendente</h2><p>Gerados após o prazo configurado, com verificação automática e ao atualizar este painel. O alerta fica preservado após a confirmação.</p><button class="secundario" id="verificar" type="button">Verificar pendências</button><ul id="pendencias"></ul></section>
+    <section class="hc-panel" id="painelHistorico" hidden><h2>Histórico cronológico da bolsa</h2><div id="historico"></div></section>
+    <footer class="hc-footer">Ambiente acadêmico · Dados sintéticos · Fluxos existentes da Entrega 04</footer>
 </main>
 <script>
 const usuario = JSON.parse(localStorage.getItem('hemochainUsuario') || 'null');
@@ -58,12 +74,14 @@ async function carregarRequisicoes(){
 async function historico(id){
     const eventos=await api(`/bolsas/${id}/historico`);el('painelHistorico').hidden=false;
     el('historico').textContent=eventos.length?eventos.map(e=>`${data(e.momento)} — ${e.tipo}\nOrigem: ${e.origem}\n${e.detalhes}`).join('\n\n'):'Sem eventos registrados; não há histórico retroativo.';
+    el('historico').hemoPresentation={eventos,source:el('historico').textContent};
 }
 async function carregarDetalhes(){
     const r=requisicoes.find(r=>String(r.id)===el('requisicao').value);
     el('entregas').replaceChildren();el('registroEntrega').hidden=true;el('painelHistorico').hidden=true;
     if(!r){el('resumo').textContent='Nenhuma requisição neste contexto. Cadastre uma na tela Requisições.';return;}
     el('resumo').textContent=`Requisição #${r.id} | Hospital: ${r.hospital.nome}\nComponente: ${r.tipoComponente} | Receptor: ${r.tipoSanguineo}\nQuantidade: ${r.quantidade} | Situação: ${r.status}`;
+    el('resumo').hemoPresentation={requisicao:r,source:el('resumo').textContent};
     const entregas=await api(`/requisicoes/${r.id}/entregas`);
     if(gestor && r.tipoComponente==='CONCENTRADO_HEMACIAS' && entregas.length<r.quantidade){
         const bolsas=await api(`/bolsas/compativeis?receptor=${r.tipoSanguineo}`);el('bolsa').replaceChildren();
@@ -76,6 +94,7 @@ async function carregarDetalhes(){
         const card=document.createElement('div');card.className='entrega'+(!e.recebidaEm&&e.alertaEm?' pendente':'');el('entregas').appendChild(card);
         texto(card,'h3',`Bolsa ${e.bolsa.codigo} — ${e.bolsa.status}`);
         texto(card,'pre',`Entrega #${e.id}: ${data(e.entregueEm)}\nPrazo de confirmação: ${data(e.prazoConfirmacao)}\nRecebimento: ${data(e.recebidaEm)} | Condição: ${e.condicao || 'Aguardando'}\nObservação: ${e.observacao || '—'}\nUtilização: ${data(e.utilizadaEm)}`);
+        card.querySelector('pre').hemoPresentation={entrega:e,source:card.querySelector('pre').textContent};
         if(e.alertaEm)texto(card,'p',`Alerta registrado em ${data(e.alertaEm)}${e.recebidaEm?' — confirmação resolvida.':' — RECEBIMENTO PENDENTE.'}`);
         if(gestor)botao(card,'Consultar histórico',()=>historico(e.bolsa.id));
         if(hospital&&!e.recebidaEm){
@@ -102,4 +121,6 @@ async function iniciar(){
     if(gestor||usuario.perfil==='OPERADOR_LOGISTICA'){el('painelPendencias').hidden=false;await pendencias();}
 }
 executar(iniciar);
-</script></body></html>
+</script>
+</body>
+</html>

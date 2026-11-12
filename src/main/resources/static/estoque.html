@@ -3,75 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <title>HemoChain - Estoque e validade</title>
-    <style>
-        * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Segoe UI', Tahoma, sans-serif; background: linear-gradient(135deg,#b71c1c,#6a1b1b); min-height: 100vh; padding: 24px; color: #333; }
-        main { max-width: 1100px; margin: auto; }
-        .voltar { color: white; display: inline-block; margin-bottom: 16px; }
-        section { background: white; padding: 24px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 8px 24px #0002; }
-        h1,h2 { margin-top: 0; }
-        .aviso { background: #fff4db; padding: 12px; border-left: 4px solid #d38200; }
-        .campos { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-        label { display: block; font-weight: 600; }
-        input,select { width: 100%; padding: 10px; margin: 6px 0 16px; border: 1px solid #bbb; border-radius: 6px; font: inherit; }
-        button { background: #b71c1c; color: white; border: 0; border-radius: 6px; padding: 10px 16px; cursor: pointer; font: inherit; }
-        button.secundario { background: #666; }
-        button:disabled { opacity: .6; cursor: wait; }
-        .rolagem { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; }
-        th,td { text-align: left; padding: 12px 8px; border-bottom: 1px solid #ddd; }
-        td button { margin: 3px; font-size: 13px; }
-        .prioritaria { background: #fff2d5; }
-        .descartada { background: #f4f4f4; color: #666; }
-        #mensagem { min-height: 24px; font-weight: 600; }
-        #detalhes { white-space: pre-line; line-height: 1.7; }
-        .filtro { max-width: 280px; }
-        li { margin-bottom: 10px; }
-        @media(max-width:700px) { .campos { grid-template-columns: 1fr; } body { padding: 12px; } section { padding: 16px; } }
-    </style>
-    <link rel="stylesheet" href="/css/internal-background.css">
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/internal-ui.css">
+    <script type="module" src="/js/internal-ui.js"></script>
 </head>
-<body class="hemo-internal">
-<main>
-    <a class="voltar" href="index.html">← Voltar ao menu</a>
-    <section>
-        <h1>Estoque e validade</h1>
-        <p class="aviso">Ambiente acadêmico com dados sintéticos. Validades configuráveis e exclusivamente didáticas; não representam regras clínicas oficiais. A bolsa é descartada na data de validade.</p>
-        <h2 id="tituloFormulario">Cadastrar bolsa</h2>
-        <form id="formBolsa">
-            <div class="campos">
-                <div><label for="codigo">Identificação única da bolsa</label><input id="codigo" required maxlength="60"></div>
-                <div><label for="tipoComponente">Hemocomponente</label><select id="tipoComponente" required>
-                    <option value="CONCENTRADO_HEMACIAS">Concentrado de hemácias</option><option value="PLASMA">Plasma</option><option value="PLAQUETAS">Plaquetas</option><option value="CRIOPRECIPITADO">Crioprecipitado</option>
-                </select></div>
-                <div><label for="tipoSanguineo">Tipo sanguíneo ABO/Rh</label><select id="tipoSanguineo" required>
-                    <option value="">Selecione</option><option value="A_POSITIVO">A+</option><option value="A_NEGATIVO">A-</option><option value="B_POSITIVO">B+</option><option value="B_NEGATIVO">B-</option><option value="AB_POSITIVO">AB+</option><option value="AB_NEGATIVO">AB-</option><option value="O_POSITIVO">O+</option><option value="O_NEGATIVO">O-</option>
-                </select></div>
-                <div><label for="volumeMl">Volume (mL)</label><input id="volumeMl" type="number" min="1" max="10000" required></div>
-                <div><label for="dataColeta">Data de coleta</label><input id="dataColeta" type="date" required></div>
-            </div>
-            <button id="salvar" type="submit">Cadastrar bolsa</button>
-            <button class="secundario" id="cancelar" type="button" hidden>Cancelar edição</button>
-        </form>
-        <p id="mensagem" role="status" aria-live="polite"></p>
+<body class="hemo-internal" data-module="estoque">
+<a class="hc-skip-link" href="#conteudo">Pular para o conteúdo</a>
+<div class="hc-veil" aria-hidden="true"><canvas data-dark-veil></canvas></div>
+<aside class="hc-sidebar" aria-label="Menu do sistema">
+    <a class="hc-brand" href="index.html"><strong>HemoChain</strong><span>Hemocomponentes</span></a>
+    <div><span class="hc-nav-label">Módulos</span><nav class="hc-nav" aria-label="Navegação principal"><a href="index.html">Início</a>
+<a href="estoque.html" id="linkEstoque" aria-current="page" data-profiles="GESTOR_HEMOCENTRO" hidden>Estoque e validade</a>
+<a href="requisicoes.html" data-profiles="GESTOR_HEMOCENTRO HOSPITAL_SOLICITANTE" hidden>Requisições</a>
+<a href="atendimento.html">Atendimento</a></nav></div>
+    <div class="hc-sidebar-footer">
+        <span class="hc-profile" data-profile-label></span>
+        <button type="button" class="hc-button-ghost" data-logout>Sair</button>
+        <p class="hc-sidebar-note">Protótipo acadêmico<br>Dados sintéticos</p>
+    </div>
+</aside>
+<main class="hc-main" id="conteudo" tabindex="-1">
+    <header class="hc-page-header">
+        <p class="hc-eyebrow">HemoChain / Estoque e validade</p>
+        <p class="hc-profile" data-profile-label></p>
+        <h1 >Estoque e validade</h1>
+        <p class="hc-description">Cadastro, validade e situação das bolsas em um só fluxo.</p>
+    </header>
+    <p class="hc-notice">Ambiente acadêmico com dados sintéticos. Validades configuráveis e exclusivamente didáticas; não representam regras clínicas oficiais. A bolsa é descartada na data de validade.</p>
+    <div class="hc-stock-grid">
+        <section class="hc-panel" aria-labelledby="tituloFormulario">
+            <h2 id="tituloFormulario">Cadastrar bolsa</h2>
+            <form id="formBolsa">
+                <div class="campos">
+                    <div><label for="codigo">Identificação única da bolsa</label><input id="codigo" required maxlength="60" autocomplete="off" placeholder="Código único"></div>
+                    <div><label for="tipoComponente">Hemocomponente</label><select id="tipoComponente" required><option value="CONCENTRADO_HEMACIAS">Concentrado de hemácias</option><option value="PLASMA">Plasma</option><option value="PLAQUETAS">Plaquetas</option><option value="CRIOPRECIPITADO">Crioprecipitado</option></select></div>
+                    <div><label for="tipoSanguineo">Tipo sanguíneo ABO/Rh</label><select id="tipoSanguineo" required><option value="">Selecione</option><option value="A_POSITIVO">A+</option><option value="A_NEGATIVO">A-</option><option value="B_POSITIVO">B+</option><option value="B_NEGATIVO">B-</option><option value="AB_POSITIVO">AB+</option><option value="AB_NEGATIVO">AB-</option><option value="O_POSITIVO">O+</option><option value="O_NEGATIVO">O-</option></select></div>
+                    <div><label for="volumeMl">Volume (mL)</label><input id="volumeMl" type="number" min="1" max="10000" required placeholder="Volume em mL"></div>
+                    <div><label for="dataColeta">Data de coleta</label><input id="dataColeta" type="date" required></div>
+                </div>
+                <div class="hc-actions"><button id="salvar" type="submit">Cadastrar bolsa</button><button class="secundario" id="cancelar" type="button" hidden>Cancelar edição</button></div>
+            </form>
+            <p id="mensagem" class="status" role="status" aria-live="polite"></p>
+        </section>
+        <section class="hc-panel" aria-labelledby="tituloAlertas"><h2 id="tituloAlertas">Alertas de validade</h2><p>Limiares padrão: 5 e 2 dias. A lista é atualizada a cada 30 segundos enquanto esta tela está aberta.</p><ul id="alertas"></ul></section>
+    </div>
+    <section class="hc-panel" aria-labelledby="tituloBolsas">
+        <h2 id="tituloBolsas">Bolsas cadastradas</h2>
+        <div class="hc-table-tools"><div><label for="filtro">Exibir</label><select class="filtro" id="filtro"><option value="">Todas</option><option value="DISPONIVEL">Disponíveis</option><option value="DESCARTADO">Descartadas</option></select></div><button type="button" class="secundario" id="atualizar">Atualizar estoque</button></div>
+        <div class="rolagem" tabindex="0" role="region" aria-label="Bolsas cadastradas"><table role="table"><caption class="hc-table-caption">Consulte a bolsa para acessar suas informações e o histórico.</caption><thead><tr><th scope="col">Código</th><th scope="col">Componente / ABO</th><th scope="col">Volume</th><th scope="col">Validade</th><th scope="col">Situação</th><th scope="col">Ações</th></tr></thead><tbody id="bolsas"></tbody></table></div>
     </section>
-    <section>
-        <h2>Alertas de validade</h2>
-        <p>Limiares padrão: 5 e 2 dias. A lista é atualizada a cada 30 segundos enquanto esta tela está aberta.</p>
-        <ul id="alertas"></ul>
-    </section>
-    <section>
-        <h2>Bolsas cadastradas</h2>
-        <label for="filtro">Exibir</label>
-        <select class="filtro" id="filtro"><option value="">Todas</option><option value="DISPONIVEL">Disponíveis</option><option value="DESCARTADO">Descartadas</option></select>
-        <button type="button" class="secundario" id="atualizar">Atualizar estoque</button>
-        <div class="rolagem"><table>
-            <thead><tr><th>Código</th><th>Componente / ABO</th><th>Volume</th><th>Validade</th><th>Situação</th><th>Ações</th></tr></thead>
-            <tbody id="bolsas"></tbody>
-        </table></div>
-    </section>
-    <section id="painelDetalhes" hidden><h2>Informações da bolsa</h2><div id="detalhes"></div></section>
+    <section class="hc-panel" id="painelDetalhes" hidden aria-labelledby="tituloDetalhes"><h2 id="tituloDetalhes">Informações da bolsa</h2><div id="detalhes"></div></section>
+    <footer class="hc-footer">Ambiente acadêmico · Dados sintéticos · Fluxos existentes da Entrega 04</footer>
 </main>
 <script>
     const usuario = JSON.parse(localStorage.getItem('hemochainUsuario') || 'null');
@@ -141,6 +125,7 @@
                 (b.dataDescarte ? `\nDescarte: ${b.dataDescarte}\nMotivo: ${b.motivoDescarte}\nResponsável: ${b.responsavelDescarte}` : '');
             const eventos = await api('/bolsas/' + id + '/historico');
             porId('detalhes').textContent += '\n\nHistórico cronológico (UTC):\n' + (eventos.length ? eventos.map(e => `${e.momento} — ${e.tipo}\nOrigem: ${e.origem}\n${e.detalhes}`).join('\n\n') : 'Sem eventos registrados. Bolsas anteriores à US09 não recebem histórico retroativo.');
+            porId('detalhes').hemoPresentation = {eventos, bolsa:b, source:porId('detalhes').textContent};
         } catch (erro) { mensagem(erro.message,true); }
     }
     function editarBolsa(b) {
