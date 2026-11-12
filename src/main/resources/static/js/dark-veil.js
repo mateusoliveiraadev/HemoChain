@@ -223,7 +223,7 @@ export function startDarkVeil(canvas, onFallback) {
     let field, composite, buffer, vao, texture, framebuffer;
     let raf = 0, stopped = false, last = 0, clock = 6, lastDraw = 0, slowFrames = 0;
     const view = { width: 1, height: 1, fieldWidth: 1, fieldHeight: 1 };
-    const tint = [197, 107, 135].map(c => Math.pow(c / 255, 2.2));
+    const tint = [166, 30, 60].map(c => Math.pow(c / 255, 2.2));
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const stopLoop = () => { cancelAnimationFrame(raf); raf = 0; last = 0; lastDraw = 0; };
     const destroy = () => {
