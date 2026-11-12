@@ -31,18 +31,12 @@
         <h1 >Requisições hospitalares</h1>
         <p class="hc-description">Registre solicitações e acompanhe o atendimento do seu hospital.</p>
     </header>
-    <section class="hc-panel" data-profiles="HOSPITAL_SOLICITANTE" hidden aria-labelledby="tituloContexto">
+    <div class="hc-request-grid" data-profiles="HOSPITAL_SOLICITANTE" hidden>
+    <section class="hc-panel hc-request-context" data-profiles="HOSPITAL_SOLICITANTE" hidden aria-labelledby="tituloContexto">
         <h2 id="tituloContexto">Contexto hospitalar</h2>
         <div><label for="hospitalContexto">Hospital em atendimento</label><select id="hospitalContexto" aria-describedby="avisoContexto"></select></div>
         <p id="avisoContexto" class="hc-helper">Contexto hospitalar acadêmico: selecione o hospital solicitante. O backend confere esse contexto em cada operação.</p>
     </section>
-    <div class="hc-request-grid" data-profiles="HOSPITAL_SOLICITANTE" hidden>
-        <section class="container hc-new-hospital" aria-labelledby="tituloHospital">
-            <h2 id="tituloHospital">Cadastrar hospital</h2>
-            <div class="linha-form"><div class="form-group"><label for="hospNome">Nome do hospital</label><input type="text" id="hospNome" placeholder="Ex: Hospital Central" autocomplete="organization"></div><div class="form-group"><label for="hospCnpj">CNPJ</label><input type="text" id="hospCnpj" placeholder="00.000.000/0000-00"></div><div class="form-group"><label for="hospTelefone">Telefone</label><input type="tel" id="hospTelefone" placeholder="(00) 0000-0000" autocomplete="tel"></div></div>
-            <button class="secundario" id="cadastrarHospital" onclick="cadastrarHospital()" data-async-action="cadastrarHospital" data-status-target="statusHospital">Cadastrar hospital</button>
-            <div class="status" id="statusHospital" role="status" aria-live="polite"></div>
-        </section>
         <section class="container hc-new-request" aria-labelledby="tituloNovaRequisicao">
             <h2 id="tituloNovaRequisicao">Nova requisição hospitalar</h2>
             <div class="form-group"><label for="reqHospital">Hospital solicitante</label><select id="reqHospital"></select></div>
@@ -50,6 +44,12 @@
             <div class="linha-form"><div class="form-group"><label for="reqQuantidade">Quantidade de bolsas</label><input type="number" id="reqQuantidade" min="1" value="1"></div><div class="form-group"><label for="reqUrgencia">Urgência</label><select id="reqUrgencia"><option value="ROTINA">Rotina</option><option value="URGENTE">Urgente</option><option value="EMERGENCIAL">Emergencial</option></select></div><div class="form-group"><label for="reqPrazo">Prazo limite</label><input type="date" id="reqPrazo"></div></div>
             <button id="registrarRequisicao" onclick="cadastrarRequisicao()" data-async-action="cadastrarRequisicao" data-status-target="statusRequisicao">Registrar requisição</button>
             <div class="status" id="statusRequisicao" role="status" aria-live="polite"></div>
+        </section>
+        <section class="container hc-new-hospital" aria-labelledby="tituloHospital">
+            <h2 id="tituloHospital">Cadastrar hospital</h2>
+            <div class="linha-form"><div class="form-group"><label for="hospNome">Nome do hospital</label><input type="text" id="hospNome" placeholder="Ex: Hospital Central" autocomplete="organization"></div><div class="form-group"><label for="hospCnpj">CNPJ</label><input type="text" id="hospCnpj" placeholder="00.000.000/0000-00"></div><div class="form-group"><label for="hospTelefone">Telefone</label><input type="tel" id="hospTelefone" placeholder="(00) 0000-0000" autocomplete="tel"></div></div>
+            <button class="secundario" id="cadastrarHospital" onclick="cadastrarHospital()" data-async-action="cadastrarHospital" data-status-target="statusHospital">Cadastrar hospital</button>
+            <div class="status" id="statusHospital" role="status" aria-live="polite"></div>
         </section>
     </div>
     <section class="hc-panel" aria-labelledby="tituloRequisicoes"><h2 id="tituloRequisicoes">Requisições registradas</h2><p>Selecione o identificador da requisição para acompanhar entregas, recebimento e utilização.</p>

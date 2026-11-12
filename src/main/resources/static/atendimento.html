@@ -32,6 +32,8 @@
         <p class="hc-description">Acompanhe a requisição, as entregas atestadas e as confirmações.</p>
     </header>
     <p class="hc-notice">Protótipo acadêmico com dados sintéticos. A entrega é atestada manualmente depois de ocorrer. Não há reserva automática, transporte ou validação clínica. A associação utiliza somente a regra didática de hemácias da US03.</p>
+    <div class="hc-service-workspace">
+    <div class="hc-service-support">
     <section class="hc-panel" aria-labelledby="tituloAtendimento"><h2 id="tituloAtendimento">Requisição em atendimento</h2>
         <div class="hc-inline-context" id="contextoHospital" hidden><div><label for="hospital">Hospital em atendimento</label><select id="hospital"></select></div><p>Contexto declarado no mecanismo didático de acesso; não representa uma sessão autenticada por hospital.</p></div>
         <div id="selecao"><label for="requisicao">Requisição</label><select id="requisicao"></select><div class="hc-actions hc-selection-actions"><button class="secundario" id="atualizar" type="button">Atualizar</button></div><pre id="resumo"></pre></div>
@@ -40,9 +42,11 @@
     <section class="hc-panel" id="registroEntrega" hidden aria-labelledby="tituloEntrega"><h2 id="tituloEntrega">Associar bolsa e registrar entrega ocorrida</h2><p>A lista apresenta bolsas compatíveis em ordem FEFO. A escolha é manual; cada bolsa pode atender uma única requisição.</p>
         <form id="formEntrega"><div><label for="bolsa">Bolsa compatível (validade crescente)</label><select id="bolsa" required></select></div><label class="hc-checkbox"><input id="entregaRealizada" type="checkbox" required><span>Atesto que esta bolsa foi entregue ao hospital desta requisição.</span></label><button type="submit">Registrar entrega realizada</button></form>
     </section>
+    </div>
     <section class="hc-panel" id="painelEntregas"><h2>Bolsas da requisição</h2><div id="entregas"></div></section>
     <section class="hc-panel" id="painelPendencias" hidden><h2>Alertas de recebimento pendente</h2><p>Gerados após o prazo configurado, com verificação automática e ao atualizar este painel. O alerta fica preservado após a confirmação.</p><button class="secundario" id="verificar" type="button">Verificar pendências</button><ul id="pendencias"></ul></section>
     <section class="hc-panel" id="painelHistorico" hidden><h2>Histórico cronológico da bolsa</h2><div id="historico"></div></section>
+    </div>
     <footer class="hc-footer">Ambiente acadêmico · Dados sintéticos · Fluxos existentes da Entrega 04</footer>
 </main>
 <script>

@@ -47,12 +47,40 @@ function init() {
     reduce.addEventListener('change', syncVeil);
     syncVeil();
 
-    document.querySelectorAll('.hc-module-card').forEach(card => card.addEventListener('pointermove', event => {
+    // One delegated, frame-limited light for existing panels and module cards.
+    // It only changes presentation; touch and reduced motion never track a pointer.
+    const cardSelector = '.hc-panel,.container,.hc-module-card';
+    let litCard = null, lightFrame = 0, pointerX = 0, pointerY = 0;
+    function clearLight() {
+        cancelAnimationFrame(lightFrame); lightFrame = 0;
+        if (litCard) {
+            litCard.removeAttribute('data-hc-lit');
+            litCard.style.removeProperty('--spot-x'); litCard.style.removeProperty('--spot-y');
+        }
+        litCard = null;
+    }
+    document.addEventListener('pointermove', event => {
         if (reduce.matches || !finePointer.matches) return;
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);
-        card.style.setProperty('--spot-y', `${event.clientY - rect.top}px`);
-    }));
+        const card = event.target.closest(cardSelector);
+        if (card !== litCard) { clearLight(); litCard = card; }
+        if (!litCard) return;
+        pointerX = event.clientX; pointerY = event.clientY;
+        if (lightFrame) return;
+        lightFrame = requestAnimationFrame(() => {
+            lightFrame = 0;
+            const rect = litCard.getBoundingClientRect();
+            litCard.style.setProperty('--spot-x', `${pointerX - rect.left}px`);
+            litCard.style.setProperty('--spot-y', `${pointerY - rect.top}px`);
+            litCard.setAttribute('data-hc-lit', '');
+        });
+    }, { passive: true });
+    document.addEventListener('pointerout', event => {
+        if (litCard && (!(event.relatedTarget instanceof Node) || !litCard.contains(event.relatedTarget))) clearLight();
+    }, { passive: true });
+    window.addEventListener('scroll', clearLight, { passive: true, capture: true });
+    window.addEventListener('resize', clearLight, { passive: true });
+    reduce.addEventListener('change', clearLight);
+    finePointer.addEventListener('change', clearLight);
 
     // A API e o corpo enviado continuam definidos nas funcoes originais.
     document.querySelectorAll('[data-async-action]').forEach(button => {
@@ -225,7 +253,8 @@ function init() {
         });
     }
     let pending = false;
-    const observer = new MutationObserver(() => {
+    const observer = new MutationObserver(records => {
+        if (records.every(record => record.type === 'attributes' && record.attributeName === 'style' && record.target.matches(cardSelector))) return;
         if (pending) return;
         pending = true;
         queueMicrotask(() => { pending = false; decorate(); });

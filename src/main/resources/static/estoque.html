@@ -32,6 +32,7 @@
         <p class="hc-description">Cadastro, validade e situação das bolsas em um só fluxo.</p>
     </header>
     <p class="hc-notice">Ambiente acadêmico com dados sintéticos. Validades configuráveis e exclusivamente didáticas; não representam regras clínicas oficiais. A bolsa é descartada na data de validade.</p>
+    <div class="hc-stock-workspace">
     <div class="hc-stock-grid">
         <section class="hc-panel" aria-labelledby="tituloFormulario">
             <h2 id="tituloFormulario">Cadastrar bolsa</h2>
@@ -49,12 +50,13 @@
         </section>
         <section class="hc-panel" aria-labelledby="tituloAlertas"><h2 id="tituloAlertas">Alertas de validade</h2><p>Limiares padrão: 5 e 2 dias. A lista é atualizada a cada 30 segundos enquanto esta tela está aberta.</p><ul id="alertas"></ul></section>
     </div>
-    <section class="hc-panel" aria-labelledby="tituloBolsas">
+    <section class="hc-panel hc-stock-list" aria-labelledby="tituloBolsas">
         <h2 id="tituloBolsas">Bolsas cadastradas</h2>
         <div class="hc-table-tools"><div><label for="filtro">Exibir</label><select class="filtro" id="filtro"><option value="">Todas</option><option value="DISPONIVEL">Disponíveis</option><option value="DESCARTADO">Descartadas</option></select></div><button type="button" class="secundario" id="atualizar">Atualizar estoque</button></div>
         <div class="rolagem" tabindex="0" role="region" aria-label="Bolsas cadastradas"><table role="table"><caption class="hc-table-caption">Consulte a bolsa para acessar suas informações e o histórico.</caption><thead><tr><th scope="col">Código</th><th scope="col">Componente / ABO</th><th scope="col">Volume</th><th scope="col">Validade</th><th scope="col">Situação</th><th scope="col">Ações</th></tr></thead><tbody id="bolsas"></tbody></table></div>
     </section>
-    <section class="hc-panel" id="painelDetalhes" hidden aria-labelledby="tituloDetalhes"><h2 id="tituloDetalhes">Informações da bolsa</h2><div id="detalhes"></div></section>
+    <section class="hc-panel hc-stock-details" id="painelDetalhes" hidden aria-labelledby="tituloDetalhes"><h2 id="tituloDetalhes">Informações da bolsa</h2><div id="detalhes"></div></section>
+    </div>
     <footer class="hc-footer">Ambiente acadêmico · Dados sintéticos · Fluxos existentes da Entrega 04</footer>
 </main>
 <script>
