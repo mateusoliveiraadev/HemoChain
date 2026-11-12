@@ -11,8 +11,8 @@ body.hemo-login{box-sizing:border-box;margin:0;min-height:100vh;min-height:100dv
 .login-liquid::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(7,8,11,.12),rgba(7,8,11,.35))}
 .login-card{position:relative;isolation:isolate;width:100%;max-width:456px;margin:auto;padding:32px;border:1px solid rgba(247,238,242,.19);border-radius:26px;background:rgba(24,19,29,.70);-webkit-backdrop-filter:blur(24px) saturate(1.2);backdrop-filter:blur(24px) saturate(1.2);box-shadow:0 28px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.13),inset 0 -1px 0 rgba(208,103,134,.07);animation:login-card-enter 240ms ease-out backwards}
 .login-card::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background:linear-gradient(135deg,rgba(247,238,242,.065),transparent 32%,transparent 75%,rgba(122,32,58,.10))}
-.login-brand{display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:26px;font:700 20px/1.4 Manrope,Inter,sans-serif;letter-spacing:-.5px}
-.login-brand img{display:block;width:min(100%,340px);height:auto;object-fit:contain}
+.login-brand{display:flex;justify-content:center;align-items:center;width:100%;margin-bottom:12px}
+.login-brand img{display:block;width:min(100%,310px);height:auto;object-fit:contain}
 .login-card h1{margin:0 0 8px;font:700 28px/1.25 Manrope,Inter,sans-serif;letter-spacing:-.7px;animation:login-title-enter 300ms ease-out backwards}
 .login-intro{margin:0 0 26px;color:#BFB2C0;font-size:14px;line-height:1.65}
 .login-form{display:grid;gap:18px}
@@ -38,7 +38,7 @@ body.hemo-login{box-sizing:border-box;margin:0;min-height:100vh;min-height:100dv
 .login-footer{margin:20px 0 0;padding-top:18px;border-top:1px solid rgba(247,238,242,.10);color:#AFA1B0;font-size:12px;text-align:center}
 .login-form input:autofill{-webkit-text-fill-color:#F7EEF2;box-shadow:0 0 0 100px #171821 inset}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.login-card{background:#19151E}}
-@media(max-width:480px){body.hemo-login{padding:24px 16px}.login-card{padding:26px 24px;border-radius:22px}.login-brand{margin-bottom:22px}.login-card h1{font-size:26px}}
+@media(max-width:480px){body.hemo-login{padding:24px 16px}.login-card{padding:26px 24px;border-radius:22px}.login-card h1{font-size:26px}}
 @media(prefers-reduced-motion:reduce){.hemo-login *,.hemo-login *::before,.hemo-login *::after{animation:none!important;transition:none!important}}
 @keyframes login-card-enter{from{opacity:.9}to{opacity:1}}
 @keyframes login-title-enter{from{opacity:.7;filter:blur(3px)}to{opacity:1;filter:blur(0)}}
