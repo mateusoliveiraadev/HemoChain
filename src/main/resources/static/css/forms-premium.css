@@ -1,0 +1,16 @@
+/* P4: loaded exclusively by internal pages. Native constraints remain authoritative. */
+.hemo-internal #conteudo :is(input:not([type='checkbox']):not([type='radio']),select,textarea) {
+    min-height: 44px; border-radius: 12px; background: #171821;
+    border-color: #766B80;
+    transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+.hemo-internal #conteudo :is(input,select,textarea):focus {
+    border-color: #C66C85; background: #1C1A26;
+    box-shadow: 0 0 0 3px rgba(198,108,133,.12), 0 0 18px rgba(198,108,133,.08);
+}
+.hemo-internal #conteudo :is(input,select,textarea):focus-visible { outline: 2px solid var(--hc-focus); outline-offset: 3px; }
+.hemo-internal #conteudo :is(input,select,textarea):disabled { opacity: .65; cursor: not-allowed; box-shadow: none; }
+.hemo-internal #conteudo :is(input,select,textarea)[aria-invalid='true'] { border-color: var(--hc-error); }
+.hemo-internal .hemo-field-error { color: var(--hc-error); font-size: 13px; line-height: 1.5; margin-top: 8px; }
+.hemo-internal .hemo-required { color: var(--hc-focus); }
+@media(prefers-reduced-motion:reduce) { .hemo-internal #conteudo :is(input,select,textarea) { transition: none; } }
