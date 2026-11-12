@@ -4,55 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HemoChain - Login</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #b71c1c 0%, #6a1b1b 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
-        .container { background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); width: 100%; max-width: 420px; padding: 40px; }
-        h2 { color: #333; margin-bottom: 25px; text-align: center; }
-        .form-group { margin-bottom: 18px; }
-        label { display: block; margin-bottom: 6px; color: #555; font-weight: 600; font-size: 14px; }
-        input, select { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px; font-family: inherit; }
-        button { width: 100%; padding: 12px; background: #b71c1c; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 16px; }
-        button:hover { background: #8f1616; }
-        .footer-link { margin-top: 18px; text-align: center; font-size: 14px; cursor: pointer; color: #b71c1c; text-decoration: underline; }
-        .status { margin-top: 15px; text-align: center; color: #e74c3c; font-weight: 600; font-size: 14px; min-height: 18px; }
-        .hidden { display: none !important; }
-    </style>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/ManropeVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/login.css">
     <script type="module" src="/js/magnetic.js"></script>
+    <script type="module" src="/js/login-ui.js"></script>
 </head>
-<body>
-<div class="container">
-    <h2 id="titulo">HemoChain - Entrar</h2>
-
-    <div id="campoNome" class="form-group hidden">
-        <label>Nome:</label>
-        <input type="text" id="inputNome" placeholder="Seu nome completo">
-    </div>
-
-    <div class="form-group">
-        <label>E-mail:</label>
-        <input type="email" id="inputEmail" placeholder="seu.email@exemplo.com">
-    </div>
-
-    <div class="form-group">
-        <label>Senha:</label>
-        <input type="password" id="inputSenha" placeholder="Sua senha">
-    </div>
-
-    <div id="campoPerfil" class="form-group hidden">
-        <label>Perfil:</label>
-        <select id="inputPerfil">
-            <option value="GESTOR_HEMOCENTRO">Gestor de Hemocentro</option>
-            <option value="OPERADOR_LOGISTICA">Operador de Logistica</option>
-            <option value="HOSPITAL_SOLICITANTE">Hospital Solicitante</option>
-        </select>
-    </div>
-
-    <button id="btnAcao">ENTRAR</button>
-    <div class="status" id="statusMsg"></div>
-    <div class="footer-link" id="btnAlternar">Nao tem conta? Cadastre-se aqui</div>
-</div>
-
+<body class="hemo-login">
+<div class="login-liquid" aria-hidden="true"><canvas></canvas></div>
+<main class="login-card" aria-labelledby="titulo">
+    <div class="login-brand"><img src="/assets/favicon.svg" width="40" height="40" alt=""><span>HemoChain</span></div>
+    <h1 id="titulo">Acesse sua conta</h1>
+    <p class="login-intro" id="loginIntro">Seu acesso à gestão de hemocomponentes.</p>
+    <form class="login-form" id="loginForm" novalidate>
+        <div id="campoNome" class="form-group hidden">
+            <label for="inputNome">Nome</label>
+            <input type="text" id="inputNome" placeholder="Seu nome completo" autocomplete="name">
+        </div>
+        <div class="form-group">
+            <label for="inputEmail">E-mail</label>
+            <input type="email" id="inputEmail" placeholder="seu.email@exemplo.com" autocomplete="username" autocapitalize="none" spellcheck="false" aria-describedby="emailHint">
+            <p class="login-hint" id="emailHint" hidden></p>
+        </div>
+        <div class="form-group">
+            <label for="inputSenha">Senha</label>
+            <input type="password" id="inputSenha" placeholder="Sua senha" autocomplete="current-password">
+        </div>
+        <div id="campoPerfil" class="form-group hidden">
+            <label for="inputPerfil">Perfil</label>
+            <select id="inputPerfil">
+                <option value="GESTOR_HEMOCENTRO">Gestor de Hemocentro</option>
+                <option value="OPERADOR_LOGISTICA">Operador de Logística</option>
+                <option value="HOSPITAL_SOLICITANTE">Hospital Solicitante</option>
+            </select>
+        </div>
+        <div class="login-actions">
+            <button id="btnAcao" type="button">ENTRAR</button>
+            <button class="login-secondary" id="btnAlternar" type="button" aria-controls="campoNome campoPerfil" aria-expanded="false">Não tenho conta. Cadastrar</button>
+        </div>
+        <div id="statusMsg" class="status" role="status" aria-live="polite" aria-atomic="true"></div>
+    </form>
+    <p class="login-footer">Ambiente acadêmico · Dados sintéticos</p>
+</main>
 <script>
     const api = {
         cadastrar: (dados) => fetch('/usuarios/register', {
@@ -116,9 +110,9 @@
                 if (!resposta.ok) {
                     throw new Error(await mensagemDeErro(resposta, 'Nao foi possivel cadastrar.'));
                 }
-                statusMsg.style.color = '#2e7d32';
-                statusMsg.innerText = 'Conta criada! Faca login.';
                 document.getElementById('btnAlternar').click();
+                statusMsg.style.color = '#2e7d32';
+                statusMsg.innerText = 'Conta criada! Faça login.';
             }
         } catch (erro) {
             statusMsg.style.color = '#e74c3c';
