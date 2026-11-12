@@ -7,22 +7,26 @@
     <title>HemoChain - Requisicoes Hospitalares</title>
     <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/internal-ui.css">
+    <link rel="stylesheet" href="/css/dock.css">
     <script type="module" src="/js/internal-ui.js"></script>
 </head>
 <body class="hemo-internal" data-module="requisicoes">
 <a class="hc-skip-link" href="#conteudo">Pular para o conteúdo</a>
 <div class="hc-veil" aria-hidden="true"><canvas data-dark-veil></canvas></div>
-<aside class="hc-sidebar" aria-label="Menu do sistema">
-    <a class="hc-brand" href="index.html"><strong>HemoChain</strong><span>Hemocomponentes</span></a>
-    <div><span class="hc-nav-label">Módulos</span><nav class="hc-nav" aria-label="Navegação principal"><a href="index.html">Início</a>
-<a href="estoque.html" id="linkEstoque" data-profiles="GESTOR_HEMOCENTRO" hidden>Estoque e validade</a>
-<a href="requisicoes.html" aria-current="page" data-profiles="GESTOR_HEMOCENTRO HOSPITAL_SOLICITANTE" hidden>Requisições</a>
-<a href="atendimento.html">Atendimento</a></nav></div>
-    <div class="hc-sidebar-footer">
-        <span class="hc-profile" data-profile-label></span>
-        <button type="button" class="hc-button-ghost" data-logout>Sair</button>
-        <p class="hc-sidebar-note">Protótipo acadêmico<br>Dados sintéticos</p>
+<aside class="hemo-navigation" aria-label="Menu do sistema">
+    <a class="hemo-navigation__brand" href="index.html" aria-label="HemoChain — Início" aria-describedby="hemo-navigation-profile"><img src="/assets/favicon.svg" width="36" height="36" alt=""><span>HemoChain</span></a>
+    <div class="hemo-dock">
+        <nav class="hc-nav hemo-dock__links" aria-label="Navegação principal">
+            <a href="index.html" class="hemo-dock__item" aria-label="Início"><span class="hemo-dock__face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg></span><span class="hemo-dock__compact-label" aria-hidden="true">Início</span><span class="hemo-dock__label" aria-hidden="true">Início</span></a>
+            <a href="estoque.html" id="linkEstoque" data-profiles="GESTOR_HEMOCENTRO" hidden class="hemo-dock__item" aria-label="Estoque e validade"><span class="hemo-dock__face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3h6m-3 0v3M7 6h10a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/><path d="M12 10s-3 3.4-3 5a3 3 0 0 0 6 0c0-1.6-3-5-3-5Z"/></svg></span><span class="hemo-dock__compact-label" aria-hidden="true">Estoque</span><span class="hemo-dock__label" aria-hidden="true">Estoque e validade</span></a>
+            <a href="requisicoes.html" aria-current="page" data-profiles="GESTOR_HEMOCENTRO HOSPITAL_SOLICITANTE" hidden class="hemo-dock__item" aria-label="Requisições hospitalares"><span class="hemo-dock__face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M9 11h6m-6 4h6"/></svg></span><span class="hemo-dock__compact-label" aria-hidden="true">Requisições</span><span class="hemo-dock__label" aria-hidden="true">Requisições hospitalares</span></a>
+            <a href="atendimento.html" class="hemo-dock__item" aria-label="Atendimento e recebimento"><span class="hemo-dock__face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="14" rx="3"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m-4 5v5m-2.5-2.5h5"/></svg></span><span class="hemo-dock__compact-label" aria-hidden="true">Atendimento</span><span class="hemo-dock__label" aria-hidden="true">Atendimento e recebimento</span></a>
+        </nav>
+        <span class="hemo-dock__separator" aria-hidden="true"></span>
+        <button type="button" class="hemo-dock__item" data-logout aria-label="Sair"><span class="hemo-dock__face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4m6-12 4 4-4 4m-6-4h10"/></svg></span><span class="hemo-dock__compact-label" aria-hidden="true">Sair</span><span class="hemo-dock__label" aria-hidden="true">Sair</span></button>
     </div>
+    <span id="hemo-navigation-profile" class="hemo-navigation__academic" data-profile-label></span>
+    <p class="hemo-navigation__academic">Protótipo acadêmico · Dados sintéticos</p>
 </aside>
 <main class="hc-main" id="conteudo" tabindex="-1">
     <header class="hc-page-header">

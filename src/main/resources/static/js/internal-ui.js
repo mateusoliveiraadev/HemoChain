@@ -1,4 +1,5 @@
 import { startDarkVeil } from './dark-veil.js';
+import { initDock } from './dock.js';
 
 // Aperfeicoamentos de apresentacao. As chamadas e regras dos modulos continuam nos HTMLs.
 const body = document.body;
@@ -17,6 +18,7 @@ function init() {
     const greeting = document.getElementById('saudacao');
     if (greeting) greeting.textContent = greeting.textContent.replace(/^Ola, /, 'Olá, ');
     document.querySelectorAll('[data-profiles]').forEach(n => { n.hidden = !n.dataset.profiles.split(' ').includes(user.perfil); });
+    initDock(document.querySelector('.hemo-dock'));
     document.querySelectorAll('[data-logout]').forEach(n => n.addEventListener('click', () => {
         localStorage.removeItem('hemochainUsuario');
         window.location.href = 'login.html';
