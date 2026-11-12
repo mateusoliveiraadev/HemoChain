@@ -8,7 +8,10 @@
     <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/internal-ui.css">
     <link rel="stylesheet" href="/css/dock.css">
+    <link rel="preload" href="/fonts/ManropeVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/typography.css">
     <script type="module" src="/js/internal-ui.js"></script>
+    <script type="module" src="/js/text-reveal.js"></script>
 </head>
 <body class="hemo-internal" data-module="inicio">
 <a class="hc-skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -32,8 +35,8 @@
     <header class="hc-page-header">
         <p class="hc-eyebrow">HemoChain / Início</p>
         <p class="hc-profile" data-profile-label></p>
-        <h1 id="saudacao">Olá!</h1>
-        <p class="hc-description">Escolha um módulo para continuar o atendimento.</p>
+        <h1 id="saudacao" class="hc-title-reveal">Olá!</h1>
+        <p class="hc-description hc-subtitle-reveal">Escolha um módulo para continuar o atendimento.</p>
     </header>
     <div class="hc-notice"><strong id="perfilTexto"></strong><p id="avisoPerfil"></p></div>
     <div class="hc-module-grid">
