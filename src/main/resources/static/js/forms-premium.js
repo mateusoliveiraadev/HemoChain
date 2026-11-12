@@ -11,10 +11,10 @@ if(main){
     main.addEventListener('invalid',event=>{
         const field=event.target;if(!field.matches('input,select,textarea'))return;
         let error=messages.get(field);
-        if(!error){error=document.createElement('p');error.id=`hemo-field-error-${++nextId}`;error.className='hemo-field-error';field.insertAdjacentElement('afterend',error);messages.set(field,error);field.setAttribute('aria-describedby',`${field.getAttribute('aria-describedby')||''} ${error.id}`.trim());}
+        if(!error){error=document.createElement('p');error.id=`hemo-field-error-${++nextId}`;error.className='hemo-field-error';(field.closest('label')||field).insertAdjacentElement('afterend',error);messages.set(field,error);field.setAttribute('aria-describedby',`${field.getAttribute('aria-describedby')||''} ${error.id}`.trim());}
         field.setAttribute('aria-invalid','true');error.textContent=field.validationMessage;
     },true);
-    const update=event=>{if(event.target.matches('input,select,textarea')&&event.target.validity.valid)clear(event.target);};
+    const update=event=>{const field=event.target;if(!field.matches('input,select,textarea'))return;if(field.validity.valid)clear(field);else if(messages.has(field))messages.get(field).textContent=field.validationMessage;};
     main.addEventListener('input',update);main.addEventListener('change',update);
     main.addEventListener('reset',event=>queueMicrotask(()=>event.target.querySelectorAll('input,select,textarea').forEach(clear)));
     function decorate(){main.querySelectorAll('input[required],select[required],textarea[required]').forEach(field=>{[...field.labels||[]].forEach(label=>{if(label.querySelector('.hemo-required'))return;const mark=document.createElement('span');mark.className='hemo-required';mark.setAttribute('aria-hidden','true');mark.textContent=' *';label.appendChild(mark);});});}

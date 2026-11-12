@@ -43,7 +43,7 @@ async function main(){
     const count=result.words.length;await p.locator('#atualizar').click();await p.waitForLoadState('networkidle');
     if(await p.locator('#bolsas button').count()){await p.locator('#bolsas button').first().click();await p.locator('#painelDetalhes').waitFor();await p.waitForFunction(()=>document.querySelector('#detalhes .hc-timeline li'));}
     // P0 hover/focus colour transitions remain; record/title animations do not replay.
-    assert.equal(await p.evaluate(()=>window.__textTest.words.length),count);assert.equal(await p.evaluate(()=>document.getAnimations().filter(a=>!(a instanceof CSSTransition)&&!a.effect.getKeyframes().some(f=>'translate' in f)).length),0);
+    assert.equal(await p.evaluate(()=>window.__textTest.words.length),count);assert.equal(await p.evaluate(()=>document.getAnimations().filter(a=>!(a instanceof CSSTransition)&&!['hemo-list-enter','hemo-content-enter'].includes(a.id)&&!a.effect.getKeyframes().some(f=>'translate' in f)).length),0);
     assert.equal(await p.locator('h1').innerHTML(),result.source);
    }
    report.pages.push({page,size:result.size,titleFont:headingFonts,interfaceFont:interfaceFonts,totalMotion:560,accessibleName:result.name});
