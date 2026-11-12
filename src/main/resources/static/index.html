@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <script src="/js/auth-session.js" data-auth-required></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/assets/branding/favicon.png" type="image/png" sizes="64x64">
     <title>HemoChain</title>
@@ -68,7 +69,7 @@
 
     const dados = localStorage.getItem('hemochainUsuario');
     if (!dados) {
-        window.location.href = 'login.html';
+        window.HemoSession.requireUser();
     } else {
         const usuario = JSON.parse(dados);
         if (usuario.perfil !== 'GESTOR_HEMOCENTRO') {
@@ -85,8 +86,7 @@
     }
 
     function sair() {
-        localStorage.removeItem('hemochainUsuario');
-        window.location.href = 'login.html';
+        return window.HemoSession.logout();
     }
 </script>
 </body>

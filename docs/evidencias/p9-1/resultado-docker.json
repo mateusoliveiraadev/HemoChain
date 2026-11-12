@@ -1,0 +1,31 @@
+{
+  "base": "http://localhost:18084",
+  "flows": [
+    {
+      "size": "desktop",
+      "realLogin": true,
+      "modules": 4,
+      "logoutPremium": true,
+      "sessionCleared": true,
+      "rootGuarded": true
+    },
+    {
+      "size": "tablet",
+      "realLogin": true,
+      "modules": 4,
+      "logoutPremium": true,
+      "sessionCleared": true,
+      "rootGuarded": true
+    },
+    {
+      "size": "mobile",
+      "realLogin": true,
+      "modules": 4,
+      "logoutPremium": true,
+      "sessionCleared": true,
+      "rootGuarded": true
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

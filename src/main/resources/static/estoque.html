@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <script src="/js/auth-session.js" data-auth-required></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/assets/branding/favicon.png" type="image/png" sizes="64x64">
     <title>HemoChain - Estoque e validade</title>
@@ -169,7 +170,7 @@
     porId('atualizar').onclick = carregar;
     const hoje = new Date(); hoje.setMinutes(hoje.getMinutes() - hoje.getTimezoneOffset());
     porId('dataColeta').max = hoje.toISOString().slice(0,10);
-    if (!usuario) window.location.replace('login.html');
+    if (!usuario) window.HemoSession.requireUser();
     else if (usuario.perfil !== 'GESTOR_HEMOCENTRO') window.location.replace('requisicoes.html');
     else { carregar(); setInterval(carregar,30000); }
 </script>

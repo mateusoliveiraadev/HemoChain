@@ -1,0 +1,38 @@
+{
+  "assets": [
+    {
+      "file": "C:/Users/Vinicius/Downloads/logo hemochain.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "9929594339fb1016b3dcfcaff961931e14022c29dee863cb369af078583f2e5e",
+      "alpha": {
+        "clear": 1061548,
+        "partial": 510206,
+        "opaque": 762
+      }
+    },
+    {
+      "file": "C:/Users/Vinicius/Downloads/arte nome hemochain.png",
+      "width": 2172,
+      "height": 724,
+      "sha256": "4327030bb072ab59814e48f8efc0ea88904f3d712404bb6bfe740833ade3ebd1",
+      "alpha": {
+        "clear": 47224,
+        "partial": 1525304,
+        "opaque": 0
+      }
+    },
+    {
+      "file": "src/main/resources/static/assets/branding/hemochain-wordmark.png",
+      "width": 1086,
+      "height": 362,
+      "sha256": "c35a3a9ac707e3343f6cc49c395d28f9b34a0b8c27e54ddefeb887a3895cd80e",
+      "alpha": {
+        "clear": 12749,
+        "partial": 380383,
+        "opaque": 0
+      }
+    }
+  ],
+  "decision": "Official wordmark contains burgundy background and exterior decorations in the image. ImageGen extraction rejected because type contours and finish changed. No generated asset integrated; official transparent undecorated wordmark requested from user."
+}

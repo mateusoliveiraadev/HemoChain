@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <script src="/js/auth-session.js" data-auth-required></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/assets/branding/favicon.png" type="image/png" sizes="64x64">
     <title>HemoChain - Entregas e recebimento</title>
@@ -131,7 +132,7 @@ el('requisicao').onchange=()=>executar(carregarDetalhes);
 el('atualizar').onclick=()=>executar(carregarRequisicoes);
 el('verificar').onclick=()=>executar(async()=>{await pendencias();if(gestor)await carregarRequisicoes();mensagem('Verificação concluída.');});
 async function iniciar(){
-    if(!usuario){location.replace('login.html');return;}
+    if(!usuario){window.HemoSession.requireUser();return;}
     el('linkEstoque').hidden=!gestor;
     if(hospital){el('contextoHospital').hidden=false;const hs=await api('/hospitais');hs.forEach(h=>el('hospital').add(new Option(h.nome,h.id)));el('hospital').value=localStorage.getItem('hemochainHospitalId')||el('hospital').value;if(!el('hospital').value&&hs.length)el('hospital').value=hs[0].id;el('hospital').onchange=()=>{localStorage.setItem('hemochainHospitalId',el('hospital').value);executar(carregarRequisicoes);};}
     if(gestor||hospital)await carregarRequisicoes();else{el('selecao').hidden=true;el('painelEntregas').hidden=true;}

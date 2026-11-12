@@ -1,0 +1,61 @@
+{
+  "fixed": true,
+  "legacyReturned": false,
+  "responses": [
+    {
+      "url": "http://127.0.0.1:18087/login.html",
+      "fromDiskCache": false,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Connection": "keep-alive",
+        "Content-Length": "5762",
+        "Content-Type": "text/html",
+        "Date": "Thu, 12 Nov 2026 09:28:55 GMT",
+        "Keep-Alive": "timeout=60",
+        "Last-Modified": "Mon, 09 Nov 2026 09:28:54 GMT",
+        "Vary": "Origin\nAccess-Control-Request-Method\nAccess-Control-Request-Headers"
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18087/login.html?preview=p9",
+      "fromDiskCache": false,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Connection": "keep-alive",
+        "Content-Length": "5907",
+        "Content-Type": "text/html",
+        "Date": "Thu, 12 Nov 2026 09:28:55 GMT",
+        "Keep-Alive": "timeout=60",
+        "Last-Modified": "Thu, 12 Nov 2026 09:02:22 GMT",
+        "Vary": "Origin\nAccess-Control-Request-Method\nAccess-Control-Request-Headers"
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18087/login.html",
+      "fromDiskCache": false,
+      "headers": {
+        "Connection": "keep-alive",
+        "Accept-Ranges": "bytes",
+        "Content-Length": "5907",
+        "Keep-Alive": "timeout=60",
+        "Date": "Thu, 12 Nov 2026 09:28:56 GMT",
+        "Last-Modified": "Thu, 12 Nov 2026 09:02:22 GMT",
+        "Vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+        "Content-Type": "text/html"
+      }
+    },
+    {
+      "url": "http://127.0.0.1:18087/login.html",
+      "fromDiskCache": true,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Content-Length": "5907",
+        "Content-Type": "text/html",
+        "Date": "Thu, 12 Nov 2026 09:28:56 GMT",
+        "Last-Modified": "Thu, 12 Nov 2026 09:02:22 GMT",
+        "Vary": "Origin\nAccess-Control-Request-Method\nAccess-Control-Request-Headers"
+      }
+    }
+  ],
+  "sessionCleared": true
+}

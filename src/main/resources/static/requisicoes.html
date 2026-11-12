@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <script src="/js/auth-session.js" data-auth-required></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/assets/branding/favicon.png" type="image/png" sizes="64x64">
     <title>HemoChain - Requisicoes Hospitalares</title>
@@ -214,7 +215,7 @@
 
     const dadosUsuario = localStorage.getItem('hemochainUsuario');
     if (!dadosUsuario) {
-        window.location.href = 'login.html';
+        window.HemoSession.requireUser();
     } else if (JSON.parse(dadosUsuario).perfil === 'OPERADOR_LOGISTICA') {
         alert('Seu perfil (Operador de Logistica) nao tem acesso as requisicoes hospitalares.');
         window.location.href = 'index.html';

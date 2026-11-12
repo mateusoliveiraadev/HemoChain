@@ -20,8 +20,7 @@ function init() {
     document.querySelectorAll('[data-profiles]').forEach(n => { n.hidden = !n.dataset.profiles.split(' ').includes(user.perfil); });
     initDock(document.querySelector('.hemo-dock'));
     document.querySelectorAll('[data-logout]').forEach(n => n.addEventListener('click', () => {
-        localStorage.removeItem('hemochainUsuario');
-        window.location.href = 'login.html';
+        window.HemoSession.logout();
     }));
     if (body.dataset.module === 'requisicoes' && user.perfil === 'GESTOR_HEMOCENTRO') {
         document.querySelector('.hc-description').textContent = 'Consulte as solicitações registradas pelos hospitais.';
