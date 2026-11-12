@@ -12,7 +12,7 @@
     color: var(--hc-text); font-size: 11px; font-weight: 600;
     text-decoration: none;
 }
-.hemo-navigation__brand img { display: block; width: 36px; height: 36px; border-radius: 10px; }
+.hemo-navigation__brand img { display: block; width: 36px; height: 36px; object-fit: contain; }
 .hemo-navigation__academic { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .hemo-internal .hemo-dock {
     --dock-accent: #C66C85;
@@ -92,7 +92,7 @@
         position: relative; top: auto; left: auto; width: fit-content;
         margin: 0 24px; align-self: flex-start; display: flex; gap: 10px; font-size: 16px;
     }
-    .hemo-navigation__brand img { width: 28px; height: 28px; border-radius: 8px; }
+    .hemo-navigation__brand img { width: 28px; height: 28px; }
     .hemo-internal .hemo-dock {
         --dock-slot: clamp(58px,calc((100vw - 36px) / 5),64px);
         position: relative; left: auto; top: auto; bottom: auto;
