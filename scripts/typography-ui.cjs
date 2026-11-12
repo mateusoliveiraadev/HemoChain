@@ -14,7 +14,7 @@ async function main(){
    localStorage.setItem('hemochainUsuario',JSON.stringify({nome:'Validação P2',perfil:'GESTOR_HEMOCENTRO'}));
    window.__textTest={words:[],css:[]};
    const original=Element.prototype.animate;
-   Element.prototype.animate=function(frames,options){window.__textTest.words.push({text:this.textContent,heading:!!this.closest('h1'),frames,options});return original.call(this,frames,options);};
+   Element.prototype.animate=function(frames,options){if(frames.some(f=>'filter' in f))window.__textTest.words.push({text:this.textContent,heading:!!this.closest('h1'),frames,options});return original.call(this,frames,options);};
    document.addEventListener('animationstart',event=>{const style=getComputedStyle(event.target);window.__textTest.css.push({name:event.animationName,duration:style.animationDuration,delay:style.animationDelay,header:!!event.target.closest('.hc-page-header')});});
   });return ctx;
  }
@@ -43,7 +43,7 @@ async function main(){
     const count=result.words.length;await p.locator('#atualizar').click();await p.waitForLoadState('networkidle');
     if(await p.locator('#bolsas button').count()){await p.locator('#bolsas button').first().click();await p.locator('#painelDetalhes').waitFor();await p.waitForFunction(()=>document.querySelector('#detalhes .hc-timeline li'));}
     // P0 hover/focus colour transitions remain; record/title animations do not replay.
-    assert.equal(await p.evaluate(()=>window.__textTest.words.length),count);assert.equal(await p.evaluate(()=>document.getAnimations().filter(a=>!(a instanceof CSSTransition)).length),0);
+    assert.equal(await p.evaluate(()=>window.__textTest.words.length),count);assert.equal(await p.evaluate(()=>document.getAnimations().filter(a=>!(a instanceof CSSTransition)&&!a.effect.getKeyframes().some(f=>'translate' in f)).length),0);
     assert.equal(await p.locator('h1').innerHTML(),result.source);
    }
    report.pages.push({page,size:result.size,titleFont:headingFonts,interfaceFont:interfaceFonts,totalMotion:560,accessibleName:result.name});

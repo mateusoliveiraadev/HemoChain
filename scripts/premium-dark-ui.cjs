@@ -116,9 +116,10 @@ async function main() {
             assert.equal(await lp.locator('link[rel=stylesheet],canvas').count(), 0);
             await anon.close();
         }
-        const login = await fs.readFile('src/main/resources/static/login.html');
+        // P3 permits only this optional magnetic entry point in the original login.
+        const login = (await fs.readFile('src/main/resources/static/login.html','utf8')).replace('    <script type="module" src="/js/magnetic.js"></script>\n','');
         assert.equal(crypto.createHash('sha256').update(login).digest('hex'), '9ad4d02f7f88863dd141d6bd93c29d5ceec5be77cea732f32d961beb0c9aead1');
-        report.checks.push('Arquivo do login identico ao SHA256 anterior.');
+        report.checks.push('Login original preservado, exceto o entry point Magnetic autorizado.');
         assert.deepEqual(report.errors, []);
         report.status = 'APROVADO';
     } finally {
