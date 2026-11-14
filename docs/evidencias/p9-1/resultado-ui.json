@@ -1,0 +1,310 @@
+{
+  "base": "http://127.0.0.1:18086",
+  "database": "isolated H2 in memory; real register/login endpoints; no API mocks",
+  "flows": [
+    {
+      "size": "desktop",
+      "role": "GESTOR_HEMOCENTRO",
+      "logoutFrom": "index",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "desktop",
+      "role": "GESTOR_HEMOCENTRO",
+      "logoutFrom": "estoque",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "desktop",
+      "role": "GESTOR_HEMOCENTRO",
+      "logoutFrom": "requisicoes",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "desktop",
+      "role": "GESTOR_HEMOCENTRO",
+      "logoutFrom": "atendimento",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "desktop",
+      "role": "HOSPITAL_SOLICITANTE",
+      "logoutFrom": "index",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "desktop",
+      "role": "HOSPITAL_SOLICITANTE",
+      "logoutFrom": "requisicoes",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "desktop",
+      "role": "HOSPITAL_SOLICITANTE",
+      "logoutFrom": "atendimento",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "desktop",
+      "role": "OPERADOR_LOGISTICA",
+      "logoutFrom": "index",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "desktop",
+      "role": "OPERADOR_LOGISTICA",
+      "logoutFrom": "atendimento",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "tablet",
+      "role": "GESTOR_HEMOCENTRO",
+      "logoutFrom": "index",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "tablet",
+      "role": "GESTOR_HEMOCENTRO",
+      "logoutFrom": "estoque",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "tablet",
+      "role": "GESTOR_HEMOCENTRO",
+      "logoutFrom": "requisicoes",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "tablet",
+      "role": "GESTOR_HEMOCENTRO",
+      "logoutFrom": "atendimento",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "tablet",
+      "role": "HOSPITAL_SOLICITANTE",
+      "logoutFrom": "index",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "tablet",
+      "role": "HOSPITAL_SOLICITANTE",
+      "logoutFrom": "requisicoes",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "tablet",
+      "role": "HOSPITAL_SOLICITANTE",
+      "logoutFrom": "atendimento",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "tablet",
+      "role": "OPERADOR_LOGISTICA",
+      "logoutFrom": "index",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "tablet",
+      "role": "OPERADOR_LOGISTICA",
+      "logoutFrom": "atendimento",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "mobile",
+      "role": "GESTOR_HEMOCENTRO",
+      "logoutFrom": "index",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "mobile",
+      "role": "GESTOR_HEMOCENTRO",
+      "logoutFrom": "estoque",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "mobile",
+      "role": "GESTOR_HEMOCENTRO",
+      "logoutFrom": "requisicoes",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "mobile",
+      "role": "GESTOR_HEMOCENTRO",
+      "logoutFrom": "atendimento",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "mobile",
+      "role": "HOSPITAL_SOLICITANTE",
+      "logoutFrom": "index",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "mobile",
+      "role": "HOSPITAL_SOLICITANTE",
+      "logoutFrom": "requisicoes",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "mobile",
+      "role": "HOSPITAL_SOLICITANTE",
+      "logoutFrom": "atendimento",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "mobile",
+      "role": "OPERADOR_LOGISTICA",
+      "logoutFrom": "index",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    },
+    {
+      "size": "mobile",
+      "role": "OPERADOR_LOGISTICA",
+      "logoutFrom": "atendimento",
+      "registered": true,
+      "realLogin": true,
+      "newLoginVisible": true,
+      "sessionCleared": true,
+      "backAndDirectEntryGuarded": true
+    }
+  ],
+  "errors": [],
+  "checks": [
+    "Legacy sair() delegates to canonical logout; another authenticated tab also returns to login.",
+    "Liquid Ether reacts to real mouse movement; WebGL error=0; Magnetic on both buttons; reduced-motion supported."
+  ],
+  "cache": {
+    "/": {
+      "status": 200,
+      "cacheControl": "no-store"
+    },
+    "/index.html": {
+      "status": 200,
+      "cacheControl": "no-store"
+    },
+    "/login.html": {
+      "status": 200,
+      "cacheControl": "no-store"
+    },
+    "/css/login.css": {
+      "status": 200,
+      "cacheControl": "no-store"
+    },
+    "/js/auth-session.js": {
+      "status": 200,
+      "cacheControl": "no-store"
+    },
+    "/login": {
+      "status": 404
+    },
+    "/logout": {
+      "status": 404
+    }
+  },
+  "status": "PASS"
+}

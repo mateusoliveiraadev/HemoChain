@@ -1,0 +1,45 @@
+@font-face{font-family:Inter;src:url('../fonts/InterVariable.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:Manrope;src:url('../fonts/ManropeVariable.woff2') format('woff2');font-weight:200 800;font-display:swap}
+/* Dedicated authentication surface. Never loaded by internal pages. */
+body.hemo-login{box-sizing:border-box;margin:0;min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:32px 20px;background:#07080B;color:#F7EEF2;color-scheme:dark;font:400 14px/1.6 Inter,'Segoe UI',sans-serif;isolation:isolate}
+.hemo-login *,.hemo-login *::before,.hemo-login *::after{box-sizing:border-box}
+.hemo-login [hidden],.hemo-login .hidden{display:none!important}
+.login-liquid{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:#07080B}
+.login-liquid::before{content:'';position:absolute;inset:0;background:url('../assets/login-fluid.svg') center/cover no-repeat}
+.login-liquid[data-renderer='webgl']::before{opacity:0}
+.login-liquid canvas{display:block;width:100%;height:100%;opacity:.95}
+.login-liquid::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(7,8,11,.12),rgba(7,8,11,.35))}
+.login-card{position:relative;isolation:isolate;width:100%;max-width:456px;margin:auto;padding:32px;border:1px solid rgba(247,238,242,.19);border-radius:26px;background:rgba(24,19,29,.70);-webkit-backdrop-filter:blur(24px) saturate(1.2);backdrop-filter:blur(24px) saturate(1.2);box-shadow:0 28px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.13),inset 0 -1px 0 rgba(208,103,134,.07);animation:login-card-enter 240ms ease-out backwards}
+.login-card::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background:linear-gradient(135deg,rgba(247,238,242,.065),transparent 32%,transparent 75%,rgba(122,32,58,.10))}
+.login-brand{display:flex;justify-content:center;align-items:center;width:100%;margin-bottom:12px}
+.login-brand img{display:block;width:min(100%,310px);height:auto;object-fit:contain}
+.login-card h1{margin:0 0 8px;font:700 28px/1.25 Manrope,Inter,sans-serif;letter-spacing:-.7px;animation:login-title-enter 300ms ease-out backwards}
+.login-intro{margin:0 0 26px;color:#BFB2C0;font-size:14px;line-height:1.65}
+.login-form{display:grid;gap:18px}
+.login-form .form-group{min-width:0}
+.login-form label{display:block;margin-bottom:8px;color:#D7CAD5;font-size:14px;font-weight:500}
+.login-form :is(input,select){display:block;width:100%;min-width:0;min-height:48px;padding:11px 13px;border:1px solid #746475;border-radius:12px;background:rgba(17,19,26,.82);color:#F7EEF2;font:inherit;transition:border-color 180ms ease,box-shadow 180ms ease,background-color 180ms ease}
+.login-form input::placeholder{color:#A89EAD;opacity:1}
+.login-form select option{background:#171821;color:#F7EEF2}
+.login-form :is(input,select):focus{border-color:#D06786;background:rgba(27,23,34,.94);box-shadow:0 0 0 3px rgba(198,108,133,.14),0 0 18px rgba(198,108,133,.10)}
+.hemo-login :is(input,select,button):focus-visible{outline:2px solid #EDB8CB;outline-offset:3px}
+.login-form :is(input,select)[aria-invalid='true']{border-color:#F1A2B3}
+.login-hint{margin:7px 0 0;color:#F1A2B3;font-size:13px}
+.login-actions{display:grid;gap:12px;margin-top:6px}
+.login-actions button{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:48px;padding:12px 16px;border:1px solid #AF4A67;border-radius:12px;background:#933E59;color:#F7EEF2;font:600 14px/1.5 Inter,'Segoe UI',sans-serif;cursor:pointer;transition:background-color 180ms ease,border-color 180ms ease,box-shadow 180ms ease}
+.login-actions button:hover{background:#A34664;border-color:#D06786;box-shadow:0 0 20px rgba(166,30,60,.13)}
+.login-actions .login-secondary{background:rgba(247,238,242,.035);border-color:#746475;color:#E1D3DF;font-weight:500}
+.login-actions .login-secondary:hover{background:rgba(208,103,134,.09);border-color:#B37B91}
+.login-actions button:disabled{opacity:.55;cursor:wait;box-shadow:none}
+.login-actions button[aria-busy='true']::after{content:'';width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:login-spin 800ms linear infinite}
+.hemo-login #statusMsg{min-height:22px;margin:0;color:#BFB2C0!important;font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+.hemo-login #statusMsg[data-tone='error']{color:#F1A2B3!important}
+.hemo-login #statusMsg[data-tone='success']{color:#95D7B6!important}
+.login-footer{margin:20px 0 0;padding-top:18px;border-top:1px solid rgba(247,238,242,.10);color:#AFA1B0;font-size:12px;text-align:center}
+.login-form input:autofill{-webkit-text-fill-color:#F7EEF2;box-shadow:0 0 0 100px #171821 inset}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.login-card{background:#19151E}}
+@media(max-width:480px){body.hemo-login{padding:24px 16px}.login-card{padding:26px 24px;border-radius:22px}.login-card h1{font-size:26px}}
+@media(prefers-reduced-motion:reduce){.hemo-login *,.hemo-login *::before,.hemo-login *::after{animation:none!important;transition:none!important}}
+@keyframes login-card-enter{from{opacity:.9}to{opacity:1}}
+@keyframes login-title-enter{from{opacity:.7;filter:blur(3px)}to{opacity:1;filter:blur(0)}}
+@keyframes login-spin{to{transform:rotate(360deg)}}

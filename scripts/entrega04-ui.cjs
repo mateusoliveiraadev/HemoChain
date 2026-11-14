@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const base = process.env.HEMOCHAIN_URL || 'http://localhost:18084';
-const destino = path.resolve('entrega-04/evidencias');
+const destino = path.resolve(process.env.HEMOCHAIN_UI_OUTPUT || 'entrega-04/evidencias');
 const sufixo = Date.now();
 const erros = [];
 const resultados = [];
@@ -53,14 +53,14 @@ async function principal() {
         resultados.push('Cadastro de bolsa e historico automatico visiveis no estoque.');
         await hospital.goto(base+'/requisicoes.html');
         await hospital.locator('#hospNome').fill('Hospital Demo E04 '+sufixo);
-        await hospital.getByRole('button',{name:'Cadastrar Hospital',exact:true}).click();
+        await hospital.locator('#cadastrarHospital').click();
         await hospital.locator('#statusHospital').filter({hasText:'Hospital cadastrado!'}).waitFor();
         await hospital.locator('#hospitalContexto option').filter({hasText:'Hospital Demo E04 '+sufixo}).waitFor({state:'attached'});
         const hospitalId=await hospital.locator('#hospitalContexto option').filter({hasText:'Hospital Demo E04 '+sufixo}).getAttribute('value');
         await hospital.locator('#hospitalContexto').selectOption(hospitalId);
         await hospital.locator('#reqTipoSanguineo').selectOption('A_NEGATIVO');
         await hospital.locator('#reqPrazo').fill('2027-01-01');
-        await hospital.getByRole('button',{name:'Registrar Requisicao'}).click();
+        await hospital.locator('#registrarRequisicao').click();
         await hospital.locator('#statusRequisicao').filter({hasText:'Requisicao registrada!'}).waitFor();
         const link=hospital.locator('#listaRequisicoes a').first();await link.waitFor();
         const rId=(await link.innerText()).replace('#','');
@@ -76,9 +76,12 @@ async function principal() {
         await screenshot(gestor,'04-entrega-atestada.png');
         await hospital.goto(base+'/atendimento.html?requisicao='+rId);
         await hospital.getByRole('button',{name:'Confirmar recebimento'}).waitFor();
+        const observacao='Embalagem integra.\n\nObservacao adicional preservada integralmente.';
+        await hospital.locator('#entregas textarea').fill(observacao);
         await hospital.getByRole('button',{name:'Confirmar recebimento'}).click();
         await hospital.locator('#mensagem').filter({hasText:'Recebimento confirmado'}).waitFor();
         assert.match(await hospital.locator('#resumo').innerText(),/RECEBIDA/);
+        assert((await hospital.locator('#entregas dd').allTextContents()).includes(observacao));
         await screenshot(hospital,'05-recebimento-integro.png');
         await hospital.getByRole('button',{name:'Registrar utilização'}).click();
         await hospital.locator('#mensagem').filter({hasText:'Utilização registrada.'}).waitFor();
@@ -87,6 +90,8 @@ async function principal() {
         await gestor.locator('#atualizar').click();
         await gestor.getByRole('button',{name:'Consultar histórico'}).click();
         await gestor.locator('#historico').filter({hasText:'UTILIZADA'}).waitFor();
+        assert.equal(await gestor.locator('#historico .hc-timeline li').count(),4);
+        assert((await gestor.locator('#historico .hc-event-detail').allTextContents()).some(texto=>texto.includes(observacao)));
         await screenshot(gestor,'07-historico-final.png');
         resultados.push('Requisicao, FEFO, entrega atestada, recebimento e utilizacao executados pela interface.');
         const trace=await gestor.request.get(base+`/bolsas/${bId}/historico`,{headers:{'X-Perfil':'GESTOR_HEMOCENTRO'}});
@@ -98,7 +103,7 @@ async function principal() {
         if(process.env.HEMOCHAIN_UI_PENDENCIA==='true') {
             const codigoP=codigo+'-P'; await bolsa(gestor,codigoP);
             await hospital.goto(base+'/requisicoes.html');await hospital.locator('#reqPrazo').fill('2027-01-01');
-            await hospital.getByRole('button',{name:'Registrar Requisicao'}).click();
+            await hospital.locator('#registrarRequisicao').click();
             await hospital.locator('#statusRequisicao').filter({hasText:'Requisicao registrada!'}).waitFor();
             const ultimo=hospital.locator('#listaRequisicoes a').first();await ultimo.waitFor();
             const pendenteId=(await ultimo.innerText()).replace('#','');

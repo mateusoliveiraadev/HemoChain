@@ -1,0 +1,120 @@
+/* P1 navigation only. React Bits Dock reference:
+   https://www.reactbits.dev/components/dock
+   Left/dark; 44px faces, 56px peak, 110px reach; labels and active indicator;
+   always visible. The 56px hit slots leave 12px between resting faces. */
+.hemo-internal .hemo-navigation {
+    position: fixed; top: 20px; left: 18px; z-index: 15; width: 78px;
+    display: flex; flex-direction: column; align-items: center; gap: 24px;
+}
+.hemo-internal .hemo-navigation__brand {
+    position: relative; z-index: 10;
+    width: 78px; display: grid; justify-items: center; gap: 5px;
+    color: var(--hc-text); font-size: 11px; font-weight: 600;
+    text-decoration: none;
+}
+.hemo-navigation__brand img { display: block; width: 36px; height: 36px; object-fit: contain; }
+.hemo-navigation__academic { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.hemo-internal .hemo-dock {
+    --dock-accent: #C66C85;
+    --dock-base: 44px;
+    --dock-peak: 56px;
+    position: relative;
+    z-index: 15; display: flex; flex-direction: column; align-items: center;
+    width: 78px; padding: 10px; border-radius: 23px;
+    background: rgba(20,20,29,.78); border: 1px solid rgba(245,238,242,.10);
+    box-shadow: inset 0 1px 0 rgba(245,238,242,.04), 0 16px 45px rgba(0,0,0,.28);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+}
+.hemo-internal .hemo-dock__links { display: flex; flex-direction: column; gap: 0; align-items: center; }
+.hemo-internal .hemo-dock .hemo-dock__item {
+    position: relative; display: grid; place-items: center;
+    flex: none; width: 56px; height: 56px; min-height: 56px;
+    padding: 0; margin: 0; gap: 0; border: 0; border-radius: 16px;
+    background: none; box-shadow: none; color: var(--hc-text);
+    text-decoration: none; cursor: pointer; touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+.hemo-dock__face {
+    display: grid; place-items: center; width: var(--dock-base); height: var(--dock-base);
+    border-radius: 14px; border: 1px solid rgba(245,238,242,.075);
+    background: rgba(245,238,242,.04); pointer-events: none;
+    box-shadow: inset 0 1px 0 rgba(245,238,242,.025);
+    transform: scale(var(--dock-scale,1)); transform-origin: center;
+    transition: background-color .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+.hemo-dock__face svg { display: block; width: 23px; height: 23px; }
+.hemo-dock__item[aria-current='page'] .hemo-dock__face {
+    background: rgba(198,108,133,.22); border-color: rgba(198,108,133,.5); color: #fff;
+    box-shadow: inset 0 1px 0 rgba(245,238,242,.06), 0 0 18px rgba(198,108,133,.12);
+}
+.hemo-dock__item[aria-current='page']::after {
+    content: ''; position: absolute; left: -3px; top: calc(50% - 5px);
+    width: 3px; height: 10px; border-radius: 3px; background: var(--dock-accent);
+}
+.hemo-dock__separator { flex: none; width: 30px; height: 1px; margin: 8px 0; background: rgba(245,238,242,.12); }
+.hemo-internal .hemo-dock__item:focus-visible { outline: 2px solid var(--dock-accent); outline-offset: 2px; }
+.hemo-dock__item:focus-visible .hemo-dock__face { border-color: var(--dock-accent); background: rgba(198,108,133,.16); }
+.hemo-dock__label {
+    position: absolute; left: calc(100% + 14px); top: 50%; z-index: 2;
+    width: max-content; max-width: 230px; padding: 8px 12px;
+    border-radius: 9px; border: 1px solid var(--hc-border);
+    background: #19151F; color: var(--hc-text); box-shadow: 0 8px 20px rgba(0,0,0,.24);
+    font-size: 12px; font-weight: 500; line-height: 1.5; text-align: left;
+    pointer-events: none; opacity: 0; visibility: hidden;
+    transform: translate(-4px,-50%);
+    transition: opacity .14s ease, transform .14s ease, visibility .14s ease;
+}
+.hemo-dock__compact-label { display: none; }
+.hemo-dock__item:focus-visible .hemo-dock__label { opacity: 1; visibility: visible; transform: translate(0,-50%); }
+.hemo-dock[data-label-dismissed] .hemo-dock__label { opacity: 0; visibility: hidden; transition: none; }
+/* Only the content gutter changes; P0 grids, cards, forms and tables keep their CSS. */
+.hemo-internal .hc-main { margin-left: 108px; width: calc(100% - 108px); }
+@media (hover: hover) and (pointer: fine) {
+    .hemo-dock__item:hover .hemo-dock__face { background: rgba(198,108,133,.16); border-color: rgba(198,108,133,.34); }
+    .hemo-dock__item:hover .hemo-dock__label { opacity: 1; visibility: visible; transform: translate(0,-50%); transition-delay: .08s; }
+    .hemo-dock[data-label-dismissed] .hemo-dock__label { opacity: 0; visibility: hidden; }
+}
+@media (min-width: 761px) and (max-width: 1099px) {
+    .hemo-internal .hemo-dock { width: 74px; padding-inline: 8px; }
+    .hemo-internal .hemo-navigation { left: 8px; }
+    .hemo-internal .hc-main { margin-left: 92px; width: calc(100% - 92px); }
+}
+/* In-flow sticky header on phones/short viewports: no floating bar over P0 cards. */
+@media (max-width: 760px), (max-height: 480px) {
+    .hemo-internal .hemo-navigation {
+        position: sticky; top: 0; left: auto; width: 100%; z-index: 15; display: flex;
+        flex-direction: column; align-items: center; gap: 10px; padding: 12px 0;
+        background: rgba(8,10,16,.92);
+        -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    }
+    .hemo-internal .hemo-navigation__brand {
+        position: relative; top: auto; left: auto; width: fit-content;
+        margin: 0 24px; align-self: flex-start; display: flex; gap: 10px; font-size: 16px;
+    }
+    .hemo-navigation__brand img { width: 28px; height: 28px; }
+    .hemo-internal .hemo-dock {
+        --dock-slot: clamp(58px,calc((100vw - 36px) / 5),64px);
+        position: relative; left: auto; top: auto; bottom: auto;
+        transform: none; flex-direction: row; width: max-content;
+        max-width: calc(100% - 8px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px)); padding: 6px; border-radius: 20px;
+    }
+    .hemo-internal .hemo-dock__links { flex-direction: row; }
+    .hemo-internal .hemo-dock .hemo-dock__item { width: var(--dock-slot); height: 60px; min-height: 60px; align-content: start; }
+    .hemo-dock__face { transform: none; }
+    .hemo-dock__compact-label { display: block; width: var(--dock-slot); padding-top: 2px; color: var(--hc-secondary); font-size: clamp(9.5px,2.56vw,10px); font-weight: 500; line-height: 14px; text-align: center; white-space: nowrap; pointer-events: none; }
+    .hemo-dock__item[aria-current='page'] .hemo-dock__compact-label { color: var(--hc-text); }
+    .hemo-dock__item[aria-current='page']::after { left: calc(50% - 6px); top: auto; bottom: -3px; width: 12px; height: 2px; }
+    .hemo-dock__separator { width: 1px; height: 30px; margin: 0 2px; }
+    .hemo-internal .hemo-dock__item .hemo-dock__label { display: none; }
+    .hemo-internal .hemo-dock__item:focus-visible .hemo-dock__label {
+        display: block; position: fixed; left: 50%; top: auto; bottom: calc(100% + 12px);
+        max-width: calc(100vw - 32px); transform: translateX(-50%);
+    }
+    .hemo-internal .hc-main { width: 100%; margin-left: 0; }
+    html:has(body.hemo-internal) { scroll-padding-top: 152px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hemo-internal .hemo-dock__face { transform: none; }
+    .hemo-internal .hemo-dock__label { transition: none; }
+}

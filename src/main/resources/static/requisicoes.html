@@ -2,134 +2,75 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <script src="/js/auth-session.js" data-auth-required></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/branding/favicon.png" type="image/png" sizes="64x64">
     <title>HemoChain - Requisicoes Hospitalares</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #b71c1c 0%, #6a1b1b 100%); min-height: 100vh; padding: 20px; display: flex; justify-content: center; }
-        .wrapper { width: 100%; max-width: 800px; }
-        .back-link { display: inline-block; margin-bottom: 12px; color: white; text-decoration: none; font-weight: 600; cursor: pointer; }
-        .back-link:hover { text-decoration: underline; }
-        .container { background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); padding: 30px; margin-bottom: 20px; }
-        h2 { color: #333; margin-bottom: 20px; }
-        .form-group { margin-bottom: 16px; }
-        label { display: block; margin-bottom: 6px; color: #555; font-weight: 600; font-size: 14px; }
-        input, select { width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px; font-family: inherit; }
-        button { padding: 10px 18px; background: #b71c1c; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
-        button:hover { background: #8f1616; }
-        .linha-form { display: flex; gap: 15px; }
-        .linha-form .form-group { flex: 1; }
-        .status { margin-top: 12px; font-weight: 600; font-size: 14px; min-height: 18px; }
-        .novo-hospital { margin-top: 10px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { text-align: left; padding: 10px; border-bottom: 1px solid #eee; font-size: 14px; }
-        th { color: #666; }
-        tr.emergencial { background: #fdecea; }
-        .badge { padding: 3px 8px; border-radius: 10px; font-size: 12px; font-weight: 700; color: white; }
-        .badge-emergencial { background: #c62828; }
-        .badge-urgente { background: #ef6c00; }
-        .badge-rotina { background: #558b2f; }
-    </style>
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/internal-ui.css">
+    <link rel="stylesheet" href="/css/dock.css">
+    <link rel="preload" href="/fonts/ManropeVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/typography.css">
+    <script type="module" src="/js/internal-ui.js"></script>
+    <script type="module" src="/js/text-reveal.js"></script>
+    <script type="module" src="/js/magnetic.js"></script>
+    <link rel="stylesheet" href="/css/forms-premium.css">
+    <script type="module" src="/js/forms-premium.js"></script>
+    <link rel="stylesheet" href="/css/data-premium.css">
+    <script type="module" src="/js/data-entry.js"></script>
+    <script type="module" src="/js/content-entry.js"></script>
 </head>
-<body>
-<div class="wrapper">
-    <a class="back-link" href="index.html">&larr; Voltar ao menu</a>
-    <div class="container">
-        <a href="atendimento.html">Acompanhar entregas, recebimento e utilização →</a>
-        <p>Contexto hospitalar acadêmico: selecione o hospital solicitante abaixo. O backend confere esse contexto em cada operação.</p>
-        <label for="hospitalContexto">Hospital em atendimento</label><select id="hospitalContexto"></select>
+<body class="hemo-internal" data-module="requisicoes">
+<a class="hc-skip-link" href="#conteudo">Pular para o conteúdo</a>
+<div class="hc-veil" aria-hidden="true"><canvas data-dark-veil></canvas></div>
+<aside class="hemo-navigation" aria-label="Menu do sistema">
+    <a class="hemo-navigation__brand" href="index.html" aria-label="HemoChain — Início" aria-describedby="hemo-navigation-profile"><img src="/assets/branding/hemochain-icon.png" width="36" height="36" alt=""><span>HemoChain</span></a>
+    <div class="hemo-dock">
+        <nav class="hc-nav hemo-dock__links" aria-label="Navegação principal">
+            <a href="index.html" class="hemo-dock__item" aria-label="Início"><span class="hemo-dock__face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg></span><span class="hemo-dock__compact-label" aria-hidden="true">Início</span><span class="hemo-dock__label" aria-hidden="true">Início</span></a>
+            <a href="estoque.html" id="linkEstoque" data-profiles="GESTOR_HEMOCENTRO" hidden class="hemo-dock__item" aria-label="Estoque e validade"><span class="hemo-dock__face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3h6m-3 0v3M7 6h10a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/><path d="M12 10s-3 3.4-3 5a3 3 0 0 0 6 0c0-1.6-3-5-3-5Z"/></svg></span><span class="hemo-dock__compact-label" aria-hidden="true">Estoque</span><span class="hemo-dock__label" aria-hidden="true">Estoque e validade</span></a>
+            <a href="requisicoes.html" aria-current="page" data-profiles="GESTOR_HEMOCENTRO HOSPITAL_SOLICITANTE" hidden class="hemo-dock__item" aria-label="Requisições hospitalares"><span class="hemo-dock__face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M9 11h6m-6 4h6"/></svg></span><span class="hemo-dock__compact-label" aria-hidden="true">Requisições</span><span class="hemo-dock__label" aria-hidden="true">Requisições hospitalares</span></a>
+            <a href="atendimento.html" class="hemo-dock__item" aria-label="Atendimento e recebimento"><span class="hemo-dock__face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="14" rx="3"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m-4 5v5m-2.5-2.5h5"/></svg></span><span class="hemo-dock__compact-label" aria-hidden="true">Atendimento</span><span class="hemo-dock__label" aria-hidden="true">Atendimento e recebimento</span></a>
+        </nav>
+        <span class="hemo-dock__separator" aria-hidden="true"></span>
+        <button type="button" class="hemo-dock__item" data-logout aria-label="Sair"><span class="hemo-dock__face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4m6-12 4 4-4 4m-6-4h10"/></svg></span><span class="hemo-dock__compact-label" aria-hidden="true">Sair</span><span class="hemo-dock__label" aria-hidden="true">Sair</span></button>
     </div>
-
-    <div class="container">
-        <h2>Cadastrar Hospital</h2>
-        <div class="linha-form">
-            <div class="form-group">
-                <label>Nome do hospital:</label>
-                <input type="text" id="hospNome" placeholder="Ex: Hospital Central">
-            </div>
-            <div class="form-group">
-                <label>CNPJ:</label>
-                <input type="text" id="hospCnpj" placeholder="00.000.000/0000-00">
-            </div>
-            <div class="form-group">
-                <label>Telefone:</label>
-                <input type="text" id="hospTelefone" placeholder="(00) 0000-0000">
-            </div>
-        </div>
-        <button onclick="cadastrarHospital()">Cadastrar Hospital</button>
-        <div class="status" id="statusHospital"></div>
+    <span id="hemo-navigation-profile" class="hemo-navigation__academic" data-profile-label></span>
+    <p class="hemo-navigation__academic">Protótipo acadêmico · Dados sintéticos</p>
+</aside>
+<main class="hc-main" id="conteudo" tabindex="-1">
+    <header class="hc-page-header">
+        <p class="hc-eyebrow">HemoChain / Requisições hospitalares</p>
+        <p class="hc-profile" data-profile-label></p>
+        <h1 class="hc-title-reveal">Requisições hospitalares</h1>
+        <p class="hc-description hc-subtitle-reveal">Registre solicitações e acompanhe o atendimento do seu hospital.</p>
+    </header>
+    <div class="hc-request-grid" data-profiles="HOSPITAL_SOLICITANTE" hidden>
+    <section class="hc-panel hc-request-context" data-profiles="HOSPITAL_SOLICITANTE" hidden aria-labelledby="tituloContexto">
+        <h2 id="tituloContexto">Contexto hospitalar</h2>
+        <div><label for="hospitalContexto">Hospital em atendimento</label><select id="hospitalContexto" aria-describedby="avisoContexto"></select></div>
+        <p id="avisoContexto" class="hc-helper">Contexto hospitalar acadêmico: selecione o hospital solicitante. O backend confere esse contexto em cada operação.</p>
+    </section>
+        <section class="container hc-new-request" aria-labelledby="tituloNovaRequisicao">
+            <h2 id="tituloNovaRequisicao">Nova requisição hospitalar</h2>
+            <div class="form-group"><label for="reqHospital">Hospital solicitante</label><select id="reqHospital"></select></div>
+            <div class="linha-form"><div class="form-group"><label for="reqTipoComponente">Tipo de componente</label><select id="reqTipoComponente"><option value="CONCENTRADO_HEMACIAS">Concentrado de hemácias</option><option value="PLASMA">Plasma</option><option value="PLAQUETAS">Plaquetas</option><option value="CRIOPRECIPITADO">Crioprecipitado</option></select></div><div class="form-group"><label for="reqTipoSanguineo">Tipo sanguíneo ABO/Rh</label><select id="reqTipoSanguineo"><option value="A_POSITIVO">A+</option><option value="A_NEGATIVO">A-</option><option value="B_POSITIVO">B+</option><option value="B_NEGATIVO">B-</option><option value="AB_POSITIVO">AB+</option><option value="AB_NEGATIVO">AB-</option><option value="O_POSITIVO">O+</option><option value="O_NEGATIVO">O-</option></select></div></div>
+            <div class="linha-form"><div class="form-group"><label for="reqQuantidade">Quantidade de bolsas</label><input type="number" id="reqQuantidade" min="1" value="1"></div><div class="form-group"><label for="reqUrgencia">Urgência</label><select id="reqUrgencia"><option value="ROTINA">Rotina</option><option value="URGENTE">Urgente</option><option value="EMERGENCIAL">Emergencial</option></select></div><div class="form-group"><label for="reqPrazo">Prazo limite</label><input type="date" id="reqPrazo"></div></div>
+            <button id="registrarRequisicao" onclick="cadastrarRequisicao()" data-async-action="cadastrarRequisicao" data-status-target="statusRequisicao">Registrar requisição</button>
+            <div class="status" id="statusRequisicao" role="status" aria-live="polite"></div>
+        </section>
+        <section class="container hc-new-hospital" aria-labelledby="tituloHospital">
+            <h2 id="tituloHospital">Cadastrar hospital</h2>
+            <div class="linha-form"><div class="form-group"><label for="hospNome">Nome do hospital</label><input type="text" id="hospNome" placeholder="Ex: Hospital Central" autocomplete="organization"></div><div class="form-group"><label for="hospCnpj">CNPJ</label><input type="text" id="hospCnpj" placeholder="00.000.000/0000-00"></div><div class="form-group"><label for="hospTelefone">Telefone</label><input type="tel" id="hospTelefone" placeholder="(00) 0000-0000" autocomplete="tel"></div></div>
+            <button class="secundario" id="cadastrarHospital" onclick="cadastrarHospital()" data-async-action="cadastrarHospital" data-status-target="statusHospital">Cadastrar hospital</button>
+            <div class="status" id="statusHospital" role="status" aria-live="polite"></div>
+        </section>
     </div>
-
-    <div class="container">
-        <h2>Nova Requisicao Hospitalar</h2>
-        <div class="form-group">
-            <label>Hospital solicitante:</label>
-            <select id="reqHospital"></select>
-        </div>
-        <div class="linha-form">
-            <div class="form-group">
-                <label>Tipo de componente:</label>
-                <select id="reqTipoComponente">
-                    <option value="CONCENTRADO_HEMACIAS">Concentrado de Hemacias</option>
-                    <option value="PLASMA">Plasma</option>
-                    <option value="PLAQUETAS">Plaquetas</option>
-                    <option value="CRIOPRECIPITADO">Crioprecipitado</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Tipo sanguineo (ABO/Rh):</label>
-                <select id="reqTipoSanguineo">
-                    <option value="A_POSITIVO">A+</option>
-                    <option value="A_NEGATIVO">A-</option>
-                    <option value="B_POSITIVO">B+</option>
-                    <option value="B_NEGATIVO">B-</option>
-                    <option value="AB_POSITIVO">AB+</option>
-                    <option value="AB_NEGATIVO">AB-</option>
-                    <option value="O_POSITIVO">O+</option>
-                    <option value="O_NEGATIVO">O-</option>
-                </select>
-            </div>
-        </div>
-        <div class="linha-form">
-            <div class="form-group">
-                <label>Quantidade (bolsas):</label>
-                <input type="number" id="reqQuantidade" min="1" value="1">
-            </div>
-            <div class="form-group">
-                <label>Urgencia:</label>
-                <select id="reqUrgencia">
-                    <option value="ROTINA">Rotina</option>
-                    <option value="URGENTE">Urgente</option>
-                    <option value="EMERGENCIAL">Emergencial</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Prazo limite:</label>
-                <input type="date" id="reqPrazo">
-            </div>
-        </div>
-        <button onclick="cadastrarRequisicao()">Registrar Requisicao</button>
-        <div class="status" id="statusRequisicao"></div>
-    </div>
-
-    <div class="container">
-        <h2>Requisicoes Registradas</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID / Hospital</th>
-                    <th>Componente</th>
-                    <th>ABO/Rh</th>
-                    <th>Qtd</th>
-                    <th>Urgencia</th>
-                    <th>Prazo / Situação</th>
-                </tr>
-            </thead>
-            <tbody id="listaRequisicoes"></tbody>
-        </table>
-    </div>
-</div>
-
+    <section class="hc-panel" aria-labelledby="tituloRequisicoes"><h2 id="tituloRequisicoes">Requisições registradas</h2><p>Selecione o identificador da requisição para acompanhar entregas, recebimento e utilização.</p>
+        <div class="hc-table-scroll" tabindex="0" role="region" aria-label="Requisições registradas"><table role="table"><caption class="hc-table-caption">Solicitações disponíveis no seu contexto de acesso.</caption><thead><tr><th scope="col">ID / hospital</th><th scope="col">Componente</th><th scope="col">ABO/Rh</th><th scope="col">Qtd.</th><th scope="col">Urgência</th><th scope="col">Prazo limite</th><th scope="col">Situação</th></tr></thead><tbody id="listaRequisicoes"></tbody></table></div>
+    </section>
+    <footer class="hc-footer">Ambiente acadêmico · Dados sintéticos · Fluxos existentes da Entrega 04</footer>
+</main>
 <script>
     const rotulosComponente = {
         CONCENTRADO_HEMACIAS: 'Concentrado de Hemacias',
@@ -274,7 +215,7 @@
 
     const dadosUsuario = localStorage.getItem('hemochainUsuario');
     if (!dadosUsuario) {
-        window.location.href = 'login.html';
+        window.HemoSession.requireUser();
     } else if (JSON.parse(dadosUsuario).perfil === 'OPERADOR_LOGISTICA') {
         alert('Seu perfil (Operador de Logistica) nao tem acesso as requisicoes hospitalares.');
         window.location.href = 'index.html';

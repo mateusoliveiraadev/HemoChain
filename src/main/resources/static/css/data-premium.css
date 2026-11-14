@@ -1,0 +1,21 @@
+/* P5: stable operational tables; all columns remain visible at every breakpoint. */
+.hemo-internal main table { border-collapse: separate; border-spacing: 0; font-variant-numeric: tabular-nums; }
+.hemo-internal main th { font-weight: 600; color: #BEB6C2; background: #1C1C28; }
+.hemo-internal main :is(th,td) { padding: 14px 16px; border-bottom: 1px solid rgba(185,175,187,.16); }
+.hemo-internal main tbody tr { transition: background-color 180ms ease; }
+.hemo-internal main tbody tr:focus-within { background-color: rgba(198,108,133,.07); }
+.hemo-internal main :is(.hc-table-scroll,.rolagem) { overflow-x: auto; padding: 6px; scroll-padding-inline: 6px; scrollbar-color: #766B80 #171821; }
+.hemo-internal .hc-state, .hemo-internal .badge { box-shadow: inset 0 0 0 1px rgba(245,238,242,.08); }
+.hemo-internal :is(.hc-timeline time,.hc-summary-grid dd) { font-variant-numeric: tabular-nums; }
+.hemo-internal .hc-timeline li { border-left: 2px solid #765163; }
+@media(hover:hover) and (pointer:fine) { .hemo-internal main tbody tr:hover { background-color: rgba(198,108,133,.045); } }
+@media(max-width:760px) {
+    .hemo-internal main table { display: table; min-width: 880px; }
+    .hemo-internal main thead { display: table-header-group; position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; }
+    .hemo-internal main tbody { display: table-row-group; }
+    .hemo-internal main tbody tr { display: table-row; border: 0; border-radius: 0; }
+    .hemo-internal main tbody td { display: table-cell; }
+    .hemo-internal main tbody td::before { display: none; }
+    .hemo-internal main .hc-table-caption { display: table-caption; }
+}
+@media(prefers-reduced-motion:reduce) { .hemo-internal main tbody tr { transition: none; } }
