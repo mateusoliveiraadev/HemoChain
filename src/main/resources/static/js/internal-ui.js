@@ -1,4 +1,3 @@
-import { startDarkVeil } from './dark-veil.js';
 import { initDock } from './dock.js';
 
 // Aperfeicoamentos de apresentacao. As chamadas e regras dos modulos continuam nos HTMLs.
@@ -34,19 +33,26 @@ function init() {
     const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
     const backdrop = document.querySelector('.hc-veil');
     const canvas = backdrop.querySelector('canvas');
-    let veil;
-    const staticVeil = () => { backdrop.dataset.renderer = 'static'; canvas.hidden = true; };
-    function syncVeil() {
-        veil?.destroy(); veil = null; staticVeil();
+    let background;
+    let backgroundRevision = 0;
+    const staticBackdrop = () => { backdrop.dataset.renderer = 'static'; canvas.hidden = true; };
+    async function syncBackdrop() {
+        const revision = ++backgroundRevision;
+        background?.destroy(); background = null; staticBackdrop();
         const modestDevice = (navigator.deviceMemory && navigator.deviceMemory <= 2) ||
             (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2) || navigator.connection?.saveData;
         if (reduce.matches || modestDevice) return;
-        canvas.hidden = false;
-        veil = startDarkVeil(canvas, staticVeil);
-        if (veil) backdrop.dataset.renderer = 'webgl'; else staticVeil();
+        try {
+            // A failed background download must not interrupt Dock, forms or panel effects.
+            const { startMicroSlats } = await import('./micro-slats.js');
+            if (revision !== backgroundRevision) return;
+            canvas.hidden = false;
+            background = startMicroSlats(canvas, staticBackdrop);
+            if (background) backdrop.dataset.renderer = 'webgl'; else staticBackdrop();
+        } catch { if (revision === backgroundRevision) staticBackdrop(); }
     }
-    reduce.addEventListener('change', syncVeil);
-    syncVeil();
+    reduce.addEventListener('change', syncBackdrop);
+    syncBackdrop();
 
     // One delegated, frame-limited light for existing panels and module cards.
     // It only changes presentation; touch and reduced motion never track a pointer.
