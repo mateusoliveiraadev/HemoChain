@@ -281,7 +281,7 @@ O objetivo é apresentar como o código foi organizado, explicar as principais p
 
 ---
 
-# Entrega 04 — 09/11
+# Entrega 04 09/11 (Finalizado)
 
 Implementação e homologação local em 10/11/2026. [Branch publicada](https://github.com/mateusoliveiraadev/HemoChain/tree/feature/entrega-04-rastreabilidade-recebimento) e [PR Draft #8](https://github.com/mateusoliveiraadev/HemoChain/pull/8) disponíveis para revisão. Os vídeos dependem da equipe; o [relatório final](entrega-04/homologacao.md) distingue **CONCLUÍDO**, **PENDENTE** e **BLOQUEADO**.
 
