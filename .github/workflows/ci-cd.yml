@@ -27,7 +27,7 @@ jobs:
           distribution: temurin
           java-version: "17"
           cache: maven
-      # verify = compila + roda unitarios, integracao e aceitacao + empacota o JAR.
+      # verify = unitarios, integracao H2/MockMvc, cobertura e JAR. PostgreSQL no job seguinte.
       # Teste vermelho => job vermelho => merge bloqueado (branch protection).
       - name: mvn verify
         run: mvn -B verify
@@ -36,7 +36,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: surefire-reports
-          path: target/surefire-reports
+          path: |
+            target/surefire-reports
+            target/site/jacoco
           if-no-files-found: ignore
 
   postgres:
@@ -76,6 +78,8 @@ jobs:
           path: |
             target/surefire-reports
             target/failsafe-reports
+            target/site/jacoco
+            target/site/jacoco-it
 
   container:
     name: Container sobe do zero (compose + healthcheck)

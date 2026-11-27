@@ -5,6 +5,11 @@
 target
 data
 .env
+.env.*
+!.env.example
+!.env.observabilidade.example
+.codex
+observabilidade
 *.log
 entrega-03
 estrutura-dados-c

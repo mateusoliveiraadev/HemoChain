@@ -27,6 +27,16 @@ public class EvolucaoStatusBolsaH2 implements InitializingBean {
                     """)) { while (rs.next()) nomes.add(rs.getString(1)); }
                 for (String nome : nomes) sql.execute("ALTER TABLE bolsa_hemocomponente DROP CONSTRAINT \""
                         + nome.replace("\"", "\"\"") + "\"");
+                boolean statusEnum;
+                try (var rs = sql.executeQuery("""
+                    SELECT DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS
+                    WHERE TABLE_SCHEMA=CURRENT_SCHEMA() AND TABLE_NAME='BOLSA_HEMOCOMPONENTE'
+                    AND COLUMN_NAME='STATUS'
+                    """)) { statusEnum = rs.next() && "ENUM".equals(rs.getString(1)); }
+                if (statusEnum) sql.execute("""
+                    ALTER TABLE bolsa_hemocomponente ALTER COLUMN status SET DATA TYPE
+                    ENUM('BLOQUEADA','DESCARTADO','DISPONIVEL','ENTREGUE','RECEBIDA','UTILIZADA')
+                    """);
                 sql.execute("""
                     ALTER TABLE bolsa_hemocomponente ADD CONSTRAINT hc_status_bolsa
                     CHECK (status IN ('DISPONIVEL','DESCARTADO','ENTREGUE','RECEBIDA','BLOQUEADA','UTILIZADA'))

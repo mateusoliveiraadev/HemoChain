@@ -1,0 +1,3 @@
+ M entrega-03/bug-tracker.png
+ M src/main/java/com/hemochain/config/EvolucaoStatusBolsaH2.java
+ M src/test/java/com/hemochain/config/EvolucaoStatusBolsaH2Test.java

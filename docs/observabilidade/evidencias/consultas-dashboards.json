@@ -1,0 +1,1735 @@
+[
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Requisições/s",
+    "query": "sum(rate(http_server_requests_seconds_count{application=\"hemochain\"}[1m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.142,
+              "0.22224691632403598"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Erros 5xx/s",
+    "query": "sum(rate(http_server_requests_seconds_count{application=\"hemochain\", status=~\"5..\"}[5m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.144,
+              "0.021054626227747897"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Respostas 4xx/s",
+    "query": "sum(rate(http_server_requests_seconds_count{application=\"hemochain\", status=~\"4..\"}[5m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.146,
+              "0.0070182087425826305"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Latência p95",
+    "query": "histogram_quantile(0.95, sum by (le) (rate(http_server_requests_seconds_bucket{application=\"hemochain\"}[5m])))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.148,
+              "0.012491546334454913"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "CPU do processo",
+    "query": "process_cpu_usage{application=\"hemochain\"}",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "process_cpu_usage",
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain"
+            },
+            "value": [
+              1795802633.154,
+              "0.006600660066006601"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Uptime",
+    "query": "process_uptime_seconds{application=\"hemochain\"}",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "process_uptime_seconds",
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain"
+            },
+            "value": [
+              1795802633.156,
+              "707.107"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Requisições por segundo, por rota",
+    "query": "sum by (uri) (rate(http_server_requests_seconds_count{application=\"hemochain\"}[1m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "uri": "/observabilidade/erro-simulado"
+            },
+            "value": [
+              1795802633.179,
+              "0.0222246916324036"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/hospitais"
+            },
+            "value": [
+              1795802633.179,
+              "0.2000222246916324"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/requisicoes/{id}/entregas"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/requisicoes"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/requisicoes/{id}/entregas/{entregaId}/recebimento"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/requisicoes/{id}/entregas/{entregaId}/utilizacao"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/bolsas"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/**"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/bolsas/alertas"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/bolsas/compativeis"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/bolsas/{id}"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/bolsas/{id}/historico"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/requisicoes/pendencias"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/usuarios/login"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "uri": "/usuarios/register"
+            },
+            "value": [
+              1795802633.179,
+              "0"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Latência p95 e p99",
+    "query": "histogram_quantile(0.95, sum by (le) (rate(http_server_requests_seconds_bucket{application=\"hemochain\"}[5m])))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.194,
+              "0.01249146491658551"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Latência p95 e p99",
+    "query": "histogram_quantile(0.99, sum by (le) (rate(http_server_requests_seconds_bucket{application=\"hemochain\"}[5m])))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.201,
+              "0.01995604364886286"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Respostas por status",
+    "query": "sum by (status) (rate(http_server_requests_seconds_count{application=\"hemochain\"}[1m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "status": "500"
+            },
+            "value": [
+              1795802633.206,
+              "0.0222246916324036"
+            ]
+          },
+          {
+            "metric": {
+              "status": "200"
+            },
+            "value": [
+              1795802633.206,
+              "0.2000222246916324"
+            ]
+          },
+          {
+            "metric": {
+              "status": "409"
+            },
+            "value": [
+              1795802633.206,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "status": "201"
+            },
+            "value": [
+              1795802633.206,
+              "0"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Taxa de erros 5xx por rota",
+    "query": "sum by (uri) (rate(http_server_requests_seconds_count{application=\"hemochain\", status=~\"5..\"}[5m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "uri": "/observabilidade/erro-simulado"
+            },
+            "value": [
+              1795802633.226,
+              "0.02105462622774789"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Heap em uso",
+    "query": "sum(jvm_memory_used_bytes{application=\"hemochain\", area=\"heap\"})",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.228,
+              "71316160"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Heap em uso",
+    "query": "sum(jvm_memory_max_bytes{application=\"hemochain\", area=\"heap\"})",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.23,
+              "518979584"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Tempo de pausa GC por segundo",
+    "query": "sum by (action) (rate(jvm_gc_pause_seconds_sum{application=\"hemochain\"}[1m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "action": "end of minor GC"
+            },
+            "value": [
+              1795802633.241,
+              "0.00004444938326480724"
+            ]
+          },
+          {
+            "metric": {
+              "action": "end of major GC"
+            },
+            "value": [
+              1795802633.241,
+              "0"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Threads",
+    "query": "jvm_threads_live_threads{application=\"hemochain\"}",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "jvm_threads_live_threads",
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain"
+            },
+            "value": [
+              1795802633.258,
+              "51"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Threads",
+    "query": "jvm_threads_daemon_threads{application=\"hemochain\"}",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "jvm_threads_daemon_threads",
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain"
+            },
+            "value": [
+              1795802633.26,
+              "43"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Threads",
+    "query": "jvm_threads_peak_threads{application=\"hemochain\"}",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "jvm_threads_peak_threads",
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain"
+            },
+            "value": [
+              1795802633.263,
+              "52"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "CPU",
+    "query": "process_cpu_usage{application=\"hemochain\"}",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "process_cpu_usage",
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain"
+            },
+            "value": [
+              1795802633.264,
+              "0.006600660066006601"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "CPU",
+    "query": "system_cpu_usage{application=\"hemochain\"}",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "system_cpu_usage",
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain"
+            },
+            "value": [
+              1795802633.288,
+              "0.009197293729372938"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Memória não-heap e buffers",
+    "query": "sum(jvm_memory_used_bytes{application=\"hemochain\", area=\"nonheap\"})",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.291,
+              "149798560"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Memória não-heap e buffers",
+    "query": "sum(jvm_buffer_memory_used_bytes{application=\"hemochain\"})",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.293,
+              "248667"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Conexões",
+    "query": "hikaricp_connections_active{application=\"hemochain\"}",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "hikaricp_connections_active",
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain",
+              "pool": "HikariPool-1"
+            },
+            "value": [
+              1795802633.319,
+              "0"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Conexões",
+    "query": "hikaricp_connections_idle{application=\"hemochain\"}",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "hikaricp_connections_idle",
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain",
+              "pool": "HikariPool-1"
+            },
+            "value": [
+              1795802633.335,
+              "10"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Conexões",
+    "query": "hikaricp_connections_pending{application=\"hemochain\"}",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "hikaricp_connections_pending",
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain",
+              "pool": "HikariPool-1"
+            },
+            "value": [
+              1795802633.337,
+              "0"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Conexões",
+    "query": "hikaricp_connections_max{application=\"hemochain\"}",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "hikaricp_connections_max",
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain",
+              "pool": "HikariPool-1"
+            },
+            "value": [
+              1795802633.35,
+              "10"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Tempo de aquisição e uso da conexão",
+    "query": "rate(hikaricp_connections_acquire_seconds_sum{application=\"hemochain\"}[1m]) / rate(hikaricp_connections_acquire_seconds_count{application=\"hemochain\"}[1m])",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain",
+              "pool": "HikariPool-1"
+            },
+            "value": [
+              1795802633.352,
+              "0.00020671519999999958"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Tempo de aquisição e uso da conexão",
+    "query": "rate(hikaricp_connections_usage_seconds_sum{application=\"hemochain\"}[1m]) / rate(hikaricp_connections_usage_seconds_count{application=\"hemochain\"}[1m])",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "ambiente": "lab",
+              "application": "hemochain",
+              "instance": "api:8081",
+              "job": "hemochain",
+              "pool": "HikariPool-1"
+            },
+            "value": [
+              1795802633.355,
+              "0.0011500000000000067"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Tentativas de registrar entrega (acumuladas)",
+    "query": "sum by (result) (hemochain_entrega_tentativas_total{application=\"hemochain\"})",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "result": "failure"
+            },
+            "value": [
+              1795802633.381,
+              "14"
+            ]
+          },
+          {
+            "metric": {
+              "result": "success"
+            },
+            "value": [
+              1795802633.381,
+              "15"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-aplicacao",
+    "painel": "Duracao media das tentativas desde o inicio",
+    "query": "sum(hemochain_entrega_registro_seconds_sum{application=\"hemochain\"}) / sum(hemochain_entrega_registro_seconds_count{application=\"hemochain\"})",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.385,
+              "0.017637966931034484"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "CPU do host",
+    "query": "100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.389,
+              "1.8917382516422663"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Memória usada",
+    "query": "(1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "instance": "docker-vm:9100",
+              "job": "node-exporter"
+            },
+            "value": [
+              1795802633.392,
+              "24.752638097597224"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Disco da VM (dados Docker)",
+    "query": "max(1 - node_filesystem_avail_bytes{mountpoint=~\"/|/var/lib|/mnt/docker-desktop-disk\",fstype=~\"ext4|xfs|btrfs\"} / node_filesystem_size_bytes{mountpoint=~\"/|/var/lib|/mnt/docker-desktop-disk\",fstype=~\"ext4|xfs|btrfs\"}) * 100",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.395,
+              "8.851707408220765"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Load average (1m)",
+    "query": "node_load1",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "node_load1",
+              "instance": "docker-vm:9100",
+              "job": "node-exporter"
+            },
+            "value": [
+              1795802633.399,
+              "0.06"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Memória disponível",
+    "query": "node_memory_MemAvailable_bytes",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemAvailable_bytes",
+              "instance": "docker-vm:9100",
+              "job": "node-exporter"
+            },
+            "value": [
+              1795802633.402,
+              "6221283328"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Targets UP / 7 esperados",
+    "query": "sum(up)",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.428,
+              "7"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "CPU do host (%)",
+    "query": "100 - (avg(rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.443,
+              "1.8917382516422663"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "CPU do host (%)",
+    "query": "avg(rate(node_cpu_seconds_total{mode=\"user\"}[5m])) * 100",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.446,
+              "0.7912947055190612"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "CPU do host (%)",
+    "query": "avg(rate(node_cpu_seconds_total{mode=\"system\"}[5m])) * 100",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.449,
+              "0.6883620608986956"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Memória do host",
+    "query": "node_memory_MemTotal_bytes",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemTotal_bytes",
+              "instance": "docker-vm:9100",
+              "job": "node-exporter"
+            },
+            "value": [
+              1795802633.451,
+              "8267776000"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Memória do host",
+    "query": "node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "instance": "docker-vm:9100",
+              "job": "node-exporter"
+            },
+            "value": [
+              1795802633.454,
+              "2046492672"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Memória do host",
+    "query": "node_memory_MemAvailable_bytes",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "node_memory_MemAvailable_bytes",
+              "instance": "docker-vm:9100",
+              "job": "node-exporter"
+            },
+            "value": [
+              1795802633.457,
+              "6221283328"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Load average",
+    "query": "node_load1",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "node_load1",
+              "instance": "docker-vm:9100",
+              "job": "node-exporter"
+            },
+            "value": [
+              1795802633.46,
+              "0.06"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Load average",
+    "query": "node_load5",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "node_load5",
+              "instance": "docker-vm:9100",
+              "job": "node-exporter"
+            },
+            "value": [
+              1795802633.464,
+              "0.28"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Load average",
+    "query": "node_load15",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "node_load15",
+              "instance": "docker-vm:9100",
+              "job": "node-exporter"
+            },
+            "value": [
+              1795802633.467,
+              "0.34"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Rede do host",
+    "query": "sum(rate(node_network_receive_bytes_total{device!~\"lo|veth.*|docker.*|br-.*\"}[1m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.469,
+              "39945.86305753717"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Rede do host",
+    "query": "sum(rate(node_network_transmit_bytes_total{device!~\"lo|veth.*|docker.*|br-.*\"}[1m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.472,
+              "40694.53519123497"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Disco: leitura e escrita",
+    "query": "sum(rate(node_disk_read_bytes_total[1m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.488,
+              "0"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Disco: leitura e escrita",
+    "query": "sum(rate(node_disk_written_bytes_total[1m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1795802633.492,
+              "38231.88212547504"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "CPU por contêiner",
+    "query": "sum by (name) (rate(container_cpu_usage_seconds_total{container_label_com_docker_compose_project=\"hemochain-observabilidade\",name!=\"\"}[1m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-api-1"
+            },
+            "value": [
+              1795802633.495,
+              "0.01562186081694392"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-cadvisor-1"
+            },
+            "value": [
+              1795802633.495,
+              "0.007879231839051998"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-carga-1"
+            },
+            "value": [
+              1795802633.495,
+              "0.005924483414899405"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-db-1"
+            },
+            "value": [
+              1795802633.495,
+              "0.009180869024346885"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-grafana-1"
+            },
+            "value": [
+              1795802633.495,
+              "0.0017903523753093281"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-loki-1"
+            },
+            "value": [
+              1795802633.495,
+              "0.005086812408575033"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-node-exporter-1"
+            },
+            "value": [
+              1795802633.495,
+              "0.0020624265224547375"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-prometheus-1"
+            },
+            "value": [
+              1795802633.495,
+              "0.0022045122252963498"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-tempo-1"
+            },
+            "value": [
+              1795802633.495,
+              "0.0019835689721054667"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Memória por contêiner",
+    "query": "sum by (name) (container_memory_working_set_bytes{container_label_com_docker_compose_project=\"hemochain-observabilidade\",name!=\"\"})",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-api-1"
+            },
+            "value": [
+              1795802633.499,
+              "325574656"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-cadvisor-1"
+            },
+            "value": [
+              1795802633.499,
+              "22376448"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-carga-1"
+            },
+            "value": [
+              1795802633.499,
+              "12976128"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-db-1"
+            },
+            "value": [
+              1795802633.499,
+              "57974784"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-grafana-1"
+            },
+            "value": [
+              1795802633.499,
+              "79970304"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-loki-1"
+            },
+            "value": [
+              1795802633.499,
+              "65994752"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-node-exporter-1"
+            },
+            "value": [
+              1795802633.499,
+              "9732096"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-prometheus-1"
+            },
+            "value": [
+              1795802633.499,
+              "75534336"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-tempo-1"
+            },
+            "value": [
+              1795802633.499,
+              "63365120"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-carga-run-02918965cac3"
+            },
+            "value": [
+              1795802633.499,
+              "12689408"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Rede recebida por contêiner",
+    "query": "sum by (name) (rate(container_network_receive_bytes_total{container_label_com_docker_compose_project=\"hemochain-observabilidade\",name!=\"\"}[1m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-api-1"
+            },
+            "value": [
+              1795802633.502,
+              "423.2980332829047"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-cadvisor-1"
+            },
+            "value": [
+              1795802633.502,
+              "60.98420621463544"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-carga-1"
+            },
+            "value": [
+              1795802633.502,
+              "146.4110929853181"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-db-1"
+            },
+            "value": [
+              1795802633.502,
+              "182.15745512706593"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-grafana-1"
+            },
+            "value": [
+              1795802633.502,
+              "78.63092955979226"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-loki-1"
+            },
+            "value": [
+              1795802633.502,
+              "171.4645187053384"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-node-exporter-1"
+            },
+            "value": [
+              1795802633.502,
+              "49164.91888079003"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-prometheus-1"
+            },
+            "value": [
+              1795802633.502,
+              "28043.390242256562"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-tempo-1"
+            },
+            "value": [
+              1795802633.502,
+              "465.38368013339357"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Rede enviada por contêiner",
+    "query": "sum by (name) (rate(container_network_transmit_bytes_total{container_label_com_docker_compose_project=\"hemochain-observabilidade\",name!=\"\"}[1m]))",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-api-1"
+            },
+            "value": [
+              1795802633.518,
+              "12842.435703479578"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-cadvisor-1"
+            },
+            "value": [
+              1795802633.518,
+              "1417.9351864200116"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-carga-1"
+            },
+            "value": [
+              1795802633.518,
+              "79.96873300706906"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-db-1"
+            },
+            "value": [
+              1795802633.518,
+              "131.46436822463124"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-grafana-1"
+            },
+            "value": [
+              1795802633.518,
+              "1697.3266878115087"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-loki-1"
+            },
+            "value": [
+              1795802633.518,
+              "1560.7651646350007"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-node-exporter-1"
+            },
+            "value": [
+              1795802633.518,
+              "51504.702562896775"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-prometheus-1"
+            },
+            "value": [
+              1795802633.518,
+              "406.2127448995659"
+            ]
+          },
+          {
+            "metric": {
+              "name": "hemochain-observabilidade-tempo-1"
+            },
+            "value": [
+              1795802633.518,
+              "660.2285753986173"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "dashboard": "hemochain-infra",
+    "painel": "Targets do Prometheus (1 = UP)",
+    "query": "up",
+    "resposta": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "cadvisor:8080",
+              "job": "cadvisor"
+            },
+            "value": [
+              1795802633.534,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "loki:3100",
+              "job": "loki"
+            },
+            "value": [
+              1795802633.534,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "tempo:3200",
+              "job": "tempo"
+            },
+            "value": [
+              1795802633.534,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "localhost:9090",
+              "job": "prometheus"
+            },
+            "value": [
+              1795802633.534,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "grafana:3000",
+              "job": "grafana"
+            },
+            "value": [
+              1795802633.534,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "ambiente": "lab",
+              "instance": "api:8081",
+              "job": "hemochain"
+            },
+            "value": [
+              1795802633.534,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "docker-vm:9100",
+              "job": "node-exporter"
+            },
+            "value": [
+              1795802633.534,
+              "1"
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

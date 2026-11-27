@@ -2,6 +2,10 @@ package com.hemochain.service;
 
 import java.time.*;
 import java.util.List;
+import io.micrometer.core.annotation.Counted;
+import io.micrometer.observation.annotation.Observed;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -12,6 +16,7 @@ import com.hemochain.repository.*;
 
 @Service
 public class AtendimentoHospitalarService {
+    private static final Logger log = LoggerFactory.getLogger(AtendimentoHospitalarService.class);
     private final RequisicaoRepository requisicoes;
     private final BolsaRepository bolsas;
     private final EntregaHospitalarRepository entregas;
@@ -34,8 +39,11 @@ public class AtendimentoHospitalarService {
         this.prazo = prazo;
     }
 
+    @Counted(value = "hemochain.entrega.tentativas", description = "Tentativas de registrar entrega, separadas por resultado do metodo; nao comprova commit")
+    @Observed(name = "hemochain.entrega.registro", contextualName = "registrar-entrega")
     @Transactional
     public EntregaHospitalar registrarEntrega(Long requisicaoId, Long bolsaId) {
+        log.info("Tentativa de registrar entrega hospitalar");
         RequisicaoHospitalar r = bloquear(requisicaoId);
         List<EntregaHospitalar> existentes = entregas.findByRequisicaoIdOrderByEntregueEmAscIdAsc(r.getId());
         if (existentes.size() >= r.getQuantidade()) conflito("Quantidade solicitada ja atendida.");
@@ -58,9 +66,11 @@ public class AtendimentoHospitalarService {
         rastreabilidade.registrar(b, TipoEventoBolsa.ENTREGA_REGISTRADA, entrega.getOrigemEntrega(),
                 "Atestacao de entrega ocorrida; requisicao=" + r.getId() + "; hospital=" + r.getHospital().getId());
         atualizarStatus(r);
+        log.info("Registro de entrega processado; commit sujeito a transacao");
         return entrega;
     }
 
+    @Observed(name = "hemochain.entrega.recebimento", contextualName = "confirmar-recebimento")
     @Transactional
     public EntregaHospitalar receber(Long requisicaoId, Long entregaId, Long hospitalId,
             CondicaoRecebimento condicao, String observacao) {

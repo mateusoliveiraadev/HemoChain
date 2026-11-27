@@ -33,6 +33,7 @@ target/
 # Segredos e estados de autenticacao locais
 .env.*
 !.env.example
+!.env.observabilidade.example
 *.pem
 *.key
 *.p12

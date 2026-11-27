@@ -1,0 +1,2400 @@
+{
+  "baseline": {
+    "cobertura": {
+      "total": {
+        "BRANCH": {
+          "covered": 207,
+          "missed": 66
+        },
+        "LINE": {
+          "covered": 705,
+          "missed": 128
+        },
+        "METHOD": {
+          "covered": 247,
+          "missed": 30
+        }
+      },
+      "pacotes": {
+        "com/hemochain": {
+          "LINE": {
+            "covered": 1,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 1
+          }
+        },
+        "com/hemochain/entity": {
+          "BRANCH": {
+            "covered": 2,
+            "missed": 2
+          },
+          "LINE": {
+            "covered": 195,
+            "missed": 5
+          },
+          "METHOD": {
+            "covered": 102,
+            "missed": 3
+          }
+        },
+        "com/hemochain/estrutura": {
+          "BRANCH": {
+            "covered": 25,
+            "missed": 3
+          },
+          "LINE": {
+            "covered": 105,
+            "missed": 13
+          },
+          "METHOD": {
+            "covered": 29,
+            "missed": 9
+          }
+        },
+        "com/hemochain/service": {
+          "BRANCH": {
+            "covered": 150,
+            "missed": 39
+          },
+          "LINE": {
+            "covered": 294,
+            "missed": 75
+          },
+          "METHOD": {
+            "covered": 66,
+            "missed": 7
+          }
+        },
+        "com/hemochain/config": {
+          "BRANCH": {
+            "covered": 12,
+            "missed": 6
+          },
+          "LINE": {
+            "covered": 32,
+            "missed": 12
+          },
+          "METHOD": {
+            "covered": 14,
+            "missed": 0
+          }
+        },
+        "com/hemochain/controller": {
+          "BRANCH": {
+            "covered": 18,
+            "missed": 16
+          },
+          "LINE": {
+            "covered": 76,
+            "missed": 19
+          },
+          "METHOD": {
+            "covered": 33,
+            "missed": 8
+          }
+        },
+        "com/hemochain/dto": {
+          "LINE": {
+            "covered": 2,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 2
+          }
+        },
+        "com/hemochain/repository": {}
+      },
+      "classes": {
+        "com/hemochain/HemochainApplication": {
+          "LINE": {
+            "covered": 1,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 1
+          }
+        },
+        "com/hemochain/entity/EventoBolsa": {
+          "LINE": {
+            "covered": 14,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 8,
+            "missed": 1
+          }
+        },
+        "com/hemochain/entity/TipoEventoBolsa": {
+          "LINE": {
+            "covered": 3,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/PerfilUsuario": {
+          "LINE": {
+            "covered": 4,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/RequisicaoHospitalar": {
+          "LINE": {
+            "covered": 38,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 20,
+            "missed": 1
+          }
+        },
+        "com/hemochain/entity/Hospital": {
+          "LINE": {
+            "covered": 17,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 9,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/UrgenciaRequisicao": {
+          "LINE": {
+            "covered": 4,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/TipoSanguineo": {
+          "LINE": {
+            "covered": 15,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 4,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/TipoComponente": {
+          "LINE": {
+            "covered": 5,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/CondicaoRecebimento": {
+          "LINE": {
+            "covered": 1,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/EntregaHospitalar": {
+          "BRANCH": {
+            "covered": 1,
+            "missed": 1
+          },
+          "LINE": {
+            "covered": 28,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 18,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/AlertaValidade": {
+          "LINE": {
+            "covered": 11,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 6,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/StatusBolsa": {
+          "LINE": {
+            "covered": 7,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/Usuario": {
+          "LINE": {
+            "covered": 19,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 10,
+            "missed": 1
+          }
+        },
+        "com/hemochain/entity/StatusRequisicao": {
+          "LINE": {
+            "covered": 3,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/BolsaHemocomponente": {
+          "BRANCH": {
+            "covered": 1,
+            "missed": 1
+          },
+          "LINE": {
+            "covered": 26,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 20,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/EstoqueBolsas$NoEstoque": {
+          "LINE": {
+            "covered": 4,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/HistoricoOperacoes$NoPilha": {
+          "LINE": {
+            "covered": 4,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/EstoqueBolsas": {
+          "BRANCH": {
+            "covered": 9,
+            "missed": 3
+          },
+          "LINE": {
+            "covered": 25,
+            "missed": 4
+          },
+          "METHOD": {
+            "covered": 6,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/OperacaoHistorico": {
+          "LINE": {
+            "covered": 1,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/Bolsa": {
+          "LINE": {
+            "covered": 10,
+            "missed": 3
+          },
+          "METHOD": {
+            "covered": 4,
+            "missed": 3
+          }
+        },
+        "com/hemochain/estrutura/Requisicao": {
+          "LINE": {
+            "covered": 9,
+            "missed": 6
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 6
+          }
+        },
+        "com/hemochain/estrutura/TipoOperacao": {
+          "LINE": {
+            "covered": 5,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/FilaRequisicoes$NoFila": {
+          "LINE": {
+            "covered": 4,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/FilaRequisicoes": {
+          "BRANCH": {
+            "covered": 10,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 25,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 6,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/HistoricoOperacoes": {
+          "BRANCH": {
+            "covered": 6,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 18,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 6,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/CompatibilidadeService": {
+          "BRANCH": {
+            "covered": 16,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 15,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 7,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/DemandaAccumulator": {
+          "BRANCH": {
+            "covered": 8,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 25,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 5,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/RastreabilidadeService": {
+          "BRANCH": {
+            "covered": 1,
+            "missed": 1
+          },
+          "LINE": {
+            "covered": 12,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 4,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/AtendimentoHospitalarService": {
+          "BRANCH": {
+            "covered": 76,
+            "missed": 14
+          },
+          "LINE": {
+            "covered": 96,
+            "missed": 10
+          },
+          "METHOD": {
+            "covered": 21,
+            "missed": 3
+          }
+        },
+        "com/hemochain/service/ValidadeService": {
+          "BRANCH": {
+            "covered": 24,
+            "missed": 7
+          },
+          "LINE": {
+            "covered": 35,
+            "missed": 4
+          },
+          "METHOD": {
+            "covered": 6,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/BolsaService": {
+          "BRANCH": {
+            "covered": 7,
+            "missed": 3
+          },
+          "LINE": {
+            "covered": 44,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 7,
+            "missed": 1
+          }
+        },
+        "com/hemochain/service/RequisicaoIndicadoresService": {
+          "BRANCH": {
+            "covered": 10,
+            "missed": 6
+          },
+          "LINE": {
+            "covered": 32,
+            "missed": 16
+          },
+          "METHOD": {
+            "covered": 4,
+            "missed": 1
+          }
+        },
+        "com/hemochain/service/RequisicaoService": {
+          "BRANCH": {
+            "covered": 2,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 12,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 5,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/HospitalService": {
+          "LINE": {
+            "covered": 5,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 3,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/DadosSinteticosService": {
+          "BRANCH": {
+            "covered": 0,
+            "missed": 8
+          },
+          "LINE": {
+            "covered": 4,
+            "missed": 42
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 2
+          }
+        },
+        "com/hemochain/service/UsuarioService": {
+          "BRANCH": {
+            "covered": 6,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 14,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 3,
+            "missed": 0
+          }
+        },
+        "com/hemochain/config/PasswordEncoderConfig": {
+          "LINE": {
+            "covered": 2,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 0
+          }
+        },
+        "com/hemochain/config/ProtecaoHistoricoPostgres": {
+          "BRANCH": {
+            "covered": 2,
+            "missed": 2
+          },
+          "LINE": {
+            "covered": 4,
+            "missed": 11
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 0
+          }
+        },
+        "com/hemochain/config/VerificacaoRecebimentoAgendada": {
+          "LINE": {
+            "covered": 3,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 3,
+            "missed": 0
+          }
+        },
+        "com/hemochain/config/EvolucaoStatusBolsaH2": {
+          "BRANCH": {
+            "covered": 10,
+            "missed": 4
+          },
+          "LINE": {
+            "covered": 14,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 0
+          }
+        },
+        "com/hemochain/config/VerificacaoValidadeAgendada": {
+          "LINE": {
+            "covered": 7,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 3,
+            "missed": 0
+          }
+        },
+        "com/hemochain/config/RelogioConfig": {
+          "LINE": {
+            "covered": 2,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 0
+          }
+        },
+        "com/hemochain/controller/AtendimentoHospitalarController$DadosRecebimento": {
+          "LINE": {
+            "covered": 1,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/controller/UsuarioController": {
+          "LINE": {
+            "covered": 3,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 2
+          }
+        },
+        "com/hemochain/controller/DadosSinteticosController": {
+          "BRANCH": {
+            "covered": 0,
+            "missed": 8
+          },
+          "LINE": {
+            "covered": 3,
+            "missed": 7
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 2
+          }
+        },
+        "com/hemochain/controller/AtendimentoHospitalarController$DadosEntrega": {
+          "LINE": {
+            "covered": 1,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/controller/HospitalController": {
+          "BRANCH": {
+            "covered": 3,
+            "missed": 1
+          },
+          "LINE": {
+            "covered": 9,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 4,
+            "missed": 1
+          }
+        },
+        "com/hemochain/controller/AtendimentoHospitalarController": {
+          "BRANCH": {
+            "covered": 3,
+            "missed": 1
+          },
+          "LINE": {
+            "covered": 13,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 7,
+            "missed": 0
+          }
+        },
+        "com/hemochain/controller/IndicadoresController": {
+          "BRANCH": {
+            "covered": 0,
+            "missed": 4
+          },
+          "LINE": {
+            "covered": 4,
+            "missed": 5
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 2
+          }
+        },
+        "com/hemochain/controller/BolsaController": {
+          "BRANCH": {
+            "covered": 2,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 26,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 11,
+            "missed": 1
+          }
+        },
+        "com/hemochain/controller/RequisicaoController": {
+          "BRANCH": {
+            "covered": 10,
+            "missed": 2
+          },
+          "LINE": {
+            "covered": 16,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 5,
+            "missed": 0
+          }
+        },
+        "com/hemochain/dto/IndicadoresDemandaResponse": {
+          "LINE": {
+            "covered": 0,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 0,
+            "missed": 1
+          }
+        },
+        "com/hemochain/dto/RequisicaoProjecao": {
+          "LINE": {
+            "covered": 1,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/dto/EstatisticaTipoSanguineo": {
+          "LINE": {
+            "covered": 1,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/dto/ResultadoGeracaoDados": {
+          "LINE": {
+            "covered": 0,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 0,
+            "missed": 1
+          }
+        },
+        "com/hemochain/repository/UsuarioRepository": {},
+        "com/hemochain/repository/HospitalRepository": {},
+        "com/hemochain/repository/RequisicaoRepository": {},
+        "com/hemochain/repository/BolsaRepository": {},
+        "com/hemochain/repository/EventoBolsaRepository": {},
+        "com/hemochain/repository/AlertaValidadeRepository": {},
+        "com/hemochain/repository/EntregaHospitalarRepository": {}
+      },
+      "contextos": {
+        "Compartilhado e inicializacao": {
+          "LINE": {
+            "covered": 23,
+            "missed": 2
+          },
+          "BRANCH": {
+            "covered": 0,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 8,
+            "missed": 1
+          }
+        },
+        "Rastreabilidade": {
+          "LINE": {
+            "covered": 33,
+            "missed": 13
+          },
+          "BRANCH": {
+            "covered": 3,
+            "missed": 3
+          },
+          "METHOD": {
+            "covered": 15,
+            "missed": 1
+          }
+        },
+        "Acesso": {
+          "LINE": {
+            "covered": 42,
+            "missed": 4
+          },
+          "BRANCH": {
+            "covered": 6,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 17,
+            "missed": 3
+          }
+        },
+        "Requisicao e cadastro hospitalar": {
+          "LINE": {
+            "covered": 167,
+            "missed": 27
+          },
+          "BRANCH": {
+            "covered": 33,
+            "missed": 13
+          },
+          "METHOD": {
+            "covered": 61,
+            "missed": 6
+          }
+        },
+        "Expedicao e recebimento": {
+          "LINE": {
+            "covered": 143,
+            "missed": 11
+          },
+          "BRANCH": {
+            "covered": 80,
+            "missed": 16
+          },
+          "METHOD": {
+            "covered": 52,
+            "missed": 3
+          }
+        },
+        "Estoque": {
+          "LINE": {
+            "covered": 170,
+            "missed": 8
+          },
+          "BRANCH": {
+            "covered": 44,
+            "missed": 15
+          },
+          "METHOD": {
+            "covered": 56,
+            "missed": 2
+          }
+        },
+        "Exercicio U1 de estruturas de dados": {
+          "LINE": {
+            "covered": 105,
+            "missed": 13
+          },
+          "BRANCH": {
+            "covered": 25,
+            "missed": 3
+          },
+          "METHOD": {
+            "covered": 29,
+            "missed": 9
+          }
+        },
+        "Alocacao (somente compatibilidade existente)": {
+          "LINE": {
+            "covered": 15,
+            "missed": 0
+          },
+          "BRANCH": {
+            "covered": 16,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 7,
+            "missed": 0
+          }
+        },
+        "Apoio de dados sinteticos": {
+          "LINE": {
+            "covered": 7,
+            "missed": 50
+          },
+          "BRANCH": {
+            "covered": 0,
+            "missed": 16
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 5
+          }
+        },
+        "Interfaces de repositorio sem bytecode executavel": {
+          "LINE": {
+            "covered": 0,
+            "missed": 0
+          },
+          "BRANCH": {
+            "covered": 0,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 0,
+            "missed": 0
+          }
+        }
+      },
+      "propriedade": {
+        "com/hemochain/HemochainApplication": "Compartilhado e inicializacao",
+        "com/hemochain/entity/EventoBolsa": "Rastreabilidade",
+        "com/hemochain/entity/TipoEventoBolsa": "Rastreabilidade",
+        "com/hemochain/entity/PerfilUsuario": "Acesso",
+        "com/hemochain/entity/RequisicaoHospitalar": "Requisicao e cadastro hospitalar",
+        "com/hemochain/entity/Hospital": "Requisicao e cadastro hospitalar",
+        "com/hemochain/entity/UrgenciaRequisicao": "Requisicao e cadastro hospitalar",
+        "com/hemochain/entity/TipoSanguineo": "Compartilhado e inicializacao",
+        "com/hemochain/entity/TipoComponente": "Compartilhado e inicializacao",
+        "com/hemochain/entity/CondicaoRecebimento": "Expedicao e recebimento",
+        "com/hemochain/entity/EntregaHospitalar": "Expedicao e recebimento",
+        "com/hemochain/entity/AlertaValidade": "Estoque",
+        "com/hemochain/entity/StatusBolsa": "Estoque",
+        "com/hemochain/entity/Usuario": "Acesso",
+        "com/hemochain/entity/StatusRequisicao": "Requisicao e cadastro hospitalar",
+        "com/hemochain/entity/BolsaHemocomponente": "Estoque",
+        "com/hemochain/estrutura/EstoqueBolsas$NoEstoque": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/HistoricoOperacoes$NoPilha": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/EstoqueBolsas": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/OperacaoHistorico": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/Bolsa": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/Requisicao": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/TipoOperacao": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/FilaRequisicoes$NoFila": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/FilaRequisicoes": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/HistoricoOperacoes": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/service/CompatibilidadeService": "Alocacao (somente compatibilidade existente)",
+        "com/hemochain/service/DemandaAccumulator": "Requisicao e cadastro hospitalar",
+        "com/hemochain/service/RastreabilidadeService": "Rastreabilidade",
+        "com/hemochain/service/AtendimentoHospitalarService": "Expedicao e recebimento",
+        "com/hemochain/service/ValidadeService": "Estoque",
+        "com/hemochain/service/BolsaService": "Estoque",
+        "com/hemochain/service/RequisicaoIndicadoresService": "Requisicao e cadastro hospitalar",
+        "com/hemochain/service/RequisicaoService": "Requisicao e cadastro hospitalar",
+        "com/hemochain/service/HospitalService": "Requisicao e cadastro hospitalar",
+        "com/hemochain/service/DadosSinteticosService": "Apoio de dados sinteticos",
+        "com/hemochain/service/UsuarioService": "Acesso",
+        "com/hemochain/config/PasswordEncoderConfig": "Acesso",
+        "com/hemochain/config/ProtecaoHistoricoPostgres": "Rastreabilidade",
+        "com/hemochain/config/VerificacaoRecebimentoAgendada": "Expedicao e recebimento",
+        "com/hemochain/config/EvolucaoStatusBolsaH2": "Estoque",
+        "com/hemochain/config/VerificacaoValidadeAgendada": "Estoque",
+        "com/hemochain/config/RelogioConfig": "Compartilhado e inicializacao",
+        "com/hemochain/controller/AtendimentoHospitalarController$DadosRecebimento": "Expedicao e recebimento",
+        "com/hemochain/controller/UsuarioController": "Acesso",
+        "com/hemochain/controller/DadosSinteticosController": "Apoio de dados sinteticos",
+        "com/hemochain/controller/AtendimentoHospitalarController$DadosEntrega": "Expedicao e recebimento",
+        "com/hemochain/controller/HospitalController": "Requisicao e cadastro hospitalar",
+        "com/hemochain/controller/AtendimentoHospitalarController": "Expedicao e recebimento",
+        "com/hemochain/controller/IndicadoresController": "Requisicao e cadastro hospitalar",
+        "com/hemochain/controller/BolsaController": "Estoque",
+        "com/hemochain/controller/RequisicaoController": "Requisicao e cadastro hospitalar",
+        "com/hemochain/dto/IndicadoresDemandaResponse": "Requisicao e cadastro hospitalar",
+        "com/hemochain/dto/RequisicaoProjecao": "Requisicao e cadastro hospitalar",
+        "com/hemochain/dto/EstatisticaTipoSanguineo": "Requisicao e cadastro hospitalar",
+        "com/hemochain/dto/ResultadoGeracaoDados": "Apoio de dados sinteticos",
+        "com/hemochain/repository/UsuarioRepository": "Interfaces de repositorio sem bytecode executavel",
+        "com/hemochain/repository/HospitalRepository": "Interfaces de repositorio sem bytecode executavel",
+        "com/hemochain/repository/RequisicaoRepository": "Interfaces de repositorio sem bytecode executavel",
+        "com/hemochain/repository/BolsaRepository": "Interfaces de repositorio sem bytecode executavel",
+        "com/hemochain/repository/EventoBolsaRepository": "Interfaces de repositorio sem bytecode executavel",
+        "com/hemochain/repository/AlertaValidadeRepository": "Interfaces de repositorio sem bytecode executavel",
+        "com/hemochain/repository/EntregaHospitalarRepository": "Interfaces de repositorio sem bytecode executavel"
+      }
+    },
+    "testes": {
+      "totais": {
+        "tests": 84,
+        "passed": 84,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "suites": [
+        {
+          "classe": "com.hemochain.config.EvolucaoStatusBolsaH2Test",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 2
+        },
+        {
+          "classe": "com.hemochain.controller.AcessoPorPerfilTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 5
+        },
+        {
+          "classe": "com.hemochain.controller.AtendimentoHospitalarAceitacaoTest",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 14
+        },
+        {
+          "classe": "com.hemochain.controller.CompatibilidadeAceitacaoTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 4
+        },
+        {
+          "classe": "com.hemochain.controller.EstoqueControllerTest",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 11
+        },
+        {
+          "classe": "com.hemochain.estrutura.EstoqueBolsasTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 4
+        },
+        {
+          "classe": "com.hemochain.estrutura.FilaRequisicoesTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 3
+        },
+        {
+          "classe": "com.hemochain.estrutura.HistoricoOperacoesTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 3
+        },
+        {
+          "classe": "com.hemochain.HemochainApplicationTests",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 1
+        },
+        {
+          "classe": "com.hemochain.repository.BolsaCompativelRepositoryTest",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 1
+        },
+        {
+          "classe": "com.hemochain.service.AtendimentoHospitalarServiceTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 3
+        },
+        {
+          "classe": "com.hemochain.service.CompatibilidadeServiceTest",
+          "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 6
+        },
+        {
+          "classe": "com.hemochain.service.HospitalServiceTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 2
+        },
+        {
+          "classe": "com.hemochain.service.RastreabilidadeTransacaoTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 3
+        },
+        {
+          "classe": "com.hemochain.service.RequisicaoIndicadoresServiceTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 9
+        },
+        {
+          "classe": "com.hemochain.service.RequisicaoServiceTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 4
+        },
+        {
+          "classe": "com.hemochain.service.UsuarioServiceTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 5
+        },
+        {
+          "classe": "com.hemochain.service.ValidadeServiceTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 4
+        }
+      ]
+    }
+  },
+  "final": {
+    "cobertura": {
+      "total": {
+        "BRANCH": {
+          "covered": 227,
+          "missed": 66
+        },
+        "LINE": {
+          "covered": 719,
+          "missed": 128
+        },
+        "METHOD": {
+          "covered": 247,
+          "missed": 30
+        }
+      },
+      "pacotes": {
+        "com/hemochain": {
+          "LINE": {
+            "covered": 1,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 1
+          }
+        },
+        "com/hemochain/entity": {
+          "BRANCH": {
+            "covered": 22,
+            "missed": 2
+          },
+          "LINE": {
+            "covered": 209,
+            "missed": 5
+          },
+          "METHOD": {
+            "covered": 102,
+            "missed": 3
+          }
+        },
+        "com/hemochain/estrutura": {
+          "BRANCH": {
+            "covered": 25,
+            "missed": 3
+          },
+          "LINE": {
+            "covered": 105,
+            "missed": 13
+          },
+          "METHOD": {
+            "covered": 29,
+            "missed": 9
+          }
+        },
+        "com/hemochain/service": {
+          "BRANCH": {
+            "covered": 150,
+            "missed": 39
+          },
+          "LINE": {
+            "covered": 294,
+            "missed": 75
+          },
+          "METHOD": {
+            "covered": 66,
+            "missed": 7
+          }
+        },
+        "com/hemochain/config": {
+          "BRANCH": {
+            "covered": 12,
+            "missed": 6
+          },
+          "LINE": {
+            "covered": 32,
+            "missed": 12
+          },
+          "METHOD": {
+            "covered": 14,
+            "missed": 0
+          }
+        },
+        "com/hemochain/controller": {
+          "BRANCH": {
+            "covered": 18,
+            "missed": 16
+          },
+          "LINE": {
+            "covered": 76,
+            "missed": 19
+          },
+          "METHOD": {
+            "covered": 33,
+            "missed": 8
+          }
+        },
+        "com/hemochain/dto": {
+          "LINE": {
+            "covered": 2,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 2
+          }
+        },
+        "com/hemochain/repository": {}
+      },
+      "classes": {
+        "com/hemochain/HemochainApplication": {
+          "LINE": {
+            "covered": 1,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 1
+          }
+        },
+        "com/hemochain/entity/EventoBolsa": {
+          "LINE": {
+            "covered": 14,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 8,
+            "missed": 1
+          }
+        },
+        "com/hemochain/entity/TipoEventoBolsa": {
+          "LINE": {
+            "covered": 3,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/PerfilUsuario": {
+          "LINE": {
+            "covered": 4,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/RequisicaoHospitalar": {
+          "LINE": {
+            "covered": 38,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 20,
+            "missed": 1
+          }
+        },
+        "com/hemochain/entity/Hospital": {
+          "LINE": {
+            "covered": 17,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 9,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/UrgenciaRequisicao": {
+          "LINE": {
+            "covered": 4,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/TipoSanguineo": {
+          "LINE": {
+            "covered": 15,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 4,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/TipoComponente": {
+          "LINE": {
+            "covered": 5,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/CondicaoRecebimento": {
+          "LINE": {
+            "covered": 1,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/EntregaHospitalar": {
+          "BRANCH": {
+            "covered": 21,
+            "missed": 1
+          },
+          "LINE": {
+            "covered": 42,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 18,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/AlertaValidade": {
+          "LINE": {
+            "covered": 11,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 6,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/StatusBolsa": {
+          "LINE": {
+            "covered": 7,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/Usuario": {
+          "LINE": {
+            "covered": 19,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 10,
+            "missed": 1
+          }
+        },
+        "com/hemochain/entity/StatusRequisicao": {
+          "LINE": {
+            "covered": 3,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/entity/BolsaHemocomponente": {
+          "BRANCH": {
+            "covered": 1,
+            "missed": 1
+          },
+          "LINE": {
+            "covered": 26,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 20,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/EstoqueBolsas$NoEstoque": {
+          "LINE": {
+            "covered": 4,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/HistoricoOperacoes$NoPilha": {
+          "LINE": {
+            "covered": 4,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/EstoqueBolsas": {
+          "BRANCH": {
+            "covered": 9,
+            "missed": 3
+          },
+          "LINE": {
+            "covered": 25,
+            "missed": 4
+          },
+          "METHOD": {
+            "covered": 6,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/OperacaoHistorico": {
+          "LINE": {
+            "covered": 1,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/Bolsa": {
+          "LINE": {
+            "covered": 10,
+            "missed": 3
+          },
+          "METHOD": {
+            "covered": 4,
+            "missed": 3
+          }
+        },
+        "com/hemochain/estrutura/Requisicao": {
+          "LINE": {
+            "covered": 9,
+            "missed": 6
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 6
+          }
+        },
+        "com/hemochain/estrutura/TipoOperacao": {
+          "LINE": {
+            "covered": 5,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/FilaRequisicoes$NoFila": {
+          "LINE": {
+            "covered": 4,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/FilaRequisicoes": {
+          "BRANCH": {
+            "covered": 10,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 25,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 6,
+            "missed": 0
+          }
+        },
+        "com/hemochain/estrutura/HistoricoOperacoes": {
+          "BRANCH": {
+            "covered": 6,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 18,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 6,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/CompatibilidadeService": {
+          "BRANCH": {
+            "covered": 16,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 15,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 7,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/DemandaAccumulator": {
+          "BRANCH": {
+            "covered": 8,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 25,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 5,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/RastreabilidadeService": {
+          "BRANCH": {
+            "covered": 1,
+            "missed": 1
+          },
+          "LINE": {
+            "covered": 12,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 4,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/AtendimentoHospitalarService": {
+          "BRANCH": {
+            "covered": 76,
+            "missed": 14
+          },
+          "LINE": {
+            "covered": 96,
+            "missed": 10
+          },
+          "METHOD": {
+            "covered": 21,
+            "missed": 3
+          }
+        },
+        "com/hemochain/service/ValidadeService": {
+          "BRANCH": {
+            "covered": 24,
+            "missed": 7
+          },
+          "LINE": {
+            "covered": 35,
+            "missed": 4
+          },
+          "METHOD": {
+            "covered": 6,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/BolsaService": {
+          "BRANCH": {
+            "covered": 7,
+            "missed": 3
+          },
+          "LINE": {
+            "covered": 44,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 7,
+            "missed": 1
+          }
+        },
+        "com/hemochain/service/RequisicaoIndicadoresService": {
+          "BRANCH": {
+            "covered": 10,
+            "missed": 6
+          },
+          "LINE": {
+            "covered": 32,
+            "missed": 16
+          },
+          "METHOD": {
+            "covered": 4,
+            "missed": 1
+          }
+        },
+        "com/hemochain/service/RequisicaoService": {
+          "BRANCH": {
+            "covered": 2,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 12,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 5,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/HospitalService": {
+          "LINE": {
+            "covered": 5,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 3,
+            "missed": 0
+          }
+        },
+        "com/hemochain/service/DadosSinteticosService": {
+          "BRANCH": {
+            "covered": 0,
+            "missed": 8
+          },
+          "LINE": {
+            "covered": 4,
+            "missed": 42
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 2
+          }
+        },
+        "com/hemochain/service/UsuarioService": {
+          "BRANCH": {
+            "covered": 6,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 14,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 3,
+            "missed": 0
+          }
+        },
+        "com/hemochain/config/PasswordEncoderConfig": {
+          "LINE": {
+            "covered": 2,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 0
+          }
+        },
+        "com/hemochain/config/ProtecaoHistoricoPostgres": {
+          "BRANCH": {
+            "covered": 2,
+            "missed": 2
+          },
+          "LINE": {
+            "covered": 4,
+            "missed": 11
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 0
+          }
+        },
+        "com/hemochain/config/VerificacaoRecebimentoAgendada": {
+          "LINE": {
+            "covered": 3,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 3,
+            "missed": 0
+          }
+        },
+        "com/hemochain/config/EvolucaoStatusBolsaH2": {
+          "BRANCH": {
+            "covered": 10,
+            "missed": 4
+          },
+          "LINE": {
+            "covered": 14,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 0
+          }
+        },
+        "com/hemochain/config/VerificacaoValidadeAgendada": {
+          "LINE": {
+            "covered": 7,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 3,
+            "missed": 0
+          }
+        },
+        "com/hemochain/config/RelogioConfig": {
+          "LINE": {
+            "covered": 2,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 0
+          }
+        },
+        "com/hemochain/controller/AtendimentoHospitalarController$DadosRecebimento": {
+          "LINE": {
+            "covered": 1,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/controller/UsuarioController": {
+          "LINE": {
+            "covered": 3,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 2
+          }
+        },
+        "com/hemochain/controller/DadosSinteticosController": {
+          "BRANCH": {
+            "covered": 0,
+            "missed": 8
+          },
+          "LINE": {
+            "covered": 3,
+            "missed": 7
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 2
+          }
+        },
+        "com/hemochain/controller/AtendimentoHospitalarController$DadosEntrega": {
+          "LINE": {
+            "covered": 1,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/controller/HospitalController": {
+          "BRANCH": {
+            "covered": 3,
+            "missed": 1
+          },
+          "LINE": {
+            "covered": 9,
+            "missed": 2
+          },
+          "METHOD": {
+            "covered": 4,
+            "missed": 1
+          }
+        },
+        "com/hemochain/controller/AtendimentoHospitalarController": {
+          "BRANCH": {
+            "covered": 3,
+            "missed": 1
+          },
+          "LINE": {
+            "covered": 13,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 7,
+            "missed": 0
+          }
+        },
+        "com/hemochain/controller/IndicadoresController": {
+          "BRANCH": {
+            "covered": 0,
+            "missed": 4
+          },
+          "LINE": {
+            "covered": 4,
+            "missed": 5
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 2
+          }
+        },
+        "com/hemochain/controller/BolsaController": {
+          "BRANCH": {
+            "covered": 2,
+            "missed": 0
+          },
+          "LINE": {
+            "covered": 26,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 11,
+            "missed": 1
+          }
+        },
+        "com/hemochain/controller/RequisicaoController": {
+          "BRANCH": {
+            "covered": 10,
+            "missed": 2
+          },
+          "LINE": {
+            "covered": 16,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 5,
+            "missed": 0
+          }
+        },
+        "com/hemochain/dto/IndicadoresDemandaResponse": {
+          "LINE": {
+            "covered": 0,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 0,
+            "missed": 1
+          }
+        },
+        "com/hemochain/dto/RequisicaoProjecao": {
+          "LINE": {
+            "covered": 1,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/dto/EstatisticaTipoSanguineo": {
+          "LINE": {
+            "covered": 1,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 1,
+            "missed": 0
+          }
+        },
+        "com/hemochain/dto/ResultadoGeracaoDados": {
+          "LINE": {
+            "covered": 0,
+            "missed": 1
+          },
+          "METHOD": {
+            "covered": 0,
+            "missed": 1
+          }
+        },
+        "com/hemochain/repository/UsuarioRepository": {},
+        "com/hemochain/repository/HospitalRepository": {},
+        "com/hemochain/repository/RequisicaoRepository": {},
+        "com/hemochain/repository/BolsaRepository": {},
+        "com/hemochain/repository/EventoBolsaRepository": {},
+        "com/hemochain/repository/AlertaValidadeRepository": {},
+        "com/hemochain/repository/EntregaHospitalarRepository": {}
+      },
+      "contextos": {
+        "Compartilhado e inicializacao": {
+          "LINE": {
+            "covered": 23,
+            "missed": 2
+          },
+          "BRANCH": {
+            "covered": 0,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 8,
+            "missed": 1
+          }
+        },
+        "Rastreabilidade": {
+          "LINE": {
+            "covered": 33,
+            "missed": 13
+          },
+          "BRANCH": {
+            "covered": 3,
+            "missed": 3
+          },
+          "METHOD": {
+            "covered": 15,
+            "missed": 1
+          }
+        },
+        "Acesso": {
+          "LINE": {
+            "covered": 42,
+            "missed": 4
+          },
+          "BRANCH": {
+            "covered": 6,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 17,
+            "missed": 3
+          }
+        },
+        "Requisicao e cadastro hospitalar": {
+          "LINE": {
+            "covered": 167,
+            "missed": 27
+          },
+          "BRANCH": {
+            "covered": 33,
+            "missed": 13
+          },
+          "METHOD": {
+            "covered": 61,
+            "missed": 6
+          }
+        },
+        "Expedicao e recebimento": {
+          "LINE": {
+            "covered": 157,
+            "missed": 11
+          },
+          "BRANCH": {
+            "covered": 100,
+            "missed": 16
+          },
+          "METHOD": {
+            "covered": 52,
+            "missed": 3
+          }
+        },
+        "Estoque": {
+          "LINE": {
+            "covered": 170,
+            "missed": 8
+          },
+          "BRANCH": {
+            "covered": 44,
+            "missed": 15
+          },
+          "METHOD": {
+            "covered": 56,
+            "missed": 2
+          }
+        },
+        "Exercicio U1 de estruturas de dados": {
+          "LINE": {
+            "covered": 105,
+            "missed": 13
+          },
+          "BRANCH": {
+            "covered": 25,
+            "missed": 3
+          },
+          "METHOD": {
+            "covered": 29,
+            "missed": 9
+          }
+        },
+        "Alocacao (somente compatibilidade existente)": {
+          "LINE": {
+            "covered": 15,
+            "missed": 0
+          },
+          "BRANCH": {
+            "covered": 16,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 7,
+            "missed": 0
+          }
+        },
+        "Apoio de dados sinteticos": {
+          "LINE": {
+            "covered": 7,
+            "missed": 50
+          },
+          "BRANCH": {
+            "covered": 0,
+            "missed": 16
+          },
+          "METHOD": {
+            "covered": 2,
+            "missed": 5
+          }
+        },
+        "Interfaces de repositorio sem bytecode executavel": {
+          "LINE": {
+            "covered": 0,
+            "missed": 0
+          },
+          "BRANCH": {
+            "covered": 0,
+            "missed": 0
+          },
+          "METHOD": {
+            "covered": 0,
+            "missed": 0
+          }
+        }
+      },
+      "propriedade": {
+        "com/hemochain/HemochainApplication": "Compartilhado e inicializacao",
+        "com/hemochain/entity/EventoBolsa": "Rastreabilidade",
+        "com/hemochain/entity/TipoEventoBolsa": "Rastreabilidade",
+        "com/hemochain/entity/PerfilUsuario": "Acesso",
+        "com/hemochain/entity/RequisicaoHospitalar": "Requisicao e cadastro hospitalar",
+        "com/hemochain/entity/Hospital": "Requisicao e cadastro hospitalar",
+        "com/hemochain/entity/UrgenciaRequisicao": "Requisicao e cadastro hospitalar",
+        "com/hemochain/entity/TipoSanguineo": "Compartilhado e inicializacao",
+        "com/hemochain/entity/TipoComponente": "Compartilhado e inicializacao",
+        "com/hemochain/entity/CondicaoRecebimento": "Expedicao e recebimento",
+        "com/hemochain/entity/EntregaHospitalar": "Expedicao e recebimento",
+        "com/hemochain/entity/AlertaValidade": "Estoque",
+        "com/hemochain/entity/StatusBolsa": "Estoque",
+        "com/hemochain/entity/Usuario": "Acesso",
+        "com/hemochain/entity/StatusRequisicao": "Requisicao e cadastro hospitalar",
+        "com/hemochain/entity/BolsaHemocomponente": "Estoque",
+        "com/hemochain/estrutura/EstoqueBolsas$NoEstoque": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/HistoricoOperacoes$NoPilha": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/EstoqueBolsas": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/OperacaoHistorico": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/Bolsa": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/Requisicao": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/TipoOperacao": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/FilaRequisicoes$NoFila": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/FilaRequisicoes": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/estrutura/HistoricoOperacoes": "Exercicio U1 de estruturas de dados",
+        "com/hemochain/service/CompatibilidadeService": "Alocacao (somente compatibilidade existente)",
+        "com/hemochain/service/DemandaAccumulator": "Requisicao e cadastro hospitalar",
+        "com/hemochain/service/RastreabilidadeService": "Rastreabilidade",
+        "com/hemochain/service/AtendimentoHospitalarService": "Expedicao e recebimento",
+        "com/hemochain/service/ValidadeService": "Estoque",
+        "com/hemochain/service/BolsaService": "Estoque",
+        "com/hemochain/service/RequisicaoIndicadoresService": "Requisicao e cadastro hospitalar",
+        "com/hemochain/service/RequisicaoService": "Requisicao e cadastro hospitalar",
+        "com/hemochain/service/HospitalService": "Requisicao e cadastro hospitalar",
+        "com/hemochain/service/DadosSinteticosService": "Apoio de dados sinteticos",
+        "com/hemochain/service/UsuarioService": "Acesso",
+        "com/hemochain/config/PasswordEncoderConfig": "Acesso",
+        "com/hemochain/config/ProtecaoHistoricoPostgres": "Rastreabilidade",
+        "com/hemochain/config/VerificacaoRecebimentoAgendada": "Expedicao e recebimento",
+        "com/hemochain/config/EvolucaoStatusBolsaH2": "Estoque",
+        "com/hemochain/config/VerificacaoValidadeAgendada": "Estoque",
+        "com/hemochain/config/RelogioConfig": "Compartilhado e inicializacao",
+        "com/hemochain/controller/AtendimentoHospitalarController$DadosRecebimento": "Expedicao e recebimento",
+        "com/hemochain/controller/UsuarioController": "Acesso",
+        "com/hemochain/controller/DadosSinteticosController": "Apoio de dados sinteticos",
+        "com/hemochain/controller/AtendimentoHospitalarController$DadosEntrega": "Expedicao e recebimento",
+        "com/hemochain/controller/HospitalController": "Requisicao e cadastro hospitalar",
+        "com/hemochain/controller/AtendimentoHospitalarController": "Expedicao e recebimento",
+        "com/hemochain/controller/IndicadoresController": "Requisicao e cadastro hospitalar",
+        "com/hemochain/controller/BolsaController": "Estoque",
+        "com/hemochain/controller/RequisicaoController": "Requisicao e cadastro hospitalar",
+        "com/hemochain/dto/IndicadoresDemandaResponse": "Requisicao e cadastro hospitalar",
+        "com/hemochain/dto/RequisicaoProjecao": "Requisicao e cadastro hospitalar",
+        "com/hemochain/dto/EstatisticaTipoSanguineo": "Requisicao e cadastro hospitalar",
+        "com/hemochain/dto/ResultadoGeracaoDados": "Apoio de dados sinteticos",
+        "com/hemochain/repository/UsuarioRepository": "Interfaces de repositorio sem bytecode executavel",
+        "com/hemochain/repository/HospitalRepository": "Interfaces de repositorio sem bytecode executavel",
+        "com/hemochain/repository/RequisicaoRepository": "Interfaces de repositorio sem bytecode executavel",
+        "com/hemochain/repository/BolsaRepository": "Interfaces de repositorio sem bytecode executavel",
+        "com/hemochain/repository/EventoBolsaRepository": "Interfaces de repositorio sem bytecode executavel",
+        "com/hemochain/repository/AlertaValidadeRepository": "Interfaces de repositorio sem bytecode executavel",
+        "com/hemochain/repository/EntregaHospitalarRepository": "Interfaces de repositorio sem bytecode executavel"
+      }
+    },
+    "testes": {
+      "totais": {
+        "tests": 98,
+        "passed": 98,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "suites": [
+        {
+          "classe": "com.hemochain.config.EvolucaoStatusBolsaH2Test",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 2
+        },
+        {
+          "classe": "com.hemochain.controller.AcessoPorPerfilTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 5
+        },
+        {
+          "classe": "com.hemochain.controller.AtendimentoHospitalarAceitacaoTest",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 14
+        },
+        {
+          "classe": "com.hemochain.controller.CompatibilidadeAceitacaoTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 4
+        },
+        {
+          "classe": "com.hemochain.controller.EstoqueControllerTest",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 11
+        },
+        {
+          "classe": "com.hemochain.entity.EntregaHospitalarTest",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 14
+        },
+        {
+          "classe": "com.hemochain.estrutura.EstoqueBolsasTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 4
+        },
+        {
+          "classe": "com.hemochain.estrutura.FilaRequisicoesTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 3
+        },
+        {
+          "classe": "com.hemochain.estrutura.HistoricoOperacoesTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 3
+        },
+        {
+          "classe": "com.hemochain.HemochainApplicationTests",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 1
+        },
+        {
+          "classe": "com.hemochain.repository.BolsaCompativelRepositoryTest",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 1
+        },
+        {
+          "classe": "com.hemochain.service.AtendimentoHospitalarServiceTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 3
+        },
+        {
+          "classe": "com.hemochain.service.CompatibilidadeServiceTest",
+          "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 6
+        },
+        {
+          "classe": "com.hemochain.service.HospitalServiceTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 2
+        },
+        {
+          "classe": "com.hemochain.service.RastreabilidadeTransacaoTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 3
+        },
+        {
+          "classe": "com.hemochain.service.RequisicaoIndicadoresServiceTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 9
+        },
+        {
+          "classe": "com.hemochain.service.RequisicaoServiceTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 4
+        },
+        {
+          "classe": "com.hemochain.service.UsuarioServiceTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 5
+        },
+        {
+          "classe": "com.hemochain.service.ValidadeServiceTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "passed": 4
+        }
+      ]
+    }
+  },
+  "tdd-red": {
+    "totais": {
+      "tests": 12,
+      "passed": 3,
+      "failures": 9,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suites": [
+      {
+        "classe": "com.hemochain.entity.EntregaHospitalarTest",
+        "tests": 12,
+        "failures": 9,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 3
+      }
+    ]
+  },
+  "tdd-green": {
+    "totais": {
+      "tests": 12,
+      "passed": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suites": [
+      {
+        "classe": "com.hemochain.entity.EntregaHospitalarTest",
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 12
+      }
+    ]
+  },
+  "tdd-red-2": {
+    "totais": {
+      "tests": 14,
+      "passed": 12,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suites": [
+      {
+        "classe": "com.hemochain.entity.EntregaHospitalarTest",
+        "tests": 14,
+        "failures": 2,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 12
+      }
+    ]
+  },
+  "tdd-green-2": {
+    "totais": {
+      "tests": 14,
+      "passed": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suites": [
+      {
+        "classe": "com.hemochain.entity.EntregaHospitalarTest",
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 14
+      }
+    ]
+  },
+  "postgres-surefire": {
+    "totais": {
+      "tests": 17,
+      "passed": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suites": [
+      {
+        "classe": "com.hemochain.controller.AtendimentoHospitalarAceitacaoTest",
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 14
+      },
+      {
+        "classe": "com.hemochain.service.RastreabilidadeTransacaoTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 3
+      }
+    ]
+  },
+  "postgres-failsafe": {
+    "totais": {
+      "tests": 4,
+      "passed": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suites": [
+      {
+        "classe": "com.hemochain.repository.HistoricoPostgresIT",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 4
+      }
+    ]
+  }
+}

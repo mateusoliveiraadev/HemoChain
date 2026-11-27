@@ -1,0 +1,41 @@
+{
+  "capturado_em": "2026-11-27T18:03:53.041097+00:00",
+  "checks": {
+    "targets": {
+      "cadvisor": "up",
+      "grafana": "up",
+      "hemochain": "up",
+      "loki": "up",
+      "node-exporter": "up",
+      "prometheus": "up",
+      "tempo": "up"
+    },
+    "metricas_aplicacao": 10,
+    "consultas_promql": 53,
+    "trace": {
+      "traceId": "a09f05afc0d12d0d63e5385b49504cd9",
+      "spans": 19,
+      "nomes": [
+        "query",
+        "query",
+        "result-set",
+        "result-set",
+        "query",
+        "result-set",
+        "query",
+        "result-set",
+        "query",
+        "result-set",
+        "query",
+        "result-set",
+        "query",
+        "result-set",
+        "registrar-entrega",
+        "query",
+        "query",
+        "connection",
+        "http post /requisicoes/{id}/entregas"
+      ]
+    }
+  }
+}

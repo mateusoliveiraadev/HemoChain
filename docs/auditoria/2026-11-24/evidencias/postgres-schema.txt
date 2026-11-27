@@ -1,0 +1,58 @@
+﻿                                         version                                          
+------------------------------------------------------------------------------------------
+ PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+(1 row)
+
+       tablename       |          indexname          |                                                   indexdef                                                    
+-----------------------+-----------------------------+---------------------------------------------------------------------------------------------------------------
+ alerta_validade       | alerta_validade_pkey        | CREATE UNIQUE INDEX alerta_validade_pkey ON public.alerta_validade USING btree (id)
+ alerta_validade       | ukcp6ygac4c8q0y87tntct409rc | CREATE UNIQUE INDEX ukcp6ygac4c8q0y87tntct409rc ON public.alerta_validade USING btree (bolsa_id, limiar_dias)
+ bolsa_hemocomponente  | bolsa_hemocomponente_pkey   | CREATE UNIQUE INDEX bolsa_hemocomponente_pkey ON public.bolsa_hemocomponente USING btree (id)
+ bolsa_hemocomponente  | uknkxtarxvub6f416vp7t2qx9qx | CREATE UNIQUE INDEX uknkxtarxvub6f416vp7t2qx9qx ON public.bolsa_hemocomponente USING btree (codigo)
+ entrega_hospitalar    | entrega_hospitalar_pkey     | CREATE UNIQUE INDEX entrega_hospitalar_pkey ON public.entrega_hospitalar USING btree (id)
+ entrega_hospitalar    | idx_entrega_pendencia       | CREATE INDEX idx_entrega_pendencia ON public.entrega_hospitalar USING btree (recebida_em, prazo_confirmacao)
+ entrega_hospitalar    | uk619k88bbghd0kf4buxhjt6fjb | CREATE UNIQUE INDEX uk619k88bbghd0kf4buxhjt6fjb ON public.entrega_hospitalar USING btree (bolsa_id)
+ evento_bolsa          | evento_bolsa_pkey           | CREATE UNIQUE INDEX evento_bolsa_pkey ON public.evento_bolsa USING btree (id)
+ evento_bolsa          | idx_evento_bolsa_ordem      | CREATE INDEX idx_evento_bolsa_ordem ON public.evento_bolsa USING btree (bolsa_id, momento, id)
+ hospital              | hospital_pkey               | CREATE UNIQUE INDEX hospital_pkey ON public.hospital USING btree (id)
+ requisicao_hospitalar | requisicao_hospitalar_pkey  | CREATE UNIQUE INDEX requisicao_hospitalar_pkey ON public.requisicao_hospitalar USING btree (id)
+ usuario               | usuario_pkey                | CREATE UNIQUE INDEX usuario_pkey ON public.usuario USING btree (id)
+(12 rows)
+
+        tabela         |                   conname                   |                                                                                                                                                                                             definicao                                                                                                                                                                                              
+-----------------------+---------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ alerta_validade       | alerta_validade_pkey                        | PRIMARY KEY (id)
+ alerta_validade       | fk45qhtghrag2hk0j6pr7f9vav                  | FOREIGN KEY (bolsa_id) REFERENCES bolsa_hemocomponente(id)
+ alerta_validade       | ukcp6ygac4c8q0y87tntct409rc                 | UNIQUE (bolsa_id, limiar_dias)
+ bolsa_hemocomponente  | bolsa_hemocomponente_pkey                   | PRIMARY KEY (id)
+ bolsa_hemocomponente  | bolsa_hemocomponente_tipo_componente_check  | CHECK (((tipo_componente)::text = ANY ((ARRAY['CONCENTRADO_HEMACIAS'::character varying, 'PLASMA'::character varying, 'PLAQUETAS'::character varying, 'CRIOPRECIPITADO'::character varying])::text[])))
+ bolsa_hemocomponente  | bolsa_hemocomponente_tipo_sanguineo_check   | CHECK (((tipo_sanguineo)::text = ANY ((ARRAY['A_POSITIVO'::character varying, 'A_NEGATIVO'::character varying, 'B_POSITIVO'::character varying, 'B_NEGATIVO'::character varying, 'AB_POSITIVO'::character varying, 'AB_NEGATIVO'::character varying, 'O_POSITIVO'::character varying, 'O_NEGATIVO'::character varying])::text[])))
+ bolsa_hemocomponente  | bolsa_hemocomponente_volume_ml_check        | CHECK (((volume_ml <= 10000) AND (volume_ml >= 1)))
+ bolsa_hemocomponente  | hc_status_bolsa                             | CHECK (((status)::text = ANY ((ARRAY['DISPONIVEL'::character varying, 'DESCARTADO'::character varying, 'ENTREGUE'::character varying, 'RECEBIDA'::character varying, 'BLOQUEADA'::character varying, 'UTILIZADA'::character varying])::text[])))
+ bolsa_hemocomponente  | uknkxtarxvub6f416vp7t2qx9qx                 | UNIQUE (codigo)
+ entrega_hospitalar    | entrega_hospitalar_condicao_check           | CHECK (((condicao)::text = ANY ((ARRAY['INTEGRA'::character varying, 'NAO_CONFORME'::character varying])::text[])))
+ entrega_hospitalar    | entrega_hospitalar_pkey                     | PRIMARY KEY (id)
+ entrega_hospitalar    | fk8t26awcnpp8aiuw3keserubkq                 | FOREIGN KEY (bolsa_id) REFERENCES bolsa_hemocomponente(id)
+ entrega_hospitalar    | fkkton7ivrjj6den0qnc864pfg1                 | FOREIGN KEY (requisicao_id) REFERENCES requisicao_hospitalar(id)
+ entrega_hospitalar    | uk619k88bbghd0kf4buxhjt6fjb                 | UNIQUE (bolsa_id)
+ evento_bolsa          | evento_bolsa_pkey                           | PRIMARY KEY (id)
+ evento_bolsa          | evento_bolsa_tipo_check                     | CHECK (((tipo)::text = ANY ((ARRAY['CADASTRADA'::character varying, 'ATUALIZADA'::character varying, 'DESCARTADA'::character varying, 'ENTREGA_REGISTRADA'::character varying, 'RECEBIDA'::character varying, 'RECEBIDA_NAO_CONFORME'::character varying, 'UTILIZADA'::character varying, 'CONFIRMACAO_ATRASADA'::character varying])::text[])))
+ evento_bolsa          | fkdaumevtox42s8t52a6us15p5a                 | FOREIGN KEY (bolsa_id) REFERENCES bolsa_hemocomponente(id)
+ hospital              | hospital_pkey                               | PRIMARY KEY (id)
+ requisicao_hospitalar | fkjh5os1o38d8roeyuha063j07d                 | FOREIGN KEY (hospital_id) REFERENCES hospital(id)
+ requisicao_hospitalar | requisicao_hospitalar_pkey                  | PRIMARY KEY (id)
+ requisicao_hospitalar | requisicao_hospitalar_quantidade_check      | CHECK ((quantidade >= 1))
+ requisicao_hospitalar | requisicao_hospitalar_status_check          | CHECK (((status)::text = ANY ((ARRAY['SOLICITADA'::character varying, 'PARCIALMENTE_ENTREGUE'::character varying, 'ENTREGUE'::character varying, 'RECEBIMENTO_PENDENTE'::character varying, 'PARCIALMENTE_RECEBIDA'::character varying, 'RECEBIDA'::character varying, 'NAO_CONFORME'::character varying, 'PARCIALMENTE_UTILIZADA'::character varying, 'UTILIZADA'::character varying])::text[])))
+ requisicao_hospitalar | requisicao_hospitalar_tipo_componente_check | CHECK (((tipo_componente)::text = ANY ((ARRAY['CONCENTRADO_HEMACIAS'::character varying, 'PLASMA'::character varying, 'PLAQUETAS'::character varying, 'CRIOPRECIPITADO'::character varying])::text[])))
+ requisicao_hospitalar | requisicao_hospitalar_tipo_sanguineo_check  | CHECK (((tipo_sanguineo)::text = ANY ((ARRAY['A_POSITIVO'::character varying, 'A_NEGATIVO'::character varying, 'B_POSITIVO'::character varying, 'B_NEGATIVO'::character varying, 'AB_POSITIVO'::character varying, 'AB_NEGATIVO'::character varying, 'O_POSITIVO'::character varying, 'O_NEGATIVO'::character varying])::text[])))
+ requisicao_hospitalar | requisicao_hospitalar_urgencia_check        | CHECK (((urgencia)::text = ANY ((ARRAY['ROTINA'::character varying, 'URGENTE'::character varying, 'EMERGENCIAL'::character varying])::text[])))
+ usuario               | usuario_perfil_check                        | CHECK (((perfil)::text = ANY ((ARRAY['GESTOR_HEMOCENTRO'::character varying, 'OPERADOR_LOGISTICA'::character varying, 'HOSPITAL_SOLICITANTE'::character varying])::text[])))
+ usuario               | usuario_pkey                                | PRIMARY KEY (id)
+(27 rows)
+
+ event_object_table |     trigger_name      | action_timing | event_manipulation 
+--------------------+-----------------------+---------------+--------------------
+ evento_bolsa       | evento_bolsa_imutavel | BEFORE        | DELETE
+ evento_bolsa       | evento_bolsa_imutavel | BEFORE        | UPDATE
+(2 rows)
+

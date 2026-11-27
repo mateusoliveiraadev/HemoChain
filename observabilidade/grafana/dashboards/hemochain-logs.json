@@ -1,0 +1,198 @@
+{
+  "uid": "hemochain-logs",
+  "title": "HemoChain - Logs e traces",
+  "description": "Logs no Loki com o traceId de cada requisição. O campo derivado abre o trace no Tempo.",
+  "tags": [
+    "hemochain",
+    "logs",
+    "traces"
+  ],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": true,
+  "graphTooltip": 1,
+  "refresh": "10s",
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "templating": {
+    "list": []
+  },
+  "annotations": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 47,
+      "type": "timeseries",
+      "title": "Volume de logs por nível",
+      "description": "",
+      "datasource": {
+        "type": "loki",
+        "uid": "loki"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 2,
+            "fillOpacity": 40,
+            "showPoints": "never",
+            "stacking": {
+              "mode": "normal",
+              "group": "A"
+            }
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "loki"
+          },
+          "expr": "sum by (level) (count_over_time({app=\"hemochain\"}[1m]))",
+          "legendFormat": "{{level}}",
+          "refId": "A",
+          "queryType": "range"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "type": "timeseries",
+      "title": "Logs de WARN e ERROR por minuto",
+      "description": "",
+      "datasource": {
+        "type": "loki",
+        "uid": "loki"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 2,
+            "fillOpacity": 12,
+            "showPoints": "never"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "loki"
+          },
+          "expr": "sum(count_over_time({app=\"hemochain\", level=~\"WARN|ERROR\"}[1m]))",
+          "legendFormat": "warn+error",
+          "refId": "A",
+          "queryType": "range"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "type": "logs",
+      "title": "Erros (ERROR)",
+      "datasource": {
+        "type": "loki",
+        "uid": "loki"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 8,
+        "w": 24,
+        "h": 9
+      },
+      "options": {
+        "showTime": true,
+        "wrapLogMessage": true,
+        "enableLogDetails": true,
+        "sortOrder": "Descending",
+        "dedupStrategy": "none"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "loki"
+          },
+          "expr": "{app=\"hemochain\", level=\"ERROR\"}",
+          "legendFormat": "",
+          "refId": "A",
+          "queryType": "range"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "type": "logs",
+      "title": "Logs da aplicação (clique na linha e em 'Abrir trace no Tempo')",
+      "datasource": {
+        "type": "loki",
+        "uid": "loki"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 17,
+        "w": 24,
+        "h": 14
+      },
+      "options": {
+        "showTime": true,
+        "wrapLogMessage": true,
+        "enableLogDetails": true,
+        "sortOrder": "Descending",
+        "dedupStrategy": "none"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "loki"
+          },
+          "expr": "{app=\"hemochain\"} | level != \"DEBUG\"",
+          "legendFormat": "",
+          "refId": "A",
+          "queryType": "range"
+        }
+      ]
+    }
+  ]
+}

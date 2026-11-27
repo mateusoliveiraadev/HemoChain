@@ -51,10 +51,11 @@ body.hemo-internal {
 .hc-skip-link { position: fixed; z-index: 20; left: 24px; top: 12px; padding: 12px 20px; background: var(--hc-surface); transform: translateY(-160%); }
 .hc-skip-link:focus { transform: none; }
 .hc-veil { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; background: var(--hc-bg); }
-.hc-veil::before { content: ''; position: absolute; inset: 0; background: url('../assets/dark-veil-static.svg') center / cover no-repeat; opacity: .72; }
+.hc-veil::before { content: ''; position: absolute; inset: 0; background: url('../assets/micro-slats-static.png') center / cover no-repeat; opacity: .58; }
 .hc-veil[data-renderer='webgl']::before { opacity: 0; }
-.hc-veil canvas { width: 100%; height: 100%; display: block; opacity: .78; }
-.hc-veil::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,10,16,.28), transparent 65%); }
+.hc-veil canvas { width: 100%; height: 100%; display: block; opacity: .58; }
+/* Keep small header accents readable even over the intro sweep/cursor glints. */
+.hc-veil::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,10,16,.5) 0 208px, transparent 340px), linear-gradient(90deg, rgba(8,10,16,.28), transparent 65%); }
 .hemo-internal { isolation: isolate; }
 
 .hc-sidebar { position: fixed; inset: 0 auto 0 0; z-index: 5; width: 232px; display: flex; flex-direction: column; gap: 32px; padding: 28px 12px; background: var(--hc-surface); border-right: 1px solid rgba(185,175,187,.08); overflow-y: auto; }

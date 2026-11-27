@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <springProperty scope="context" name="app" source="spring.application.name" defaultValue="hemochain"/>
+    <springProperty scope="context" name="lokiUrl" source="observabilidade.loki.url"
+                    defaultValue="http://loki:3100/loki/api/v1/push"/>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <!-- Envia os logs ao Loki so quando o perfil "observabilidade" esta ativo. -->
+    <springProfile name="observabilidade &amp; !test">
+        <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
+            <http>
+                <url>${lokiUrl}</url>
+            </http>
+            <labels>
+                app=${app}
+                level=%level
+            </labels>
+            <!-- traceId=... e o que o Grafana usa para abrir o trace no Tempo -->
+            <message>
+                <pattern>%d{HH:mm:ss.SSS} %-5level traceId=%X{traceId:-} spanId=%X{spanId:-} [%thread] %logger{36} | %msg%n%ex</pattern>
+            </message>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="LOKI"/>
+        </root>
+    </springProfile>
+</configuration>

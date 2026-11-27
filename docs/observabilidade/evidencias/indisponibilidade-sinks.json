@@ -1,0 +1,25 @@
+{
+  "capturado_em": "2026-11-27T18:06:14.262740+00:00",
+  "ambiente": "container temporario separado, banco sintetico",
+  "destinos": "Loki e OTLP apontados para 127.0.0.1:9 dentro desse container",
+  "startup": "concluido",
+  "falha_exportacao_observada": true,
+  "health_interno": {
+    "status": "UP"
+  },
+  "leituras": [
+    {
+      "status": 200,
+      "duracao_ms": 62.0
+    },
+    {
+      "status": 200,
+      "duracao_ms": 31.0
+    },
+    {
+      "status": 200,
+      "duracao_ms": 32.0
+    }
+  ],
+  "limite": "checagem curta; nao e ensaio de longa duracao nem garantia de ausencia de perda de telemetria"
+}

@@ -34,12 +34,33 @@ public class EntregaHospitalar {
         this.origemEntrega = "PERFIL:GESTOR_HEMOCENTRO";
     }
     public void receber(CondicaoRecebimento condicao, String observacao, Instant agora, String origem) {
+        if (recebidaEm != null) {
+            throw new IllegalStateException("Recebimento ja confirmado.");
+        }
+        if (condicao == null) {
+            throw new IllegalArgumentException("Informe a condicao.");
+        }
+        if (condicao == CondicaoRecebimento.NAO_CONFORME && (observacao == null || observacao.isBlank())) {
+            throw new IllegalArgumentException("Descreva a nao conformidade.");
+        }
+        if (agora == null) {
+            throw new IllegalArgumentException("Informe o instante do recebimento.");
+        }
         this.condicao = condicao;
         this.observacao = observacao;
         this.recebidaEm = agora;
         this.origemRecebimento = origem;
     }
-    public void utilizar(Instant agora, String origem) { utilizadaEm = agora; origemUtilizacao = origem; }
+    public void utilizar(Instant agora, String origem) {
+        if (recebidaEm == null || condicao != CondicaoRecebimento.INTEGRA || utilizadaEm != null) {
+            throw new IllegalStateException("Uso exige recebimento integro e ainda nao utilizado.");
+        }
+        if (agora == null) {
+            throw new IllegalArgumentException("Informe o instante da utilizacao.");
+        }
+        utilizadaEm = agora;
+        origemUtilizacao = origem;
+    }
     public void alertar(Instant agora) { if (alertaEm == null) alertaEm = agora; }
     public Long getId() { return id; }
     public RequisicaoHospitalar getRequisicao() { return requisicao; }

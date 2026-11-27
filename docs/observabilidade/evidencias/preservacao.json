@@ -1,0 +1,14 @@
+{
+  "capturado_em": "2026-11-27T18:01:32.777331+00:00",
+  "checks": {
+    ".github/workflows/ci-cd.yml": true,
+    "entrega-03/bug-tracker.png": true,
+    "src/main/java/com/hemochain/config/EvolucaoStatusBolsaH2.java": true,
+    "src/main/java/com/hemochain/entity/EntregaHospitalar.java": true,
+    "src/test/java/com/hemochain/config/EvolucaoStatusBolsaH2Test.java": true,
+    "compose.yaml": true,
+    "Dockerfile": true,
+    "README_conteudo_anterior_preservado": true,
+    "JaCoCo_0.8.14_preservado": true
+  }
+}

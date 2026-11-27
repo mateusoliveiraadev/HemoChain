@@ -1,0 +1,223 @@
+name: hemochain-observabilidade
+x-logging: &logs
+  driver: json-file
+  options:
+    max-size: "5m"
+    max-file: "2"
+# Sobe o HemoChain completo (API + PostgreSQL) e a stack de observabilidade
+# (Prometheus, Grafana, Loki, Tempo, Node Exporter, cAdvisor e gerador de carga) com:
+#   docker compose --env-file .env.observabilidade -f compose.observabilidade.yaml up -d --build
+# Passo a passo e URLs: docs/observabilidade/README.md
+services:
+  db:
+    mem_limit: 384m
+    cpus: "0.75"
+    image: postgres:16-alpine
+    restart: unless-stopped
+    logging: *logs
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-hemochain}
+      POSTGRES_USER: ${POSTGRES_USER:-hemochain}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Defina POSTGRES_PASSWORD no .env (veja .env.example)}
+    volumes:
+      # Volume nomeado: os dados sobrevivem a "docker compose down".
+      - hemochain-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks:
+      - hemochain-net
+
+  api:
+    mem_limit: 768m
+    cpus: "1.5"
+    build: .
+    restart: unless-stopped
+    logging: *logs
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # "observabilidade" liga metricas, traces e logs (application-observabilidade.properties).
+      SPRING_PROFILES_ACTIVE: prod,observabilidade,observabilidade-demo
+      JAVA_OPTS: -Xms128m -Xmx512m
+      MANAGEMENT_PORT: "8081"
+      # "db" e o nome do servico: o DNS interno da rede do Compose resolve para o container.
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-hemochain}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-hemochain}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      # So a aplicacao (8080) sai para o host. O Actuator fica na 8081, sem publicacao.
+      - "127.0.0.1:${OBS_API_PORT:-18086}:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8081/actuator/health | grep -q '\"status\":\"UP\"'"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 40s
+    networks:
+      - hemochain-net
+
+  # ---------- Observabilidade ----------
+  prometheus:
+    mem_limit: 384m
+    cpus: "0.5"
+    image: prom/prometheus:v2.54.1
+    extra_hosts:
+      - "docker-vm:${OBS_VM_GATEWAY:-172.17.0.1}"
+    restart: unless-stopped
+    logging: *logs
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.retention.time=3d
+      - --storage.tsdb.retention.size=512MB
+    volumes:
+      - ./observabilidade/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    ports:
+      # Apenas no loopback do host: nao fica acessivel pela rede.
+      - "127.0.0.1:${OBS_PROMETHEUS_PORT:-19090}:9090"
+    depends_on:
+      - api
+    networks:
+      - hemochain-net
+
+  loki:
+    mem_limit: 512m
+    cpus: "0.5"
+    image: grafana/loki:3.2.0
+    restart: unless-stopped
+    logging: *logs
+    command: -config.file=/etc/loki/loki.yml
+    volumes:
+      - ./observabilidade/loki/loki.yml:/etc/loki/loki.yml:ro
+      - loki-data:/loki
+    networks:
+      - hemochain-net
+
+  tempo:
+    mem_limit: 512m
+    cpus: "0.5"
+    image: grafana/tempo:2.6.0
+    restart: unless-stopped
+    logging: *logs
+    command: ["-config.file=/etc/tempo/tempo.yml"]
+    # A imagem define o usuario; validar permissao do volume no ambiente local.
+    volumes:
+      - ./observabilidade/tempo/tempo.yml:/etc/tempo/tempo.yml:ro
+      - tempo-data:/var/tempo
+    networks:
+      - hemochain-net
+
+  grafana:
+    mem_limit: 256m
+    cpus: "0.5"
+    image: grafana/grafana:11.2.0
+    restart: unless-stopped
+    logging: *logs
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_USER:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:?Defina GRAFANA_PASSWORD no .env (veja .env.example)}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_USERS_AUTO_ASSIGN_ORG_ROLE: Viewer
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_SECURITY_COOKIE_SAMESITE: lax
+    volumes:
+      - ./observabilidade/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./observabilidade/grafana/dashboards:/etc/grafana/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    ports:
+      # Unico servico de observabilidade aberto para acesso remoto.
+      - "127.0.0.1:${OBS_GRAFANA_PORT:-13000}:3000"
+    depends_on:
+      - prometheus
+      - loki
+      - tempo
+    networks:
+      - hemochain-net
+
+  node-exporter:
+    mem_limit: 64m
+    cpus: "0.25"
+    image: prom/node-exporter:v1.8.2
+    restart: unless-stopped
+    logging: *logs
+    command:
+      - --path.rootfs=/host
+      - --web.listen-address=${OBS_VM_GATEWAY:-172.17.0.1}:9100
+    network_mode: host
+    pid: host
+    volumes:
+      - /:/host:ro
+
+  cadvisor:
+    mem_limit: 192m
+    cpus: "0.5"
+    image: ghcr.io/google/cadvisor:0.55.1
+    command:
+      - --docker_only=true
+      - --housekeeping_interval=15s
+      - --store_container_labels=false
+      - --whitelisted_container_labels=com.docker.compose.project,com.docker.compose.service
+    restart: unless-stopped
+    logging: *logs
+    privileged: true
+    devices:
+      - /dev/kmsg
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - hemochain-net
+
+  # Mantem trafego constante para os graficos terem dados na hora da correcao.
+  carga:
+    mem_limit: 128m
+    cpus: "0.25"
+    image: grafana/k6:0.54.0
+    restart: "no"
+    logging: *logs
+    profiles: ["carga"]
+    command: run /scripts/carga.js
+    environment:
+      BASE_URL: http://api:8080
+      DURATION: ${OBS_CARGA_DURACAO:-30m}
+      WRITE_LIMIT: ${OBS_CARGA_ESCRITAS:-12}
+      READ_INTERVAL: ${OBS_CARGA_INTERVALO:-5}
+    volumes:
+      - ./observabilidade/k6:/scripts:ro
+    depends_on:
+      api:
+        condition: service_healthy
+    networks:
+      - hemochain-net
+
+  # Acesso remoto opcional: docker compose --profile remote up -d
+  # Gera uma URL https publica so para o Grafana (veja docs/observabilidade/README.md).
+  tunel:
+    mem_limit: 96m
+    cpus: "0.25"
+    image: cloudflare/cloudflared:2024.10.1
+    profiles: ["remote"]
+    restart: unless-stopped
+    logging: *logs
+    command: tunnel --no-autoupdate --url http://grafana:3000
+    depends_on:
+      - grafana
+    networks:
+      - hemochain-net
+
+volumes:
+  hemochain-pgdata:
+  prometheus-data:
+  loki-data:
+  tempo-data:
+  grafana-data:
+
+networks:
+  hemochain-net:

@@ -1,0 +1,10 @@
+{
+  "capturado_em": "2026-11-27T17:56:15.146743+00:00",
+  "login": "professor",
+  "papel": "Viewer",
+  "acesso": "somente local; tunel nao iniciado",
+  "/api/search": 200,
+  "/api/users": 403,
+  "/api/user": 200,
+  "isGrafanaAdmin": false
+}

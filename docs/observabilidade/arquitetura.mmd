@@ -1,0 +1,20 @@
+flowchart LR
+    professor[Professor - Viewer] -->|HTTPS 443| tunnel[Cloudflare Quick Tunnel]
+    tunnel -->|HTTP 3000| grafana[Grafana 11.2.0]
+    browser[Navegador local] -->|127.0.0.1:13000| grafana
+    browser -->|127.0.0.1:18086| api[HemoChain - HTTP 8080]
+    load[k6 - lote limitado e leituras] -->|HTTP 8080| api
+    api -->|JDBC 5432| db[(PostgreSQL de demonstração)]
+    prom[Prometheus] -->|scrape 15s - API:8081/actuator/prometheus| api
+    prom -->|scrape 9100 no gateway Linux| node[Node Exporter - rede da VM]
+    prom -->|scrape 8080| cadvisor[cAdvisor - containers]
+    prom -->|scrape 3100| loki[Loki]
+    prom -->|scrape 3200| tempo[Tempo]
+    prom -->|scrape 3000| grafana
+    prom -->|scrape 9090| prom
+    api -->|push logs HTTP 3100| loki
+    api -->|OTLP HTTP 4318/v1/traces| tempo
+    grafana -->|consulta HTTP 9090| prom
+    grafana -->|LogQL HTTP 3100| loki
+    grafana -->|trace HTTP 3200| tempo
+    browser -->|127.0.0.1:19090| prom

@@ -1,0 +1,357 @@
+{
+  "amostras": [
+    {
+      "capturado_em": "2026-11-27T17:58:44.611559+00:00",
+      "containers": [
+        {
+          "BlockIO": "0B / 0B",
+          "CPUPerc": "0.00%",
+          "Container": "c1a91eaacb26",
+          "ID": "c1a91eaacb26",
+          "MemPerc": "11.44%",
+          "MemUsage": "21.97MiB / 192MiB",
+          "Name": "hemochain-observabilidade-cadvisor-1",
+          "NetIO": "15kB / 424kB",
+          "PIDs": "19"
+        },
+        {
+          "BlockIO": "0B / 0B",
+          "CPUPerc": "1.00%",
+          "Container": "a601b1e96e19",
+          "ID": "a601b1e96e19",
+          "MemPerc": "9.83%",
+          "MemUsage": "12.59MiB / 128MiB",
+          "Name": "hemochain-observabilidade-carga-1",
+          "NetIO": "98.3kB / 57.5kB",
+          "PIDs": "16"
+        },
+        {
+          "BlockIO": "101MB / 258kB",
+          "CPUPerc": "1.52%",
+          "Container": "48320f93f5cd",
+          "ID": "48320f93f5cd",
+          "MemPerc": "39.93%",
+          "MemUsage": "306.6MiB / 768MiB",
+          "Name": "hemochain-observabilidade-api-1",
+          "NetIO": "531kB / 14.6MB",
+          "PIDs": "59"
+        },
+        {
+          "BlockIO": "0B / 831kB",
+          "CPUPerc": "5.36%",
+          "Container": "1d1bf023bb06",
+          "ID": "1d1bf023bb06",
+          "MemPerc": "17.37%",
+          "MemUsage": "66.69MiB / 384MiB",
+          "Name": "hemochain-observabilidade-prometheus-1",
+          "NetIO": "7.11MB / 3.52MB",
+          "PIDs": "17"
+        },
+        {
+          "BlockIO": "0B / 0B",
+          "CPUPerc": "0.00%",
+          "Container": "effb467e29af",
+          "ID": "effb467e29af",
+          "MemPerc": "15.40%",
+          "MemUsage": "9.855MiB / 64MiB",
+          "Name": "hemochain-observabilidade-node-exporter-1",
+          "NetIO": "0B / 0B",
+          "PIDs": "5"
+        },
+        {
+          "BlockIO": "0B / 26MB",
+          "CPUPerc": "0.04%",
+          "Container": "cbecf5b139bd",
+          "ID": "cbecf5b139bd",
+          "MemPerc": "32.74%",
+          "MemUsage": "83.81MiB / 256MiB",
+          "Name": "hemochain-observabilidade-grafana-1",
+          "NetIO": "534kB / 29.6MB",
+          "PIDs": "18"
+        },
+        {
+          "BlockIO": "0B / 123kB",
+          "CPUPerc": "0.80%",
+          "Container": "d00cae6d00b7",
+          "ID": "d00cae6d00b7",
+          "MemPerc": "17.46%",
+          "MemUsage": "89.37MiB / 512MiB",
+          "Name": "hemochain-observabilidade-loki-1",
+          "NetIO": "90kB / 884kB",
+          "PIDs": "16"
+        },
+        {
+          "BlockIO": "20.5kB / 57.7MB",
+          "CPUPerc": "3.62%",
+          "Container": "a5e5d7632006",
+          "ID": "a5e5d7632006",
+          "MemPerc": "14.19%",
+          "MemUsage": "54.5MiB / 384MiB",
+          "Name": "hemochain-observabilidade-db-1",
+          "NetIO": "283kB / 241kB",
+          "PIDs": "16"
+        },
+        {
+          "BlockIO": "0B / 1.47MB",
+          "CPUPerc": "0.06%",
+          "Container": "8e9dce695bae",
+          "ID": "8e9dce695bae",
+          "MemPerc": "17.18%",
+          "MemUsage": "87.96MiB / 512MiB",
+          "Name": "hemochain-observabilidade-tempo-1",
+          "NetIO": "688kB / 312kB",
+          "PIDs": "17"
+        }
+      ],
+      "total_ram_mib": 733.35,
+      "total_cpu_percent_um_nucleo_100": 12.4
+    },
+    {
+      "capturado_em": "2026-11-27T17:58:47.710117+00:00",
+      "containers": [
+        {
+          "BlockIO": "0B / 0B",
+          "CPUPerc": "1.26%",
+          "Container": "c1a91eaacb26",
+          "ID": "c1a91eaacb26",
+          "MemPerc": "11.93%",
+          "MemUsage": "22.91MiB / 192MiB",
+          "Name": "hemochain-observabilidade-cadvisor-1",
+          "NetIO": "15kB / 424kB",
+          "PIDs": "19"
+        },
+        {
+          "BlockIO": "0B / 0B",
+          "CPUPerc": "0.55%",
+          "Container": "a601b1e96e19",
+          "ID": "a601b1e96e19",
+          "MemPerc": "9.44%",
+          "MemUsage": "12.08MiB / 128MiB",
+          "Name": "hemochain-observabilidade-carga-1",
+          "NetIO": "98.3kB / 57.5kB",
+          "PIDs": "16"
+        },
+        {
+          "BlockIO": "101MB / 270kB",
+          "CPUPerc": "0.53%",
+          "Container": "48320f93f5cd",
+          "ID": "48320f93f5cd",
+          "MemPerc": "39.87%",
+          "MemUsage": "306.2MiB / 768MiB",
+          "Name": "hemochain-observabilidade-api-1",
+          "NetIO": "531kB / 14.6MB",
+          "PIDs": "59"
+        },
+        {
+          "BlockIO": "0B / 831kB",
+          "CPUPerc": "0.52%",
+          "Container": "1d1bf023bb06",
+          "ID": "1d1bf023bb06",
+          "MemPerc": "17.05%",
+          "MemUsage": "65.46MiB / 384MiB",
+          "Name": "hemochain-observabilidade-prometheus-1",
+          "NetIO": "7.14MB / 3.52MB",
+          "PIDs": "17"
+        },
+        {
+          "BlockIO": "0B / 0B",
+          "CPUPerc": "0.00%",
+          "Container": "effb467e29af",
+          "ID": "effb467e29af",
+          "MemPerc": "14.64%",
+          "MemUsage": "9.367MiB / 64MiB",
+          "Name": "hemochain-observabilidade-node-exporter-1",
+          "NetIO": "0B / 0B",
+          "PIDs": "5"
+        },
+        {
+          "BlockIO": "0B / 26MB",
+          "CPUPerc": "0.05%",
+          "Container": "cbecf5b139bd",
+          "ID": "cbecf5b139bd",
+          "MemPerc": "32.58%",
+          "MemUsage": "83.4MiB / 256MiB",
+          "Name": "hemochain-observabilidade-grafana-1",
+          "NetIO": "585kB / 29.8MB",
+          "PIDs": "18"
+        },
+        {
+          "BlockIO": "0B / 123kB",
+          "CPUPerc": "0.69%",
+          "Container": "d00cae6d00b7",
+          "ID": "d00cae6d00b7",
+          "MemPerc": "17.46%",
+          "MemUsage": "89.41MiB / 512MiB",
+          "Name": "hemochain-observabilidade-loki-1",
+          "NetIO": "90kB / 884kB",
+          "PIDs": "16"
+        },
+        {
+          "BlockIO": "20.5kB / 57.7MB",
+          "CPUPerc": "0.50%",
+          "Container": "a5e5d7632006",
+          "ID": "a5e5d7632006",
+          "MemPerc": "14.16%",
+          "MemUsage": "54.36MiB / 384MiB",
+          "Name": "hemochain-observabilidade-db-1",
+          "NetIO": "283kB / 241kB",
+          "PIDs": "16"
+        },
+        {
+          "BlockIO": "0B / 1.47MB",
+          "CPUPerc": "0.06%",
+          "Container": "8e9dce695bae",
+          "ID": "8e9dce695bae",
+          "MemPerc": "17.34%",
+          "MemUsage": "88.78MiB / 512MiB",
+          "Name": "hemochain-observabilidade-tempo-1",
+          "NetIO": "691kB / 321kB",
+          "PIDs": "17"
+        }
+      ],
+      "total_ram_mib": 731.97,
+      "total_cpu_percent_um_nucleo_100": 4.16
+    },
+    {
+      "capturado_em": "2026-11-27T17:58:50.798573+00:00",
+      "containers": [
+        {
+          "BlockIO": "0B / 0B",
+          "CPUPerc": "0.00%",
+          "Container": "c1a91eaacb26",
+          "ID": "c1a91eaacb26",
+          "MemPerc": "10.55%",
+          "MemUsage": "20.26MiB / 192MiB",
+          "Name": "hemochain-observabilidade-cadvisor-1",
+          "NetIO": "15.7kB / 448kB",
+          "PIDs": "19"
+        },
+        {
+          "BlockIO": "0B / 0B",
+          "CPUPerc": "0.50%",
+          "Container": "a601b1e96e19",
+          "ID": "a601b1e96e19",
+          "MemPerc": "9.44%",
+          "MemUsage": "12.09MiB / 128MiB",
+          "Name": "hemochain-observabilidade-carga-1",
+          "NetIO": "98.7kB / 57.9kB",
+          "PIDs": "16"
+        },
+        {
+          "BlockIO": "101MB / 270kB",
+          "CPUPerc": "20.50%",
+          "Container": "48320f93f5cd",
+          "ID": "48320f93f5cd",
+          "MemPerc": "40.27%",
+          "MemUsage": "309.2MiB / 768MiB",
+          "Name": "hemochain-observabilidade-api-1",
+          "NetIO": "534kB / 14.9MB",
+          "PIDs": "59"
+        },
+        {
+          "BlockIO": "0B / 831kB",
+          "CPUPerc": "0.00%",
+          "Container": "1d1bf023bb06",
+          "ID": "1d1bf023bb06",
+          "MemPerc": "17.19%",
+          "MemUsage": "66.01MiB / 384MiB",
+          "Name": "hemochain-observabilidade-prometheus-1",
+          "NetIO": "7.14MB / 3.53MB",
+          "PIDs": "17"
+        },
+        {
+          "BlockIO": "0B / 0B",
+          "CPUPerc": "0.00%",
+          "Container": "effb467e29af",
+          "ID": "effb467e29af",
+          "MemPerc": "14.60%",
+          "MemUsage": "9.344MiB / 64MiB",
+          "Name": "hemochain-observabilidade-node-exporter-1",
+          "NetIO": "0B / 0B",
+          "PIDs": "5"
+        },
+        {
+          "BlockIO": "0B / 26MB",
+          "CPUPerc": "0.25%",
+          "Container": "cbecf5b139bd",
+          "ID": "cbecf5b139bd",
+          "MemPerc": "32.65%",
+          "MemUsage": "83.58MiB / 256MiB",
+          "Name": "hemochain-observabilidade-grafana-1",
+          "NetIO": "597kB / 29.8MB",
+          "PIDs": "18"
+        },
+        {
+          "BlockIO": "0B / 123kB",
+          "CPUPerc": "0.65%",
+          "Container": "d00cae6d00b7",
+          "ID": "d00cae6d00b7",
+          "MemPerc": "17.46%",
+          "MemUsage": "89.39MiB / 512MiB",
+          "Name": "hemochain-observabilidade-loki-1",
+          "NetIO": "90kB / 884kB",
+          "PIDs": "16"
+        },
+        {
+          "BlockIO": "20.5kB / 57.7MB",
+          "CPUPerc": "0.02%",
+          "Container": "a5e5d7632006",
+          "ID": "a5e5d7632006",
+          "MemPerc": "14.39%",
+          "MemUsage": "55.24MiB / 384MiB",
+          "Name": "hemochain-observabilidade-db-1",
+          "NetIO": "284kB / 241kB",
+          "PIDs": "16"
+        },
+        {
+          "BlockIO": "0B / 1.47MB",
+          "CPUPerc": "0.41%",
+          "Container": "8e9dce695bae",
+          "ID": "8e9dce695bae",
+          "MemPerc": "17.42%",
+          "MemUsage": "89.18MiB / 512MiB",
+          "Name": "hemochain-observabilidade-tempo-1",
+          "NetIO": "692kB / 322kB",
+          "PIDs": "17"
+        }
+      ],
+      "total_ram_mib": 734.29,
+      "total_cpu_percent_um_nucleo_100": 22.33
+    }
+  ],
+  "volumes": [
+    {
+      "volume": "hemochain-observabilidade_grafana-data",
+      "kib": 1128
+    },
+    {
+      "volume": "hemochain-observabilidade_hemochain-pgdata",
+      "kib": 48048
+    },
+    {
+      "volume": "hemochain-observabilidade_loki-data",
+      "kib": 196
+    },
+    {
+      "volume": "hemochain-observabilidade_prometheus-data",
+      "kib": 1936
+    },
+    {
+      "volume": "hemochain-observabilidade_tempo-data",
+      "kib": 1420
+    }
+  ],
+  "total_volumes_mib": 51.49,
+  "imagens_bytes_sem_descontar_camadas_compartilhadas": {
+    "ghcr.io/google/cadvisor:0.55.1": 107105096,
+    "grafana/k6:0.54.0": 106528574,
+    "hemochain-observabilidade-api": 383979102,
+    "prom/prometheus:v2.54.1": 386121402,
+    "prom/node-exporter:v1.8.2": 38180413,
+    "grafana/grafana:11.2.0": 635091008,
+    "grafana/loki:3.2.0": 155725847,
+    "postgres:16-alpine": 419573469,
+    "grafana/tempo:2.6.0": 169921930
+  },
+  "nota": "Amostras em baixa carga; exclui overhead do Docker/WSL, cache de build e outros projetos."
+}
