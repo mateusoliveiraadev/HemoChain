@@ -1,0 +1,2006 @@
+{
+  "status": "success",
+  "data": {
+    "resultType": "streams",
+    "result": [
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "f9d37ced1e8407a4",
+          "thread": "http-nio-8080-exec-9",
+          "traceId": "050243ffab96c874cbf505f8bbeeb574"
+        },
+        "values": [
+          [
+            "1795801946773815468",
+            "17:52:26.773 WARN  traceId=050243ffab96c874cbf505f8bbeeb574 spanId=f9d37ced1e8407a4 [http-nio-8080-exec-9] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 500 INTERNAL_SERVER_ERROR \"erro simulado\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "ef3f96e3f7bb5cce",
+          "thread": "http-nio-8080-exec-7",
+          "traceId": "24f1c33132bb003ddd84c2239d0e23d7"
+        },
+        "values": [
+          [
+            "1795801982921164505",
+            "17:53:02.921 WARN  traceId=24f1c33132bb003ddd84c2239d0e23d7 spanId=ef3f96e3f7bb5cce [http-nio-8080-exec-7] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "e3890eb2bb459b3a",
+          "thread": "http-nio-8080-exec-5",
+          "traceId": "08500240232cd98735be967ce2f76646"
+        },
+        "values": [
+          [
+            "1795801951927260238",
+            "17:52:31.927 WARN  traceId=08500240232cd98735be967ce2f76646 spanId=e3890eb2bb459b3a [http-nio-8080-exec-5] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "deb78690ab8f7dce",
+          "thread": "http-nio-8080-exec-5",
+          "traceId": "12152e8c52555662c73404f5d7957105"
+        },
+        "values": [
+          [
+            "1795802003366665769",
+            "17:53:23.366 WARN  traceId=12152e8c52555662c73404f5d7957105 spanId=deb78690ab8f7dce [http-nio-8080-exec-5] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "cd4b339ba03cea21",
+          "thread": "http-nio-8080-exec-8",
+          "traceId": "541e047a5d35483095f4f044f681bd24"
+        },
+        "values": [
+          [
+            "1795801998280678125",
+            "17:53:18.280 WARN  traceId=541e047a5d35483095f4f044f681bd24 spanId=cd4b339ba03cea21 [http-nio-8080-exec-8] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "b995ca9ad9c6b17a",
+          "thread": "http-nio-8080-exec-10",
+          "traceId": "3e4476c8ad3121c163ed7f5daf40222e"
+        },
+        "values": [
+          [
+            "1795801977705688399",
+            "17:52:57.705 WARN  traceId=3e4476c8ad3121c163ed7f5daf40222e spanId=b995ca9ad9c6b17a [http-nio-8080-exec-10] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "b5cd08be2aa4a3e0",
+          "thread": "http-nio-8080-exec-6",
+          "traceId": "4378ddc9cca093555d661a0833271827"
+        },
+        "values": [
+          [
+            "1795801967342500528",
+            "17:52:47.342 WARN  traceId=4378ddc9cca093555d661a0833271827 spanId=b5cd08be2aa4a3e0 [http-nio-8080-exec-6] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "abaf2782b88028b7",
+          "thread": "http-nio-8080-exec-5",
+          "traceId": "4443df2d547dcd48fd83d03beb1d3e81"
+        },
+        "values": [
+          [
+            "1795802489137715189",
+            "18:01:29.137 WARN  traceId=4443df2d547dcd48fd83d03beb1d3e81 spanId=abaf2782b88028b7 [http-nio-8080-exec-5] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 500 INTERNAL_SERVER_ERROR \"erro simulado\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "99d5d4a219776fcb",
+          "thread": "http-nio-8080-exec-1",
+          "traceId": "4b20eff29c0b0aa0b4a8d0c7116311f9"
+        },
+        "values": [
+          [
+            "1795801993144096370",
+            "17:53:13.144 WARN  traceId=4b20eff29c0b0aa0b4a8d0c7116311f9 spanId=99d5d4a219776fcb [http-nio-8080-exec-1] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "88ca169d0cb8f282",
+          "thread": "http-nio-8080-exec-3",
+          "traceId": "292be061fa9b9cfc2f798ded962b37ad"
+        },
+        "values": [
+          [
+            "1795801972474617725",
+            "17:52:52.474 WARN  traceId=292be061fa9b9cfc2f798ded962b37ad spanId=88ca169d0cb8f282 [http-nio-8080-exec-3] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "889a4a2bb70d4905",
+          "thread": "http-nio-8080-exec-8",
+          "traceId": "91c085a3770b201fbc3bf03e4952ada6"
+        },
+        "values": [
+          [
+            "1795802549219443386",
+            "18:02:29.219 WARN  traceId=91c085a3770b201fbc3bf03e4952ada6 spanId=889a4a2bb70d4905 [http-nio-8080-exec-8] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 500 INTERNAL_SERVER_ERROR \"erro simulado\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "7c2540c8803a74a0",
+          "thread": "http-nio-8080-exec-1",
+          "traceId": "d55f918b6918c0193b6bea34173943df"
+        },
+        "values": [
+          [
+            "1795802248782988184",
+            "17:57:28.782 WARN  traceId=d55f918b6918c0193b6bea34173943df spanId=7c2540c8803a74a0 [http-nio-8080-exec-1] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 500 INTERNAL_SERVER_ERROR \"erro simulado\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "7886aef5268a53ee",
+          "thread": "http-nio-8080-exec-2",
+          "traceId": "f8efd68e6b97e3bf07b455ddc619feff"
+        },
+        "values": [
+          [
+            "1795801957048934743",
+            "17:52:37.048 WARN  traceId=f8efd68e6b97e3bf07b455ddc619feff spanId=7886aef5268a53ee [http-nio-8080-exec-2] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "741e3c35ae52b7b9",
+          "thread": "http-nio-8080-exec-6",
+          "traceId": "2acac4247622c589a0004df425fe80be"
+        },
+        "values": [
+          [
+            "1795802529518799851",
+            "18:02:09.518 WARN  traceId=2acac4247622c589a0004df425fe80be spanId=741e3c35ae52b7b9 [http-nio-8080-exec-6] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "700bafc2cda1a349",
+          "thread": "http-nio-8080-exec-9",
+          "traceId": "9850eb90ca22e786928839587e71c8fc"
+        },
+        "values": [
+          [
+            "1795801962215658037",
+            "17:52:42.215 WARN  traceId=9850eb90ca22e786928839587e71c8fc spanId=700bafc2cda1a349 [http-nio-8080-exec-9] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "6aa82171eec69fee",
+          "thread": "http-nio-8080-exec-4",
+          "traceId": "642cac9866945f630d23813b433bae51"
+        },
+        "values": [
+          [
+            "1795802524450410212",
+            "18:02:04.450 WARN  traceId=642cac9866945f630d23813b433bae51 spanId=6aa82171eec69fee [http-nio-8080-exec-4] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 500 INTERNAL_SERVER_ERROR \"erro simulado\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "5414de667d2c3973",
+          "thread": "http-nio-8080-exec-2",
+          "traceId": "8df04c13a986a79ddc6053fc51b29b4b"
+        },
+        "values": [
+          [
+            "1795802068460015038",
+            "17:54:28.460 WARN  traceId=8df04c13a986a79ddc6053fc51b29b4b spanId=5414de667d2c3973 [http-nio-8080-exec-2] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 500 INTERNAL_SERVER_ERROR \"erro simulado\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "5133432100a6a866",
+          "thread": "http-nio-8080-exec-9",
+          "traceId": "b854d7004495d9fb8a1bc90f8a192760"
+        },
+        "values": [
+          [
+            "1795802008382260125",
+            "17:53:28.382 WARN  traceId=b854d7004495d9fb8a1bc90f8a192760 spanId=5133432100a6a866 [http-nio-8080-exec-9] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 500 INTERNAL_SERVER_ERROR \"erro simulado\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "28fefbd99719688e",
+          "thread": "http-nio-8080-exec-8",
+          "traceId": "53abba55cf87f72306edfcf2eea0dc5d"
+        },
+        "values": [
+          [
+            "1795802128594778314",
+            "17:55:28.594 WARN  traceId=53abba55cf87f72306edfcf2eea0dc5d spanId=28fefbd99719688e [http-nio-8080-exec-8] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 500 INTERNAL_SERVER_ERROR \"erro simulado\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "270acbf12f67c191",
+          "thread": "http-nio-8080-exec-9",
+          "traceId": "661bf295866394323fa7eaedbb06b502"
+        },
+        "values": [
+          [
+            "1795802429072858975",
+            "18:00:29.072 WARN  traceId=661bf295866394323fa7eaedbb06b502 spanId=270acbf12f67c191 [http-nio-8080-exec-9] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 500 INTERNAL_SERVER_ERROR \"erro simulado\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "21e2a4e8990e7007",
+          "thread": "http-nio-8080-exec-7",
+          "traceId": "1fdc9756086021e6b2d73df5cd5c37a7"
+        },
+        "values": [
+          [
+            "1795802369006741644",
+            "17:59:29.006 WARN  traceId=1fdc9756086021e6b2d73df5cd5c37a7 spanId=21e2a4e8990e7007 [http-nio-8080-exec-7] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 500 INTERNAL_SERVER_ERROR \"erro simulado\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "18376c5262d60d56",
+          "thread": "http-nio-8080-exec-7",
+          "traceId": "94b31231cab780c41f4f1c104b2199a9"
+        },
+        "values": [
+          [
+            "1795802524442542625",
+            "18:02:04.442 WARN  traceId=94b31231cab780c41f4f1c104b2199a9 spanId=18376c5262d60d56 [http-nio-8080-exec-7] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "17e111ab1c746ba9",
+          "thread": "http-nio-8080-exec-4",
+          "traceId": "394338e21415b27cb355a86ccd9a8f1d"
+        },
+        "values": [
+          [
+            "1795801988025699996",
+            "17:53:08.025 WARN  traceId=394338e21415b27cb355a86ccd9a8f1d spanId=17e111ab1c746ba9 [http-nio-8080-exec-4] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "0cc96bd615817a85",
+          "thread": "http-nio-8080-exec-10",
+          "traceId": "66107a11e70b0da84dc934ec31ef9bfe"
+        },
+        "values": [
+          [
+            "1795802188677560835",
+            "17:56:28.677 WARN  traceId=66107a11e70b0da84dc934ec31ef9bfe spanId=0cc96bd615817a85 [http-nio-8080-exec-10] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 500 INTERNAL_SERVER_ERROR \"erro simulado\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "0c9f561b63f58c40",
+          "thread": "http-nio-8080-exec-7",
+          "traceId": "6dd718326842fe2a2bfe18c50bcf6f04"
+        },
+        "values": [
+          [
+            "1795801946708315766",
+            "17:52:26.708 WARN  traceId=6dd718326842fe2a2bfe18c50bcf6f04 spanId=0c9f561b63f58c40 [http-nio-8080-exec-7] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 409 CONFLICT \"Quantidade solicitada ja atendida.\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver",
+          "service_name": "hemochain",
+          "spanId": "06f7bf636c2bdefc",
+          "thread": "http-nio-8080-exec-3",
+          "traceId": "65e907c257b630d1b789a9c2eeebcd27"
+        },
+        "values": [
+          [
+            "1795802308927580128",
+            "17:58:28.927 WARN  traceId=65e907c257b630d1b789a9c2eeebcd27 spanId=06f7bf636c2bdefc [http-nio-8080-exec-3] o.s.w.s.m.a.ResponseStatusExceptionResolver | Resolved [org.springframework.web.server.ResponseStatusException: 500 INTERNAL_SERVER_ERROR \"erro simulado\"]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801934198139441",
+            "17:52:14.198 WARN  traceId= spanId= [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration | spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.hibernate.orm.deprecation",
+          "service_name": "hemochain",
+          "spanId": "e60441fc106279bb",
+          "thread": "main",
+          "traceId": "c7a3258acafb83ed99c21cc6f945db20"
+        },
+        "values": [
+          [
+            "1795801930244032855",
+            "17:52:10.244 WARN  traceId=c7a3258acafb83ed99c21cc6f945db20 spanId=e60441fc106279bb [main] org.hibernate.orm.deprecation | HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "WARN",
+          "level": "WARN",
+          "level_extracted": "WARN",
+          "logger": "org.hibernate.engine.jdbc.spi.SqlExceptionHelper",
+          "service_name": "hemochain",
+          "spanId": "695558d4c4802ced",
+          "thread": "main",
+          "traceId": "a2438bbbea31d525c3006cd3e7b0682c"
+        },
+        "values": [
+          [
+            "1795801931859465954",
+            "17:52:11.859 WARN  traceId=a2438bbbea31d525c3006cd3e7b0682c spanId=695558d4c4802ced [main] o.h.e.jdbc.spi.SqlExceptionHelper | constraint \"uk619k88bbghd0kf4buxhjt6fjb\" of relation \"entrega_hospitalar\" does not exist, skipping\n"
+          ],
+          [
+            "1795801931859076966",
+            "17:52:11.859 WARN  traceId=a2438bbbea31d525c3006cd3e7b0682c spanId=695558d4c4802ced [main] o.h.e.jdbc.spi.SqlExceptionHelper | SQL Warning Code: 0, SQLState: 00000\n"
+          ],
+          [
+            "1795801931846592271",
+            "17:52:11.846 WARN  traceId=a2438bbbea31d525c3006cd3e7b0682c spanId=695558d4c4802ced [main] o.h.e.jdbc.spi.SqlExceptionHelper | constraint \"uknkxtarxvub6f416vp7t2qx9qx\" of relation \"bolsa_hemocomponente\" does not exist, skipping\n"
+          ],
+          [
+            "1795801931846150518",
+            "17:52:11.846 WARN  traceId=a2438bbbea31d525c3006cd3e7b0682c spanId=695558d4c4802ced [main] o.h.e.jdbc.spi.SqlExceptionHelper | SQL Warning Code: 0, SQLState: 00000\n"
+          ],
+          [
+            "1795801931838505851",
+            "17:52:11.838 WARN  traceId=a2438bbbea31d525c3006cd3e7b0682c spanId=695558d4c4802ced [main] o.h.e.jdbc.spi.SqlExceptionHelper | constraint \"ukcp6ygac4c8q0y87tntct409rc\" of relation \"alerta_validade\" does not exist, skipping\n"
+          ],
+          [
+            "1795801931838107344",
+            "17:52:11.838 WARN  traceId=a2438bbbea31d525c3006cd3e7b0682c spanId=695558d4c4802ced [main] o.h.e.jdbc.spi.SqlExceptionHelper | SQL Warning Code: 0, SQLState: 00000\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.springframework.web.servlet.DispatcherServlet",
+          "service_name": "hemochain",
+          "thread": "http-nio-8081-exec-1"
+        },
+        "values": [
+          [
+            "1795801938098099801",
+            "17:52:18.098 INFO  traceId= spanId= [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet | Completed initialization in 1 ms\n"
+          ],
+          [
+            "1795801938097664561",
+            "17:52:18.097 INFO  traceId= spanId= [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet | Initializing Servlet 'dispatcherServletRegistration'\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.springframework.web.servlet.DispatcherServlet",
+          "service_name": "hemochain",
+          "thread": "http-nio-8080-exec-1"
+        },
+        "values": [
+          [
+            "1795801946049676589",
+            "17:52:26.049 INFO  traceId= spanId= [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet | Completed initialization in 1 ms\n"
+          ],
+          [
+            "1795801946048286302",
+            "17:52:26.048 INFO  traceId= spanId= [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet | Initializing Servlet 'dispatcherServlet'\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801930104956276",
+            "17:52:10.104 INFO  traceId= spanId= [main] o.s.o.j.p.SpringPersistenceUnitInfo | No LoadTimeWeaver setup: ignoring JPA class transformer\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801931893481360",
+            "17:52:11.893 INFO  traceId= spanId= [main] o.s.o.j.LocalContainerEntityManagerFactoryBean | Initialized JPA EntityManagerFactory for persistence unit 'default'\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.springframework.data.repository.config.RepositoryConfigurationDelegate",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801927126295973",
+            "17:52:07.126 INFO  traceId= spanId= [main] o.s.d.r.c.RepositoryConfigurationDelegate | Finished Spring Data repository scanning in 90 ms. Found 7 JPA repository interfaces.\n"
+          ],
+          [
+            "1795801927028718487",
+            "17:52:07.028 INFO  traceId= spanId= [main] o.s.d.r.c.RepositoryConfigurationDelegate | Bootstrapping Spring Data JPA repositories in DEFAULT mode.\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.springframework.data.jpa.repository.query.QueryEnhancerFactory",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801932338316332",
+            "17:52:12.338 INFO  traceId= spanId= [main] o.s.d.j.r.query.QueryEnhancerFactory | Hibernate is in classpath; If applicable, HQL parser will be used.\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801935579984205",
+            "17:52:15.579 INFO  traceId= spanId= [main] o.s.b.w.s.c.ServletWebServerApplicationContext | Root WebApplicationContext: initialization completed in 141 ms\n"
+          ],
+          [
+            "1795801928398635091",
+            "17:52:08.398 INFO  traceId= spanId= [main] o.s.b.w.s.c.ServletWebServerApplicationContext | Root WebApplicationContext: initialization completed in 3192 ms\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.springframework.boot.web.embedded.tomcat.TomcatWebServer",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801935627252634",
+            "17:52:15.627 INFO  traceId= spanId= [main] o.s.b.w.e.tomcat.TomcatWebServer | Tomcat started on port 8081 (http) with context path '/'\n"
+          ],
+          [
+            "1795801935533719418",
+            "17:52:15.533 INFO  traceId= spanId= [main] o.s.b.w.e.tomcat.TomcatWebServer | Tomcat initialized with port 8081 (http)\n"
+          ],
+          [
+            "1795801935433843266",
+            "17:52:15.433 INFO  traceId= spanId= [main] o.s.b.w.e.tomcat.TomcatWebServer | Tomcat started on port 8080 (http) with context path '/'\n"
+          ],
+          [
+            "1795801928328527616",
+            "17:52:08.328 INFO  traceId= spanId= [main] o.s.b.w.e.tomcat.TomcatWebServer | Tomcat initialized with port 8080 (http)\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801934281003176",
+            "17:52:14.281 INFO  traceId= spanId= [main] o.s.b.a.w.s.WelcomePageHandlerMapping | Adding welcome page: class path resource [static/index.html]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801935592218056",
+            "17:52:15.592 INFO  traceId= spanId= [main] o.s.b.a.e.web.EndpointLinksResolver | Exposing 4 endpoints beneath base path '/actuator'\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.hibernate.jpa.internal.util.LogHelper",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801929530572583",
+            "17:52:09.530 INFO  traceId= spanId= [main] o.h.jpa.internal.util.LogHelper | HHH000204: Processing PersistenceUnitInfo [name: default]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801931632727496",
+            "17:52:11.632 INFO  traceId= spanId= [main] o.h.e.t.j.p.i.JtaPlatformInitiator | HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.hibernate.cache.internal.RegionFactoryInitiator",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801929685383534",
+            "17:52:09.685 INFO  traceId= spanId= [main] o.h.c.i.RegionFactoryInitiator | HHH000026: Second-level cache disabled\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.hibernate.Version",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801929612224405",
+            "17:52:09.612 INFO  traceId= spanId= [main] org.hibernate.Version | HHH000412: Hibernate ORM core version 6.5.3.Final\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.apache.catalina.core.StandardService",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801935534748560",
+            "17:52:15.534 INFO  traceId= spanId= [main] o.a.catalina.core.StandardService | Starting service [Tomcat]\n"
+          ],
+          [
+            "1795801928338060961",
+            "17:52:08.338 INFO  traceId= spanId= [main] o.a.catalina.core.StandardService | Starting service [Tomcat]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.apache.catalina.core.StandardEngine",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801935575646759",
+            "17:52:15.575 INFO  traceId= spanId= [main] o.a.catalina.core.StandardEngine | Starting Servlet engine: [Apache Tomcat/10.1.30]\n"
+          ],
+          [
+            "1795801928338599063",
+            "17:52:08.338 INFO  traceId= spanId= [main] o.a.catalina.core.StandardEngine | Starting Servlet engine: [Apache Tomcat/10.1.30]\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801928398138771",
+            "17:52:08.398 INFO  traceId= spanId= [main] o.a.c.c.C.[Tomcat].[localhost].[/] | Initializing Spring embedded WebApplicationContext\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]",
+          "service_name": "hemochain",
+          "thread": "http-nio-8080-exec-1"
+        },
+        "values": [
+          [
+            "1795801946047905580",
+            "17:52:26.047 INFO  traceId= spanId= [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] | Initializing Spring DispatcherServlet 'dispatcherServlet'\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801935579693240",
+            "17:52:15.579 INFO  traceId= spanId= [main] o.a.c.c.C.[Tomcat-1].[localhost].[/] | Initializing Spring embedded WebApplicationContext\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]",
+          "service_name": "hemochain",
+          "thread": "http-nio-8081-exec-1"
+        },
+        "values": [
+          [
+            "1795801938097233880",
+            "17:52:18.097 INFO  traceId= spanId= [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/] | Initializing Spring DispatcherServlet 'dispatcherServletRegistration'\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.zaxxer.hikari.pool.HikariPool",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801929383792501",
+            "17:52:09.383 INFO  traceId= spanId= [main] com.zaxxer.hikari.pool.HikariPool | HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@72f3acc9\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.zaxxer.hikari.HikariDataSource",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801929385682624",
+            "17:52:09.385 INFO  traceId= spanId= [main] com.zaxxer.hikari.HikariDataSource | HikariPool-1 - Start completed.\n"
+          ],
+          [
+            "1795801929137744318",
+            "17:52:09.137 INFO  traceId= spanId= [main] com.zaxxer.hikari.HikariDataSource | HikariPool-1 - Starting...\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "fcdf61f07e9945e0",
+          "thread": "http-nio-8080-exec-4",
+          "traceId": "a09f05afc0d12d0d63e5385b49504cd9"
+        },
+        "values": [
+          [
+            "1795801946517199842",
+            "17:52:26.517 INFO  traceId=a09f05afc0d12d0d63e5385b49504cd9 spanId=fcdf61f07e9945e0 [http-nio-8080-exec-4] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795801946427917473",
+            "17:52:26.427 INFO  traceId=a09f05afc0d12d0d63e5385b49504cd9 spanId=fcdf61f07e9945e0 [http-nio-8080-exec-4] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "fc4f370124373933",
+          "thread": "http-nio-8080-exec-9",
+          "traceId": "a51c2371a89a34e84f193cc451c95d3e"
+        },
+        "values": [
+          [
+            "1795801956979804659",
+            "17:52:36.979 INFO  traceId=a51c2371a89a34e84f193cc451c95d3e spanId=fc4f370124373933 [http-nio-8080-exec-9] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795801956964876281",
+            "17:52:36.964 INFO  traceId=a51c2371a89a34e84f193cc451c95d3e spanId=fc4f370124373933 [http-nio-8080-exec-9] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "ef667826f7fff4e1",
+          "thread": "http-nio-8080-exec-2",
+          "traceId": "46f310f68269b6281aca24bc6093aa70"
+        },
+        "values": [
+          [
+            "1795801951827370770",
+            "17:52:31.827 INFO  traceId=46f310f68269b6281aca24bc6093aa70 spanId=ef667826f7fff4e1 [http-nio-8080-exec-2] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795801951807801625",
+            "17:52:31.807 INFO  traceId=46f310f68269b6281aca24bc6093aa70 spanId=ef667826f7fff4e1 [http-nio-8080-exec-2] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "cc3b26aeb3117bd3",
+          "thread": "http-nio-8080-exec-1",
+          "traceId": "4b20eff29c0b0aa0b4a8d0c7116311f9"
+        },
+        "values": [
+          [
+            "1795801993136676903",
+            "17:53:13.136 INFO  traceId=4b20eff29c0b0aa0b4a8d0c7116311f9 spanId=cc3b26aeb3117bd3 [http-nio-8080-exec-1] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "c0dc721c3a38f2b6",
+          "thread": "http-nio-8080-exec-4",
+          "traceId": "e3f45b739f57aea08ad2d8e82ce2272b"
+        },
+        "values": [
+          [
+            "1795801982798504307",
+            "17:53:02.798 INFO  traceId=e3f45b739f57aea08ad2d8e82ce2272b spanId=c0dc721c3a38f2b6 [http-nio-8080-exec-4] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795801982772447677",
+            "17:53:02.772 INFO  traceId=e3f45b739f57aea08ad2d8e82ce2272b spanId=c0dc721c3a38f2b6 [http-nio-8080-exec-4] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "af2c19b29594addd",
+          "thread": "http-nio-8080-exec-2",
+          "traceId": "f2442fa50851e6c9aff945145fc785be"
+        },
+        "values": [
+          [
+            "1795802003318121130",
+            "17:53:23.318 INFO  traceId=f2442fa50851e6c9aff945145fc785be spanId=af2c19b29594addd [http-nio-8080-exec-2] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795802003307550095",
+            "17:53:23.307 INFO  traceId=f2442fa50851e6c9aff945145fc785be spanId=af2c19b29594addd [http-nio-8080-exec-2] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "a76c34bef4a35ec5",
+          "thread": "http-nio-8080-exec-8",
+          "traceId": "541e047a5d35483095f4f044f681bd24"
+        },
+        "values": [
+          [
+            "1795801998245279710",
+            "17:53:18.245 INFO  traceId=541e047a5d35483095f4f044f681bd24 spanId=a76c34bef4a35ec5 [http-nio-8080-exec-8] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "9ae19c22a3764ca0",
+          "thread": "http-nio-8080-exec-4",
+          "traceId": "394338e21415b27cb355a86ccd9a8f1d"
+        },
+        "values": [
+          [
+            "1795801988018694438",
+            "17:53:08.018 INFO  traceId=394338e21415b27cb355a86ccd9a8f1d spanId=9ae19c22a3764ca0 [http-nio-8080-exec-4] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "94137645b2df5db9",
+          "thread": "http-nio-8080-exec-3",
+          "traceId": "417d54767ff0062fe41041a81eed8b63"
+        },
+        "values": [
+          [
+            "1795801967280458738",
+            "17:52:47.280 INFO  traceId=417d54767ff0062fe41041a81eed8b63 spanId=94137645b2df5db9 [http-nio-8080-exec-3] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795801967266581103",
+            "17:52:47.266 INFO  traceId=417d54767ff0062fe41041a81eed8b63 spanId=94137645b2df5db9 [http-nio-8080-exec-3] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "92cb4a90ad5ae9e2",
+          "thread": "http-nio-8080-exec-5",
+          "traceId": "08500240232cd98735be967ce2f76646"
+        },
+        "values": [
+          [
+            "1795801951916942375",
+            "17:52:31.916 INFO  traceId=08500240232cd98735be967ce2f76646 spanId=92cb4a90ad5ae9e2 [http-nio-8080-exec-5] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "915960aff48f015d",
+          "thread": "http-nio-8080-exec-5",
+          "traceId": "12152e8c52555662c73404f5d7957105"
+        },
+        "values": [
+          [
+            "1795802003359789895",
+            "17:53:23.359 INFO  traceId=12152e8c52555662c73404f5d7957105 spanId=915960aff48f015d [http-nio-8080-exec-5] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "8aad54bf3bbfe41d",
+          "thread": "http-nio-8080-exec-6",
+          "traceId": "4378ddc9cca093555d661a0833271827"
+        },
+        "values": [
+          [
+            "1795801967334772690",
+            "17:52:47.334 INFO  traceId=4378ddc9cca093555d661a0833271827 spanId=8aad54bf3bbfe41d [http-nio-8080-exec-6] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "7e4ec5adf2645a7f",
+          "thread": "http-nio-8080-exec-7",
+          "traceId": "94b31231cab780c41f4f1c104b2199a9"
+        },
+        "values": [
+          [
+            "1795802524433375984",
+            "18:02:04.433 INFO  traceId=94b31231cab780c41f4f1c104b2199a9 spanId=7e4ec5adf2645a7f [http-nio-8080-exec-7] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "7b5f561c8230e046",
+          "thread": "http-nio-8080-exec-3",
+          "traceId": "771699ee9b4f512a06d44b9f5314d34e"
+        },
+        "values": [
+          [
+            "1795802524386829101",
+            "18:02:04.386 INFO  traceId=771699ee9b4f512a06d44b9f5314d34e spanId=7b5f561c8230e046 [http-nio-8080-exec-3] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795802524372095902",
+            "18:02:04.372 INFO  traceId=771699ee9b4f512a06d44b9f5314d34e spanId=7b5f561c8230e046 [http-nio-8080-exec-3] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "793b45b3e5b355b1",
+          "thread": "http-nio-8080-exec-9",
+          "traceId": "9850eb90ca22e786928839587e71c8fc"
+        },
+        "values": [
+          [
+            "1795801962201878757",
+            "17:52:42.201 INFO  traceId=9850eb90ca22e786928839587e71c8fc spanId=793b45b3e5b355b1 [http-nio-8080-exec-9] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "766bdddc9b957e6a",
+          "thread": "http-nio-8080-exec-7",
+          "traceId": "6dd718326842fe2a2bfe18c50bcf6f04"
+        },
+        "values": [
+          [
+            "1795801946690066514",
+            "17:52:26.690 INFO  traceId=6dd718326842fe2a2bfe18c50bcf6f04 spanId=766bdddc9b957e6a [http-nio-8080-exec-7] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "54e7478a50d7b363",
+          "thread": "http-nio-8080-exec-10",
+          "traceId": "6999f94710979402a10199313884f502"
+        },
+        "values": [
+          [
+            "1795801972385556310",
+            "17:52:52.385 INFO  traceId=6999f94710979402a10199313884f502 spanId=54e7478a50d7b363 [http-nio-8080-exec-10] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795801972373682646",
+            "17:52:52.373 INFO  traceId=6999f94710979402a10199313884f502 spanId=54e7478a50d7b363 [http-nio-8080-exec-10] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "40466f5237005c1b",
+          "thread": "http-nio-8080-exec-5",
+          "traceId": "14962ed3103012046adfdd7045c95256"
+        },
+        "values": [
+          [
+            "1795802529480151564",
+            "18:02:09.480 INFO  traceId=14962ed3103012046adfdd7045c95256 spanId=40466f5237005c1b [http-nio-8080-exec-5] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795802529470901471",
+            "18:02:09.470 INFO  traceId=14962ed3103012046adfdd7045c95256 spanId=40466f5237005c1b [http-nio-8080-exec-5] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "402af4fffba7f793",
+          "thread": "http-nio-8080-exec-3",
+          "traceId": "292be061fa9b9cfc2f798ded962b37ad"
+        },
+        "values": [
+          [
+            "1795801972448924159",
+            "17:52:52.448 INFO  traceId=292be061fa9b9cfc2f798ded962b37ad spanId=402af4fffba7f793 [http-nio-8080-exec-3] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "3523b32f4bfde934",
+          "thread": "http-nio-8080-exec-10",
+          "traceId": "3e4476c8ad3121c163ed7f5daf40222e"
+        },
+        "values": [
+          [
+            "1795801977691776363",
+            "17:52:57.691 INFO  traceId=3e4476c8ad3121c163ed7f5daf40222e spanId=3523b32f4bfde934 [http-nio-8080-exec-10] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "345ac4d2d8608a25",
+          "thread": "http-nio-8080-exec-2",
+          "traceId": "f8efd68e6b97e3bf07b455ddc619feff"
+        },
+        "values": [
+          [
+            "1795801957038702564",
+            "17:52:37.038 INFO  traceId=f8efd68e6b97e3bf07b455ddc619feff spanId=345ac4d2d8608a25 [http-nio-8080-exec-2] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "333e17d2aee8dcec",
+          "thread": "http-nio-8080-exec-9",
+          "traceId": "06b1dcb7eaa663c052179fb4697b5eb5"
+        },
+        "values": [
+          [
+            "1795802088548713480",
+            "17:54:48.548 INFO  traceId=06b1dcb7eaa663c052179fb4697b5eb5 spanId=333e17d2aee8dcec [http-nio-8080-exec-9] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795802088530810627",
+            "17:54:48.530 INFO  traceId=06b1dcb7eaa663c052179fb4697b5eb5 spanId=333e17d2aee8dcec [http-nio-8080-exec-9] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "31c4bb24511fb9c4",
+          "thread": "http-nio-8080-exec-6",
+          "traceId": "aaf50457e8fe6db0fd29628d29749626"
+        },
+        "values": [
+          [
+            "1795801962134624302",
+            "17:52:42.134 INFO  traceId=aaf50457e8fe6db0fd29628d29749626 spanId=31c4bb24511fb9c4 [http-nio-8080-exec-6] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795801962115654013",
+            "17:52:42.115 INFO  traceId=aaf50457e8fe6db0fd29628d29749626 spanId=31c4bb24511fb9c4 [http-nio-8080-exec-6] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "2f55181b782fd33c",
+          "thread": "http-nio-8080-exec-7",
+          "traceId": "24f1c33132bb003ddd84c2239d0e23d7"
+        },
+        "values": [
+          [
+            "1795801982897429394",
+            "17:53:02.897 INFO  traceId=24f1c33132bb003ddd84c2239d0e23d7 spanId=2f55181b782fd33c [http-nio-8080-exec-7] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "294c37972de0d974",
+          "thread": "http-nio-8080-exec-6",
+          "traceId": "2acac4247622c589a0004df425fe80be"
+        },
+        "values": [
+          [
+            "1795802529512689375",
+            "18:02:09.512 INFO  traceId=2acac4247622c589a0004df425fe80be spanId=294c37972de0d974 [http-nio-8080-exec-6] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "23b43323977dc201",
+          "thread": "http-nio-8080-exec-7",
+          "traceId": "324b5bdad785e20d52d7cf0eea3a576d"
+        },
+        "values": [
+          [
+            "1795801977582463737",
+            "17:52:57.582 INFO  traceId=324b5bdad785e20d52d7cf0eea3a576d spanId=23b43323977dc201 [http-nio-8080-exec-7] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795801977550921597",
+            "17:52:57.550 INFO  traceId=324b5bdad785e20d52d7cf0eea3a576d spanId=23b43323977dc201 [http-nio-8080-exec-7] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "19e477bd75594272",
+          "thread": "http-nio-8080-exec-5",
+          "traceId": "2c447f02177adab90d36710814c255ac"
+        },
+        "values": [
+          [
+            "1795801998197012652",
+            "17:53:18.197 INFO  traceId=2c447f02177adab90d36710814c255ac spanId=19e477bd75594272 [http-nio-8080-exec-5] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795801998185903627",
+            "17:53:18.185 INFO  traceId=2c447f02177adab90d36710814c255ac spanId=19e477bd75594272 [http-nio-8080-exec-5] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "0bdc7861d1db8248",
+          "thread": "http-nio-8080-exec-8",
+          "traceId": "c295668753d17fcbf911b2e5992bf995"
+        },
+        "values": [
+          [
+            "1795801993089142101",
+            "17:53:13.089 INFO  traceId=c295668753d17fcbf911b2e5992bf995 spanId=0bdc7861d1db8248 [http-nio-8080-exec-8] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795801993068467480",
+            "17:53:13.068 INFO  traceId=c295668753d17fcbf911b2e5992bf995 spanId=0bdc7861d1db8248 [http-nio-8080-exec-8] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.service.AtendimentoHospitalarService",
+          "service_name": "hemochain",
+          "spanId": "09aa26fe8b14c095",
+          "thread": "http-nio-8080-exec-1",
+          "traceId": "d341f7cf3e7f9ed87886fe736b9abd43"
+        },
+        "values": [
+          [
+            "1795801987974586268",
+            "17:53:07.974 INFO  traceId=d341f7cf3e7f9ed87886fe736b9abd43 spanId=09aa26fe8b14c095 [http-nio-8080-exec-1] c.h.s.AtendimentoHospitalarService | Registro de entrega processado; commit sujeito a transacao\n"
+          ],
+          [
+            "1795801987961489933",
+            "17:53:07.961 INFO  traceId=d341f7cf3e7f9ed87886fe736b9abd43 spanId=09aa26fe8b14c095 [http-nio-8080-exec-1] c.h.s.AtendimentoHospitalarService | Tentativa de registrar entrega hospitalar\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "INFO",
+          "level": "INFO",
+          "level_extracted": "INFO",
+          "logger": "com.hemochain.HemochainApplication",
+          "service_name": "hemochain",
+          "thread": "main"
+        },
+        "values": [
+          [
+            "1795801935689659119",
+            "17:52:15.689 INFO  traceId= spanId= [main] com.hemochain.HemochainApplication | Started HemochainApplication in 11.861 seconds (process running for 12.857)\n"
+          ],
+          [
+            "1795801925107764982",
+            "17:52:05.107 INFO  traceId= spanId= [main] com.hemochain.HemochainApplication | The following 3 profiles are active: \"prod\", \"observabilidade\", \"observabilidade-demo\"\n"
+          ],
+          [
+            "1795801925100559574",
+            "17:52:05.100 INFO  traceId= spanId= [main] com.hemochain.HemochainApplication | Starting HemochainApplication v0.0.1-SNAPSHOT using Java 17.0.21.1 with PID 1 (/app/app.jar started by hemochain in /app)\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "ERROR",
+          "level": "ERROR",
+          "level_extracted": "ERROR",
+          "logger": "com.hemochain.controller.ErroSimuladoController",
+          "service_name": "hemochain",
+          "spanId": "f9d37ced1e8407a4",
+          "thread": "http-nio-8080-exec-9",
+          "traceId": "050243ffab96c874cbf505f8bbeeb574"
+        },
+        "values": [
+          [
+            "1795801946772885381",
+            "17:52:26.772 ERROR traceId=050243ffab96c874cbf505f8bbeeb574 spanId=f9d37ced1e8407a4 [http-nio-8080-exec-9] c.h.c.ErroSimuladoController | Falha simulada para demonstracao de observabilidade\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "ERROR",
+          "level": "ERROR",
+          "level_extracted": "ERROR",
+          "logger": "com.hemochain.controller.ErroSimuladoController",
+          "service_name": "hemochain",
+          "spanId": "abaf2782b88028b7",
+          "thread": "http-nio-8080-exec-5",
+          "traceId": "4443df2d547dcd48fd83d03beb1d3e81"
+        },
+        "values": [
+          [
+            "1795802489137302809",
+            "18:01:29.137 ERROR traceId=4443df2d547dcd48fd83d03beb1d3e81 spanId=abaf2782b88028b7 [http-nio-8080-exec-5] c.h.c.ErroSimuladoController | Falha simulada para demonstracao de observabilidade\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "ERROR",
+          "level": "ERROR",
+          "level_extracted": "ERROR",
+          "logger": "com.hemochain.controller.ErroSimuladoController",
+          "service_name": "hemochain",
+          "spanId": "889a4a2bb70d4905",
+          "thread": "http-nio-8080-exec-8",
+          "traceId": "91c085a3770b201fbc3bf03e4952ada6"
+        },
+        "values": [
+          [
+            "1795802549218906636",
+            "18:02:29.218 ERROR traceId=91c085a3770b201fbc3bf03e4952ada6 spanId=889a4a2bb70d4905 [http-nio-8080-exec-8] c.h.c.ErroSimuladoController | Falha simulada para demonstracao de observabilidade\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "ERROR",
+          "level": "ERROR",
+          "level_extracted": "ERROR",
+          "logger": "com.hemochain.controller.ErroSimuladoController",
+          "service_name": "hemochain",
+          "spanId": "7c2540c8803a74a0",
+          "thread": "http-nio-8080-exec-1",
+          "traceId": "d55f918b6918c0193b6bea34173943df"
+        },
+        "values": [
+          [
+            "1795802248781391824",
+            "17:57:28.781 ERROR traceId=d55f918b6918c0193b6bea34173943df spanId=7c2540c8803a74a0 [http-nio-8080-exec-1] c.h.c.ErroSimuladoController | Falha simulada para demonstracao de observabilidade\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "ERROR",
+          "level": "ERROR",
+          "level_extracted": "ERROR",
+          "logger": "com.hemochain.controller.ErroSimuladoController",
+          "service_name": "hemochain",
+          "spanId": "6aa82171eec69fee",
+          "thread": "http-nio-8080-exec-4",
+          "traceId": "642cac9866945f630d23813b433bae51"
+        },
+        "values": [
+          [
+            "1795802524449915536",
+            "18:02:04.449 ERROR traceId=642cac9866945f630d23813b433bae51 spanId=6aa82171eec69fee [http-nio-8080-exec-4] c.h.c.ErroSimuladoController | Falha simulada para demonstracao de observabilidade\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "ERROR",
+          "level": "ERROR",
+          "level_extracted": "ERROR",
+          "logger": "com.hemochain.controller.ErroSimuladoController",
+          "service_name": "hemochain",
+          "spanId": "5414de667d2c3973",
+          "thread": "http-nio-8080-exec-2",
+          "traceId": "8df04c13a986a79ddc6053fc51b29b4b"
+        },
+        "values": [
+          [
+            "1795802068459532690",
+            "17:54:28.459 ERROR traceId=8df04c13a986a79ddc6053fc51b29b4b spanId=5414de667d2c3973 [http-nio-8080-exec-2] c.h.c.ErroSimuladoController | Falha simulada para demonstracao de observabilidade\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "ERROR",
+          "level": "ERROR",
+          "level_extracted": "ERROR",
+          "logger": "com.hemochain.controller.ErroSimuladoController",
+          "service_name": "hemochain",
+          "spanId": "5133432100a6a866",
+          "thread": "http-nio-8080-exec-9",
+          "traceId": "b854d7004495d9fb8a1bc90f8a192760"
+        },
+        "values": [
+          [
+            "1795802008381723835",
+            "17:53:28.381 ERROR traceId=b854d7004495d9fb8a1bc90f8a192760 spanId=5133432100a6a866 [http-nio-8080-exec-9] c.h.c.ErroSimuladoController | Falha simulada para demonstracao de observabilidade\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "ERROR",
+          "level": "ERROR",
+          "level_extracted": "ERROR",
+          "logger": "com.hemochain.controller.ErroSimuladoController",
+          "service_name": "hemochain",
+          "spanId": "28fefbd99719688e",
+          "thread": "http-nio-8080-exec-8",
+          "traceId": "53abba55cf87f72306edfcf2eea0dc5d"
+        },
+        "values": [
+          [
+            "1795802128593721754",
+            "17:55:28.593 ERROR traceId=53abba55cf87f72306edfcf2eea0dc5d spanId=28fefbd99719688e [http-nio-8080-exec-8] c.h.c.ErroSimuladoController | Falha simulada para demonstracao de observabilidade\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "ERROR",
+          "level": "ERROR",
+          "level_extracted": "ERROR",
+          "logger": "com.hemochain.controller.ErroSimuladoController",
+          "service_name": "hemochain",
+          "spanId": "270acbf12f67c191",
+          "thread": "http-nio-8080-exec-9",
+          "traceId": "661bf295866394323fa7eaedbb06b502"
+        },
+        "values": [
+          [
+            "1795802429072365709",
+            "18:00:29.072 ERROR traceId=661bf295866394323fa7eaedbb06b502 spanId=270acbf12f67c191 [http-nio-8080-exec-9] c.h.c.ErroSimuladoController | Falha simulada para demonstracao de observabilidade\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "ERROR",
+          "level": "ERROR",
+          "level_extracted": "ERROR",
+          "logger": "com.hemochain.controller.ErroSimuladoController",
+          "service_name": "hemochain",
+          "spanId": "21e2a4e8990e7007",
+          "thread": "http-nio-8080-exec-7",
+          "traceId": "1fdc9756086021e6b2d73df5cd5c37a7"
+        },
+        "values": [
+          [
+            "1795802369005933875",
+            "17:59:29.005 ERROR traceId=1fdc9756086021e6b2d73df5cd5c37a7 spanId=21e2a4e8990e7007 [http-nio-8080-exec-7] c.h.c.ErroSimuladoController | Falha simulada para demonstracao de observabilidade\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "ERROR",
+          "level": "ERROR",
+          "level_extracted": "ERROR",
+          "logger": "com.hemochain.controller.ErroSimuladoController",
+          "service_name": "hemochain",
+          "spanId": "0cc96bd615817a85",
+          "thread": "http-nio-8080-exec-10",
+          "traceId": "66107a11e70b0da84dc934ec31ef9bfe"
+        },
+        "values": [
+          [
+            "1795802188676724054",
+            "17:56:28.676 ERROR traceId=66107a11e70b0da84dc934ec31ef9bfe spanId=0cc96bd615817a85 [http-nio-8080-exec-10] c.h.c.ErroSimuladoController | Falha simulada para demonstracao de observabilidade\n"
+          ]
+        ]
+      },
+      {
+        "stream": {
+          "app": "hemochain",
+          "detected_level": "ERROR",
+          "level": "ERROR",
+          "level_extracted": "ERROR",
+          "logger": "com.hemochain.controller.ErroSimuladoController",
+          "service_name": "hemochain",
+          "spanId": "06f7bf636c2bdefc",
+          "thread": "http-nio-8080-exec-3",
+          "traceId": "65e907c257b630d1b789a9c2eeebcd27"
+        },
+        "values": [
+          [
+            "1795802308927050421",
+            "17:58:28.927 ERROR traceId=65e907c257b630d1b789a9c2eeebcd27 spanId=06f7bf636c2bdefc [http-nio-8080-exec-3] c.h.c.ErroSimuladoController | Falha simulada para demonstracao de observabilidade\n"
+          ]
+        ]
+      }
+    ],
+    "stats": {
+      "summary": {
+        "bytesProcessedPerSecond": 2235365,
+        "linesProcessedPerSecond": 9401,
+        "totalBytesProcessed": 29720,
+        "totalLinesProcessed": 125,
+        "execTime": 0.013295,
+        "queueTime": 0.000193,
+        "subqueries": 0,
+        "totalEntriesReturned": 125,
+        "splits": 2,
+        "shards": 2,
+        "totalPostFilterLines": 125,
+        "totalStructuredMetadataBytesProcessed": 5424
+      },
+      "querier": {
+        "store": {
+          "totalChunksRef": 0,
+          "totalChunksDownloaded": 0,
+          "chunksDownloadTime": 0,
+          "queryReferencedStructuredMetadata": false,
+          "chunk": {
+            "headChunkBytes": 0,
+            "headChunkLines": 0,
+            "decompressedBytes": 0,
+            "decompressedLines": 0,
+            "compressedBytes": 0,
+            "totalDuplicates": 0,
+            "postFilterLines": 0,
+            "headChunkStructuredMetadataBytes": 0,
+            "decompressedStructuredMetadataBytes": 0
+          },
+          "chunkRefsFetchTime": 0,
+          "congestionControlLatency": 0,
+          "pipelineWrapperFilteredLines": 0
+        }
+      },
+      "ingester": {
+        "totalReached": 2,
+        "totalChunksMatched": 6,
+        "totalBatches": 4,
+        "totalLinesSent": 125,
+        "store": {
+          "totalChunksRef": 0,
+          "totalChunksDownloaded": 0,
+          "chunksDownloadTime": 0,
+          "queryReferencedStructuredMetadata": false,
+          "chunk": {
+            "headChunkBytes": 29720,
+            "headChunkLines": 125,
+            "decompressedBytes": 0,
+            "decompressedLines": 0,
+            "compressedBytes": 0,
+            "totalDuplicates": 0,
+            "postFilterLines": 125,
+            "headChunkStructuredMetadataBytes": 5424,
+            "decompressedStructuredMetadataBytes": 0
+          },
+          "chunkRefsFetchTime": 390512,
+          "congestionControlLatency": 0,
+          "pipelineWrapperFilteredLines": 0
+        }
+      },
+      "cache": {
+        "chunk": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "index": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "result": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "statsResult": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "volumeResult": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "seriesResult": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "labelResult": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        },
+        "instantMetricResult": {
+          "entriesFound": 0,
+          "entriesRequested": 0,
+          "entriesStored": 0,
+          "bytesReceived": 0,
+          "bytesSent": 0,
+          "requests": 0,
+          "downloadTime": 0,
+          "queryLengthServed": 0
+        }
+      },
+      "index": {
+        "totalChunks": 0,
+        "postFilterChunks": 0,
+        "shardsDuration": 0
+      }
+    }
+  }
+}

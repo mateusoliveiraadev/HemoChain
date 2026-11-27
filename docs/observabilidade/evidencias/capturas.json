@@ -1,0 +1,67 @@
+[
+  {
+    "arquivo": "hemochain-aplicacao.png",
+    "capturado_em": "2026-11-27T18:04:02.161Z",
+    "url": "http://127.0.0.1:13000/d/hemochain-aplicacao/hemochain-aplicacao-jvm-e-http?orgId=1&from=1795801436875&to=1795802636875&timezone=browser"
+  },
+  {
+    "arquivo": "hemochain-infra.png",
+    "capturado_em": "2026-11-27T18:04:07.468Z",
+    "url": "http://127.0.0.1:13000/d/hemochain-infra/hemochain-infraestrutura-host-e-conteineres?orgId=1&from=1795801436875&to=1795802636875&timezone=browser"
+  },
+  {
+    "arquivo": "hemochain-logs.png",
+    "capturado_em": "2026-11-27T18:04:12.770Z",
+    "url": "http://127.0.0.1:13000/d/hemochain-logs/hemochain-logs-e-traces?orgId=1&from=1795801436875&to=1795802636875&timezone=browser"
+  },
+  {
+    "arquivo": "loki-explore.png",
+    "capturado_em": "2026-11-27T18:04:18.035Z",
+    "url": "http://127.0.0.1:13000/explore?schemaVersion=1&panes=%7B%221h0%22%3A%7B%22datasource%22%3A%22loki%22%2C%22queries%22%3A%5B%7B%22refId%22%3A%22A%22%2C%22expr%22%3A%22%7Bapp%3D%5C%22hemochain%5C%22%7D+%7C%3D+%5C%22a09f05afc0d12d0d63e5385b49504cd9%5C%22%22%2C%22queryType%22%3A%22range%22%2C%22datasource%22%3A%7B%22type%22%3A%22loki%22%2C%22uid%22%3A%22loki%22%7D%7D%5D%2C%22range%22%3A%7B%22from%22%3A%221795801436875%22%2C%22to%22%3A%221795802636875%22%7D%7D%7D&orgId=1"
+  },
+  {
+    "arquivo": "loki-trace-link.png",
+    "capturado_em": "2026-11-27T18:04:19.220Z",
+    "url": "http://127.0.0.1:13000/explore?schemaVersion=1&panes=%7B%221h0%22%3A%7B%22datasource%22%3A%22loki%22%2C%22queries%22%3A%5B%7B%22refId%22%3A%22A%22%2C%22expr%22%3A%22%7Bapp%3D%5C%22hemochain%5C%22%7D+%7C%3D+%5C%22a09f05afc0d12d0d63e5385b49504cd9%5C%22%22%2C%22queryType%22%3A%22range%22%2C%22datasource%22%3A%7B%22type%22%3A%22loki%22%2C%22uid%22%3A%22loki%22%7D%7D%5D%2C%22range%22%3A%7B%22from%22%3A%221795801436875%22%2C%22to%22%3A%221795802636875%22%7D%7D%7D&orgId=1"
+  },
+  {
+    "arquivo": "tempo-correlacao.png",
+    "capturado_em": "2026-11-27T18:04:24.520Z",
+    "url": "http://127.0.0.1:13000/explore?schemaVersion=1&panes=%7B%221h0%22:%7B%22datasource%22:%22loki%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22expr%22:%22%7Bapp%3D%5C%22hemochain%5C%22%7D%20%7C%3D%20%5C%22a09f05afc0d12d0d63e5385b49504cd9%5C%22%22,%22queryType%22:%22range%22,%22datasource%22:%7B%22type%22:%22loki%22,%22uid%22:%22loki%22%7D%7D%5D,%22range%22:%7B%22from%22:%221795801436875%22,%22to%22:%221795802636875%22%7D%7D,%22jpr%22:%7B%22datasource%22:%22tempo%22,%22queries%22:%5B%7B%22query%22:%22a09f05afc0d12d0d63e5385b49504cd9%22,%22queryType%22:%22traceql%22,%22refId%22:%22A%22,%22limit%22:20,%22tableType%22:%22traces%22%7D%5D,%22range%22:%7B%22from%22:%221795801436875%22,%22to%22:%221795802636875%22%7D%7D%7D&orgId=1"
+  },
+  {
+    "arquivo": "prometheus-targets.png",
+    "capturado_em": "2026-11-27T18:04:26.468Z",
+    "url": "http://127.0.0.1:19090/targets?search="
+  },
+  {
+    "arquivo": "viewer-local.png",
+    "capturado_em": "2026-11-27T18:04:33.837Z",
+    "url": "http://127.0.0.1:13000/d/hemochain-aplicacao/hemochain-aplicacao-jvm-e-http?from=1795801469572&to=1795802669572&orgId=1",
+    "papel": "Viewer local"
+  },
+  {
+    "arquivo": "jvm-hikari.png",
+    "capturado_em": "2026-11-27T18:04:35.931Z",
+    "url": "http://127.0.0.1:13000/d/hemochain-aplicacao/hemochain-aplicacao-jvm-e-http?from=1795801469572&to=1795802669572&orgId=1",
+    "papel": "Viewer local"
+  },
+  {
+    "arquivo": "metricas-negocio.png",
+    "capturado_em": "2026-11-27T18:04:38.012Z",
+    "url": "http://127.0.0.1:13000/d/hemochain-aplicacao/hemochain-aplicacao-jvm-e-http?from=1795801469572&to=1795802669572&orgId=1",
+    "papel": "Viewer local"
+  },
+  {
+    "arquivo": "infra-containers.png",
+    "capturado_em": "2026-11-27T18:04:44.281Z",
+    "url": "http://127.0.0.1:13000/d/hemochain-infra/hemochain-infraestrutura-host-e-conteineres?from=1795801469572&to=1795802669572&orgId=1",
+    "papel": "Viewer local"
+  },
+  {
+    "arquivo": "promql-negocio.png",
+    "capturado_em": "2026-11-27T18:04:46.682Z",
+    "url": "http://127.0.0.1:19090/graph?g0.expr=sum%20by%20(result)%20(hemochain_entrega_tentativas_total%7Bapplication%3D%22hemochain%22%7D)&g0.tab=1&g0.range_input=20m",
+    "papel": "Viewer local"
+  }
+]

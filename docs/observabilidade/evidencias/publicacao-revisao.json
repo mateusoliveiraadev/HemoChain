@@ -1,0 +1,31 @@
+{
+  "verificado_em": "2026-11-27T20:56:29.739852+00:00",
+  "arquivos_inspecionados": 369,
+  "blobs_historico_inspecionados": 327,
+  "segredos_detectados": [],
+  "arquivos_desnecessarios": [],
+  "links_locais_quebrados": [],
+  "origem_preservada": true,
+  "titulo_remoto_preservado": true,
+  "main_remota_ancestral": true,
+  "grafana": {
+    "/api/health": {
+      "http": 200
+    },
+    "/api/user": {
+      "http": 200,
+      "isGrafanaAdmin": false
+    },
+    "/api/user/orgs": {
+      "http": 200,
+      "papel": "Viewer"
+    },
+    "/api/users": {
+      "http": 403
+    }
+  },
+  "targets_up": 7,
+  "worker_leituras_200": 146,
+  "worker_falhas": 0,
+  "limite_varredura": "Senhas locais conhecidas e padrões de tokens/chaves na árvore candidata e histórico dos commits da entrega; não é auditoria de todo o histórico remoto."
+}

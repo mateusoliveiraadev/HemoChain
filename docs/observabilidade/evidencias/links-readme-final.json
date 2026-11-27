@@ -1,0 +1,157 @@
+{
+  "capturado_em": "2026-11-27T20:23:30.687900+00:00",
+  "links": [
+    {
+      "url": "http://localhost:8080",
+      "resultado": "local/exemplo; ver instruções do respectivo ambiente"
+    },
+    {
+      "url": "http://localhost:8080/actuator/health",
+      "resultado": "local/exemplo; ver instruções do respectivo ambiente"
+    },
+    {
+      "url": "https://github.com/mateusoliveiraadev/HemoChain.git",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://github.com/mateusoliveiraadev/HemoChain",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/mateusoliveiraadev/HemoChain/actions/runs/42755213594",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://github.com/mateusoliveiraadev/HemoChain/actions/runs/42755213594",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/mateusoliveiraadev/HemoChain/actions/runs/42755395418",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://github.com/mateusoliveiraadev/HemoChain/actions/runs/42755395418",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/mateusoliveiraadev/HemoChain/blob/main/User%20Stories.md",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://github.com/mateusoliveiraadev/HemoChain/blob/main/User%20Stories.md",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/mateusoliveiraadev/HemoChain/issues/4",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://github.com/mateusoliveiraadev/HemoChain/issues/4",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/mateusoliveiraadev/HemoChain/issues/5",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://github.com/mateusoliveiraadev/HemoChain/issues/5",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/mateusoliveiraadev/HemoChain/issues/6",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://github.com/mateusoliveiraadev/HemoChain/issues/6",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/mateusoliveiraadev/HemoChain/issues/7",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://github.com/mateusoliveiraadev/HemoChain/issues/7",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/mateusoliveiraadev/HemoChain/pull/8",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://github.com/mateusoliveiraadev/HemoChain/pull/8",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/mateusoliveiraadev/HemoChain/tree/feature/entrega-04-rastreabilidade-recebimento",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://github.com/mateusoliveiraadev/HemoChain/tree/feature/entrega-04-rastreabilidade-recebimento",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/user-attachments/assets/708f2148-4038-416a-a0e9-4acd630c6d7a",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://github-production-user-asset-6210df.s3.amazonaws.com/186296502/656159893-708f2148-4038-416a-a0e9-4acd630c6d7a.png",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/user-attachments/assets/b5005ea8-578f-4345-aead-b7e4b3bcf017",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://github-production-user-asset-6210df.s3.amazonaws.com/186296502/678992259-b5005ea8-578f-4345-aead-b7e4b3bcf017.png",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/user-attachments/files/32494810/post-its.md",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://objects.githubusercontent.com/github-production-repository-file-5c1aeb/1349045268/32494810",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://github.com/user-attachments/files/33717714/post-its.md",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://objects.githubusercontent.com/github-production-repository-file-5c1aeb/1349045268/33717714",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://hemochain.onrender.com",
+      "resultado": "não validado automaticamente",
+      "erro": "TimeoutError",
+      "http": null
+    },
+    {
+      "url": "https://hemochain.onrender.com/actuator/health",
+      "resultado": "não validado automaticamente",
+      "erro": "TimeoutError",
+      "http": null
+    },
+    {
+      "url": "https://www.figma.com/proto/9bukhNOO1d01FuRTQAeykD/EmoChain-entrega-01?node-id=3-3&p=f&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A3",
+      "resultado": "não validado automaticamente",
+      "erro": "HTTPError",
+      "http": 404
+    },
+    {
+      "url": "https://youtu.be/-vNAE4rWjag",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://www.youtube.com/watch",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://youtu.be/DEyscop7MSQ",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://www.youtube.com/watch",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://youtu.be/LUkFA9IbRyM",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://www.youtube.com/watch",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://youtu.be/abhnkK4AO8s",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://www.youtube.com/watch",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://youtu.be/f07L0n2BKNA",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://www.youtube.com/watch",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://youtu.be/oIFck2dseac?is=qg6glqN-vfdn1oYj",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://www.youtube.com/watch",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    },
+    {
+      "url": "https://youtu.be/piyhNMP8Kl0",
+      "http": 200,
+      "destino_sem_query_temporaria": "https://www.youtube.com/watch",
+      "limite": "Resposta HTTP não comprova conteúdo do vídeo/design nem permissão de leitura individual. Parâmetros temporários de redirecionamento foram omitidos."
+    }
+  ]
+}

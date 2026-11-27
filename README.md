@@ -366,3 +366,7 @@ Implementação, testes e materiais preparados com apoio do **Codex**. A equipe 
 
 
 
+
+## Observabilidade
+
+A demonstração de RSD usa `compose.observabilidade.yaml`, com banco sintético e volumes separados do Compose de trabalho. Actuator/Micrometer, Prometheus, Grafana, Loki, Tempo, Node Exporter e cAdvisor; carga limitada opcional. [Instruções, métricas e evidências reais](docs/observabilidade/README.md). O Quick Tunnel foi autorizado e validado em 27/11/2026, exclusivamente para o Grafana, com usuário Viewer. [Acesso remoto e disponibilidade](docs/observabilidade/acesso-remoto.md). A janela de correção e o PDF final ainda precisam ser confirmados.

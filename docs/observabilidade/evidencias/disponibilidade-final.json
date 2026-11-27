@@ -1,0 +1,82 @@
+{
+  "consultado_em": "2026-11-27T20:36:19.336554+00:00",
+  "url": "https://cached-former-attempts-think.trycloudflare.com",
+  "modo_carga": "Processo Python local, somente GET; k6 parado",
+  "worker": {
+    "pid": 8868,
+    "iniciado_em": "2026-11-27T20:32:08.912877+00:00",
+    "intervalo_segundos": 10,
+    "somente_get": true,
+    "iteracoes": 25,
+    "leituras_200": 25,
+    "erros_controlados_500": 5,
+    "falhas": 0,
+    "atualizado_em": "2026-11-27T20:36:09.365272+00:00",
+    "ultimo_http": 200
+  },
+  "reinicia_apos_reboot": false,
+  "janela_correcao": "A confirmar",
+  "servicos": [
+    {
+      "servico": "api",
+      "estado": "running",
+      "saude": "healthy",
+      "portas": "127.0.0.1:18086->8080/tcp"
+    },
+    {
+      "servico": "cadvisor",
+      "estado": "running",
+      "saude": "healthy",
+      "portas": "8080/tcp"
+    },
+    {
+      "servico": "carga",
+      "estado": "exited",
+      "saude": "",
+      "portas": ""
+    },
+    {
+      "servico": "db",
+      "estado": "running",
+      "saude": "healthy",
+      "portas": "5432/tcp"
+    },
+    {
+      "servico": "grafana",
+      "estado": "running",
+      "saude": "",
+      "portas": "127.0.0.1:13000->3000/tcp"
+    },
+    {
+      "servico": "loki",
+      "estado": "running",
+      "saude": "",
+      "portas": "3100/tcp"
+    },
+    {
+      "servico": "node-exporter",
+      "estado": "running",
+      "saude": "",
+      "portas": ""
+    },
+    {
+      "servico": "prometheus",
+      "estado": "running",
+      "saude": "",
+      "portas": "127.0.0.1:19090->9090/tcp"
+    },
+    {
+      "servico": "tempo",
+      "estado": "running",
+      "saude": "",
+      "portas": ""
+    },
+    {
+      "servico": "tunel",
+      "estado": "running",
+      "saude": "",
+      "portas": ""
+    }
+  ],
+  "observacao": "Sem limite de 60 min; termina por parada explícita/processo/reboot. Sem cadastros de negócio; retenção da telemetria permanece configurada."
+}

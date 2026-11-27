@@ -1,0 +1,12 @@
+2026-11-27T20:36:19.336554+00:00
+NAME                                        IMAGE                              COMMAND                  SERVICE         CREATED          STATUS                       PORTS
+hemochain-observabilidade-api-1             hemochain-observabilidade-api      "sh -c 'exec java $J…"   api             3 hours ago      Up 3 hours (healthy)         127.0.0.1:18086->8080/tcp
+hemochain-observabilidade-cadvisor-1        ghcr.io/google/cadvisor:0.55.1     "/usr/bin/cadvisor -…"   cadvisor        3 hours ago      Up 3 hours (healthy)         8080/tcp
+hemochain-observabilidade-carga-1           grafana/k6:0.54.0                  "k6 run /scripts/car…"   carga           30 minutes ago   Exited (105) 3 minutes ago   
+hemochain-observabilidade-db-1              postgres:16-alpine                 "docker-entrypoint.s…"   db              3 hours ago      Up 3 hours (healthy)         5432/tcp
+hemochain-observabilidade-grafana-1         grafana/grafana:11.2.0             "/run.sh"                grafana         3 hours ago      Up 3 hours                   127.0.0.1:13000->3000/tcp
+hemochain-observabilidade-loki-1            grafana/loki:3.2.0                 "/usr/bin/loki -conf…"   loki            3 hours ago      Up 3 hours                   3100/tcp
+hemochain-observabilidade-node-exporter-1   prom/node-exporter:v1.8.2          "/bin/node_exporter …"   node-exporter   3 hours ago      Up 3 hours                   
+hemochain-observabilidade-prometheus-1      prom/prometheus:v2.54.1            "/bin/prometheus --c…"   prometheus      3 hours ago      Up 3 hours                   127.0.0.1:19090->9090/tcp
+hemochain-observabilidade-tempo-1           grafana/tempo:2.6.0                "/tempo -config.file…"   tempo           3 hours ago      Up 3 hours                   
+hemochain-observabilidade-tunel-1           cloudflare/cloudflared:2024.10.1   "cloudflared --no-au…"   tunel           31 minutes ago   Up 31 minutes

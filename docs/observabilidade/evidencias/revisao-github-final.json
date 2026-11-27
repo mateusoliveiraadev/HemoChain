@@ -1,0 +1,25 @@
+{
+  "capturado_em": "2026-11-27T20:35:23.657301+00:00",
+  "arquivos_inspecionados": 378,
+  "segredos_detectados": [],
+  "preservacao": {
+    ".github/workflows/ci-cd.yml": true,
+    "entrega-03/bug-tracker.png": true,
+    "src/main/java/com/hemochain/config/EvolucaoStatusBolsaH2.java": true,
+    "src/main/java/com/hemochain/entity/EntregaHospitalar.java": true,
+    "src/test/java/com/hemochain/config/EvolucaoStatusBolsaH2Test.java": true,
+    "compose.yaml": true,
+    "Dockerfile": true,
+    "README_baseline_preservado": true,
+    "JaCoCo_anterior_preservado": true
+  },
+  "links_locais_quebrados": [],
+  "ignorados": {
+    ".env.observabilidade": true,
+    ".codex/observabilidade/pg-test-env.txt": true,
+    "target/": true,
+    "storage-state.json": true,
+    "teste.log": true
+  },
+  "limite": "Varredura da árvore candidata atual por senhas reais locais e padrões de tokens/chaves; não é auditoria de todo o histórico Git. Imagens revisadas visualmente em separado. Credenciais fictícias de testes devem permanecer distinguíveis de segredos reais."
+}

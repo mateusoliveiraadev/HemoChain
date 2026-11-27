@@ -1,0 +1,71 @@
+{
+  "regressao": [
+    "[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.345 s -- in com.hemochain.controller.CompatibilidadeAceitacaoTest",
+    "[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in com.hemochain.estrutura.EstoqueBolsasTest",
+    "[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s -- in com.hemochain.service.RequisicaoServiceTest",
+    "[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 s -- in com.hemochain.service.ValidadeServiceTest",
+    "[INFO] Tests run: 100, Failures: 0, Errors: 0, Skipped: 0",
+    "[INFO] BUILD SUCCESS",
+    "[INFO] Total time:  53.181 s",
+    "[INFO] Finished at: 2026-11-27T14:49:15-03:00"
+  ],
+  "postgres": [
+    "[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0",
+    "[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.76 s -- in com.hemochain.repository.HistoricoPostgresIT",
+    "[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0",
+    "[INFO] BUILD SUCCESS",
+    "[INFO] Total time:  46.972 s",
+    "[INFO] Finished at: 2026-11-27T14:55:19-03:00"
+  ],
+  "docker_java17": [
+    "#17 23.32 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.634 s -- in com.hemochain.service.ValidadeServiceTest",
+    "#17 26.38 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s -- in com.hemochain.service.RequisicaoServiceTest",
+    "#17 31.15 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in com.hemochain.estrutura.EstoqueBolsasTest",
+    "#17 33.76 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.208 s -- in com.hemochain.controller.CompatibilidadeAceitacaoTest",
+    "#17 37.76 [INFO] Tests run: 100, Failures: 0, Errors: 0, Skipped: 0",
+    "#17 38.74 [INFO] BUILD SUCCESS",
+    "#17 38.74 [INFO] Total time:  37.190 s",
+    "#17 38.74 [INFO] Finished at: 2026-11-27T17:51:39Z"
+  ],
+  "interface": {
+    "data": "2026-11-27T17:54:50.455Z",
+    "status": "APROVADO",
+    "resultados": [
+      "Cadastro de bolsa e historico automatico visiveis no estoque.",
+      "Requisicao, FEFO, entrega atestada, recebimento e utilizacao executados pela interface."
+    ],
+    "errosJavaScript": []
+  },
+  "regressao_final": [
+    "[INFO] Tests run: 100, Failures: 0, Errors: 0, Skipped: 0",
+    "[INFO] BUILD SUCCESS",
+    "[INFO] Total time:  39.136 s",
+    "[INFO] Finished at: 2026-11-27T15:08:00-03:00"
+  ],
+  "jacoco_suite_padrao": {
+    "INSTRUCTION": {
+      "covered": 3273,
+      "missed": 632
+    },
+    "BRANCH": {
+      "covered": 229,
+      "missed": 66
+    },
+    "LINE": {
+      "covered": 731,
+      "missed": 131
+    },
+    "COMPLEXITY": {
+      "covered": 353,
+      "missed": 83
+    },
+    "METHOD": {
+      "covered": 255,
+      "missed": 32
+    },
+    "CLASS": {
+      "covered": 56,
+      "missed": 3
+    }
+  }
+}

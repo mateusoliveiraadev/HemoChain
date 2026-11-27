@@ -1,0 +1,12 @@
+{
+  "capturado_em": "2026-11-27T20:23:17.387721+00:00",
+  "url": "https://cached-former-attempts-think.trycloudflare.com",
+  "papel": "Viewer",
+  "loki_http": 200,
+  "logs_ultimos_5_minutos": 10,
+  "idade_ultimo_log_segundos": 19.1,
+  "trace_atual_id": "c7b7656eccd687ab2af10b7fa204f20d",
+  "tempo_http": 200,
+  "spans_trace_atual": 1,
+  "observacao": "Trace atual de uma leitura/erro da carga. A evidência multispan de entrega permanece no trace.json e nas figuras 05/06."
+}

@@ -1,0 +1,659 @@
+{
+  "batches": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.37.0"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "hemochain"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "org.springframework.boot",
+            "version": "3.3.4"
+          },
+          "spans": [
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "cFENlZW6ODk=",
+              "parentSpanId": "/N9h8H6ZReA=",
+              "name": "query",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946430981707",
+              "endTimeUnixNano": "1795801946432072261",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.query[0]",
+                  "value": {
+                    "stringValue": "select rh1_0.id,rh1_0.data_criacao,rh1_0.hospital_id,rh1_0.prazo_limite,rh1_0.quantidade,rh1_0.status,rh1_0.tipo_componente,rh1_0.tipo_sanguineo,rh1_0.urgencia from requisicao_hospitalar rh1_0 where rh1_0.id=? for no key update"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "8h7TNqTmOLE=",
+              "parentSpanId": "yBAMSub4Td4=",
+              "name": "query",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946434166298",
+              "endTimeUnixNano": "1795801946434965467",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.query[0]",
+                  "value": {
+                    "stringValue": "select h1_0.id,h1_0.cnpj,h1_0.nome,h1_0.telefone from hospital h1_0 where h1_0.id=?"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "FWieIa0Gq+c=",
+              "parentSpanId": "yBAMSub4Td4=",
+              "name": "result-set",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946435105684",
+              "endTimeUnixNano": "1795801946435604209",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.row-count",
+                  "value": {
+                    "stringValue": "1"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "yBAMSub4Td4=",
+              "parentSpanId": "/N9h8H6ZReA=",
+              "name": "result-set",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946432300151",
+              "endTimeUnixNano": "1795801946436902273",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.row-count",
+                  "value": {
+                    "stringValue": "1"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "u11yUByC0bY=",
+              "parentSpanId": "/N9h8H6ZReA=",
+              "name": "query",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946474889677",
+              "endTimeUnixNano": "1795801946476110074",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.query[0]",
+                  "value": {
+                    "stringValue": "select eh1_0.id,eh1_0.alerta_em,eh1_0.bolsa_id,eh1_0.condicao,eh1_0.entregue_em,eh1_0.observacao,eh1_0.origem_entrega,eh1_0.origem_recebimento,eh1_0.origem_utilizacao,eh1_0.prazo_confirmacao,eh1_0.recebida_em,eh1_0.requisicao_id,eh1_0.utilizada_em from entrega_hospitalar eh1_0 where eh1_0.requisicao_id=? order by eh1_0.entregue_em,eh1_0.id"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "7rBKjCCvLtM=",
+              "parentSpanId": "/N9h8H6ZReA=",
+              "name": "result-set",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946476387502",
+              "endTimeUnixNano": "1795801946476825607",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.row-count",
+                  "value": {
+                    "stringValue": "0"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "wpSDFhFefRI=",
+              "parentSpanId": "/N9h8H6ZReA=",
+              "name": "query",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946480845895",
+              "endTimeUnixNano": "1795801946482365217",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.query[0]",
+                  "value": {
+                    "stringValue": "select bh1_0.id,bh1_0.codigo,bh1_0.data_coleta,bh1_0.data_descarte,bh1_0.motivo_descarte,bh1_0.responsavel_descarte,bh1_0.status,bh1_0.tipo_componente,bh1_0.tipo_sanguineo,bh1_0.validade,bh1_0.volume_ml from bolsa_hemocomponente bh1_0 where bh1_0.id=? for no key update"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "lngJPlVlL4s=",
+              "parentSpanId": "/N9h8H6ZReA=",
+              "name": "result-set",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946482615641",
+              "endTimeUnixNano": "1795801946484012801",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.row-count",
+                  "value": {
+                    "stringValue": "1"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "eUJe4x6Rto4=",
+              "parentSpanId": "/N9h8H6ZReA=",
+              "name": "query",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946487076153",
+              "endTimeUnixNano": "1795801946488926218",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.query[0]",
+                  "value": {
+                    "stringValue": "insert into entrega_hospitalar (alerta_em,bolsa_id,condicao,entregue_em,observacao,origem_entrega,origem_recebimento,origem_utilizacao,prazo_confirmacao,recebida_em,requisicao_id,utilizada_em) values (?,?,?,?,?,?,?,?,?,?,?,?) returning id"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "QlxyIGY/VB8=",
+              "parentSpanId": "/N9h8H6ZReA=",
+              "name": "result-set",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946489548126",
+              "endTimeUnixNano": "1795801946489892597",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.row-count",
+                  "value": {
+                    "stringValue": "1"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "quVOb/4PMJE=",
+              "parentSpanId": "/N9h8H6ZReA=",
+              "name": "query",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946493094762",
+              "endTimeUnixNano": "1795801946494368038",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.query[0]",
+                  "value": {
+                    "stringValue": "insert into evento_bolsa (bolsa_id,detalhes,momento,origem,tipo) values (?,?,?,?,?) returning id"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "Le0bykPNLGo=",
+              "parentSpanId": "/N9h8H6ZReA=",
+              "name": "result-set",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946494926161",
+              "endTimeUnixNano": "1795801946495198579",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.row-count",
+                  "value": {
+                    "stringValue": "1"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "RcLY8NdGR0M=",
+              "parentSpanId": "/N9h8H6ZReA=",
+              "name": "query",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946514670476",
+              "endTimeUnixNano": "1795801946515686523",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.query[0]",
+                  "value": {
+                    "stringValue": "select eh1_0.id,eh1_0.alerta_em,eh1_0.bolsa_id,eh1_0.condicao,eh1_0.entregue_em,eh1_0.observacao,eh1_0.origem_entrega,eh1_0.origem_recebimento,eh1_0.origem_utilizacao,eh1_0.prazo_confirmacao,eh1_0.recebida_em,eh1_0.requisicao_id,eh1_0.utilizada_em from entrega_hospitalar eh1_0 where eh1_0.requisicao_id=? order by eh1_0.entregue_em,eh1_0.id"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "sgp1YQim1sU=",
+              "parentSpanId": "/N9h8H6ZReA=",
+              "name": "result-set",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946515884023",
+              "endTimeUnixNano": "1795801946516230648",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.row-count",
+                  "value": {
+                    "stringValue": "1"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "/N9h8H6ZReA=",
+              "parentSpanId": "lzYUOxPcU4c=",
+              "name": "registrar-entrega",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795801946426933059",
+              "endTimeUnixNano": "1795801946518191562",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "class",
+                  "value": {
+                    "stringValue": "com.hemochain.service.AtendimentoHospitalarService"
+                  }
+                },
+                {
+                  "key": "method",
+                  "value": {
+                    "stringValue": "registrarEntrega"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "APnjohQgkQw=",
+              "parentSpanId": "lzYUOxPcU4c=",
+              "name": "query",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946523494979",
+              "endTimeUnixNano": "1795801946524937489",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.query[0]",
+                  "value": {
+                    "stringValue": "update requisicao_hospitalar set data_criacao=?,hospital_id=?,prazo_limite=?,quantidade=?,status=?,tipo_componente=?,tipo_sanguineo=?,urgencia=? where id=?"
+                  }
+                },
+                {
+                  "key": "jdbc.row-affected",
+                  "value": {
+                    "stringValue": "1"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "T6dLJ1kKkMA=",
+              "parentSpanId": "lzYUOxPcU4c=",
+              "name": "query",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946527644788",
+              "endTimeUnixNano": "1795801946528754090",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.query[0]",
+                  "value": {
+                    "stringValue": "update bolsa_hemocomponente set codigo=?,data_coleta=?,data_descarte=?,motivo_descarte=?,responsavel_descarte=?,status=?,tipo_componente=?,tipo_sanguineo=?,validade=?,volume_ml=? where id=?"
+                  }
+                },
+                {
+                  "key": "jdbc.row-affected",
+                  "value": {
+                    "stringValue": "1"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "hemochain_demo"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "lzYUOxPcU4c=",
+              "parentSpanId": "/HzIM9Q85gc=",
+              "name": "connection",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795801946419774577",
+              "endTimeUnixNano": "1795801946534467065",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "jdbc.datasource.driver",
+                  "value": {
+                    "stringValue": "org.postgresql.Driver"
+                  }
+                },
+                {
+                  "key": "jdbc.datasource.pool",
+                  "value": {
+                    "stringValue": "HikariPool-1"
+                  }
+                }
+              ],
+              "events": [
+                {
+                  "timeUnixNano": "1795801946420108237",
+                  "name": "acquired"
+                },
+                {
+                  "timeUnixNano": "1795801946530048737",
+                  "name": "commit"
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "oJ8Fr8DRLQ1j5ThbSVBM2Q==",
+              "spanId": "/HzIM9Q85gc=",
+              "name": "http post /requisicoes/{id}/entregas",
+              "kind": "SPAN_KIND_SERVER",
+              "startTimeUnixNano": "1795801946399826158",
+              "endTimeUnixNano": "1795801946535251454",
+              "attributes": [
+                {
+                  "key": "application",
+                  "value": {
+                    "stringValue": "hemochain"
+                  }
+                },
+                {
+                  "key": "exception",
+                  "value": {
+                    "stringValue": "none"
+                  }
+                },
+                {
+                  "key": "method",
+                  "value": {
+                    "stringValue": "POST"
+                  }
+                },
+                {
+                  "key": "outcome",
+                  "value": {
+                    "stringValue": "SUCCESS"
+                  }
+                },
+                {
+                  "key": "status",
+                  "value": {
+                    "stringValue": "201"
+                  }
+                },
+                {
+                  "key": "uri",
+                  "value": {
+                    "stringValue": "/requisicoes/{id}/entregas"
+                  }
+                },
+                {
+                  "key": "http.url",
+                  "value": {
+                    "stringValue": "/requisicoes/1/entregas"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

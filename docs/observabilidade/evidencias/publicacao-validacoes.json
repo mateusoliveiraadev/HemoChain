@@ -1,0 +1,48 @@
+{
+  "capturado_em": "2026-11-27T20:56:02.794404+00:00",
+  "branch": "entrega/rsd-final",
+  "base_remota": "e3ce174b83d21b80aa72aebac55aa4800e01f6ab",
+  "maven": {
+    "comando": "mvnw.cmd -B verify",
+    "java": "21.0.13, release 17",
+    "testes": 100,
+    "falhas": 0,
+    "erros": 0,
+    "ignorados": 0,
+    "resultado": "BUILD SUCCESS"
+  },
+  "postgres": {
+    "comando": "mvnw.cmd -B -Ppostgres-it -Dtest=AtendimentoHospitalarAceitacaoTest,RastreabilidadeTransacaoTest verify",
+    "surefire": 17,
+    "failsafe": 4,
+    "falhas": 0,
+    "erros": 0,
+    "resultado": "BUILD SUCCESS",
+    "isolamento": "PostgreSQL 16 temporário, porta de loopback 25438, tmpfs; banco distinto da demonstração"
+  },
+  "docker": {
+    "comando": "docker build -t hemochain-rsd-final:validacao .",
+    "java": 17,
+    "testes": 100,
+    "falhas": 0,
+    "erros": 0,
+    "resultado": "Imagem construída; sem publicação em registry"
+  },
+  "prod_container": {
+    "/actuator/health": 200,
+    "/actuator/prometheus": 404,
+    "/observabilidade/erro-simulado": 404
+  },
+  "interface": {
+    "data": "2026-11-27T20:53:36.601Z",
+    "status": "APROVADO",
+    "resultados": [
+      "Cadastro de bolsa e historico automatico visiveis no estoque.",
+      "Requisicao, FEFO, entrega atestada, recebimento e utilizacao executados pela interface.",
+      "Alerta apos prazo real de 5 segundos demonstrado pela interface."
+    ],
+    "errosJavaScript": []
+  },
+  "isolamento_ui": "API temporária em loopback 18089, PostgreSQL sintético separado; nenhum teste de escrita usa a API da demonstração em 18086",
+  "merge_deploy": "não realizados"
+}

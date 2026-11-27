@@ -1,0 +1,610 @@
+{
+  "capturado_em": "2026-11-27T20:13:50.481981+00:00",
+  "url": "https://cached-former-attempts-think.trycloudflare.com",
+  "origem_teste": "Windows, URL HTTPS pública Cloudflare; não é rede móvel independente",
+  "destino_tunel": "http://grafana:3000",
+  "health": 200,
+  "login_http": 200,
+  "usuario": {
+    "login": "professor",
+    "isGrafanaAdmin": false,
+    "orgId": 1
+  },
+  "organizacoes": [
+    {
+      "orgId": 1,
+      "name": "Main Org.",
+      "role": "Viewer"
+    }
+  ],
+  "administracao": {
+    "/api/users": 403,
+    "/api/org/users": 403,
+    "/api/admin/settings": 403
+  },
+  "dashboards": [
+    {
+      "uid": "hemochain-aplicacao",
+      "titulo": "HemoChain - Aplicação (JVM e HTTP)",
+      "http": 200,
+      "canEdit": false,
+      "canAdmin": false,
+      "canSave": false
+    },
+    {
+      "uid": "hemochain-infra",
+      "titulo": "HemoChain - Infraestrutura (host e contêineres)",
+      "http": 200,
+      "canEdit": false,
+      "canAdmin": false,
+      "canSave": false
+    },
+    {
+      "uid": "hemochain-logs",
+      "titulo": "HemoChain - Logs e traces",
+      "http": 200,
+      "canEdit": false,
+      "canAdmin": false,
+      "canSave": false
+    }
+  ],
+  "targets": [
+    {
+      "job": "cadvisor",
+      "up": 1.0
+    },
+    {
+      "job": "loki",
+      "up": 1.0
+    },
+    {
+      "job": "tempo",
+      "up": 1.0
+    },
+    {
+      "job": "prometheus",
+      "up": 1.0
+    },
+    {
+      "job": "grafana",
+      "up": 1.0
+    },
+    {
+      "job": "hemochain",
+      "up": 1.0
+    },
+    {
+      "job": "node-exporter",
+      "up": 1.0
+    }
+  ],
+  "atualidade": {
+    "process_uptime_seconds{application=\"hemochain\"}": {
+      "idade_maxima_segundos": 8.45
+    },
+    "node_memory_MemAvailable_bytes": {
+      "idade_maxima_segundos": 0.99
+    },
+    "container_memory_working_set_bytes{container_label_com_docker_compose_service=\"api\"}": {
+      "idade_maxima_segundos": 27.73
+    }
+  },
+  "consultas_dashboards": [
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Requisições/s",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Erros 5xx/s",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Respostas 4xx/s",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Latência p95",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "CPU do processo",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Uptime",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Requisições por segundo, por rota",
+      "series": 15,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Latência p95 e p99",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Latência p95 e p99",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Respostas por status",
+      "series": 4,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Taxa de erros 5xx por rota",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Heap em uso",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Heap em uso",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Tempo de pausa GC por segundo",
+      "series": 2,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Threads",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Threads",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Threads",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "CPU",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "CPU",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Memória não-heap e buffers",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Memória não-heap e buffers",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Conexões",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Conexões",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Conexões",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Conexões",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Tempo de aquisição e uso da conexão",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Tempo de aquisição e uso da conexão",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Tentativas de registrar entrega (acumuladas)",
+      "series": 2,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-aplicacao",
+      "painel": "Duracao media das tentativas desde o inicio",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "CPU do host",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Memória usada",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Disco da VM (dados Docker)",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Load average (1m)",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Memória disponível",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Targets UP / 7 esperados",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "CPU do host (%)",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "CPU do host (%)",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "CPU do host (%)",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Memória do host",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Memória do host",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Memória do host",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Load average",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Load average",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Load average",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Rede do host",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Rede do host",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Disco: leitura e escrita",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Disco: leitura e escrita",
+      "series": 1,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "CPU por contêiner",
+      "series": 10,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Memória por contêiner",
+      "series": 10,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Rede recebida por contêiner",
+      "series": 10,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Rede enviada por contêiner",
+      "series": 10,
+      "valores_finitos": true
+    },
+    {
+      "dashboard": "hemochain-infra",
+      "painel": "Targets do Prometheus (1 = UP)",
+      "series": 7,
+      "valores_finitos": true
+    }
+  ],
+  "rotas_nao_encaminhadas": {
+    "/actuator": {
+      "http": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "url_final": "https://cached-former-attempts-think.trycloudflare.com/actuator"
+    },
+    "/actuator/health": {
+      "http": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "url_final": "https://cached-former-attempts-think.trycloudflare.com/actuator/health"
+    },
+    "/actuator/prometheus": {
+      "http": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "url_final": "https://cached-former-attempts-think.trycloudflare.com/actuator/prometheus"
+    },
+    "/metrics": {
+      "http": 200,
+      "content_type": "text/plain; version=0.0.4; charset=utf-8; escaping=values",
+      "url_final": "https://cached-former-attempts-think.trycloudflare.com/metrics",
+      "observacao": "Endpoint de métricas do próprio Grafana; não é o Prometheus nem o Actuator."
+    },
+    "/targets": {
+      "http": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "url_final": "https://cached-former-attempts-think.trycloudflare.com/targets"
+    },
+    "/-/ready": {
+      "http": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "url_final": "https://cached-former-attempts-think.trycloudflare.com/-/ready"
+    },
+    "/api/v1/targets": {
+      "http": 404,
+      "content_type": "application/json; charset=UTF-8",
+      "url_final": "https://cached-former-attempts-think.trycloudflare.com/api/v1/targets"
+    },
+    "/api/bolsas": {
+      "http": 404,
+      "content_type": "application/json; charset=UTF-8",
+      "url_final": "https://cached-former-attempts-think.trycloudflare.com/api/bolsas"
+    },
+    "/api/requisicoes": {
+      "http": 404,
+      "content_type": "application/json; charset=UTF-8",
+      "url_final": "https://cached-former-attempts-think.trycloudflare.com/api/requisicoes"
+    },
+    "/loki/api/v1/labels": {
+      "http": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "url_final": "https://cached-former-attempts-think.trycloudflare.com/loki/api/v1/labels"
+    }
+  },
+  "portas_e_destinos": [
+    {
+      "servico": "api",
+      "portas_publicadas": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "18086"
+          }
+        ]
+      }
+    },
+    {
+      "servico": "cadvisor",
+      "portas_publicadas": {}
+    },
+    {
+      "servico": "carga",
+      "portas_publicadas": {}
+    },
+    {
+      "servico": "db",
+      "portas_publicadas": {}
+    },
+    {
+      "servico": "grafana",
+      "portas_publicadas": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "13000"
+          }
+        ]
+      }
+    },
+    {
+      "servico": "loki",
+      "portas_publicadas": {}
+    },
+    {
+      "servico": "node-exporter",
+      "portas_publicadas": {}
+    },
+    {
+      "servico": "prometheus",
+      "portas_publicadas": {
+        "9090/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "19090"
+          }
+        ]
+      }
+    },
+    {
+      "servico": "tempo",
+      "portas_publicadas": {}
+    },
+    {
+      "servico": "tunel",
+      "portas_publicadas": {},
+      "comando": [
+        "tunnel",
+        "--no-autoupdate",
+        "--url",
+        "http://grafana:3000"
+      ]
+    }
+  ],
+  "observacao_seguranca": "Datasources acessíveis por proxy autenticado do Grafana para leitura; sem encaminhamento público direto de Prometheus, API, Actuator ou PostgreSQL.",
+  "rotas_reais_api_e_anonimo": {
+    "/bolsas": {
+      "anonimo": {
+        "http": 200,
+        "url_final": "https://cached-former-attempts-think.trycloudflare.com/login",
+        "content_type": "text/html; charset=UTF-8"
+      },
+      "viewer": {
+        "http": 404,
+        "url_final": "https://cached-former-attempts-think.trycloudflare.com/bolsas",
+        "content_type": "text/html; charset=UTF-8"
+      }
+    },
+    "/hospitais": {
+      "anonimo": {
+        "http": 200,
+        "url_final": "https://cached-former-attempts-think.trycloudflare.com/login",
+        "content_type": "text/html; charset=UTF-8"
+      },
+      "viewer": {
+        "http": 404,
+        "url_final": "https://cached-former-attempts-think.trycloudflare.com/hospitais",
+        "content_type": "text/html; charset=UTF-8"
+      }
+    },
+    "/requisicoes": {
+      "anonimo": {
+        "http": 200,
+        "url_final": "https://cached-former-attempts-think.trycloudflare.com/login",
+        "content_type": "text/html; charset=UTF-8"
+      },
+      "viewer": {
+        "http": 404,
+        "url_final": "https://cached-former-attempts-think.trycloudflare.com/requisicoes",
+        "content_type": "text/html; charset=UTF-8"
+      }
+    },
+    "/actuator/prometheus": {
+      "anonimo": {
+        "http": 200,
+        "url_final": "https://cached-former-attempts-think.trycloudflare.com/login",
+        "content_type": "text/html; charset=UTF-8"
+      },
+      "viewer": {
+        "http": 404,
+        "url_final": "https://cached-former-attempts-think.trycloudflare.com/actuator/prometheus",
+        "content_type": "text/html; charset=UTF-8"
+      }
+    },
+    "/api/v1/targets": {
+      "anonimo": {
+        "http": 401,
+        "url_final": "https://cached-former-attempts-think.trycloudflare.com/api/v1/targets",
+        "content_type": "application/json; charset=UTF-8"
+      },
+      "viewer": {
+        "http": 404,
+        "url_final": "https://cached-former-attempts-think.trycloudflare.com/api/v1/targets",
+        "content_type": "application/json; charset=UTF-8"
+      }
+    },
+    "/api/search": {
+      "anonimo": {
+        "http": 401,
+        "url_final": "https://cached-former-attempts-think.trycloudflare.com/api/search",
+        "content_type": "application/json; charset=UTF-8"
+      },
+      "viewer": {
+        "http": 200,
+        "url_final": "https://cached-former-attempts-think.trycloudflare.com/api/search",
+        "content_type": "application/json"
+      }
+    }
+  },
+  "complementado_em": "2026-11-27T20:20:09.410898+00:00"
+}

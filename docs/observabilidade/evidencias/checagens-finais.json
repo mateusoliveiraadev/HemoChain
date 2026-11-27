@@ -1,0 +1,21 @@
+{
+  "capturado_em": "2026-11-27T18:03:54.047193+00:00",
+  "consultas": 53,
+  "vazias": [],
+  "nao_finitas": [],
+  "k6_validacao": {
+    "duracao": "1m",
+    "limite_fluxos": 2,
+    "iteracoes": 12,
+    "checks_aprovados": 26,
+    "checks_total": 26,
+    "bolsas_antes": 13,
+    "bolsas_depois": 15,
+    "requisicoes_antes": 13,
+    "requisicoes_depois": 15,
+    "entregas_antes": 13,
+    "entregas_depois": 15,
+    "erros_http_esperados": 3,
+    "destino_externo": "rejeitado antes de HTTP"
+  }
+}

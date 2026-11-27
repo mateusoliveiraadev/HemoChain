@@ -1,0 +1,22 @@
+{
+  "capturado_em": "2026-11-27T20:33:05.769873+00:00",
+  "contagens": {
+    "hospital": 4,
+    "bolsa": 17,
+    "requisicao": 17,
+    "entrega": 17,
+    "evento": 68
+  },
+  "carga_leitura": {
+    "pid": 8868,
+    "iniciado_em": "2026-11-27T20:32:08.912877+00:00",
+    "intervalo_segundos": 10,
+    "somente_get": true,
+    "iteracoes": 6,
+    "leituras_200": 6,
+    "erros_controlados_500": 1,
+    "falhas": 0,
+    "atualizado_em": "2026-11-27T20:32:59.013194+00:00",
+    "ultimo_http": 200
+  }
+}
