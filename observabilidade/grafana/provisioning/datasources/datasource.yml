@@ -1,0 +1,39 @@
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    uid: prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+
+  # Do log para o trace: o regex pega traceId=... da linha e abre o trace no Tempo.
+  - name: Loki
+    uid: loki
+    type: loki
+    access: proxy
+    url: http://loki:3100
+    jsonData:
+      derivedFields:
+        - name: traceId
+          matcherRegex: 'traceId=(\w+)'
+          url: '$${__value.raw}'
+          datasourceUid: tempo
+          urlDisplayLabel: Abrir trace no Tempo
+
+  # Do trace de volta para os logs da mesma janela de tempo e do mesmo traceId.
+  - name: Tempo
+    uid: tempo
+    type: tempo
+    access: proxy
+    url: http://tempo:3200
+    jsonData:
+      nodeGraph:
+        enabled: true
+      tracesToLogsV2:
+        datasourceUid: loki
+        spanStartTimeShift: "-1m"
+        spanEndTimeShift: "1m"
+        customQuery: true
+        query: '{app="hemochain"} |= "$${__trace.traceId}"'
