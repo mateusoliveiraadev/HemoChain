@@ -1,5 +1,9 @@
 # HemoChain
 
+Auditoria técnica de **24/11/2026**: [diagnóstico e veredito](docs/auditoria/2026-11-24/relatorio.md), [plano até 01/12](docs/auditoria/2026-11-24/plano-refatoracao.md), [especificações SDD](docs/auditoria/2026-11-24/especificacoes.md) e [cobertura medida](docs/auditoria/2026-11-24/cobertura.md).
+
+Nessa auditoria, a suíte padrão passou de **84 para 98 testes**, sem falhas/erros/ignorados; JaCoCo: **84,63% → 84,89% de linhas**, **75,82% → 77,47% de branches**, **89,17% de métodos**. `./mvnw verify` gera `target/site/jacoco/index.html`; o perfil PostgreSQL gera também `target/site/jacoco-it/index.html`. A reserva exclusiva continua pendente de aprovação e implementação.
+
 ## Sobre o Projeto
 Um Sistema inteligente para gestão da cadeia de hemocomponentes, integrando estoque, compatibilidade, validade e distribuição hospitalar com segurança e eficiência.
 
@@ -97,10 +101,11 @@ Evidencias: `docs/evidencias/` (prints de `docker compose ps` e da API responden
 
 | Nivel | Onde | Como rodar |
 |---|---|---|
-| Unitario | `src/test/java/.../service`, `.../estrutura` | `mvn test` |
+| Unitario | Politicas sem Spring em `service`, invariantes em `entity/EntregaHospitalarTest`, estruturas em `estrutura` | `mvn test` |
 | Integracao (com banco) | `BolsaCompativelRepositoryTest` (`@DataJpaTest`), `EstoqueControllerTest` | `mvn test` |
 | Aceitacao | `CompatibilidadeAceitacaoTest` (cenarios Gherkin em `docs/bdd/`) | `mvn test` |
-| Integracao com PostgreSQL real | job `container` da esteira (sobe o compose e consulta `/actuator/health`) | `docker compose up -d --build --wait` |
+| Integracao com PostgreSQL real | job `postgres`: aceitacao/rollback e `HistoricoPostgresIT` | `mvn -Ppostgres-it -Dtest=AtendimentoHospitalarAceitacaoTest,RastreabilidadeTransacaoTest verify` (banco sintetico e variaveis em `entrega-04/api-e-operacao.md`) |
+| Smoke de container | job `container`: Compose e `/actuator/health` | `docker compose up -d --build --wait` |
 
 Rodar tudo: `./mvnw verify` (ou `docker build .`, que roda os testes no 1o estagio).
 
@@ -124,7 +129,7 @@ Veja com `git log --oneline`. O "vermelho" aqui e falha de compilacao (as classe
 ### O que ficou sem teste (e por que)
 
 - As regras de US01, US07, US02 e US08 foram entregues antes deste desafio. Elas tem testes, mas **nao ha historico red -> green delas no Git**.
-- Telas estaticas em `src/main/resources/static/*.html` (sem teste automatizado de interface).
+- A suite Maven nao executa a interface. Ha roteiros Playwright em `scripts/`, incluindo `entrega04-ui.cjs`; a execucao de 24/11 esta registrada na auditoria de 24/11/2026.
 - `DadosSinteticosService` e `DadosSinteticosController` (gerador de dados de demonstracao).
 - Agendamento por `cron` em horario real (o teste chama o metodo de verificacao diretamente).
 - Autenticacao real: o acesso por perfil usa o cabecalho `X-Perfil`, mecanismo didatico das entregas anteriores.

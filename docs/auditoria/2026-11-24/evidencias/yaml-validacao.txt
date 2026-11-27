@@ -1,0 +1,4 @@
+﻿.github/workflows/ci-cd.yml: sintaxe YAML valida
+.github/workflows/rollback.yml: sintaxe YAML valida
+compose.yaml: sintaxe YAML valida
+Validacao estatica; workflows remotos nao executados

@@ -77,6 +77,23 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.14</version>
+                <executions>
+                    <execution>
+                        <id>coverage-agent</id>
+                        <goals><goal>prepare-agent</goal></goals>
+                        <configuration><append>false</append></configuration>
+                    </execution>
+                    <execution>
+                        <id>coverage-report</id>
+                        <phase>verify</phase>
+                        <goals><goal>report</goal></goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -88,6 +105,21 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <executions><execution><goals><goal>integration-test</goal><goal>verify</goal></goals></execution></executions>
                 <configuration><includes><include>**/*PostgresIT.java</include></includes></configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>postgres-coverage-agent</id>
+                        <goals><goal>prepare-agent-integration</goal></goals>
+                        <configuration><append>false</append></configuration>
+                    </execution>
+                    <execution>
+                        <id>postgres-coverage-report</id>
+                        <goals><goal>report-integration</goal></goals>
+                    </execution>
+                </executions>
             </plugin></plugins></build>
         </profile>
     </profiles>

@@ -1,0 +1,12 @@
+﻿{
+    "instante":  "2026-11-24T19:29:24.8613318Z",
+    "resultado":  "APROVADO",
+    "projeto":  "hemochain-auditoria-20261124",
+    "operacao":  "down sem -v e up --wait",
+    "bolsaId":  25,
+    "requisicaoId":  21,
+    "historicoIdentico":  true,
+    "entregaIdentica":  true,
+    "statusBolsa":  "UTILIZADA",
+    "health":  "UP"
+}
